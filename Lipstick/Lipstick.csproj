@@ -17,7 +17,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\assets\fonts\" />
     <Folder Include="wwwroot\assets\icons\" />
-    <Folder Include="wwwroot\assets\images\" />
   </ItemGroup>
 
   <ItemGroup>
