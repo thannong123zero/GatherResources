@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lipstick", "Lipstick\Lipstick.csproj", "{D6E9C825-2B6C-4FEC-BC37-5AF30F042490}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM", "CRM\CRM.csproj", "{087EB0B6-1545-4BF1-8996-1602DEC231E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{021E38CD-755F-4B4C-9E20-966CF595F340}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D6E9C825-2B6C-4FEC-BC37-5AF30F042490}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6E9C825-2B6C-4FEC-BC37-5AF30F042490}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6E9C825-2B6C-4FEC-BC37-5AF30F042490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{087EB0B6-1545-4BF1-8996-1602DEC231E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087EB0B6-1545-4BF1-8996-1602DEC231E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087EB0B6-1545-4BF1-8996-1602DEC231E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087EB0B6-1545-4BF1-8996-1602DEC231E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{021E38CD-755F-4B4C-9E20-966CF595F340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021E38CD-755F-4B4C-9E20-966CF595F340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021E38CD-755F-4B4C-9E20-966CF595F340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021E38CD-755F-4B4C-9E20-966CF595F340}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
