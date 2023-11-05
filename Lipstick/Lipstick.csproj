@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
+    <PackageReference Include="SeoToolkit.Umbraco.Sitemap.Core" Version="3.4.0" />
   </ItemGroup>
 
   <ItemGroup>
