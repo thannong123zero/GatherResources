@@ -221,12 +221,12 @@ body {
 .footerContainer .topFooter {
   width: 100%;
   margin: auto;
-  max-width: 1050px;
+  max-width: 1080px;
 }
 .footerContainer .bottomFooter {
   width: 100%;
   margin: auto;
-  max-width: 1050px;
+  max-width: 1080px;
 }
 .footerContainer ul li {
   list-style-type: none;

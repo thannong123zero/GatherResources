@@ -76,20 +76,20 @@
     .topFooter {
         width: 100%;
         margin: auto;
-        max-width: $maxWidthContent;
+        max-width: $maxWidthFooterContent;
     }
 
     .bottomFooter {
         width: 100%;
         margin: auto;
-        max-width: $maxWidthContent;
+        max-width: $maxWidthFooterContent;
     }
 
     ul li {
         list-style-type: none;
     }
 
-    ul li a{
+    ul li a {
         color: $color_white_fff;
         text-decoration: none;
     }
