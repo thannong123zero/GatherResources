@@ -1,4 +1,6 @@
 ﻿@import "VariableGlobal.scss";
+
+/*#region text*/
 .text-uppercase {
     text-transform: uppercase;
 }
@@ -10,6 +12,7 @@
 .text-capitalize {
     text-transform: capitalize;
 }
+/*#endregion*/
 
 /*#region font*/
 .text-level-1{
@@ -51,5 +54,57 @@
 .text-level-13 {
     font-size: $text-level-13;
 }
+@include respond(map-get($breakPoint,"md")) {
+    .text-level-1 {
+        font-size: $text-mb-level-1;
+    }
 
+    .text-level-2 {
+        font-size: $text-mb-level-2;
+    }
+
+    .text-level-3 {
+        font-size: $text-mb-level-3;
+    }
+
+    .text-level-4 {
+        font-size: $text-mb-level-4;
+    }
+
+    .text-level-5 {
+        font-size: $text-mb-level-5;
+    }
+
+    .text-level-6 {
+        font-size: $text-mb-level-6;
+    }
+
+    .text-level-7 {
+        font-size: $text-mb-level-7;
+    }
+
+    .text-level-8 {
+        font-size: $text-mb-level-8;
+    }
+
+    .text-level-9 {
+        font-size: $text-mb-level-9;
+    }
+
+    .text-level-10 {
+        font-size: $text-mb-level-10;
+    }
+
+    .text-level-11 {
+        font-size: $text-mb-level-11;
+    }
+
+    .text-level-12 {
+        font-size: $text-mb-level-12;
+    }
+
+    .text-level-13 {
+        font-size: $text-mb-level-13;
+    }
+}
 /*#endregion*/
