@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.CodeAnalysis;
+using static System.Net.Mime.MediaTypeNames;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,14 +16,21 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+//app.UseStatusCodePages(async context =>
+//{
+//    if (context.HttpContext.Response.StatusCode == StatusCodes.Status404NotFound)
+//    {
+//        context.HttpContext.Response.Redirect(context.HttpContext.Request.PathBase + "/Home/Close");
+//       // await Task.Run();
+//    }
+//});
+app.UseStatusCodePagesWithRedirects("/Home/Close");
 
 app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
