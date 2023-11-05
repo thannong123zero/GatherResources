@@ -18,6 +18,6 @@ html {
 body {
     font-family: customFont,helvetica,arial,sans-serif;
 }
-
+@import "general.scss";
 @import "layout.scss";
 @import "home.scss";

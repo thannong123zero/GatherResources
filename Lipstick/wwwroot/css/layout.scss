@@ -1,8 +1,4 @@
-﻿$maxWidthContent: 1050px;
-$color_black_1e1e1e: #1e1e1e;
-$color_black_000000:#000000;
-$color_white_fff: #fff;
-$color_pink_e72f8b: #e72f8b;
+﻿@import "VariableGlobal.scss";
 /*#region header*/
 .headerContainer {
     width: 100%;
@@ -87,6 +83,19 @@ $color_pink_e72f8b: #e72f8b;
         width: 100%;
         margin: auto;
         max-width: $maxWidthContent;
+    }
+
+    ul li {
+        list-style-type: none;
+    }
+
+    .is-diliver {
+        height: 3px;
+        display: block;
+        background-color: rgba(255,255,255,0.3);
+        margin: 1em 0;
+        width: 100%;
+        max-width: 30px;
     }
 }
 /*#endregion*/

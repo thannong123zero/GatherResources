@@ -19,6 +19,88 @@ body {
   font-family: customFont, helvetica, arial, sans-serif;
 }
 
+/*#region width*/
+/*#endregion*/
+/*#region color*/
+/*#endregion*/
+/*#region font-size*/
+/*#region*/
+/*#region responsive*/
+/*#endregion*/
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+/*#region font*/
+.text-level-1 {
+  font-size: 60px;
+}
+
+.text-level-2 {
+  font-size: 40px;
+}
+
+.text-level-3 {
+  font-size: 30px;
+}
+
+.text-level-4 {
+  font-size: 24px;
+}
+
+.text-level-5 {
+  font-size: 23px;
+}
+
+.text-level-6 {
+  font-size: 22px;
+}
+
+.text-level-7 {
+  font-size: 21px;
+}
+
+.text-level-8 {
+  font-size: 20px;
+}
+
+.text-level-9 {
+  font-size: 19px;
+}
+
+.text-level-10 {
+  font-size: 20px;
+}
+
+.text-level-11 {
+  font-size: 15px;
+}
+
+.text-level-12 {
+  font-size: 14px;
+}
+
+.text-level-13 {
+  font-size: 13px;
+}
+
+/*#endregion*/
+/*#region width*/
+/*#endregion*/
+/*#region color*/
+/*#endregion*/
+/*#region font-size*/
+/*#region*/
+/*#region responsive*/
+/*#endregion*/
 /*#region header*/
 .headerContainer {
   width: 100%;
@@ -92,6 +174,17 @@ body {
   width: 100%;
   margin: auto;
   max-width: 1050px;
+}
+.footerContainer ul li {
+  list-style-type: none;
+}
+.footerContainer .is-diliver {
+  height: 3px;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 1em 0;
+  width: 100%;
+  max-width: 30px;
 }
 
 /*#endregion*/

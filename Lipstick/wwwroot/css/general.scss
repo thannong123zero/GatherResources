@@ -1,0 +1,55 @@
+﻿@import "VariableGlobal.scss";
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+/*#region font*/
+.text-level-1{
+    font-size: $text-level-1;
+}
+.text-level-2 {
+    font-size: $text-level-2;
+}
+.text-level-3 {
+    font-size: $text-level-3;
+}
+.text-level-4 {
+    font-size: $text-level-4;
+}
+.text-level-5 {
+    font-size: $text-level-5;
+}
+.text-level-6 {
+    font-size: $text-level-6;
+}
+.text-level-7 {
+    font-size: $text-level-7;
+}
+.text-level-8 {
+    font-size: $text-level-8;
+}
+.text-level-9 {
+    font-size: $text-level-9;
+}
+.text-level-10 {
+    font-size: $text-level-10;
+}
+.text-level-11 {
+    font-size: $text-level-11;
+}
+.text-level-12 {
+    font-size: $text-level-12;
+}
+.text-level-13 {
+    font-size: $text-level-13;
+}
+
+/*#endregion*/
