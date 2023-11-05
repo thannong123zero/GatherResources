@@ -27,7 +27,17 @@ body {
 /*#region*/
 /*#region responsive*/
 /*#endregion*/
-/*#region text*/
+/*#region text-color*/
+.text-color-white {
+  color: #fff;
+}
+
+.text-color-black {
+  color: #1e1e1e;
+}
+
+/*#endregion*/
+/*#region text-style*/
 .text-uppercase {
   text-transform: uppercase;
 }
@@ -41,7 +51,7 @@ body {
 }
 
 /*#endregion*/
-/*#region font*/
+/*#region font-size */
 .text-level-1 {
   font-size: 60px;
 }
@@ -220,6 +230,10 @@ body {
 }
 .footerContainer ul li {
   list-style-type: none;
+}
+.footerContainer ul li a {
+  color: #fff;
+  text-decoration: none;
 }
 .footerContainer .is-diliver {
   height: 3px;

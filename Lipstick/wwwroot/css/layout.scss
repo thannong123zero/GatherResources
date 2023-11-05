@@ -89,6 +89,11 @@
         list-style-type: none;
     }
 
+    ul li a{
+        color: $color_white_fff;
+        text-decoration: none;
+    }
+
     .is-diliver {
         height: 3px;
         display: block;

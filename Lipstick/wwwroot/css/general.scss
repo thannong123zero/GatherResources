@@ -1,6 +1,15 @@
 ﻿@import "VariableGlobal.scss";
 
-/*#region text*/
+/*#region text-color*/
+.text-color-white{
+    color: $color_white_fff;
+}
+.text-color-black{
+    color: $color_black_1e1e1e;
+}
+/*#endregion*/
+
+/*#region text-style*/
 .text-uppercase {
     text-transform: uppercase;
 }
@@ -14,7 +23,7 @@
 }
 /*#endregion*/
 
-/*#region font*/
+/*#region font-size */
 .text-level-1{
     font-size: $text-level-1;
 }
