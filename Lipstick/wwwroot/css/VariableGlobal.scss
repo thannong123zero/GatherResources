@@ -41,7 +41,7 @@ $text-mb-level-13: 13px;
 /*#region*/
 
 /*#region responsive*/
-$breakPoint: ("xs":575px,"sm":576px, "md": 768px,"lg":992px,"xl":1200px,"xxl":1400px);
+$breakPoint: ("xs":576px,"sm":768px, "md":992px,"lg":1200px,"xl":1400px);
 //trong boostrap theo tang dan
 //xs <576px
 //sm ≥576px
@@ -53,32 +53,32 @@ $breakPoint: ("xs":575px,"sm":576px, "md": 768px,"lg":992px,"xl":1200px,"xxl":14
 //vi vay chung ta se ke thua cac thuoc tinh da viet
 @mixin respond($point) {
     //thiet ke cho man hinh 0 -> 576px
-    @if $point == 575px {
-        @media only screen and (max-width: 575.9px) {
+    @if $point == 576px {
+        @media only screen and (width < 576px) {
             @content
         }
     }
     //thiet ke cho man hinh 0 -> 768px
     @if $point == 768px {
-        @media only screen and (max-width: 767.9px) {
+        @media only screen and (width < 768px) {
             @content
         }
     }
     //thiet ke cho man hinh 0 -> 992px
     @if $point == 992px {
-        @media only screen and (max-width: 991.9px) {
+        @media only screen and (width < 992px) {
             @content
         }
     }
     //thiet ke cho man hinh 0 -> 1200px
     @if $point == 1200px {
-        @media only screen and (max-width: 1199.9px) {
+        @media only screen and (width < 1200px) {
             @content
         }
     }
     //thiet ke cho man hinh 0 -> 1400px
     @if $point == 1400px {
-        @media only screen and (max-width: 1339.9px) {
+        @media only screen and (width < 1400px) {
             @content
         }
     }

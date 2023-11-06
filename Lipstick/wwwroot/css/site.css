@@ -104,7 +104,7 @@ body {
   font-size: 13px;
 }
 
-@media only screen and (max-width: 767.9px) {
+@media only screen and (width < 992px) {
   .text-level-1 {
     font-size: 60px;
   }
