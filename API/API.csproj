@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShareLibrary\ShareLibrary.csproj" />
+    <ProjectReference Include="..\ShareLibrary\SharedLibrary.csproj" />
   </ItemGroup>
 
 </Project>

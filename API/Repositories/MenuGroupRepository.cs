@@ -1,7 +1,7 @@
 ﻿using API.DBContext;
 using API.IRepositories;
 using Dapper;
-using ShareLibrary.DTO;
+using SharedLibrary.DTO;
 
 namespace API.Repositories
 {

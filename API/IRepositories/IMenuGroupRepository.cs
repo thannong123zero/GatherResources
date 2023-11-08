@@ -1,4 +1,4 @@
-﻿using ShareLibrary.DTO;
+﻿using SharedLibrary.DTO;
 
 namespace API.IRepositories
 {
