@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
+    <Content Remove="wwwroot\css\root.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\root.scss" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +27,7 @@
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="wwwroot\css\root.scss" />
   </ItemGroup>
 
 </Project>

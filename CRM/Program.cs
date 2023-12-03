@@ -13,12 +13,29 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
+//enable CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", builder =>
+    {
+        builder.WithOrigins("http://127.0.0.1:5500/facebookLogin.html") // Replace with your allowed origin(s)
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
+// enable CORS
+app.UseCors("AllowSpecificOrigin");
 
 app.MapControllerRoute(
     name: "default",

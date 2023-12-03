@@ -25,5 +25,33 @@ namespace API.Controllers
             }
             return BadRequest();
         }
+        [HttpPost]
+        [Route("Test")]
+        public async Task<IActionResult> MultipleParameter([FromBody] List<Test> model,[FromHeader] string Index)
+        {
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("LoginFacebook")]
+        public string LoginFacebook([FromBody] LoginVM model)
+        {
+            if (model.UserName == "nguyenhoangtai" && model.Password == "123")
+            {
+
+                return " { isValid = true, message = \"đăng nhập thành công\" })";
+            }
+            return "Json(new { isValid = false, message = \"tài khoảng không chính sát\" })";
+        }
+    }
+    public class Test
+    {
+        public string ID { get; set; }
+        public string Name { get; set; }
+    }
+    public class LoginVM
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }
