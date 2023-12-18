@@ -14,7 +14,7 @@ namespace API.Repositories
         public async Task<IEnumerable<MenuGroup>> GetMenuGroups()
         {
             string query = "select * from MenuGroup";
-            using(var connection = _databaseContext.CreateConnection())
+            using (var connection = _databaseContext.CreateConnection())
             {
                 var menuGroups = await connection.QueryAsync<MenuGroup>(query);
                 return menuGroups.ToList();

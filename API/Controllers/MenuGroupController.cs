@@ -1,5 +1,4 @@
 ﻿using API.IRepositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -19,7 +18,7 @@ namespace API.Controllers
         public async Task<IActionResult> GetMenuGroups()
         {
             var menugroups = _menuGroupRepository.GetMenuGroups();
-            if(menugroups != null)
+            if (menugroups != null)
             {
                 return Ok(JsonSerializer.Serialize(menugroups));
             }
@@ -27,7 +26,7 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("Test")]
-        public async Task<IActionResult> MultipleParameter([FromBody] List<Test> model,[FromHeader] string Index)
+        public async Task<IActionResult> MultipleParameter([FromBody] List<Test> model, [FromHeader] string Index)
         {
             return Ok();
         }

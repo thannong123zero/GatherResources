@@ -1,9 +1,13 @@
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.CodeAnalysis;
-using static System.Net.Mime.MediaTypeNames;
-
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://127.0.0.1:5500");
+                      });
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -18,21 +22,12 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-//app.UseStatusCodePages(async context =>
-//{
-//    if (context.HttpContext.Response.StatusCode == StatusCodes.Status404NotFound)
-//    {
-//        context.HttpContext.Response.Redirect(context.HttpContext.Request.PathBase + "/Home/Close");
-//       // await Task.Run();
-//    }
-//});
-app.UseStatusCodePagesWithRedirects("/Home/Close");
-
+app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthorization();
+app.UseStatusCodePagesWithRedirects("/Home/Close");
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=FaceBook}/{action=TestLogin}/{id?}");
 
 app.Run();

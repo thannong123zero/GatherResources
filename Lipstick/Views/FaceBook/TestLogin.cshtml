@@ -1,0 +1,23 @@
+﻿@using Lipstick.Controllers;
+@model LoginVM
+@{
+    Layout = "";
+}
+<html lang="en" id="facebook" class="tinyViewport tinyHeight">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="origin-when-crossorigin" id="meta_referrer">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <form asp-action="TestLogin" method="post">
+        <input type="text" asp-for="UserName"  placeholder="Email hoặc số điện thoại"/>
+        <input type="password" asp-for="Password" placeholder="Mật khẩu"/>
+        <button type="submit">Đăng nhập</button>
+    </form>
+</body>
+
+</html>
