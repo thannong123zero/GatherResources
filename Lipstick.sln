@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecaptChaDemo", "RecaptChaD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleLanguageDemo", "MultipleLanguageDemo\MultipleLanguageDemo.csproj", "{7E11FFDE-C3A1-4133-A1B3-E8DFDE56CE17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PopUpDemo", "PopUpDemo\PopUpDemo.csproj", "{823E8E4C-1DC1-4532-915A-FF6734C93D5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7E11FFDE-C3A1-4133-A1B3-E8DFDE56CE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E11FFDE-C3A1-4133-A1B3-E8DFDE56CE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E11FFDE-C3A1-4133-A1B3-E8DFDE56CE17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{823E8E4C-1DC1-4532-915A-FF6734C93D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{823E8E4C-1DC1-4532-915A-FF6734C93D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{823E8E4C-1DC1-4532-915A-FF6734C93D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{823E8E4C-1DC1-4532-915A-FF6734C93D5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
