@@ -28,6 +28,6 @@ app.UseAuthorization();
 app.UseStatusCodePagesWithRedirects("/Home/Close");
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=FaceBook}/{action=TestLogin}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
