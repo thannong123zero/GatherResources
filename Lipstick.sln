@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PopUpDemo", "PopUpDemo\PopU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleTranslateDemo", "GoogleTranslateDemo\GoogleTranslateDemo.csproj", "{2FED5DAD-6703-4BED-BA1A-DA60A4B49207}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateQRCodeDemo", "CreateQRCodeDemo\CreateQRCodeDemo.csproj", "{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{2FED5DAD-6703-4BED-BA1A-DA60A4B49207}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FED5DAD-6703-4BED-BA1A-DA60A4B49207}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FED5DAD-6703-4BED-BA1A-DA60A4B49207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
