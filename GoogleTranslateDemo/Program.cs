@@ -1,3 +1,5 @@
+using GoogleTranslateDemo.Models;
+
 namespace GoogleTranslateDemo
 {
     public class Program
@@ -8,7 +10,9 @@ namespace GoogleTranslateDemo
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            var appconfig = builder.Configuration.GetSection("AppConfig");
+            WebAppAPIConfiguration apiConfiguration = appconfig.Get<WebAppAPIConfiguration>();
+            builder.Services.AddSingleton(apiConfiguration);
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
