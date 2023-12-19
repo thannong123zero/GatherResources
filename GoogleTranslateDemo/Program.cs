@@ -13,6 +13,7 @@ namespace GoogleTranslateDemo
             var appconfig = builder.Configuration.GetSection("AppConfig");
             WebAppAPIConfiguration apiConfiguration = appconfig.Get<WebAppAPIConfiguration>();
             builder.Services.AddSingleton(apiConfiguration);
+            builder.Services.WebbAppSignUpService();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

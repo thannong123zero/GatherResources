@@ -4,10 +4,10 @@ using Newtonsoft.Json.Linq;
 
 namespace GoogleTranslateDemo.ModelHelpers
 {
-    public class GoogleTransalationHelper
+    public class GoogleTranslationHelper
     {
         public readonly WebAppAPIConfiguration _webAppAPIConfiguration;
-        public GoogleTransalationHelper(WebAppAPIConfiguration webAppAPIConfiguration)
+        public GoogleTranslationHelper(WebAppAPIConfiguration webAppAPIConfiguration)
         {
             _webAppAPIConfiguration = webAppAPIConfiguration;
         }
@@ -102,3 +102,4 @@ namespace GoogleTranslateDemo.ModelHelpers
             return resultObject;
         }
     }
+}

@@ -9,8 +9,8 @@ namespace GoogleTranslateDemo.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly GoogleTransalationHelper _googleTransalationHelper;
-        public HomeController(ILogger<HomeController> logger, GoogleTransalationHelper googleTransalationHelper)
+        private readonly GoogleTranslationHelper _googleTransalationHelper;
+        public HomeController(ILogger<HomeController> logger, GoogleTranslationHelper googleTransalationHelper)
         {
             _logger = logger;
             _googleTransalationHelper = googleTransalationHelper;
