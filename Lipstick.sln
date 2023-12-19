@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedLibrary", "ShareLibrary\SharedLibrary.csproj", "{2705A035-A764-465B-A87F-E647012A94BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailKitService", "EmailKitService\EmailKitService.csproj", "{D9BD9397-F431-482F-97E3-9331C8D03346}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailKitService", "EmailKitService\EmailKitService.csproj", "{D9BD9397-F431-482F-97E3-9331C8D03346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecaptChaDemo", "RecaptChaDemo\RecaptChaDemo.csproj", "{9CE856E0-70E4-4A07-98FF-AD7E36C4450F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{D9BD9397-F431-482F-97E3-9331C8D03346}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9BD9397-F431-482F-97E3-9331C8D03346}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9BD9397-F431-482F-97E3-9331C8D03346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CE856E0-70E4-4A07-98FF-AD7E36C4450F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CE856E0-70E4-4A07-98FF-AD7E36C4450F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CE856E0-70E4-4A07-98FF-AD7E36C4450F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CE856E0-70E4-4A07-98FF-AD7E36C4450F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
