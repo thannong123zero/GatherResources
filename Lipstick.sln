@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleTranslateDemo", "Goog
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateQRCodeDemo", "CreateQRCodeDemo\CreateQRCodeDemo.csproj", "{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIKeyDemo", "APIKeyDemo\APIKeyDemo.csproj", "{ECC14998-7D34-4B35-977E-B970C04C3347}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWTDemo", "JWTDemo\JWTDemo.csproj", "{36B41D98-C672-4BED-8CAF-9EDB0FD67B78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECC14998-7D34-4B35-977E-B970C04C3347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECC14998-7D34-4B35-977E-B970C04C3347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECC14998-7D34-4B35-977E-B970C04C3347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECC14998-7D34-4B35-977E-B970C04C3347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36B41D98-C672-4BED-8CAF-9EDB0FD67B78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B41D98-C672-4BED-8CAF-9EDB0FD67B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B41D98-C672-4BED-8CAF-9EDB0FD67B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B41D98-C672-4BED-8CAF-9EDB0FD67B78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
