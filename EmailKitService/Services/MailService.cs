@@ -246,7 +246,5 @@ namespace EmailKitService.Services
 
             return mailTemplate;
         }
-
-
     }
 }

@@ -5,6 +5,7 @@ namespace EmailKitService.Models
     public class SingleMailData
     {
         [Required]
+        [EmailAddress]
         public string To { get; set; }
         [Required]
         public string Subject { get; set; }
