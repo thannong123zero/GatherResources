@@ -5,9 +5,13 @@ using RazorEngineCore;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using System.Text;
+using Microsoft.VisualBasic;
+using Org.BouncyCastle.Asn1.Cmp;
 
 namespace EmailKitService.Services
 {
+    //Document
+    //http://www.mimekit.net/docs/html/Introduction.htm
     public class MailService : IMailService
     {
         private readonly MailSettings _settings;
@@ -16,11 +20,47 @@ namespace EmailKitService.Services
         {
             _settings = settings.Value;
         }
+        public async Task<bool> SendSingleEmailAsync(SingleMailData mailData, CancellationToken ct = default)
+        {
+            try
+            {
+                if(mailData == null)
+                {
+                    return false;
+                }
+                var mail = new MimeMessage();
+                mail.From.Add(new MailboxAddress(_settings.DisplayName, _settings.From));
+                mail.To.Add(MailboxAddress.Parse(mailData.To));
+                var body = new BodyBuilder();
+                mail.Subject = mailData.Subject;
+                body.HtmlBody = mailData.Body;
+                mail.Body = body.ToMessageBody();
+                using var smtp = new SmtpClient();
+                await smtp.ConnectAsync(_settings.Host, _settings.Port, SecureSocketOptions.Auto, ct);
+                await smtp.AuthenticateAsync(_settings.UserName, _settings.Password, ct);
+                var temp = await smtp.SendAsync(mail, ct);
+                await smtp.DisconnectAsync(true, ct);
 
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         public async Task<bool> SendAsync(MailData mailData, CancellationToken ct = default)
         {
             try
             {
+                // if receiver is not exist, we won't send the email
+                if (mailData == null || ((mailData.To == null || mailData.To.Count <= 0)
+                    && (mailData.Bcc == null || mailData.Bcc.Count <= 0)
+                    && (mailData.Cc == null || mailData.Cc.Count <= 0)))
+                {
+                    return false;
+                }
+
+
                 // Initialize a new instance of the MimeKit.MimeMessage class
                 var mail = new MimeMessage();
 
@@ -192,7 +232,7 @@ namespace EmailKitService.Services
 
             return modifiedMailTemplate.Run(emailTemplateModel);
         }
-        public string LoadTemplate(string emailTemplate)
+        private string LoadTemplate(string emailTemplate)
         {
             string baseDir = AppDomain.CurrentDomain.BaseDirectory;
             string templateDir = Path.Combine(baseDir, "Files/MailTemplates");
@@ -206,5 +246,7 @@ namespace EmailKitService.Services
 
             return mailTemplate;
         }
+
+
     }
 }

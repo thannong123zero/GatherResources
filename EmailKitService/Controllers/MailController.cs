@@ -1,8 +1,10 @@
 ﻿using EmailKitService.Models;
 using EmailKitService.Services;
+using MailKit.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Runtime;
 
 namespace EmailKitService.Controllers
 {
@@ -17,6 +19,21 @@ namespace EmailKitService.Controllers
         public MailController(IMailService mail)
         {
             _mail = mail;
+        }
+
+        [HttpPost("sendsingleemail")]
+        public async Task<IActionResult> SendSingleEmail(SingleMailData mailData)
+        {
+            bool result = await _mail.SendSingleEmailAsync(mailData, new CancellationToken());
+
+            if (result)
+            {
+                return StatusCode(StatusCodes.Status200OK, "Mail has successfully been sent.");
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occured. The Mail could not be sent.");
+            }
         }
 
         [HttpPost("sendmail")]
