@@ -13,19 +13,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedLibrary", "ShareLibra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailKitService", "EmailKitService\EmailKitService.csproj", "{D9BD9397-F431-482F-97E3-9331C8D03346}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecaptChaDemo", "RecaptChaDemo\RecaptChaDemo.csproj", "{9CE856E0-70E4-4A07-98FF-AD7E36C4450F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecaptChaDemo", "RecaptChaDemo\RecaptChaDemo.csproj", "{9CE856E0-70E4-4A07-98FF-AD7E36C4450F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleLanguageDemo", "MultipleLanguageDemo\MultipleLanguageDemo.csproj", "{7E11FFDE-C3A1-4133-A1B3-E8DFDE56CE17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultipleLanguageDemo", "MultipleLanguageDemo\MultipleLanguageDemo.csproj", "{7E11FFDE-C3A1-4133-A1B3-E8DFDE56CE17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PopUpDemo", "PopUpDemo\PopUpDemo.csproj", "{823E8E4C-1DC1-4532-915A-FF6734C93D5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PopUpDemo", "PopUpDemo\PopUpDemo.csproj", "{823E8E4C-1DC1-4532-915A-FF6734C93D5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleTranslateDemo", "GoogleTranslateDemo\GoogleTranslateDemo.csproj", "{2FED5DAD-6703-4BED-BA1A-DA60A4B49207}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleTranslateDemo", "GoogleTranslateDemo\GoogleTranslateDemo.csproj", "{2FED5DAD-6703-4BED-BA1A-DA60A4B49207}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateQRCodeDemo", "CreateQRCodeDemo\CreateQRCodeDemo.csproj", "{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateQRCodeDemo", "CreateQRCodeDemo\CreateQRCodeDemo.csproj", "{FDDF62C6-9B58-42D1-9950-474E32B0EFD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIKeyDemo", "APIKeyDemo\APIKeyDemo.csproj", "{ECC14998-7D34-4B35-977E-B970C04C3347}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIKeyDemo", "APIKeyDemo\APIKeyDemo.csproj", "{ECC14998-7D34-4B35-977E-B970C04C3347}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWTDemo", "JWTDemo\JWTDemo.csproj", "{36B41D98-C672-4BED-8CAF-9EDB0FD67B78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JWTDemo", "JWTDemo\JWTDemo.csproj", "{36B41D98-C672-4BED-8CAF-9EDB0FD67B78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomizeDataAnnotationDemo", "CustomizeDataAnnotationDemo\CustomizeDataAnnotationDemo.csproj", "{A6CB851F-B985-4D99-AE35-6B9338567A4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{36B41D98-C672-4BED-8CAF-9EDB0FD67B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36B41D98-C672-4BED-8CAF-9EDB0FD67B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36B41D98-C672-4BED-8CAF-9EDB0FD67B78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6CB851F-B985-4D99-AE35-6B9338567A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6CB851F-B985-4D99-AE35-6B9338567A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6CB851F-B985-4D99-AE35-6B9338567A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6CB851F-B985-4D99-AE35-6B9338567A4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
