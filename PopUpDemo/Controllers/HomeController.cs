@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PopUpDemo.Helpers;
 using PopUpDemo.Models;
 using System.Diagnostics;
 
@@ -14,6 +15,34 @@ namespace PopUpDemo.Controllers
         }
 
         public IActionResult Index()
+        {
+            HomeViewModelHelper homeViewModelHelper = new HomeViewModelHelper();
+            List<ProductionViewModel> model = new List<ProductionViewModel>();
+            model = homeViewModelHelper.GetItems();
+            return View(model);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(ProductionViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            return View();
+        }
+
+        public IActionResult Edit(Guid id)
+        {
+            return View();
+        }
+
+
+        public IActionResult Delete(Guid id)
         {
             return View();
         }

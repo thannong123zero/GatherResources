@@ -1,8 +1,44 @@
-﻿@{
+﻿@model List<ProductionViewModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (Model != null)
+{
+    <div>
+        <div class="d-flex justify-content-between">
+            <span style="font-size:26px; font-weight:600;">Danh sach san pham</span>
+            <a class="btn btn-success" asp-action="Create" asp-controller="Home">Add</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Expiration Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int index = 1;
+                }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@index</th>
+                        <td>@item.Name</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.ExpirationDate.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Edit" asp-controller="Home" asp-route-id="@item.ID">Edit</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-controller="Home" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                    index++;
+                }
+            </tbody>
+        </table>
+    </div>
+}
