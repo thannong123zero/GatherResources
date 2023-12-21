@@ -31,15 +31,41 @@ namespace EmailKitService.Services
                 var mail = new MimeMessage();
                 mail.From.Add(new MailboxAddress(_settings.DisplayName, _settings.From));
                 mail.To.Add(MailboxAddress.Parse(mailData.To));
+
+
+                // Add Content to Mime Message
                 var body = new BodyBuilder();
                 mail.Subject = mailData.Subject;
                 body.HtmlBody = mailData.Body;
                 mail.Body = body.ToMessageBody();
+
+                // Check if we got any attachments and add the to the builder for our message
+                if (mailData.Attachments != null)
+                {
+                    byte[] attachmentFileByteArray;
+                    foreach (IFormFile attachment in mailData.Attachments)
+                    {
+                        if (attachment.Length > 0)
+                        {
+                            using (MemoryStream memoryStream = new MemoryStream())
+                            {
+                                attachment.CopyTo(memoryStream);
+                                attachmentFileByteArray = memoryStream.ToArray();
+                            }
+                            body.Attachments.Add(attachment.FileName, attachmentFileByteArray, ContentType.Parse(attachment.ContentType));
+                        }
+                    }
+                }
+
+                //initial simtp to send email
                 using var smtp = new SmtpClient();
                 await smtp.ConnectAsync(_settings.Host, _settings.Port, SecureSocketOptions.Auto, ct);
                 await smtp.AuthenticateAsync(_settings.UserName, _settings.Password, ct);
                 var temp = await smtp.SendAsync(mail, ct);
                 await smtp.DisconnectAsync(true, ct);
+
+
+
 
                 return true;
             }
@@ -196,7 +222,6 @@ namespace EmailKitService.Services
                 mail.Body = body.ToMessageBody();
 
                 #endregion
-
                 #region Send Mail
 
                 using var smtp = new SmtpClient();
@@ -216,7 +241,6 @@ namespace EmailKitService.Services
 
                 return true;
                 #endregion
-
             }
             catch (Exception)
             {

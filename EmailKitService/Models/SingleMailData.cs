@@ -11,5 +11,6 @@ namespace EmailKitService.Models
         public string Subject { get; set; }
         [Required]
         public string Body { get; set; }
+        public IFormFileCollection? Attachments { get; set; }
     }
 }

@@ -17,6 +17,11 @@ namespace CustomizeDataAnnotationDemo.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Index(LoginViewModel model)
+        {
+            return View(model);
+        }
 
         public IActionResult Privacy()
         {

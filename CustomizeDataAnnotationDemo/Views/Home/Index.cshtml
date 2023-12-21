@@ -1,8 +1,20 @@
-﻿@{
+﻿@model LoginViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form asp-action="Index">
+        <div class="form-control">
+            <input type="text" asp-for="Email" placeholder="Email hoặc số điện thoại" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-control">
+            <input type="password" asp-for="Password" placeholder="Mật khẩu" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <button type="submit">Đăng nhập</button>
+    </form>
 </div>
