@@ -22,7 +22,7 @@ namespace PopUpDemo.Controllers
             model = _homeViewModelHelper.GetItems();
             return View(model);
         }
-
+        [HttpGet]
         public IActionResult Create()
         {
             ProductionViewModel model = new ProductionViewModel();
@@ -56,7 +56,7 @@ namespace PopUpDemo.Controllers
 
             return View(model);
         }
-        [HttpGet]
+        [HttpPost]
         public IActionResult Edit(ProductionViewModel model)
         {
             if (!ModelState.IsValid)
@@ -73,7 +73,6 @@ namespace PopUpDemo.Controllers
 
             return View(model);
         }
-
         [HttpPost]
         public IActionResult Delete(Guid id)
         {
