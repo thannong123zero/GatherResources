@@ -29,9 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JWTDemo", "JWTDemo\JWTDemo.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomizeDataAnnotationDemo", "CustomizeDataAnnotationDemo\CustomizeDataAnnotationDemo.csproj", "{A6CB851F-B985-4D99-AE35-6B9338567A4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDemo", "DapperDemo\DapperDemo.csproj", "{700C435D-1283-494A-B1AF-1F65EB328344}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperDemo", "DapperDemo\DapperDemo.csproj", "{700C435D-1283-494A-B1AF-1F65EB328344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityDemo", "EntityDemo\EntityDemo.csproj", "{BF9D929E-E44D-4103-BB70-339569B88410}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityDemo", "EntityDemo\EntityDemo.csproj", "{BF9D929E-E44D-4103-BB70-339569B88410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactJS&NetCoreDemo", "ReactJS&NetCoreDemo\ReactJS&NetCoreDemo.csproj", "{C5A87784-B333-4064-BF87-9B2CDC8C870C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{BF9D929E-E44D-4103-BB70-339569B88410}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF9D929E-E44D-4103-BB70-339569B88410}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF9D929E-E44D-4103-BB70-339569B88410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A87784-B333-4064-BF87-9B2CDC8C870C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A87784-B333-4064-BF87-9B2CDC8C870C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A87784-B333-4064-BF87-9B2CDC8C870C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5A87784-B333-4064-BF87-9B2CDC8C870C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
