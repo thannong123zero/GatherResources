@@ -7,9 +7,27 @@
 <div>
     <div class="d-flex justify-content-between">
         <span style="font-size:26px; font-weight:600;">Danh sach san pham</span>
-        <a class="btn btn-success" asp-action="Create" asp-controller="Production">Add</a>
+        <a class="btn btn-success" onclick="GetFromAjax('@Url.Action("Create","Production")')">Add</a>
     </div>
     <div id="productionList">
         @await Html.PartialAsync("./_ProductionList",Model)
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="DeleteProduction" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xac Nhan</h5>
+                </div>
+                <div class="modal-body">
+                    Ban co chac la muon xoa san pham nay?
+                    <input type="hidden" id="productionID" value="" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="DeleteProduction('@Url.Action("Delete","Production")')">Confirm</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

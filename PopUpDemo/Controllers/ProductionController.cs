@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using PopUpDemo.Helpers;
 using PopUpDemo.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PopUpDemo.Controllers
 {
@@ -28,7 +29,8 @@ namespace PopUpDemo.Controllers
         {
             ProductionViewModel model = new ProductionViewModel();
 
-            return View(model); ;
+            return Json(new { isValid = true, titile ="Them San Pham" ,notification = "", html = RenderRazorViewToString(this, "_CreateProduction", model) });
+
         }
         [HttpPost]
         [AutoValidateAntiforgeryToken]
@@ -36,15 +38,17 @@ namespace PopUpDemo.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return Json(new { isValid = false, notification = "", html = RenderRazorViewToString(this, "_CreateProduction", model) });
             }
             bool state = _homeViewModelHelper.AddItem(model);
-            if (state)
+            if (!state)
             {
-                return RedirectToAction("Index");
+                return Json(new { isValid = false, notification = "", html = RenderRazorViewToString(this, "_CreateProduction", model) });
             }
+            List<ProductionViewModel> productionList = new List<ProductionViewModel>();
+            productionList = _homeViewModelHelper.GetItems();
+            return Json(new { isValid = true, notification = "", html = RenderRazorViewToString(this, "_ProductionList", productionList) });
 
-            return View(model);
         }
         [HttpGet]
         public IActionResult Edit(Guid id)
@@ -53,10 +57,10 @@ namespace PopUpDemo.Controllers
 
             if (model == null)
             {
-                return RedirectToAction("Index");
+                return Json(new { isValid = false, notification = "", html = ""});
             }
+            return Json(new { isValid = true, notification = "", html = RenderRazorViewToString(this, "_EditProduction", model) });
 
-            return View(model);
         }
         [HttpPost]
         [AutoValidateAntiforgeryToken]
@@ -64,23 +68,25 @@ namespace PopUpDemo.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return Json(new { isValid = true, notification = "", html = RenderRazorViewToString(this, "_EditProduction", model) });
             }
 
             bool state = _homeViewModelHelper.UpdateItem(model);
 
-            if (state)
+            if (!state)
             {
-                return RedirectToAction("Index");
+                return Json(new { isValid = true, notification = "", html = RenderRazorViewToString(this, "_EditProduction", model) });
             }
-
-            return View(model);
+            List<ProductionViewModel> productionList = new List<ProductionViewModel>();
+            productionList = _homeViewModelHelper.GetItems();
+            return Json(new { isValid = true, notification = "", html = RenderRazorViewToString(this, "_ProductionList", productionList) });
         }
         public IActionResult Delete(Guid id)
         {
             _homeViewModelHelper.DeleteItemByID(id);
-            return RedirectToAction("Index");
-
+            List<ProductionViewModel> productionList = new List<ProductionViewModel>();
+            productionList = _homeViewModelHelper.GetItems();
+            return Json(new { isValid = true, notification = "", html = RenderRazorViewToString(this, "_ProductionList", productionList) });
         }
         public string RenderRazorViewToString(Controller controller, string viewName, object model = null)
         {

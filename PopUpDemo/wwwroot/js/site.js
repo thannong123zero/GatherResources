@@ -2,7 +2,21 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-function SubmitForm(form) {
+
+function GetFromAjax(url) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (res) {
+            $('#form-popup-modal .modal-body').empty();
+            $('#form-popup-modal .modal-body').append(res.html);
+            $('#form-popup-modal .modal-title').html(res.title);
+            $('#form-popup-modal').modal('show');
+        }
+    })
+}
+
+function SubmitProduction(form) {
     $.ajax({
         type: 'POST',
         url: form.action,
@@ -11,30 +25,13 @@ function SubmitForm(form) {
         processData: false,
         success: function (res) {
             if (res.isValid) {
-                var myModal = document.getElementById('btnModel');
-                $('#popupMessage').text(res.message);
-                myModal.click();
-                setTimeout(() => {
-                    window.location.href = '/';
-
-                }, 15000);
+                $('#productionList').empty();
+                $('#productionList').append(res.html)
+                $('#form-popup-modal').modal('hide');
             }
-            else if (res.message) {
-                var myModal = document.getElementById('btnModel');
-                $('#popupMessage').text(res.message);
-                myModal.click();
-                setTimeout(() => {
-                    window.location.href = '/';
-
-                }, 15000);
-            }
-            else if (res.messageNotification) {
-                $('#formSV').empty();
-                $('#formSV').append(res.html);
-                var myModalNotification = document.getElementById('btnModelNotification');
-                $('#popupNotifiacation').text(res.messageNotification);
-                myModalNotification.click();
-
+            else {
+                $('#form-popup-modal .modal-body').empty();
+                $('#form-popup-modal .modal-body').append(res.html);
             }
         },
         error: function (err) {
@@ -44,7 +41,27 @@ function SubmitForm(form) {
     return false;
 }
 
-//var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
-//    keyboard: false
-//})
-//myModal.show();
+function OpenPopupDelete(id) {
+    $('#productionID').val(id);
+    $('#DeleteProduction').modal('show');
+}
+
+function DeleteProduction(url) {
+    let id = $('#productionID').val();
+    if (id) {
+        $.ajax({
+            type: 'GET',
+            url: url,
+            data: { id },
+            success: function (res) {
+                if (res.isValid) {
+                    $('#productionList').empty();
+                    $('#productionList').append(res.html)
+                    $('#DeleteProduction').modal('hide');
+                }
+            }
+    });
+    } else {
+        $('#DeleteProduction').modal('hide')
+    }
+}
