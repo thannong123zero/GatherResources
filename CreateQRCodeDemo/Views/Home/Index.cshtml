@@ -1,8 +1,32 @@
-﻿@{
+﻿@model QRViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="card-body">
+    <form asp-action="index">
+        <div class="row mb-2">
+            <div class="col-sm-6 col-12 mb-2 mb-sm-0">
+                <label for="StoreNumber">Enter Url: </label>
+                <input asp-for="Url" class="form-control"/>
+                <span asp-validation-for="Url"></span>
+                <input type="Submit" value="Create" class="btn btn-primary mt-2" />
+            </div>
+            <div class="col-sm-6 col-12">
+                @if (ViewBag.fileName != null)
+                {
+                    <div>
+                        <p class="mb-1">
+                            <u>
+                                <i>Click into qr code to download!</i>
+                            </u>
+                        </p>
+                        <a href="~/QRCodeStore/@ViewBag.fileName" download="@ViewBag.fileName">
+                            <img src="~/QRCodeStore/@ViewBag.fileName" alt="..." />
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </form>
 </div>

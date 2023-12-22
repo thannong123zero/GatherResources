@@ -10,4 +10,8 @@
     <PackageReference Include="BarCode" Version="2023.12.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\QRCodeStore\" />
+  </ItemGroup>
+
 </Project>
