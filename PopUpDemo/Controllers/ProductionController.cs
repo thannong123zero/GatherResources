@@ -1,21 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PopUpDemo.Helpers;
 using PopUpDemo.Models;
-using System.Diagnostics;
 
 namespace PopUpDemo.Controllers
 {
-    public class HomeController : Controller
+    public class ProductionController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private HomeViewModelHelper _homeViewModelHelper;
 
-        public HomeController(ILogger<HomeController> logger, HomeViewModelHelper homeViewModelHelper)
+        public ProductionController(ILogger<HomeController> logger, HomeViewModelHelper homeViewModelHelper)
         {
             _logger = logger;
             _homeViewModelHelper = homeViewModelHelper;
         }
-
         public IActionResult Index()
         {
             List<ProductionViewModel> model = new List<ProductionViewModel>();
@@ -50,7 +48,7 @@ namespace PopUpDemo.Controllers
         {
             ProductionViewModel model = _homeViewModelHelper.GetItemByID(id);
 
-            if(model == null)
+            if (model == null)
             {
                 return RedirectToAction("Index");
             }
@@ -80,17 +78,6 @@ namespace PopUpDemo.Controllers
             _homeViewModelHelper.DeleteItemByID(id);
             return RedirectToAction("Index");
 
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

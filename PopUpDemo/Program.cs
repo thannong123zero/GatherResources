@@ -1,3 +1,5 @@
+using PopUpDemo.Helpers;
+
 namespace PopUpDemo
 {
     public class Program
@@ -8,7 +10,7 @@ namespace PopUpDemo
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddSingleton<HomeViewModelHelper>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
