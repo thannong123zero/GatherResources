@@ -8,24 +8,26 @@ namespace PopUpDemo.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private HomeViewModelHelper _homeViewModelHelper;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            _homeViewModelHelper = new HomeViewModelHelper();
         }
 
         public IActionResult Index()
         {
-            HomeViewModelHelper homeViewModelHelper = new HomeViewModelHelper();
             List<ProductionViewModel> model = new List<ProductionViewModel>();
-            model = homeViewModelHelper.GetItems();
+            model = _homeViewModelHelper.GetItems();
             return View(model);
         }
 
         public IActionResult Create()
         {
+            ProductionViewModel model = new ProductionViewModel();
 
-            return View();
+            return View(model); ;
         }
         [HttpPost]
         public IActionResult Create(ProductionViewModel model)
@@ -34,18 +36,50 @@ namespace PopUpDemo.Controllers
             {
                 return View(model);
             }
-            return View();
-        }
+            bool state = _homeViewModelHelper.AddItem(model);
+            if (state)
+            {
+                return RedirectToAction("Index");
+            }
 
+            return View(model);
+        }
+        [HttpGet]
         public IActionResult Edit(Guid id)
         {
-            return View();
+            ProductionViewModel model = _homeViewModelHelper.GetItemByID(id);
+
+            if(model == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult Edit(ProductionViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            bool state = _homeViewModelHelper.UpdateItem(model);
+
+            if (state)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
         }
 
-
+        [HttpPost]
         public IActionResult Delete(Guid id)
         {
-            return View();
+            _homeViewModelHelper.DeleteItemByID(id);
+            return RedirectToAction("Index");
+
         }
 
         public IActionResult Privacy()

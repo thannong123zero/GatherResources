@@ -148,5 +148,23 @@ namespace PopUpDemo.Helpers
             }
             return false;
         }
+        public bool UpdateItem(ProductionViewModel model)
+        {
+            ProductionViewModel production = productions.Where(s => s.ID == model.ID).FirstOrDefault();
+            if (production == null)
+            {
+                return false;
+            }
+
+            production.Name = model.Name;
+            production.Image = model.Image;
+            production.Price = model.Price;
+            production.Quantity = model.Quantity;
+            production.Weight = model.Weight;
+            production.ExpirationDate = model.ExpirationDate;
+            production.ManufacuturingDate = model.ManufacuturingDate;
+            production.UpdatedOn = DateTime.Now;
+            return true;
+        }
     }
 }

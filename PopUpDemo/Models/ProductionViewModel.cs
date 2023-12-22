@@ -26,6 +26,8 @@ namespace PopUpDemo.Models
             CreatedBy = "Admin";
             UpdatedOn = DateTime.Now;
             UpdatedBy = "Admin";
+            ManufacuturingDate = DateTime.Now;
+            ExpirationDate = DateTime.Now;
         }
     }
 }
