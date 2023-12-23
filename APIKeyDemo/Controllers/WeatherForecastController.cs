@@ -1,3 +1,4 @@
+using APIKeyDemo.CustomFilterActions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APIKeyDemo.Controllers
@@ -19,6 +20,7 @@ namespace APIKeyDemo.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
+        //[ApiKey]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
