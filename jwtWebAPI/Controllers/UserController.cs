@@ -1,6 +1,8 @@
-﻿using jwtWebAPI.Models;
-using Microsoft.AspNetCore.Http;
+﻿using jwtWebAPI.Helpers;
+using jwtWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace jwtWebAPI.Controllers
 {
@@ -8,13 +10,40 @@ namespace jwtWebAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        public DataObjectResult GetUserProfile()
+        private readonly MasterModelHelper _masterModelHelper;
+        public UserController(MasterModelHelper masterModelHelper)
         {
-            return "";
+            _masterModelHelper = masterModelHelper;
         }
-        public DataObjectResult UpdateProfile()
+        [HttpPost("UpdateProfile")]
+        public DataObjectResult UpdateProfile(UserModel model)
         {
-            return "";
+            DataObjectResult dataObjectResult = new DataObjectResult();
+            List<UserModel> users = _masterModelHelper.GetUsers();
+            if(users != null)
+            {
+                dataObjectResult.Ok = true;
+                dataObjectResult.Content = users;
+                return dataObjectResult;
+            }
+            dataObjectResult.Message = "No data";
+
+            return dataObjectResult;
+        }
+        [HttpPost("GetProfile")]
+        public DataObjectResult GetProfile(int id)
+        {
+            DataObjectResult dataObjectResult = new DataObjectResult();
+            UserModel user = _masterModelHelper.GetUserByID(id);
+            if (user != null)
+            {
+                dataObjectResult.Ok = true;
+                dataObjectResult.Content = user;
+                return dataObjectResult;
+            }
+            dataObjectResult.Message = "No data";
+
+            return dataObjectResult;
         }
     }
 }

@@ -3,6 +3,7 @@
     public class UserModel
     {
         public int ID { get; set; }
+        public int RoleID { get; set; }
         public string FullName { get; set; }
         public int Sex { get; set; }
         public DateTime BrithDay { get; set; }

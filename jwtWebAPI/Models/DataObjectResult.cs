@@ -4,6 +4,10 @@
     {
         public bool Ok { get; set; }
         public string Message { get; set; }
-        public string Content { get; set; }
+        public object Content { get; set; }
+        public DataObjectResult()
+        {
+            Ok = false;
+        }
     }
 }

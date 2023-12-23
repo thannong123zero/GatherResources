@@ -14,6 +14,7 @@ namespace jwtWebAPI.Helpers
             users.Add(new UserModel()
             {
                 ID = 1,
+                RoleID = 1,
                 FullName = "Sam",
                 Sex = 0,
                 BrithDay = DateTime.Now.AddYears(-23),
@@ -23,6 +24,7 @@ namespace jwtWebAPI.Helpers
             users.Add(new UserModel()
             {
                 ID = 2,
+                RoleID = 2,
                 FullName = "Erisk",
                 Sex = 0,
                 BrithDay = DateTime.Now.AddYears(-23),
@@ -33,6 +35,7 @@ namespace jwtWebAPI.Helpers
             users.Add(new UserModel()
             {
                 ID = 3,
+                RoleID = 3,
                 FullName = "Tom",
                 Sex = 0,
                 BrithDay = DateTime.Now.AddYears(-23),
@@ -42,6 +45,7 @@ namespace jwtWebAPI.Helpers
             users.Add(new UserModel()
             {
                 ID = 4,
+                RoleID = 3,
                 FullName = "Jack",
                 Sex = 0,
                 BrithDay = DateTime.Now.AddYears(-23),
@@ -52,6 +56,7 @@ namespace jwtWebAPI.Helpers
             users.Add(new UserModel()
             {
                 ID = 5,
+                RoleID = 3,
                 FullName = "Oda",
                 Sex = 0,
                 BrithDay = DateTime.Now.AddYears(-23),
@@ -83,6 +88,19 @@ namespace jwtWebAPI.Helpers
         {
             return roles;
         }
+        public bool UpdateProfile(UserModel model)
+        {
+            if (model == null)
+            {
+                return false;
+            }
+            UserModel user = users.Where(s => s.ID == model.ID).FirstOrDefault();
+            user.FullName = model.FullName;
+            user.RoleID = model.RoleID;
+            user.Sex = model.Sex;
+            user.BrithDay = model.BrithDay;
+            return true;
+        }
         public UserModel GetUserByID(int id)
         {
             UserModel user = users.Where(s => s.ID == id).FirstOrDefault();
@@ -101,9 +119,13 @@ namespace jwtWebAPI.Helpers
             }
             return null;
         }
-        public UserModel Login(string userName, string passWord)
+        public UserModel Login(LoginModel model)
         {
-            UserModel user = users.Where(s => s.UserName == userName && s.Password == passWord).FirstOrDefault();
+            if(model == null)
+            {
+                return null;
+            }
+            UserModel user = users.Where(s => s.UserName == model.UserName && s.Password == model.PassWord).FirstOrDefault();
             if(user != null)
             {
                 return user;

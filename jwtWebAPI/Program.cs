@@ -15,9 +15,9 @@ namespace jwtWebAPI
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            var appconfig = builder.Configuration.GetSection("JwtConfig");
-            JwtConfig jwtConfig = appconfig.Get<JwtConfig>();
-            builder.Services.AddSingleton(jwtConfig);
+            //var appconfig = builder.Configuration.GetSection("JwtConfig");
+            //JwtConfig apiConfiguration = appconfig.Get<JwtConfig>();
+            //builder.Services.AddSingleton(apiConfiguration);
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSingleton<MasterModelHelper>();
