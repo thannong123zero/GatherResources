@@ -18,6 +18,9 @@ namespace jwtWebAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSingleton<MasterModelHelper>();
+            var jwtConfig = builder.Configuration.GetSection("JwtConfig");
+            JwtConfiguration jwtConfiguration = jwtConfig.Get<JwtConfiguration>();
+            builder.Services.AddSingleton(jwtConfiguration);
 
             var app = builder.Build();
 
