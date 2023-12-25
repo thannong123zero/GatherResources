@@ -40,10 +40,6 @@ namespace jwtWebAPI
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(apiConfiguration.Key))
                 };
             });
-
-
-
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
