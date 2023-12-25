@@ -23,7 +23,6 @@ namespace jwtWebAPI.Controllers
         [HttpPost(Name = "Login")]
         public IActionResult Login(LoginModel model)
         {
-
             IActionResult response = Unauthorized();
             UserModel user = _masterModelHelper.Login(model);
 
@@ -53,7 +52,7 @@ namespace jwtWebAPI.Controllers
             var token = new JwtSecurityToken(_jwtConfiguration.Issuer,
               _jwtConfiguration.Audience,
               claims,
-              expires: DateTime.Now.AddMinutes(120),
+              expires: DateTime.Now.AddMinutes(1),
               signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

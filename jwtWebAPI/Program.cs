@@ -34,8 +34,9 @@ namespace jwtWebAPI
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
+                    ClockSkew = TimeSpan.Zero,
                     ValidIssuer = apiConfiguration.Issuer,
-                    ValidAudience = apiConfiguration.Issuer,
+                    ValidAudience = apiConfiguration.Audience,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(apiConfiguration.Key))
                 };
             });
