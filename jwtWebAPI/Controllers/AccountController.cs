@@ -3,6 +3,7 @@ using jwtWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 
 namespace jwtWebAPI.Controllers
@@ -12,8 +13,8 @@ namespace jwtWebAPI.Controllers
     public class AccountController : ControllerBase
     {
         private readonly MasterModelHelper _masterModelHelper;
-        private readonly JwtConfiguration _jwtConfiguration;
-        public AccountController(MasterModelHelper masterModelHelper, JwtConfiguration jwtConfiguration)
+        private readonly JwtConfig _jwtConfiguration;
+        public AccountController(MasterModelHelper masterModelHelper, JwtConfig jwtConfiguration)
         {
             _masterModelHelper = masterModelHelper;
             _jwtConfiguration = jwtConfiguration;
@@ -40,9 +41,18 @@ namespace jwtWebAPI.Controllers
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfiguration.Key));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
+            var claims = new[] {
+                new Claim("FullName", userInfo.FullName),
+                new Claim("UserName", userInfo.UserName),
+                new Claim("PassWord", userInfo.Password),
+                new Claim("Role",userInfo.RoleID.ToString()),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+
             var token = new JwtSecurityToken(_jwtConfiguration.Issuer,
-              _jwtConfiguration.Issuer,
-              null,
+              _jwtConfiguration.Audience,
+              claims,
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
 

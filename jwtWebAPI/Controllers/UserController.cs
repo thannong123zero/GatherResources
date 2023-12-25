@@ -1,11 +1,13 @@
 ﻿using jwtWebAPI.Helpers;
 using jwtWebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace jwtWebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -30,7 +32,7 @@ namespace jwtWebAPI.Controllers
 
             return dataObjectResult;
         }
-        [HttpPost("GetProfile")]
+        [HttpGet("GetProfile")]
         public DataObjectResult GetProfile(int id)
         {
             DataObjectResult dataObjectResult = new DataObjectResult();

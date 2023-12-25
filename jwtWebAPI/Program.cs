@@ -1,8 +1,7 @@
-
 using jwtWebAPI.Helpers;
 using jwtWebAPI.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -22,24 +21,25 @@ namespace jwtWebAPI
             builder.Services.AddSwaggerGen();
             builder.Services.AddSingleton<MasterModelHelper>();
 
-            var jwtConfig = builder.Configuration.GetSection("AppConfig");
-            JwtConfiguration jwtConfiguration = jwtConfig.Get<JwtConfiguration>();
-            builder.Services.AddSingleton(jwtConfiguration);
+            var appconfig = builder.Configuration.GetSection("AppConfig");
+            JwtConfig apiConfiguration = appconfig.Get<JwtConfig>();
+            builder.Services.AddSingleton(apiConfiguration);
 
-            //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //.AddJwtBearer(options =>
-            //{
-            //    options.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        ValidateIssuer = true,
-            //        ValidateAudience = true,
-            //        ValidateLifetime = true,
-            //        ValidateIssuerSigningKey = true,
-            //        ValidIssuer = jwtConfiguration.Issuer,
-            //        ValidAudience = jwtConfiguration.Issuer,
-            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfiguration.Key))
-            //    };
-            //});
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = apiConfiguration.Issuer,
+                    ValidAudience = apiConfiguration.Issuer,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(apiConfiguration.Key))
+                };
+            });
+
 
 
 
@@ -54,8 +54,8 @@ namespace jwtWebAPI
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
 
             app.MapControllers();
 

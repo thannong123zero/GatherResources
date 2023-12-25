@@ -33,9 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityDemo", "EntityDemo\En
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactJSNNetCore", "ReactJSNNetCore\ReactJSNNetCore.csproj", "{405F0D89-D1AE-4385-8193-884B8D5B6C56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jwtWebAPI", "jwtWebAPI\jwtWebAPI.csproj", "{944193A6-EEFA-431B-AAA7-08EC9AB7656F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jwtClient", "jwtClient\jwtClient.csproj", "{EE1812BC-24A4-4775-A734-2E75C251384A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jwtWebAPI", "jwtWebAPI\jwtWebAPI.csproj", "{944193A6-EEFA-431B-AAA7-08EC9AB7656F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,10 +105,6 @@ Global
 		{944193A6-EEFA-431B-AAA7-08EC9AB7656F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{944193A6-EEFA-431B-AAA7-08EC9AB7656F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{944193A6-EEFA-431B-AAA7-08EC9AB7656F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE1812BC-24A4-4775-A734-2E75C251384A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE1812BC-24A4-4775-A734-2E75C251384A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE1812BC-24A4-4775-A734-2E75C251384A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE1812BC-24A4-4775-A734-2E75C251384A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
