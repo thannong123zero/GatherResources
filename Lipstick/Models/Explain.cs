@@ -107,6 +107,69 @@
         #endregion
         #region Controller
         #endregion
-        // Design UI
+        // Map
+        #region
+        /*
+            1. Hiểu Cơ Bản về ASP.NET Core và MVC:
+                Tìm hiểu về kiến trúc và nguyên tắc của ASP.NET Core.
+                Nắm vững khái niệm của MVC (Model-View-Controller).
+
+            2. Cài Đặt Môi Trường Phát Triển:
+                Cài đặt Visual Studio hoặc Visual Studio Code.
+                Cài đặt ASP.NET Core SDK.
+
+            3. Tạo Dự Án ASP.NET Core MVC Đầu Tiên:
+                Tạo một dự án mới sử dụng ASP.NET Core MVC Template.
+                Hiểu cấu trúc của dự án và các file quan trọng.
+
+            4. Routing và Controllers:
+                Hiểu về cách ASP.NET Core xử lý routing.
+                Tạo các controllers và actions.
+
+            5. Models và Views:
+                Tìm hiểu cách tạo và sử dụng models trong MVC.
+                Hiểu cách tạo views và làm thế nào chúng kết hợp với models.
+
+            6. Entity Framework Core và Database:
+                Sử dụng Entity Framework Core để tương tác với cơ sở dữ liệu.
+                Thực hiện các thao tác CRUD (Create, Read, Update, Delete).
+
+            7. Validation và Error Handling:
+                Áp dụng validation cho dữ liệu nhập.
+                Xử lý lỗi và hiển thị thông báo lỗi.
+
+            8. Authentication và Authorization:
+                Bảo vệ các phần của ứng dụng bằng cách sử dụng authentication và authorization.
+                Hiểu về Identity Framework trong ASP.NET Core.
+
+            9. Dependency Injection:
+                Hiểu về Dependency Injection và cách nó được sử dụng trong ASP.NET Core.
+                Áp dụng DI trong ứng dụng của bạn.
+
+            10. Unit Testing:
+                Tìm hiểu cách viết unit tests cho controllers, services, và models.
+                Sử dụng các thư viện kiểm thử như xUnit hoặc NUnit.
+
+            11. Front-end Development:
+                Sử dụng Razor Views và Tag Helpers.
+                Integrate JavaScript và CSS vào dự án.
+
+            12. API Development (Tuỳ chọn):
+                Nếu bạn quan tâm đến phát triển API, học cách tạo API sử dụng ASP.NET Core.
+
+            13. Deployment:
+                Tìm hiểu về các phương pháp triển khai ứng dụng ASP.NET Core, chẳng hạn như triển khai lên Azure, AWS, hoặc các nền tảng khác.
+            
+            14. Continuous Integration và Continuous Deployment (CI/CD):
+                Hiểu và triển khai CI/CD cho dự án của bạn để tự động hóa quy trình phát triển.
+
+            15. Performance Optimization và Security:
+                Tối ưu hóa hiệu suất ứng dụng.
+                Xác định và giảm thiểu các rủi ro bảo mật.
+
+            16. Mở Rộng Kiến Thức (Tùy Chọn):
+                Tìm hiểu về các chủ đề nâng cao như SignalR, gRPC, GraphQL, Docker, và Microservices. 
+         */
+        #endregion
     }
 }
