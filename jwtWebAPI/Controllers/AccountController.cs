@@ -39,9 +39,10 @@ namespace jwtWebAPI.Controllers
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfiguration.Key));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
+            string temp = "12/26/2024 2:14:00 PM";
+            DateTime expire = DateTime.Parse(temp);
             var claims = new[] {
-                new Claim("FullName", userInfo.FullName),
+                new Claim("FullName", userInfo.FullName+1),
                 new Claim("UserName", userInfo.UserName),
                 new Claim("PassWord", userInfo.Password),
                 new Claim("Role",userInfo.RoleID.ToString()),
@@ -52,8 +53,8 @@ namespace jwtWebAPI.Controllers
             var token = new JwtSecurityToken(_jwtConfiguration.Issuer,
               _jwtConfiguration.Audience,
               claims,
-              expires: DateTime.Now.AddMinutes(1),
-              signingCredentials: credentials);
+              expires: expire,//DateTime.Now.AddMinutes(1),
+              signingCredentials: credentials); 
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
