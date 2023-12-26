@@ -70,6 +70,29 @@
             + Web CRM (ASP.Net Core MVC): Vai trò, trang web sẽ tương tác với người quản lý trong việc thêm, xoá, sửa thông tin sản phẩm.
             + Web API (ASP.Net Core API): Vai trò, xử lý logic và tương tác với Web Client, Web CRM.
            
+            Công nghệ thực hiện dự án:
+            + Framework: Asp.net core API, Asp.net core MVC, Entity or Dapper.
+            + Progamming languages: C#, Js.
+            + Markup languages: Html
+            + Style languages: Css ( chúng ta sẽ viết theo Sass 'Syntactically Awesome Stylesheet' rồi biên dịch thành css).
+            + Labaries: Bootstrap, Jquery (Có luôn ajax nha các bạn!).
+
+         */
+        #endregion
+        #region Setup Project
+        /*
+        
+        Cài đặt Visual Studio 2022
+        
+        Cài đặt ASP.NET And web development
+
+        Cài đặt exensions Compilor
+
+         */
+        #endregion
+        #region AI Support
+        /*
+         * Ref: https://zzzcode.ai/answer-question
          */
         #endregion
     }
