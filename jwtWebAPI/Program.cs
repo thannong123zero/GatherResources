@@ -1,5 +1,6 @@
 using jwtWebAPI.Helpers;
 using jwtWebAPI.Models;
+using jwtWebAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.IdentityModel.Tokens;
@@ -40,6 +41,7 @@ namespace jwtWebAPI
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(apiConfiguration.Key))
                 };
             });
+            builder.Services.AddTransient<IJwtService, JwtService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

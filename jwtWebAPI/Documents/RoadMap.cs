@@ -2,6 +2,7 @@
 {
     public class RoadMap
     {
+        #region RoadMap
         /*
             1. Hiểu Về JWT:
                 Tìm hiểu về cấu trúc và nguyên tắc hoạt động của JSON Web Token (JWT).
@@ -94,5 +95,39 @@
                 Hiểu và triển khai các biện pháp bảo mật như HTTPS, bảo vệ khóa bí mật, cấu hình hợp lý cho JWT.
                 Lưu ý rằng, khi triển khai JWT trong ứng dụng của bạn, bạn cần đảm bảo rằng bạn tuân thủ các chuẩn bảo mật và thực hành tốt nhất để tránh các lỗ hổng bảo mật.
          */
+        #endregion
+        #region Summary JWT
+        /*
+            https://jwt.io/introduction
+            What is the Json Web Token structure?
+            + Header: The type of token( jwt), the signing algorithm.
+            + Payload: This cantains the claims. Claims are statements about an entity and addtional data. 
+            There are three type of  claims: registered, public and private claims.
+	            Registered claims: these are a set of predefined claims which are not mandatory but recommeded, to provide a set of userful, interoperable claims.
+	            Public claims:
+	            Private claims:
+            + Signature: To create the signature part you have t o take the encoded header, the encoded payload, a secret, the algorithm specified in the header and sign that.
+
+            How do JSON Web Tokens work?
+            In authentication, when the user succesfully logs in using their credetials, a jwt will be returned.
+            Since tokens are credentials, great care musst be taken to prevent security issues.In general, you should not keep tokens longer than required.
+            You also shouldn't store sentitive session data in browser storage due to lack of security.
+            Whenever the user wants to access a protected route or ressource, the user agent should send the JWT, typocally in the authorization header using the bearer schema.
+
+            Set up JWT
+            Step 1: Add the Microsoft.AspNetCore.Authentication.JwtBearer NuGet package to our project.
+            Step 2: Implement JWT authentication in the Program.cs file.
+            Step 3: Config Middle ware
+            Step 4: Create Token generation method
+         */
+        #endregion
+        #region Renew a expired token time
+        /*
+         https://code-maze.com/using-refresh-tokens-in-asp-net-core-authentication/
+
+
+         
+         */
+        #endregion
     }
 }
