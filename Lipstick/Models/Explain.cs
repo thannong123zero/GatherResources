@@ -2,7 +2,8 @@
 {
     public class Explain
     {
-        #region Require
+        // Introduce
+        #region Requirement
         /* 
           
             Hello, Đây là series về asp.net core mvc (.Net 7)
@@ -95,5 +96,17 @@
          * Ref: https://zzzcode.ai/answer-question
          */
         #endregion
+        // Discover
+        #region Create Project
+        #endregion
+        #region Project Architecture
+        #endregion
+        #region Model
+        #endregion
+        #region View
+        #endregion
+        #region Controller
+        #endregion
+        //Design UI
     }
 }
