@@ -2,7 +2,7 @@
 {
     public class Explain
     {
-        #region section 1
+        #region Require
         /* 
           
             Hello, Đây là series về asp.net core mvc (.Net 7)
@@ -17,7 +17,7 @@
           
          */
         #endregion
-        #region Section 2
+        #region Summary ASP.NET
         /*
         
             Trước khi thưởng thức món chính thì chúng ta sẽ dùng món khai vị trước nha !   
@@ -49,6 +49,14 @@
             => Ref: https://learn.microsoft.com/en-us/aspnet/core/tutorials/choose-web-ui?view=aspnetcore-7.0
 
          */
+        #endregion
+        #region Summary ASP.NET CORE MVC
+        /*
+        
+            ASP.NET CORE MVC là web ui được render ở phía server và được phát triển dựa trên design pattern MVC.                  
+            Ref: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-7.0&tabs=visual-studio
+         */
+
         #endregion
     }
 }
