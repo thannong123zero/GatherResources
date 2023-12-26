@@ -55,8 +55,22 @@
         
             ASP.NET CORE MVC là web ui được render ở phía server và được phát triển dựa trên design pattern MVC.                  
             Ref: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-7.0&tabs=visual-studio
+         
          */
 
+        #endregion
+        #region Introduce Project
+        /*
+         
+            Chúng ta sẽ làm về trang web thương mại điện tử bán son môi.
+            Ref:https://lipstick.vn/
+        
+            Trong dự án này chúng ta sẽ chia làm 3 phần:
+            + Web Client (ASP.Net Core MVC): Vai trò, trang web sẽ hiển thị thông tin sản phẩm và tương tác với khách hàng.
+            + Web CRM (ASP.Net Core MVC): Vai trò, trang web sẽ tương tác với người quản lý trong việc thêm, xoá, sửa thông tin sản phẩm.
+            + Web API (ASP.Net Core API): Vai trò, xử lý logic và tương tác với Web Client, Web CRM.
+           
+         */
         #endregion
     }
 }
