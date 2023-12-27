@@ -7,10 +7,14 @@ namespace jwtWebAPI.Helpers
     {
         private List<UserModel> users;
         private List<RoleModel> roles;
+        private List<RefreshTokenModel> refreshTokens;
+
         public MasterModelHelper()
         {
             users = new List<UserModel>();
             roles = new List<RoleModel>();
+            refreshTokens = new List<RefreshTokenModel>();
+            #region adduser
             users.Add(new UserModel()
             {
                 ID = 1,
@@ -63,7 +67,7 @@ namespace jwtWebAPI.Helpers
                 UserName = "oda@gmail.com",
                 Password = "123"
             });
-
+            #endregion
             roles.Add(new RoleModel()
             {
                 ID = 1,
@@ -131,6 +135,43 @@ namespace jwtWebAPI.Helpers
                 return user;
             }
             return null;
+        }
+        public bool AddRefreshToken(RefreshTokenModel model)
+        {
+            if(model == null)
+            {
+                return false;
+            }
+
+            refreshTokens.Add(model);
+            return true;
+        }
+        public bool CheckIsValidToken(string keyRefresh,string token)
+        {
+            // neu key = null thi false
+            if (string.IsNullOrEmpty(keyRefresh) || string.IsNullOrEmpty(token))
+            {
+                return false;
+            }
+            // lay ra model co keyRefresh va token
+            RefreshTokenModel refreshToken = refreshTokens.Where(s => s.KeyRefresh == keyRefresh && s.Token == token).FirstOrDefault();
+            // neu khong tim thay key thi false
+            if(refreshToken == null)
+            {
+                return false;
+            }
+            //DateTime date = refreshToken.CreatedOn;
+            // Chi cho phep key hoat dong trong 24h
+            if (refreshToken.CreatedOn.AddDays(1) > DateTime.Now && !refreshToken.IsUsed)
+            {
+                foreach (var item in refreshTokens)
+                {
+                    var temp = item;
+                }
+                return true;
+            }
+
+            return false;
         }
     }
 }

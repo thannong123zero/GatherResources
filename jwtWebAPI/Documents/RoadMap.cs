@@ -123,10 +123,7 @@
         #endregion
         #region Renew a expired token time
         /*
-         https://code-maze.com/using-refresh-tokens-in-asp-net-core-authentication/
-
-
-         
+         https://code-maze.com/using-refresh-tokens-in-asp-net-core-authentication/        
          */
         #endregion
     }

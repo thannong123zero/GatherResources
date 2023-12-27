@@ -1,5 +1,6 @@
 ﻿using jwtWebAPI.Helpers;
 using jwtWebAPI.Models;
+using jwtWebAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -14,10 +15,13 @@ namespace jwtWebAPI.Controllers
     {
         private readonly MasterModelHelper _masterModelHelper;
         private readonly JwtConfig _jwtConfiguration;
-        public AccountController(MasterModelHelper masterModelHelper, JwtConfig jwtConfiguration)
+        private readonly IJwtService _jwtService;
+
+        public AccountController(MasterModelHelper masterModelHelper, JwtConfig jwtConfiguration, IJwtService jwtService)
         {
             _masterModelHelper = masterModelHelper;
             _jwtConfiguration = jwtConfiguration;
+            _jwtService = jwtService;
         }
 
         [HttpPost(Name = "Login")]
@@ -28,59 +32,43 @@ namespace jwtWebAPI.Controllers
 
             if (user != null)
             {
-                var tokenString = GenerateJSONWebToken(user);
-                response = Ok(new { token = tokenString });
+                string token = _jwtService.GenerateAccessToken(user);
+                string refreshToken = _jwtService.GenerateRefreshToken();
+
+
+                response = Ok(new { token , refreshToken  });
             }
 
             return response;
         }
 
-        private string GenerateJSONWebToken(UserModel userInfo)
+
+        [HttpPost]
+        [Route("refresh")]
+        public IActionResult Refresh(string keyRefresh, string token)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfiguration.Key));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-            var claims = new[] {
-                new Claim("FullName", userInfo.FullName+1),
-                new Claim("UserName", userInfo.UserName),
-                new Claim("PassWord", userInfo.Password),
-                new Claim("Role",userInfo.RoleID.ToString()),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
+            if (string.IsNullOrEmpty(keyRefresh) || string.IsNullOrEmpty(token))
+                return BadRequest("KeyRefresh or Token is Invalid");
+
+            bool state = _masterModelHelper.CheckIsValidToken(keyRefresh, token);
+
+            if (!state)
+                return BadRequest("Invalid");
+
+            
+            var principal = _jwtService.GetPrincipalFromExpiredToken(token);
 
 
-            var token = new JwtSecurityToken(_jwtConfiguration.Issuer,
-              _jwtConfiguration.Audience,
-              claims,
-              expires: DateTime.Now.AddMinutes(_jwtConfiguration.ExpiredTime),
-              signingCredentials: credentials); 
+            var newAccessToken = _jwtService.GenerateAccessToken(principal.Claims);
+            var newRefreshToken = _jwtService.GenerateRefreshToken();
+            
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return Ok(new 
+            {
+                Token = newAccessToken,
+                RefreshToken = newRefreshToken
+            });
         }
-
-
-        //[HttpPost]
-        //[Route("refresh")]
-        //public IActionResult Refresh(TokenApiModel tokenApiModel)
-        //{
-        //    if (tokenApiModel is null)
-        //        return BadRequest("Invalid client request");
-        //    string accessToken = tokenApiModel.AccessToken;
-        //    string refreshToken = tokenApiModel.RefreshToken;
-        //    var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken);
-        //    var username = principal.Identity.Name; //this is mapped to the Name claim by default
-        //    var user = _userContext.LoginModels.SingleOrDefault(u => u.UserName == username);
-        //    if (user is null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
-        //        return BadRequest("Invalid client request");
-        //    var newAccessToken = _tokenService.GenerateAccessToken(principal.Claims);
-        //    var newRefreshToken = _tokenService.GenerateRefreshToken();
-        //    user.RefreshToken = newRefreshToken;
-        //    _userContext.SaveChanges();
-        //    return Ok(new AuthenticatedResponse()
-        //    {
-        //        Token = newAccessToken,
-        //        RefreshToken = newRefreshToken
-        //    });
-        //}
 
 
     }

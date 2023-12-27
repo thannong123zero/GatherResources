@@ -7,6 +7,7 @@ namespace jwtWebAPI.Services
     {
         string GenerateAccessToken(UserModel model);
         string GenerateRefreshToken();
-        ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
+        string RenewToken(string expiredToken);
+        //ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
     }
 }
