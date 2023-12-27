@@ -19,7 +19,7 @@ namespace jwtWebAPI.Services
         {
 
                 var claims = new List<Claim> {
-                    new Claim("FullName", userInfo.FullName+1),
+                    new Claim("FullName", userInfo.FullName),
                     new Claim("UserName", userInfo.UserName),
                     new Claim("PassWord", userInfo.Password),
                     new Claim("Role",userInfo.RoleID.ToString()),
