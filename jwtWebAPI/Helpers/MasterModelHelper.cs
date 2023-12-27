@@ -164,10 +164,7 @@ namespace jwtWebAPI.Helpers
             // Chi cho phep key hoat dong trong 24h
             if (refreshToken.CreatedOn.AddDays(1) > DateTime.Now && !refreshToken.IsUsed)
             {
-                foreach (var item in refreshTokens)
-                {
-                    var temp = item;
-                }
+                refreshToken.IsUsed = true;
                 return true;
             }
 

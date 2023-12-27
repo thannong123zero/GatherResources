@@ -4,6 +4,7 @@ using jwtWebAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
@@ -24,7 +25,8 @@ namespace jwtWebAPI.Controllers
             _jwtService = jwtService;
         }
 
-        [HttpPost(Name = "Login")]
+        [HttpPost]
+        [Route("Login")]
         public IActionResult Login(LoginModel model)
         {
             IActionResult response = Unauthorized();
@@ -35,6 +37,14 @@ namespace jwtWebAPI.Controllers
                 string token = _jwtService.GenerateAccessToken(user);
                 string refreshToken = _jwtService.GenerateRefreshToken();
 
+                RefreshTokenModel refresh = new RefreshTokenModel();
+
+                refresh.Token = token;
+                refresh.KeyRefresh = refreshToken;
+                if (!_masterModelHelper.AddRefreshToken(refresh))
+                {
+                    return BadRequest("Can't save token");
+                }
 
                 response = Ok(new { token , refreshToken  });
             }
@@ -44,8 +54,8 @@ namespace jwtWebAPI.Controllers
 
 
         [HttpPost]
-        [Route("refresh")]
-        public IActionResult Refresh(string keyRefresh, string token)
+        [Route("RefreshToken")]
+        public IActionResult RefreshToken(string keyRefresh, string token)
         {
             if (string.IsNullOrEmpty(keyRefresh) || string.IsNullOrEmpty(token))
                 return BadRequest("KeyRefresh or Token is Invalid");
@@ -55,15 +65,20 @@ namespace jwtWebAPI.Controllers
             if (!state)
                 return BadRequest("Invalid");
 
-            
-            var principal = _jwtService.GetPrincipalFromExpiredToken(token);
+            string newAccessToken = _jwtService.RenewToken(token);
+            string newRefreshToken = _jwtService.GenerateRefreshToken();
 
+            RefreshTokenModel refreshToken = new RefreshTokenModel();
 
-            var newAccessToken = _jwtService.GenerateAccessToken(principal.Claims);
-            var newRefreshToken = _jwtService.GenerateRefreshToken();
-            
+            refreshToken.Token = newAccessToken;
+            refreshToken.KeyRefresh = newRefreshToken;
 
-            return Ok(new 
+            if (!_masterModelHelper.AddRefreshToken(refreshToken))
+            {
+                return BadRequest("Can't save token");
+            }
+
+            return Ok(new
             {
                 Token = newAccessToken,
                 RefreshToken = newRefreshToken
