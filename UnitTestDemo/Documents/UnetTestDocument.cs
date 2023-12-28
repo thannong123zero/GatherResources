@@ -23,6 +23,26 @@
          * Unit Test
          * You make code changes an it breaks somewhere else
          * 
+         * Why ?
+         * You work on a team
+         * you work on a code base with 1000's of files, classes, methods, etc.
+         * you make changes.
+         * code breaks or introduuce bugs
+         * project fails, toxic work environment, nobody wants to work with you.
+         * 
+         * Hard fast rules
+         * unit testing is an art
+         * too many or too little is bad
+         * don't use vs code
+         * all the frameworks are the same
+         * unit test what constantly changes or is critical
+         * 
+         * Course structure
+         * worlds Dumbest Test (no framework)
+         * console app testing (xunit, fluent assertions)
+         * mvc testing (xunit, fake it easy, fluent assertions)
+         * web api
+         * 
          * 
          */
         #endregion
