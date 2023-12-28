@@ -1,4 +1,4 @@
-﻿namespace Lipstick.Models
+﻿namespace Lipstick.Documents
 {
     public class Explain
     {
@@ -15,6 +15,12 @@
             + Đã học về lập OPP
             + Đã biết về ngôn ngữ lập trình.
             + Hiểu về cơ sở dữ liệu
+            + Da biet html, css, js.
+
+            Sau khoá này các bạn sẽ được các thành quả như sau:
+            + Hiểu tổng quan về phát triển website
+            + Có thể tự xây dượng website với công nghệ .net core mvc
+            + Tự tin đi ứng tuyển về lập trình web
           
          */
         #endregion
