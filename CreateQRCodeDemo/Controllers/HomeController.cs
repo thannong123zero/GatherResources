@@ -24,18 +24,17 @@ namespace CreateQRCodeDemo.Controllers
         [HttpPost]
         public IActionResult Index(QRViewModel model)
         {
- 
-
             string url = model.Url;
             string path = Path.Combine(_webHostEnvironment.WebRootPath, "QRCodeStore");
             string fileName = string.Concat(Guid.NewGuid(), ".png");
 
-            AnyBitmap qrlogo = AnyBitmap.FromFile("./wwwroot/assets/logo.png");
+            AnyBitmap qrlogo = AnyBitmap.FromFile("./wwwroot/assets/favicon.png");
             QRCodeLogo logo = new QRCodeLogo(qrlogo, 0, 0, 20f);
             GeneratedBarcode barcode = QRCodeWriter.CreateQrCodeWithLogo(url, logo, 250);
-            barcode.AddAnnotationTextBelowBarcode("Mr Sam");
+            barcode.AddAnnotationTextBelowBarcode("My Channel");
             barcode.ChangeBackgroundColor(System.Drawing.ColorTranslator.FromHtml("#2A0066"));
-            barcode.ChangeBarCodeColor(System.Drawing.Color.Red);
+            barcode.ChangeBarCodeColor(System.Drawing.Color.Red,true);
+
             barcode.SetMargins(10);
 
             if (!Directory.Exists(path))
