@@ -4,34 +4,33 @@
     {
         // Introduce
         #region Requirement
-        /* 
-          
-            Hello, Đây là series về asp.net core mvc (.Net 7)
-           
-            Series này được thực hiện theo phong cách: Kết hợp lý thuyết và thực hành.
-            => Nhầm tránh việc các bạn viết code mà không hiểu đoạn code nó hoạt động như thế nào!
-           
-            Yêu cầu:
-            + Đã học về lập OPP
-            + Đã biết về ngôn ngữ lập trình.
-            + Hiểu về cơ sở dữ liệu
-            + Da biet html, css, js.
+        /*           
+            Hi,xin chao tat ca cac ban den voi series ve asp.net core mvc va api (.net 7)
 
-            Sau khoá này các bạn sẽ được các thành quả như sau:
-            + Hiểu tổng quan về phát triển website
-            + Có thể tự xây dượng website với công nghệ .net core mvc
-            + Tự tin đi ứng tuyển về lập trình web
+            Series nay duoc thuc hien tren phong cach ket hop ly thiet va thuc hanh.
+            Nham giup cac ban co the hieu ro hon ve asp.net mvc va api.
+
+            Yeu cau:
+            - Da hoc ve ngon ngu lap trinh bat ki.
+            - Da hoc ve html, css, js.
+            - Da hoc ve sql server.
+            - * Da hoc ve OOP (object oriented programming).
+
+            Sau khoa hoc nay, ban se nhan duoc:
+            - Kien thuc ve phat trien web voi asp.net mvc va api.
+            - Kien thuc ve entity framework.
+            - San pham web hoan chinh.
+            - Tu tin ung tuyen viec lam.
           
          */
         #endregion
         #region Summary ASP.NET
         /*
         
-            Trước khi thưởng thức món chính thì chúng ta sẽ dùng món khai vị trước nha !   
-        
-            Chúng ta sẽ tìm hiểu sơ bộ về asp.net là gì ?
-            Nó có thể làm được gì?
+            Truoc tien chung ta se tim hieu ve ASP.NET Core!
             => Ref: https://dotnet.microsoft.com/en-us/apps/aspnet
+            - ASP.NET core la gi?
+            - Khac nhau giua ASP.NET core va ASP.NET framework?
         
             Như chúng ta đã biết, Một trang web động thì sẽ có:
             + Giao diện người dùng (font end).
@@ -77,6 +76,27 @@
             + Web CRM (ASP.Net Core MVC): Vai trò, trang web sẽ tương tác với người quản lý trong việc thêm, xoá, sửa thông tin sản phẩm.
             + Web API (ASP.Net Core API): Vai trò, xử lý logic và tương tác với Web Client, Web CRM.
            
+            Tinh nang:           
+            Web Client
+             - Hien thi danh sach category
+             - Hien thi danh sach subcategory
+             - Hien thi danh sach product
+             - Hien thi chi tiet product
+             - Them product vao gio hang
+             - Xoa product khoi gio hang
+             - Cap nhat so luong product trong gio hang
+             - Thanh toan
+             - Su dung ben thu 3: recaptcha,facebook messenger
+
+            Web CRM 
+             - Them,xoa,sua category
+             - Them,xoa,sua subcategory
+             - Them,xoa,sua product
+             - Hien thi danh sach order
+             - Hien thi chi tiet order
+             - Xac nhan order
+
+
             Công nghệ thực hiện dự án:
             + Framework: Asp.net core API, Asp.net core MVC, Entity or Dapper.
             + Progamming languages: C#, Js.
