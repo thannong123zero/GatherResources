@@ -2,37 +2,46 @@
 {
     public class Explain
     {
-        // Introduce
         #region Requirement
         /*           
-            Hi,xin chao tat ca cac ban den voi series ve asp.net core mvc va api (.net 7)
+            Hi, Xin chào tất cả các bạn. Chào mừng các bạn đến với series về 
+            asp.net core mvc và asp.net core api (.net 7)
 
-            Series nay duoc thuc hien tren phong cach ket hop ly thiet va thuc hanh.
-            Nham giup cac ban co the hieu ro hon ve asp.net mvc va api.
+            Series này đưọc thực hiện dựa trên phong cách kết hợp lý thuyết và thực hành,
+            Nhầm giúp các bạn có thể hiểu rõ hơn về asp.net core mvc và asp.net core api.
 
-            Yeu cau:
-            - Da hoc ve ngon ngu lap trinh bat ki.
-            - Da hoc ve html, css, js.
-            - Da hoc ve sql server.
-            - * Da hoc ve OOP (object oriented programming).
+            Yêu cầu:
+            - Đã học về một ngôn ngữ lập trình bất kỳ.
+            - Biết một ít về html, css, js.
+            - Đã học về hệ quản trị cơ sở dữ liệu.
+            - * Đã học về lập trình hướng đối tuợng (object oriented programming).
 
-            Sau khoa hoc nay, ban se nhan duoc:
-            - Kien thuc ve phat trien web voi asp.net mvc va api.
-            - Kien thuc ve entity framework.
-            - San pham web hoan chinh.
-            - Tu tin ung tuyen viec lam.
+            Sau khoá học này, bạn sẽ nhận được:
+            - Kiến thức về phát triển web với asp.net core mvc va  asp.net core api.
+            - Kiến thức về entity framework.
+            - Sản phẩm web hoàn chỉnh.
+            - Tự tin ứng tuyển vào vị trí phát triển web.
           
          */
         #endregion
-        #region Summary ASP.NET
+        #region Summary ASP.NET Core
         /*
         
-            Truoc tien chung ta se tim hieu ve ASP.NET Core!
-            => Ref: https://dotnet.microsoft.com/en-us/apps/aspnet
-            - ASP.NET core la gi?
-            - Khac nhau giua ASP.NET core va ASP.NET framework?
-        
-            Như chúng ta đã biết, Một trang web động thì sẽ có:
+            Trước tiên chúng ta sẽ tìm hiểu về asp.net core
+            - ASP.NET core là gì?
+                + ASP.NET Core là một framework phát triển web được phát triển bởi Microsoft.
+                + Mã nguồn mở
+                + Đa nền tảng.
+                => Ref: https://dotnet.microsoft.com/en-us/apps/aspnet
+            - Khác nhau giữa ASP.NET core và ASP.NET framework?
+                + ASP.NET core hổ trợ đa nền tảng còn ASP.NET framework chỉ chạy trên windown.
+                + ASP.NET core được cải tiến từ ASP.NET framework. 
+                => Vì vậy mà ASP.NET core có phần vượt trội hơn ASP.NET framework.
+                => Ref:https://learn.microsoft.com/en-us/aspnet/core/fundamentals/choose-aspnet-framework?view=aspnetcore-7.0
+
+
+            Tìm hiểu về quá trình phát triển web.
+            Như chúng ta đã biết, Một trang web động thì sẽ có các phần như sau:
             + Giao diện người dùng (font end).
             + Xử lý logic và tương tác với csdl ( back end).
 
@@ -41,13 +50,20 @@
             + Web API
 
             Thông thường sẽ có 2 sự lựa chọn về việc phát triển web UI, đó là:
-            + Multiple page: Ví dụ điển hình là: Asp .Net core MVC ( có nhiều công nghệ khác).
+            + Multiple page: Ví dụ điển hình là: Asp .Net core MVC ( có nhiều công nghệ khác). 
+                - Khi người dùng click vào một link thì sẽ gửi request lên server và server sẽ trả về một trang web mới.
             + Single page: Ví dụ điển hình là: Reactjs (có nhiều công nghệ khác).
+                - Khi người dùng click vào một link thì sẽ không trả về một trang web mới mà sẽ render lại trang web hiện tại.
+            
+            Việc lựa chọn sẽ phụ thuộc vào yêu cầu của dự án.
+            Đối với dự án đặt nặng về trải nghiệm người dùng thì sẽ chọn single page.
+            Đối với dự án đặt nặng về SEO thì sẽ chọn multiple page.
+            
 
             => Để biết thêm thông tin về sự khác nhau này thì search key word: 
             "Difference between single page and multiple page application"
         
-            Trong ASP.Net sẽ hỗ trợ chúng ta công nghệ làm web UI như sau:
+            Trong ASP.Net core sẽ hỗ trợ chúng ta công nghệ làm web UI như sau:
             + ASP.NET Core Blazor
             + ASP.NET Core Razor Pages
             + ASP.NET Core MVC
@@ -76,33 +92,32 @@
             + Web CRM (ASP.Net Core MVC): Vai trò, trang web sẽ tương tác với người quản lý trong việc thêm, xoá, sửa thông tin sản phẩm.
             + Web API (ASP.Net Core API): Vai trò, xử lý logic và tương tác với Web Client, Web CRM.
            
-            Tinh nang:           
+            Tính năng       
             Web Client
-             - Hien thi danh sach category
-             - Hien thi danh sach subcategory
-             - Hien thi danh sach product
-             - Hien thi chi tiet product
-             - Them product vao gio hang
-             - Xoa product khoi gio hang
-             - Cap nhat so luong product trong gio hang
-             - Thanh toan
-             - Su dung ben thu 3: recaptcha,facebook messenger
+             - Hiển thị danh sách category
+             - Hiển thị danh sách subcategory
+             - Hiển thị danh sách product
+             - Hiển thị chi tiết product
+             - Thêm product vào giỏ hàng
+             - Cập nhật giỏ hàng
+             - Thanh toán
+             - Sử dụng bên thứ 3: recaptcha,facebook messenger
 
             Web CRM 
-             - Them,xoa,sua category
-             - Them,xoa,sua subcategory
-             - Them,xoa,sua product
-             - Hien thi danh sach order
-             - Hien thi chi tiet order
-             - Xac nhan order
+             - Thêm,xóa,sửa category
+             - Thêm,xóa,sửa subcategory
+             - Thêm,xóa,sửa product
+             - Hiển thị danh sách order
+             - Hiển thi chi tiết order
+             - Xác nhận order
 
 
             Công nghệ thực hiện dự án:
-            + Framework: Asp.net core API, Asp.net core MVC, Entity or Dapper.
+            + Framework: Asp.net core API, Asp.net core MVC, Entity.
             + Progamming languages: C#, Js.
             + Markup languages: Html
-            + Style languages: Css ( chúng ta sẽ viết theo Sass 'Syntactically Awesome Stylesheet' rồi biên dịch thành css).
-            + Labaries: Bootstrap, Jquery (Có luôn ajax nha các bạn!).
+            + Style sheet languages: Css ( chúng ta sẽ viết theo Sass 'Syntactically Awesome Stylesheet' rồi biên dịch thành css).
+            + Labaries: Bootstrap, Jquery.
 
          */
         #endregion
