@@ -58,8 +58,7 @@
             Việc lựa chọn sẽ phụ thuộc vào yêu cầu của dự án.
             Đối với dự án đặt nặng về trải nghiệm người dùng thì sẽ chọn single page.
             Đối với dự án đặt nặng về SEO thì sẽ chọn multiple page.
-            
-
+           
             => Để biết thêm thông tin về sự khác nhau này thì search key word: 
             "Difference between single page and multiple page application"
         
