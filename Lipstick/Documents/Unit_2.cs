@@ -9,6 +9,7 @@
          * Bước 2: xây dựng các view
          * 
          * 
+         * 
          */
         #endregion
     }
