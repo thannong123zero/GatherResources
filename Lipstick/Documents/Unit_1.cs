@@ -5,6 +5,7 @@
         #region Descover project
         /* ref: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-controller?view=aspnetcore-7.0&tabs=visual-studio
          * 
+         * Xin chào các bạn, hôm nay chúng ta sẽ cùng nhau tìm hiểu về kiến trúc của một project ASP.NET Core MVC.
          * 
          * Bước 1: Tạo project
          * 
@@ -30,6 +31,13 @@
          * Tại sao phải xây dựng kiến trúc project?
          * Chỉ đơn giản là để dễ dàng bảo trì và phát triển.
          * 
+         * Trong ứng dụng của chúng ta sẽ chia ra 3 Layer:
+         * + Presentation Layer: bao gồm các thao tác hiển thị dữ liệu và tương tác với người dùng.
+         *      => Trong layer sẽ thêm 2 thành phần con là: Helpers và services
+         *      Helpers: Lớp này sẽ xử lý các logic của view và trả về ViewModels. Tướng tác với controllers và Services.
+         *      Services: Lớp này sẽ tương tác với Api để lấy dữ liệu về và trả về cho Helpers.
+         * + Business Layer: bao gồm các thao tác xử lý nghiệp vụ.
+         * + Data Access Layer: bao gồm các thao tác truy xuất dữ liệu.
          * 
          */
         #endregion
