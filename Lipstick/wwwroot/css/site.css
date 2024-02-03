@@ -224,3 +224,89 @@
 }
 
 /*#endregion*/
+/*#region width*/
+/*#endregion*/
+/*#region color*/
+/*#endregion*/
+/*#region font-size*/
+/*#region*/
+/*#region responsive*/
+/*#endregion*/
+.homePage {
+  max-width: 1050px;
+  margin: auto;
+}
+.homePage .homeBanner {
+  width: 100%;
+}
+.homePage .homeBanner .banner {
+  width: 1050px;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.homePage .homeBanner .banner .bannerIntro {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.homePage .homeBanner .bannerOne {
+  background-image: url("/assets/images/lipstickvn-001-1024x658.jpg");
+}
+.homePage .homeBanner .bannerTwo {
+  background-image: url("/assets/images/LipColl2015_MU_LP_hero-1024x420.jpg");
+}
+.homePage .homeBanner .categorySuggestion .suggestion {
+  width: 100%;
+  height: 274px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.homePage .homeBanner .categorySuggestion .suggestionOne {
+  background-image: url("/assets/images/Son-NARS-Pure-Matte.png");
+}
+.homePage .homeBanner .categorySuggestion .suggestionTwo {
+  background-image: url("/assets/images/Son-NARS-Audacious.png");
+}
+.homePage .homeBanner .categorySuggestion .suggestionThree {
+  background-image: url("/assets/images/Son-NARS-Semi-Matte.png");
+}
+.effect-snow {
+  height: 100%;
+  width: 100%;
+  background-image: url("/assets/images/snow1.png"), url("/assets/images/snow2.png");
+  -webkit-animation: snow 20s linear infinite;
+  animation: snow 20s linear infinite;
+}
+
+@keyframes snow {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 500px 1000px, 400px 400px, 300px 300px;
+  }
+}
+.effect-sparkle {
+  height: 100%;
+  width: 100%;
+  background-image: url("/assets/images/sparkle1.png"), url("/assets/images/sparkle2.png");
+  -webkit-animation: sparkle 60s linear infinite;
+  animation: sparkle 60s linear infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: -500px -1000px, -400px -400px, 300px 300px;
+  }
+}
