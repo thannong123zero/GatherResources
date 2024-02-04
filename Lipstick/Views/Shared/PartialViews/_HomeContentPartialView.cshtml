@@ -1,23 +1,38 @@
-﻿<div class="homeContent">
+﻿<div class="homeContent mb-3">
     <div class="fillter">
-        <ul>
+        <ul class="list-unstyled d-flex flex-row justify-content-center">
             <li>Hot Nhat</li>
             <li>Moi Nhat</li>
             <li>Giam Gia</li>
         </ul>
     </div>
     <div class="productList">
-
+        <div class="row">
+            @for(int i =0; i < 8; i++)
+            {                
+                <div class="col-3">
+                    <div class="item">
+                        <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-1-247x300.jpg" class="showImg w-100" alt="item" />
+                        <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-247x300.jpg" class="showImgHover w-100" alt="item" />
+                        <div class="itemInfor">
+                            <p class="brand">SON GUCCI</p>
+                            <p class="nameProduction">Son Gucci Màu 25 Goldie Red Matte Đỏ Cổ Điển Hot Nhất</p>
+                            <p><span class="priceOld"><s>1999.999VND</s></span> <span class="discount">999.999VND</span></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
-    <div class="blog">
-        <div>
-            <img src="~/assets/images/blog-3-home.jpg" />
+    <div class="blog row">
+        <div class="col-4">
+            <img class="w-100" src="~/assets/images/blog-3-home.jpg" />
         </div>
-        <div>
-            <img src="~/assets/images/blog-2-home.jpg" />
+        <div class="col-4">
+            <img class="w-100" src="~/assets/images/blog-2-home.jpg" />
         </div>
-        <div>
-            <img src="~/assets/images/Son-Marc-Jacobs.jpg" />
+        <div class="col-4">
+            <img class="w-100" src="~/assets/images/Son-Marc-Jacobs.png" />
         </div>
     </div>
 </div>
