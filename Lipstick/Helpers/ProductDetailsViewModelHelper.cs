@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Lipstick.Controllers
+namespace Lipstick.Helpers
 {
-    public class ProductListByCategoryController : Controller
+    public class ProductDetailsViewModelHelper : Controller
     {
         public IActionResult Index()
         {
