@@ -224,6 +224,63 @@
 }
 
 /*#endregion*/
+/*#region item*/
+.item {
+  border: 1px solid #d5d5d5;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.item .showImgHover,
+.item:hover .showImg {
+  display: none;
+}
+
+.item:hover .showImgHover {
+  display: unset;
+}
+
+.item:hover {
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(136.66deg, #f05c90 -9.13%, #ed11ea 92.54%);
+}
+
+.item:hover .itemInfor {
+  border-top: 1px solid #e72f8b;
+}
+
+.itemInfor {
+  border-top: 1px solid #d5d5d5;
+  padding: 5px;
+}
+.itemInfor p {
+  margin-bottom: 4px;
+}
+.itemInfor .brand {
+  font-family: var(--font-SVN-Gotham-Light);
+}
+.itemInfor .nameProduction {
+  font-family: var(--font-SVN-Gotham-Regular);
+  line-height: 1.3;
+  font-size: 16px;
+}
+.itemInfor .priceOld {
+  color: #272624;
+  font-size: 14px;
+}
+.itemInfor .priceOld {
+  color: #615F5C;
+  font-size: 14px;
+}
+.itemInfor .discount {
+  color: #e72f8b;
+  font-size: 14px;
+}
+
+/*#endregion*/
 /*#region width*/
 /*#endregion*/
 /*#region color*/
@@ -278,56 +335,6 @@
 .homePage .homeBanner .categorySuggestion .suggestionThree {
   background-image: url("/assets/images/Son-NARS-Semi-Matte.png");
 }
-.homePage .homeContent .item {
-  border: 1px solid #d5d5d5;
-  text-align: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-.homePage .homeContent .item .showImgHover,
-.homePage .homeContent .item:hover .showImg {
-  display: none;
-}
-.homePage .homeContent .item:hover .showImgHover {
-  display: unset;
-}
-.homePage .homeContent .item:hover {
-  border: 1px solid;
-  border-image-slice: 1;
-  border-image-source: linear-gradient(136.66deg, #f05c90 -9.13%, #ed11ea 92.54%);
-}
-.homePage .homeContent .item:hover .itemInfor {
-  border-top: 1px solid #e72f8b;
-}
-.homePage .homeContent .itemInfor {
-  border-top: 1px solid #d5d5d5;
-  padding: 5px;
-}
-.homePage .homeContent .itemInfor p {
-  margin-bottom: 4px;
-}
-.homePage .homeContent .itemInfor .brand {
-  font-family: var(--font-SVN-Gotham-Light);
-}
-.homePage .homeContent .itemInfor .nameProduction {
-  font-family: var(--font-SVN-Gotham-Regular);
-  line-height: 1.3;
-  font-size: 16px;
-}
-.homePage .homeContent .itemInfor .priceOld {
-  color: #272624;
-  font-size: 14px;
-}
-.homePage .homeContent .itemInfor .priceOld {
-  color: #615F5C;
-  font-size: 14px;
-}
-.homePage .homeContent .itemInfor .discount {
-  color: #e72f8b;
-  font-size: 14px;
-}
-
 .effect-snow {
   height: 100%;
   width: 100%;
@@ -359,4 +366,29 @@
   100% {
     background-position: -500px -1000px, -400px -400px, 300px 300px;
   }
+}
+/*#region width*/
+/*#endregion*/
+/*#region color*/
+/*#endregion*/
+/*#region font-size*/
+/*#region*/
+/*#region responsive*/
+/*#endregion*/
+.productPage {
+  max-width: 1050px;
+  margin: auto;
+}
+
+/*#region width*/
+/*#endregion*/
+/*#region color*/
+/*#endregion*/
+/*#region font-size*/
+/*#region*/
+/*#region responsive*/
+/*#endregion*/
+.productDetailsPage {
+  max-width: 1050px;
+  margin: auto;
 }
