@@ -2,7 +2,7 @@
 
 namespace Lipstick.Controllers
 {
-    public class ProductDetailsController : Controller
+    public class NotFoundController : Controller
     {
         public IActionResult Index()
         {
