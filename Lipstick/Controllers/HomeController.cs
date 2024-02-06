@@ -1,4 +1,6 @@
 ﻿using Lipstick.Models;
+using Lipstick.Services;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -17,7 +19,30 @@ namespace Lipstick.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult SetLanguage()
+        {
+            string languageCode = Globle.GetLanguageCode(Request);
+            string vn = ELanguage.VN.ToString();
+            if (string.Equals(languageCode, vn))
+            {
+                Response.Cookies.Append(
+                    CookieRequestCultureProvider.DefaultCookieName,
+                    CookieRequestCultureProvider.MakeCookieValue(new RequestCulture("en-US")),
+                    new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+                );
+            }
+            else
+            {
+                Response.Cookies.Append(
+                   CookieRequestCultureProvider.DefaultCookieName,
+                   CookieRequestCultureProvider.MakeCookieValue(new RequestCulture("vi-VN")),
+                   new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+               );
 
+            }
+            return Redirect(Request.Headers["Referer"].ToString());
+        }
         public IActionResult Privacy()
         {
             return View();

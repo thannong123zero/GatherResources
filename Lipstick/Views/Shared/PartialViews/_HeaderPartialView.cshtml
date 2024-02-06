@@ -9,15 +9,19 @@
                 <a href="#" class="text-uppercase">TheFlowers.vn</a>
            </div>
            <div>
-                <a href="#" class="text-capitalize">Giới Thiệu</a>
+                <a href="#" class="text-capitalize">@_language.Getkey("introduction")</a>
                 <span>|</span>
-                <a href="#" class="text-capitalize">Liên hệ</a>
+                <a href="#" class="text-capitalize">@_language.Getkey("contact")</a>
+                <span>|</span>
+                <a class="text-uppercase" asp-action="SetLanguage" asp-controller="Home" id="setLanguageByCookei"></a>
            </div>
         </div>
     </section>
     <div class="headerMain">
         <input type="text" placeholder="Tìm kiếm"/>
-        <img src="~/assets/images/lipstick-logo-black.png" alt="..."/>
+        <a asp-action="index" asp-controller="home">
+            <img src="~/assets/images/lipstick-logo-black.png" alt="..."/>
+        </a>
         <div>
             <button>2312123511</button>
             <span>
