@@ -1,4 +1,6 @@
-﻿using API.IRepositories;
+﻿using API.ContextObject;
+using API.DTO;
+using API.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -17,6 +19,16 @@ namespace API.Controllers
         [Route("getMenuGroups")]
         public async Task<IActionResult> GetMenuGroups()
         {
+            using (var ctx = new DatabaseContext())
+            {
+                var stud = new Student() { StudentName = "Bill" };
+
+                ctx.Students.Add(stud);
+                ctx.SaveChanges();
+            }
+
+
+
             var menugroups = _menuGroupRepository.GetMenuGroups();
             if (menugroups != null)
             {
