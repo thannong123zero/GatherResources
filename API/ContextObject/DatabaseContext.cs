@@ -7,11 +7,16 @@ namespace API.ContextObject
 {
     public class DatabaseContext : DbContext
     {
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Grade> Grades { get; set; }
         public DatabaseContext() : base()
         {
         }
 
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Grade> Grades { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer();
+        }
+
     }
 }
