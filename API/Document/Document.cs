@@ -22,7 +22,18 @@
 
         The DbSet<Tentity> type allows EF Core to query and save instance of the specified entity to the database
 
+        There are two ways using which you can create a database and schema:
+        1. Using the EnsureCreated() method.
+        2. Using Migration API
 
+
+        Entity State: https://learn.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.entitystate?view=efcore-8.0
+
+        Migration:
+        Add-Migration command doest not create database. It just creates the two snapshot files in the Migration folder.
+
+        add-migration _Name_
+        update-database
          
          
          */
