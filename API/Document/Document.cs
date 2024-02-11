@@ -35,7 +35,18 @@
         add-migration _Name_
         update-database
          
+
+        Convention in EF Core
+        conventions are default rules using which EF builds a model based on your domain (entity) classes.
+
+        Configurations
+        There are two ways to configure domain classes in EF Core
+        1. By using Data Annotation Atributes
+        2. By using Fluent API
+
          
+
+
          */
 
 
