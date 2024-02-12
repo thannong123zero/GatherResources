@@ -10,20 +10,16 @@ namespace API.Controllers
     [ApiController]
     public class MenuGroupController : ControllerBase
     {
-        private readonly IMenuGroupRepository _menuGroupRepository;
-        public MenuGroupController(IMenuGroupRepository menuGroupRepository)
-        {
-            _menuGroupRepository = menuGroupRepository;
-        }
+        //private readonly IMenuGroupRepository _menuGroupRepository;
+        //public MenuGroupController(IMenuGroupRepository menuGroupRepository)
+        //{
+        //    _menuGroupRepository = menuGroupRepository;
+        //}
         [HttpGet]
         [Route("getMenuGroups")]
         public async Task<IActionResult> GetMenuGroups()
         {
-            var menugroups = _menuGroupRepository.GetMenuGroups();
-            if (menugroups != null)
-            {
-                return Ok(JsonSerializer.Serialize(menugroups));
-            }
+           
             return BadRequest();
         }
         [HttpPost]
