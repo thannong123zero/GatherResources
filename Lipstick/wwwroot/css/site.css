@@ -51,6 +51,14 @@ body {
   color: #1e1e1e;
 }
 
+.text-color-red {
+  color: #FF4141;
+}
+
+.text-color-pink {
+  color: #e72f8b;
+}
+
 /*#endregion*/
 /*#region text-style*/
 .text-uppercase {
@@ -160,6 +168,41 @@ body {
     font-size: 13px;
   }
 }
+/*#endregion*/
+/*#region button*/
+.button-white-border {
+  color: #fff;
+  border-block-color: #fff;
+  border: 2px solid;
+  background-color: transparent;
+  padding: 4px 6px;
+}
+
+.button-pink {
+  color: #fff;
+  background-color: #e72f8b;
+  padding: 4px 6px;
+}
+
+.button-red {
+  color: #fff;
+  background-color: #FF4141;
+  border-block-color: #fff;
+  border: 1px solid;
+  padding: 4px 6px;
+}
+
+/*#endregion*/
+/*#region summary*/
+.is-diliver {
+  height: 3px;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 1em 0;
+  width: 100%;
+  max-width: 30px;
+}
+
 /*#endregion*/
 /*#region width*/
 /*#endregion*/
@@ -286,6 +329,14 @@ body {
   margin: auto;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.125);
   background-color: #000000;
+  /*  .is-diliver {
+        height: 3px;
+        display: block;
+        background-color: rgba(255,255,255,0.3);
+        margin: 1em 0;
+        width: 100%;
+        max-width: 30px;
+    }*/
 }
 .footerContainer .topFooter {
   width: 100%;
@@ -303,14 +354,6 @@ body {
 .footerContainer ul li a {
   color: #fff;
   text-decoration: none;
-}
-.footerContainer .is-diliver {
-  height: 3px;
-  display: block;
-  background-color: rgba(255, 255, 255, 0.3);
-  margin: 1em 0;
-  width: 100%;
-  max-width: 30px;
 }
 
 /*#endregion*/
@@ -415,15 +458,35 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border: 1px solid #e5e7eb;
 }
 .homePage .homeBanner .categorySuggestion .suggestionOne {
   background-image: url("/assets/images/Son-NARS-Pure-Matte.png");
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.homePage .homeBanner .categorySuggestion .suggestionOne div {
+  width: 60%;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px -2px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-bottom: 1.5rem;
 }
 .homePage .homeBanner .categorySuggestion .suggestionTwo {
   background-image: url("/assets/images/Son-NARS-Audacious.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .homePage .homeBanner .categorySuggestion .suggestionThree {
   background-image: url("/assets/images/Son-NARS-Semi-Matte.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homePage .homeBanner .categorySuggestion .suggestionThree div {
+  background-color: #1e1e1e;
 }
 .effect-snow {
   height: 100%;

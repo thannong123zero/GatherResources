@@ -7,6 +7,12 @@
 .text-color-black{
     color: $color_black_1e1e1e;
 }
+.text-color-red{
+    color: $color_red_FF4141;
+}
+.text-color-pink {
+    color: $color_pink_e72f8b;
+}
 /*#endregion*/
 
 /*#region text-style*/
@@ -116,4 +122,38 @@
         font-size: $text-mb-level-13;
     }
 }
+/*#endregion*/
+
+/*#region button*/
+.button-white-border{
+    color: $color_white_fff;
+    border-block-color: $color_white_fff;
+    border: 2px solid;
+    background-color: transparent;
+    padding: 4px 6px;
+}
+.button-pink {
+    color: $color_white_fff;
+    background-color: $color_pink_e72f8b;
+    padding: 4px 6px;
+}
+.button-red {
+    color: $color_white_fff;
+    background-color: $color_red_FF4141;
+    border-block-color: $color_white_fff;
+    border: 1px solid;
+    padding: 4px 6px;
+}
+/*#endregion*/
+
+/*#region summary*/
+.is-diliver {
+    height: 3px;
+    display: block;
+    background-color: rgba(255, 255, 255, .3);
+    margin: 1em 0;
+    width: 100%;
+    max-width: 30px;
+}
+
 /*#endregion*/
