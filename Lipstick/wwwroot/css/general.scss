@@ -29,6 +29,21 @@
 }
 /*#endregion*/
 
+/*#region font-weight*/
+.font-weight-300{
+    font-weight: 300;
+}
+.font-weight-500 {
+    font-weight: 500;
+}
+.font-weight-600 {
+    font-weight: 600;
+}
+.font-weight-700 {
+    font-weight: 700;
+}
+/*#endregion*/
+
 /*#region font-family*/
 .font-regular {
     font-family: "Tinos Regular";
@@ -73,6 +88,9 @@
 }
 .text-30 {
     font-size: 30px;
+}
+.text-32 {
+    font-size: 32px;
 }
 .text-34 {
     font-size: 34px;
