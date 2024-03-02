@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cart" xml:space="preserve">
+    <value>Giỏ hàng</value>
+  </data>
   <data name="contact" xml:space="preserve">
     <value>Liên Hệ</value>
   </data>
   <data name="introduction" xml:space="preserve">
     <value>Giới Thiệu</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Tìm kiếm</value>
   </data>
 </root>

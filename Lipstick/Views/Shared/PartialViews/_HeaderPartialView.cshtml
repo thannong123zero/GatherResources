@@ -19,7 +19,7 @@
     </section>
     <div class="headerMain">
         <div class="boxSearch position-relative">
-            <input type="text" id="inputSearch" placeholder="Tìm kiếm"/>
+            <input type="text" id="inputSearch" placeholder="@_language.Getkey("search")"/>
             <span class="ti-search"></span>
         </div>
         <a asp-action="index" asp-controller="home">
@@ -35,7 +35,7 @@
             </a>
             <div class="cart">
                 <span>
-                    Giỏ hàng / 0
+                    @_language.Getkey("cart") / 0
                 </span>
                 <img class="cartImage" src="~/assets/images/logo-cart-1.png" alt="..."/>
             </div>
