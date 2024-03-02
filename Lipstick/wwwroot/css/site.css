@@ -74,100 +74,73 @@ body {
 }
 
 /*#endregion*/
+/*#region font-family*/
+.font-regular {
+  font-family: "Tinos Regular";
+}
+
+.font-italic {
+  font-family: "Tinos Italic";
+}
+
+.font-blod {
+  font-family: "Tinos Blod";
+}
+
+/*#endregion*/
 /*#region font-size */
-.text-level-1 {
-  font-size: 60px;
+.text-11 {
+  font-size: 11px;
 }
 
-.text-level-2 {
-  font-size: 40px;
+.text-12 {
+  font-size: 12px;
 }
 
-.text-level-3 {
-  font-size: 30px;
-}
-
-.text-level-4 {
-  font-size: 24px;
-}
-
-.text-level-5 {
-  font-size: 23px;
-}
-
-.text-level-6 {
-  font-size: 22px;
-}
-
-.text-level-7 {
-  font-size: 21px;
-}
-
-.text-level-8 {
-  font-size: 20px;
-}
-
-.text-level-9 {
-  font-size: 19px;
-}
-
-.text-level-10 {
-  font-size: 20px;
-}
-
-.text-level-11 {
-  font-size: 15px;
-}
-
-.text-level-12 {
+.text-14 {
   font-size: 14px;
 }
 
-.text-level-13 {
-  font-size: 13px;
+.text-16 {
+  font-size: 16px;
 }
 
-@media only screen and (width < 992px) {
-  .text-level-1 {
-    font-size: 60px;
-  }
-  .text-level-2 {
-    font-size: 40px;
-  }
-  .text-level-3 {
-    font-size: 30px;
-  }
-  .text-level-4 {
-    font-size: 24px;
-  }
-  .text-level-5 {
-    font-size: 23px;
-  }
-  .text-level-6 {
-    font-size: 22px;
-  }
-  .text-level-7 {
-    font-size: 21px;
-  }
-  .text-level-8 {
-    font-size: 20px;
-  }
-  .text-level-9 {
-    font-size: 19px;
-  }
-  .text-level-10 {
-    font-size: 20px;
-  }
-  .text-level-11 {
-    font-size: 15px;
-  }
-  .text-level-12 {
-    font-size: 14px;
-  }
-  .text-level-13 {
-    font-size: 13px;
-  }
+.text-18 {
+  font-size: 18px;
 }
+
+.text-20 {
+  font-size: 20px;
+}
+
+.text-22 {
+  font-size: 22px;
+}
+
+.text-24 {
+  font-size: 24px;
+}
+
+.text-26 {
+  font-size: 26px;
+}
+
+.text-28 {
+  font-size: 28px;
+}
+
+.text-30 {
+  font-size: 30px;
+}
+
+.text-34 {
+  font-size: 34px;
+}
+
+.text-38 {
+  font-size: 38px;
+}
+
 /*#endregion*/
 /*#region button*/
 .button-white-border {
@@ -233,7 +206,6 @@ body {
 .headerContainer .topHeader .nav a, .headerContainer .topHeader .nav span {
   color: #fff;
   text-decoration: unset;
-  font-size: 11px;
 }
 .headerContainer .topHeader .nav a {
   margin: 0 6px;
@@ -311,7 +283,6 @@ body {
 .headerContainer .headerBottom a {
   padding: 0 14px;
   color: #000000;
-  font-size: 14px;
   text-decoration: unset;
   border-left: 1px solid #ccc;
 }
@@ -388,17 +359,15 @@ body {
 .itemInfor {
   border-top: 1px solid #d5d5d5;
   padding: 5px;
+  /*    .brand {
+          font-family: var(--font-SVN-Gotham-Light);
+      }*/
 }
 .itemInfor p {
   margin-bottom: 4px;
 }
-.itemInfor .brand {
-  font-family: var(--font-SVN-Gotham-Light);
-}
 .itemInfor .nameProduction {
-  font-family: var(--font-SVN-Gotham-Regular);
   line-height: 1.3;
-  font-size: 16px;
 }
 .itemInfor .priceOld {
   color: #272624;

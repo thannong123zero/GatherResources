@@ -1,14 +1,10 @@
 ﻿<div class="homeContent mb-3">
-    <div class="fillter">
-        <ul class="list-unstyled d-flex flex-row justify-content-center">
-            <li>Hot Nhat</li>
-            <li>Moi Nhat</li>
-            <li>Giam Gia</li>
-        </ul>
+    <div>
+        <h1>Moi Nhat</h1>
     </div>
     <div class="productList">
         <div class="row">
-            @for(int i =0; i < 8; i++)
+            @for(int i =0; i < 4; i++)
             {                
                 <div class="col-3">
                     <div class="item">
@@ -24,15 +20,63 @@
             }
         </div>
     </div>
-    <div class="blog row">
+
+    <div>
+        <h1>Xu huong</h1>
+    </div>
+    <div class="productList">
+        <div class="row">
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="col-3">
+                    <div class="item">
+                        <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-1-247x300.jpg" class="showImg w-100" alt="item" />
+                        <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-247x300.jpg" class="showImgHover w-100" alt="item" />
+                        <div class="itemInfor">
+                            <p class="brand">SON GUCCI</p>
+                            <p class="nameProduction">Son Gucci Màu 25 Goldie Red Matte Đỏ Cổ Điển Hot Nhất</p>
+                            <p><span class="priceOld"><s>1999.999VND</s></span> <span class="discount">999.999VND</span></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div>
+        <h1>Khuyen Mai</h1>
+    </div>
+    <div class="productList">
+        <div class="row">
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="col-3">
+                    <div class="item">
+                        <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-1-247x300.jpg" class="showImg w-100" alt="item" />
+                        <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-247x300.jpg" class="showImgHover w-100" alt="item" />
+                        <div class="itemInfor">
+                            <p class="brand">SON GUCCI</p>
+                            <p class="nameProduction">Son Gucci Màu 25 Goldie Red Matte Đỏ Cổ Điển Hot Nhất</p>
+                            <p><span class="priceOld"><s>1999.999VND</s></span> <span class="discount">999.999VND</span></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="blog row mt-4 mb-2">
         <div class="col-4">
             <img class="w-100" src="~/assets/images/blog-3-home.jpg" />
+            <div class="text-center">Tin Tuc Moi Nhat</div>
         </div>
         <div class="col-4">
             <img class="w-100" src="~/assets/images/blog-2-home.jpg" />
+            <div class="text-center">Kien Thuc Trang Diem</div>
         </div>
         <div class="col-4">
             <img class="w-100" src="~/assets/images/Son-Marc-Jacobs.png" />
+            <div class="text-center">Review Son Moi</div>
         </div>
     </div>
 </div>

@@ -29,98 +29,59 @@
 }
 /*#endregion*/
 
+/*#region font-family*/
+.font-regular {
+    font-family: "Tinos Regular";
+}
+.font-italic {
+    font-family: "Tinos Italic";
+}
+.font-blod {
+    font-family: "Tinos Blod";
+}
+/*#endregion*/
 /*#region font-size */
-.text-level-1{
-    font-size: $text-level-1;
+.text-11 {
+    font-size: 11px;
 }
-.text-level-2 {
-    font-size: $text-level-2;
+.text-12 {
+    font-size: 12px;
 }
-.text-level-3 {
-    font-size: $text-level-3;
+.text-14 {
+    font-size: 14px;
 }
-.text-level-4 {
-    font-size: $text-level-4;
+.text-16 {
+    font-size: 16px;
 }
-.text-level-5 {
-    font-size: $text-level-5;
+.text-18 {
+    font-size: 18px;
 }
-.text-level-6 {
-    font-size: $text-level-6;
+.text-20 {
+    font-size: 20px;
 }
-.text-level-7 {
-    font-size: $text-level-7;
+.text-22 {
+    font-size: 22px;
 }
-.text-level-8 {
-    font-size: $text-level-8;
+.text-24 {
+    font-size: 24px;
 }
-.text-level-9 {
-    font-size: $text-level-9;
+.text-26 {
+    font-size: 26px;
 }
-.text-level-10 {
-    font-size: $text-level-10;
+.text-28 {
+    font-size: 28px;
 }
-.text-level-11 {
-    font-size: $text-level-11;
+.text-30 {
+    font-size: 30px;
 }
-.text-level-12 {
-    font-size: $text-level-12;
+.text-34 {
+    font-size: 34px;
 }
-.text-level-13 {
-    font-size: $text-level-13;
+.text-38 {
+    font-size: 38px;
 }
 @include respond(map-get($breakPoint,"md")) {
-    .text-level-1 {
-        font-size: $text-mb-level-1;
-    }
-
-    .text-level-2 {
-        font-size: $text-mb-level-2;
-    }
-
-    .text-level-3 {
-        font-size: $text-mb-level-3;
-    }
-
-    .text-level-4 {
-        font-size: $text-mb-level-4;
-    }
-
-    .text-level-5 {
-        font-size: $text-mb-level-5;
-    }
-
-    .text-level-6 {
-        font-size: $text-mb-level-6;
-    }
-
-    .text-level-7 {
-        font-size: $text-mb-level-7;
-    }
-
-    .text-level-8 {
-        font-size: $text-mb-level-8;
-    }
-
-    .text-level-9 {
-        font-size: $text-mb-level-9;
-    }
-
-    .text-level-10 {
-        font-size: $text-mb-level-10;
-    }
-
-    .text-level-11 {
-        font-size: $text-mb-level-11;
-    }
-
-    .text-level-12 {
-        font-size: $text-mb-level-12;
-    }
-
-    .text-level-13 {
-        font-size: $text-mb-level-13;
-    }
+    
 }
 /*#endregion*/
 
