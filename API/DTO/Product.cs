@@ -2,7 +2,7 @@
 {
     public class Product : BaseDTO
     {
-        public Guid Id { get; set; }
+        public Guid ID { get; set; }
         public Guid MenuItemID { get; set; }
         public Guid UnitID { get; set; }
         public string NameEN { get; set; }

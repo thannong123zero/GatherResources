@@ -1,6 +1,6 @@
 ﻿namespace API.DTO
 {
-    public class MenuItem
+    public class MenuItem : BaseDTO
     {
         public Guid ID { get; set; }
         public Guid MenuGroupID { get; set; }
