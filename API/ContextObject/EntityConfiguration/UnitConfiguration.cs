@@ -1,4 +1,4 @@
-﻿using API.DTO;
+﻿using SharedLibrary.DTO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,7 +8,13 @@ namespace API.ContextObject.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<Unit> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(s => s.ID);
+            builder.Property(s => s.NameEN).IsRequired().HasMaxLength(100);
+            builder.Property(s => s.NameVN).IsRequired().HasMaxLength(100);
+            builder.Property(s => s.CreatedOn).IsRequired().HasDefaultValue(DateTime.Now);
+            builder.Property(s => s.ModifiedOn).IsRequired().HasDefaultValue(DateTime.Now);
+            builder.Property(s => s.IsActive).HasDefaultValue(false);
+            builder.Property(s => s.IsDeleted).HasDefaultValue(false);
         }
     }
 }

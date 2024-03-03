@@ -1,4 +1,4 @@
-﻿using API.DTO;
+﻿using SharedLibrary.DTO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
