@@ -1,8 +1,12 @@
 using API.ContextObject;
 using API.IRepositories;
 using API.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+
 
 // Add services to the container.
 
@@ -12,6 +16,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<DatabaseContext>();
+// sign up database context
+
 builder.Services.AddScoped<IMenuGroupRepository, MenuGroupRepository>();
 
 var app = builder.Build();

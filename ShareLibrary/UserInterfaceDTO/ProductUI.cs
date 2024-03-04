@@ -1,8 +1,6 @@
-﻿using SharedLibrary.UserInterfaceDTO;
-
-namespace SharedLibrary.DTO
+﻿namespace SharedLibrary.UserInterfaceDTO
 {
-    public class Product : BaseDTO
+    public class ProductUI : BaseUI
     {
         public Guid ID { get; set; }
         public Guid MenuItemID { get; set; }
@@ -18,7 +16,5 @@ namespace SharedLibrary.DTO
         public int Discount { get; set; }
         public bool IsHome { get; set; }
         public double Quantity { get; set; }
-        public UnitUI Unit { get; set; }
-        public MenuItemUI MenuItem { get; set; }
     }
 }

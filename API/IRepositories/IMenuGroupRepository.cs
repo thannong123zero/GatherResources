@@ -2,8 +2,7 @@
 
 namespace API.IRepositories
 {
-    public interface IMenuGroupRepository
+    public interface IMenuGroupRepository : IGeneralRepository<MenuGroup>
     {
-        public Task<IEnumerable<MenuGroup>> GetMenuGroups();
     }
 }

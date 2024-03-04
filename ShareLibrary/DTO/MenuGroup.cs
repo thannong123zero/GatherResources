@@ -1,4 +1,6 @@
-﻿namespace SharedLibrary.DTO
+﻿using SharedLibrary.UserInterfaceDTO;
+
+namespace SharedLibrary.DTO
 {
     public class MenuGroup : BaseDTO
     {
@@ -7,7 +9,6 @@
         public string NameVN { get; set; }
         public string DiscriptionEN { get; set; }
         public string DiscriptionVN { get; set; }
-        public ICollection<MenuItem> MenuItems { get; set; }
-
+        public ICollection<MenuItemUI> MenuItems { get; set; }
     }
 }

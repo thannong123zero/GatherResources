@@ -1,5 +1,5 @@
-﻿using SharedLibrary.DTO;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using SharedLibrary.DTO;
 
 namespace API.ContextObject
 {

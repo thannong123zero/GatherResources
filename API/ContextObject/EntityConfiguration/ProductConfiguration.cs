@@ -1,6 +1,6 @@
-﻿using SharedLibrary.DTO;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SharedLibrary.DTO;
 
 namespace API.ContextObject.EntityConfiguration
 {
