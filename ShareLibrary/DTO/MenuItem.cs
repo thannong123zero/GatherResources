@@ -1,5 +1,4 @@
-﻿using SharedLibrary.UserInterfaceDTO;
-
+﻿
 namespace SharedLibrary.DTO
 {
     public class MenuItem : BaseDTO
@@ -10,7 +9,7 @@ namespace SharedLibrary.DTO
         public string NameVN { get; set; }
         public string DiscriptionEN { get; set; }
         public string DiscriptionVN { get; set; }
-        public MenuGroupUI MenuGroup { get; set; }
-        public ICollection<ProductUI> Products { get; set; }
+        public MenuGroup MenuGroup { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

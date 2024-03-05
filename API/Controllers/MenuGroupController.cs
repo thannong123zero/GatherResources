@@ -1,8 +1,11 @@
 ﻿using API.ContextObject;
 using API.IRepositories;
+using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using SharedLibrary.DTO;
 using SharedLibrary.UserInterfaceDTO;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 
 namespace API.Controllers
@@ -12,20 +15,23 @@ namespace API.Controllers
     public class MenuGroupController : ControllerBase
     {
         private readonly IMenuGroupRepository _menuGroupRepository;
-        public MenuGroupController(IMenuGroupRepository menuGroupRepository)
+        private readonly IMapper _mapper;
+        public MenuGroupController(IMenuGroupRepository menuGroupRepository,IMapper mapper)
         {
             _menuGroupRepository = menuGroupRepository;
+            _mapper = mapper;
         }
 
         [HttpPost]
         [Route("addMenuGroup")]
-        public async Task<IActionResult> AddMenuGroup([FromForm]MenuGroupUI menuGroup)
+        public async Task<IActionResult> AddMenuGroup(MenuGroupUI menuGroupUI)
         {
-            if(menuGroup == null)
+            if(menuGroupUI == null)
             {
                 return BadRequest();
             }
-            //_menuGroupRepository.Add(menuGroup);
+            var menuGroup = _mapper.Map<MenuGroup>(menuGroupUI);
+            _menuGroupRepository.Add(menuGroup);
 
             return Ok();
         }

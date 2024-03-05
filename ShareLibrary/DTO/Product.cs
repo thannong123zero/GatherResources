@@ -1,5 +1,4 @@
-﻿using SharedLibrary.UserInterfaceDTO;
-
+﻿
 namespace SharedLibrary.DTO
 {
     public class Product : BaseDTO
@@ -18,7 +17,7 @@ namespace SharedLibrary.DTO
         public int Discount { get; set; }
         public bool IsHome { get; set; }
         public double Quantity { get; set; }
-        public UnitUI Unit { get; set; }
-        public MenuItemUI MenuItem { get; set; }
+        public Unit Unit { get; set; }
+        public MenuItem MenuItem { get; set; }
     }
 }
