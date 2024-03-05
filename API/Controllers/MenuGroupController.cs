@@ -36,7 +36,6 @@ namespace API.Controllers
             return Ok();
         }
 
-
         [HttpGet]
         [Route("getMenuGroups")]
         public async Task<IActionResult> GetMenuGroups()
