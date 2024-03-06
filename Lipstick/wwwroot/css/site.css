@@ -384,6 +384,11 @@ body {
 }
 .footerContainer ul li {
   list-style-type: none;
+  padding: 8px 0;
+  border-bottom: 1px solid #1e1e1e;
+}
+.footerContainer ul li:last-child {
+  border-bottom: none;
 }
 .footerContainer ul li a {
   color: #fff;
