@@ -95,7 +95,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            margin-left:8px;
+            margin-left: 8px;
 
             .cartImage {
                 height: 32px;
@@ -108,21 +108,59 @@
         max-width: $maxWidthContent;
         margin: auto;
         height: 46px;
+        display: flex;
+        align-items: center;
 
-        a {
-            padding: 0 14px;
-            color: $color_black_000000;
-            font-size: 14px;
-            text-decoration: unset;
-            border-left: 1px solid #ccc;
-        }
+        .menuGroup {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
 
-        a:first-child {
-            border-left: unset;
-        }
+            & > li {
+                display: inline;
+                position: relative;
 
-        a:hover {
-            color: $color_pink_e72f8b;
+                a {
+                    padding: 0 14px;
+                    color: $color_black_000000;
+                    text-decoration: unset;
+                    border-left: 1px solid #ccc;
+                }
+
+                a:first-child {
+                    border-left: unset;
+                }
+
+                a:hover {
+                    color: $color_pink_e72f8b;
+                }
+
+                .menuItem {
+                    display: none;
+                    list-style-type: none;
+                    padding: 0;
+                    position: absolute;
+                    width: 220px;
+                    background-color: $color_white_fff;
+                    z-index: 100;
+                    box-shadow: 2px 2px 4px 3px rgba(0, 0, 0, 0.125);
+                }
+            }
+
+            & > li::before {
+                content: "";
+                height: 20px;
+                width: 60px;
+                background: none;
+                position: absolute;
+                top: 25px;
+                cursor: pointer;
+                z-index: 2;
+            }
+
+            & > li:hover .menuItem {
+                display: block;
+            }
         }
     }
 }
@@ -155,8 +193,7 @@
         color: $color_white_fff;
         text-decoration: none;
     }
-
-  /*  .is-diliver {
+    /*  .is-diliver {
         height: 3px;
         display: block;
         background-color: rgba(255,255,255,0.3);
