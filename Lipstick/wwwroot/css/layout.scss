@@ -90,6 +90,16 @@
             }
         }
 
+        .call:hover {
+            background-color: $color_black_000000;
+            color: $color_white_fff;
+            opacity: 1;
+
+            svg path{
+                fill: $color_white_fff !important;
+            }
+        }
+
         .cart {
             display: flex;
             flex-direction: row;

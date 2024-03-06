@@ -293,6 +293,14 @@ body {
 .headerContainer .headerMain .call svg {
   margin-right: 6px;
 }
+.headerContainer .headerMain .call:hover {
+  background-color: #000000;
+  color: #fff;
+  opacity: 1;
+}
+.headerContainer .headerMain .call:hover svg path {
+  fill: #fff !important;
+}
 .headerContainer .headerMain .cart {
   display: flex;
   flex-direction: row;
