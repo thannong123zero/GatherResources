@@ -142,7 +142,7 @@
 }
 /*#endregion*/
 
-/*#region custom-bootstrap*/
+/*#region custom-library*/
 .accordion-button:not(.collapsed) {
     color: $color_black_000000;
     font-weight: 600;
@@ -150,5 +150,13 @@
 }
 .accordion-button:focus{
     box-shadow: unset;
+}
+
+.customCarousel .owl-nav {
+    display: none;
+}
+
+.customCarousel .owl-dots {
+    margin-top: 10px;
 }
 /*#endregion*/

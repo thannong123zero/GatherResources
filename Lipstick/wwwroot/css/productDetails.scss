@@ -3,4 +3,9 @@
 .productDetailsPage {
     max-width: $maxWidthContent;
     margin: auto;
+    .summaryAboutProduct{
+        max-width: 860px;
+        margin: auto;
+        border: 1px  solid $color_black_000000;
+    }
 }

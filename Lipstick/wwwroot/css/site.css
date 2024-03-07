@@ -205,7 +205,7 @@ body {
 }
 
 /*#endregion*/
-/*#region custom-bootstrap*/
+/*#region custom-library*/
 .accordion-button:not(.collapsed) {
   color: #000000;
   font-weight: 600;
@@ -214,6 +214,14 @@ body {
 
 .accordion-button:focus {
   box-shadow: unset;
+}
+
+.customCarousel .owl-nav {
+  display: none;
+}
+
+.customCarousel .owl-dots {
+  margin-top: 10px;
 }
 
 /*#endregion*/
@@ -660,4 +668,27 @@ body {
 .productDetailsPage {
   max-width: 1050px;
   margin: auto;
+}
+.productDetailsPage .summaryAboutProduct {
+  max-width: 860px;
+  margin: auto;
+  border: 1px solid #000000;
+}
+
+/*#region width*/
+/*#endregion*/
+/*#region color*/
+/*#endregion*/
+/*#region font-size*/
+/*#region*/
+/*#region responsive*/
+/*#endregion*/
+.cartPage {
+  max-width: 1050px;
+  min-height: 300px;
+  margin: auto;
+}
+.cartPage .tableHeader {
+  background: #1e1e1e;
+  color: #fff;
 }
