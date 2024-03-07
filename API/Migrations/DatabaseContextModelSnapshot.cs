@@ -22,76 +22,244 @@ namespace API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("API.DTO.Grade", b =>
+            modelBuilder.Entity("API.DTO.MenuGroup", b =>
                 {
-                    b.Property<int>("GradeId")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GradeId"));
-
-                    b.Property<string>("GradeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Section")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("GradeId");
-
-                    b.ToTable("Grades");
-                });
-
-            modelBuilder.Entity("API.DTO.Student", b =>
-                {
-                    b.Property<int>("StudentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentID"));
-
-                    b.Property<DateTime?>("DateOfBirth")
+                    b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("GradeId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Height")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<byte[]>("Photo")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("StudentName")
+                    b.Property<string>("DiscriptionEN")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Weight")
-                        .HasColumnType("real");
+                    b.Property<string>("DiscriptionVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("StudentID");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
-                    b.HasIndex("GradeId");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.ToTable("Students");
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NameEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MenuGroups");
                 });
 
-            modelBuilder.Entity("API.DTO.Student", b =>
+            modelBuilder.Entity("API.DTO.MenuItem", b =>
                 {
-                    b.HasOne("API.DTO.Grade", "Grade")
-                        .WithMany("Students")
-                        .HasForeignKey("GradeId")
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DiscriptionEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiscriptionVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("MenuGroupID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NameEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("MenuGroupID");
+
+                    b.ToTable("MenuItems");
+                });
+
+            modelBuilder.Entity("API.DTO.Product", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ContentEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Discount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DiscriptionEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiscriptionVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Images")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsHome")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("MenuItemID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NameEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Quantity")
+                        .HasColumnType("float");
+
+                    b.Property<Guid>("UnitID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("MenuItemID");
+
+                    b.HasIndex("UnitID");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("API.DTO.Unit", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DiscriptionEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiscriptionVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NameEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Units");
+                });
+
+            modelBuilder.Entity("API.DTO.MenuItem", b =>
+                {
+                    b.HasOne("API.DTO.MenuGroup", "MenuGroup")
+                        .WithMany("MenuItems")
+                        .HasForeignKey("MenuGroupID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Grade");
+                    b.Navigation("MenuGroup");
                 });
 
-            modelBuilder.Entity("API.DTO.Grade", b =>
+            modelBuilder.Entity("API.DTO.Product", b =>
                 {
-                    b.Navigation("Students");
+                    b.HasOne("API.DTO.MenuItem", "MenuItem")
+                        .WithMany("Products")
+                        .HasForeignKey("MenuItemID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("API.DTO.Unit", "Unit")
+                        .WithMany("Products")
+                        .HasForeignKey("UnitID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MenuItem");
+
+                    b.Navigation("Unit");
+                });
+
+            modelBuilder.Entity("API.DTO.MenuGroup", b =>
+                {
+                    b.Navigation("MenuItems");
+                });
+
+            modelBuilder.Entity("API.DTO.MenuItem", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("API.DTO.Unit", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

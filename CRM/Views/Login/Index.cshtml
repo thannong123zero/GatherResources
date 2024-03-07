@@ -1,0 +1,47 @@
+﻿@model LoginViewModel
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>@ViewData["Title"] - CRM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="~/css/login.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="loginPage">
+        <div class="row customLayout pt-4">
+            <div class="col-6">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-6">
+                <form asp-action="Index" asp-controller="Login">
+                    <h1 class="card-title text-center">Sign In</h1>
+                    <div class="form-outline mt-4">
+                        <label class="form-label">Email:</label>
+                        <input type="email" asp-for="Email" class="form-control" placeholder="Enter a valid email address" />
+                    </div>
+                    <div class="form-outline mt-2">
+                        <label class="form-label">Password:</label>
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Enter password" />
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-4 mb-3 w-100">
+                        Login
+                    </button>
+                    <a asp-action="ResetPassword" asp-controller="Login">Are you forget password?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+@*     <script src="~/js/scripts.js"></script> *@
+</body>
+</html>
+

@@ -4,7 +4,7 @@ namespace Lipstick.Controllers
 {
     public class ProductController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string menuGroupID, string menuItemID)
         {
             return View();
         }

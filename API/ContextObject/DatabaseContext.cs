@@ -1,7 +1,5 @@
-﻿using API.DTO;
-using Microsoft.EntityFrameworkCore;
-using System.Data;
-using System.Data.SqlClient;
+﻿using Microsoft.EntityFrameworkCore;
+using SharedLibrary.DTO;
 
 namespace API.ContextObject
 {
@@ -9,8 +7,10 @@ namespace API.ContextObject
     {
         private readonly IConfiguration _configuration;
         private readonly string _connectionString;
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Grade> Grades { get; set; }
+        public DbSet<MenuGroup> MenuGroups { get; set; }
+        public DbSet<MenuItem> MenuItems { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Unit> Units { get; set; }
         public DatabaseContext() : base()
         {
         }
