@@ -6,6 +6,7 @@ namespace Lipstick.Controllers
     {
         public IActionResult Index(string menuGroupID, string menuItemID)
         {
+
             return View();
         }
     }

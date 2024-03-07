@@ -141,3 +141,14 @@
     background-color: $color_black_000000;
 }
 /*#endregion*/
+
+/*#region custom-bootstrap*/
+.accordion-button:not(.collapsed) {
+    color: $color_black_000000;
+    font-weight: 600;
+    background: unset;
+}
+.accordion-button:focus{
+    box-shadow: unset;
+}
+/*#endregion*/

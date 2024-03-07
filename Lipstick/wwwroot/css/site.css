@@ -205,6 +205,18 @@ body {
 }
 
 /*#endregion*/
+/*#region custom-bootstrap*/
+.accordion-button:not(.collapsed) {
+  color: #000000;
+  font-weight: 600;
+  background: unset;
+}
+
+.accordion-button:focus {
+  box-shadow: unset;
+}
+
+/*#endregion*/
 /*#region width*/
 /*#endregion*/
 /*#region color*/
