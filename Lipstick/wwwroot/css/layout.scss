@@ -69,7 +69,8 @@
         }
 
         .logo {
-            max-height: 206px;
+            max-width: 210px;
+            height: auto;
         }
 
         .call {
@@ -95,7 +96,7 @@
             color: $color_white_fff;
             opacity: 1;
 
-            svg path{
+            svg path {
                 fill: $color_white_fff !important;
             }
         }
@@ -218,82 +219,129 @@
         max-width: 30px;
     }*/
 }
-    /*#endregion*/
-    /*#region item*/
-    .item {
-        border: 1px solid #d5d5d5;
-        text-align: center;
-        cursor: pointer;
-        position: relative;
-    }
+/*#endregion*/
+/*#region item*/
+.item {
+    border: 1px solid #d5d5d5;
+    text-align: center;
+    position: relative;
+    max-width: 246px;
 
-    .item .showImg {
+    .showImg {
         opacity: 1;
-        transition: opacity 0.3s;
+        transition: opacity 0.5s;
     }
 
-    .item .showImgHover {
+    .showImgHover {
         opacity: 0;
-        transition: opacity 0.3s;
+        transition: opacity 0.5s;
         position: absolute;
         top: 0;
         left: 0;
     }
 
-    .item:hover .showImg {
-        opacity: 0;
+    .coupon {
+        /*display: flex;
+        flex-direction: row;
+        align-items: center;*/
+        padding: 6px 10px;
+        /*gap: 8px;*/
+        /*isolation: isolate;*/
+        position: absolute;
+        /*height: 36px;*/
+        right: -9px;
+        top: -1px;
+        /*border-radius: 0px 0px 0px 2px;*/
+        color: #FFFFFF;
+        background: #E32E2D;
+        z-index: 9;
     }
 
-    .item:hover .showImgHover {
+    .coupon::after {
+        content: "";
+        z-index: 2;
+        position: absolute;
+        right: 0px;
+        bottom: -8px;
+        border-top: 8px solid #AF0000;
+        border-right: 8px solid transparent;
+    }
+
+    .addToCart {
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        border: 1px dashed $color_black_000000;
+        display: none;
+        justify-content: center;
+        align-content: center;
+        z-index: 9;
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        opacity: 0.8;
+
+        span {
+            font-size: 22px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    .addToCart:hover {
+        border-color: $color_pink_e72f8b;
         opacity: 1;
     }
+}
 
-    .item:hover {
-        /*border: 1px solid;
+
+.item:hover .showImg {
+    opacity: 0;
+}
+
+.item:hover .showImgHover {
+    opacity: 1;
+}
+.item:hover .addToCart{
+    display:flex;
+}
+.item:hover {
+    /*border: 1px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(136.66deg, #F8046E -9.13%, #BA014F 92.54%);*/
-        box-shadow: 0 3px 6px -4px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px -4px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+}
+
+
+.itemInfor {
+    border-top: 1px solid #d5d5d5;
+    padding: 5px;
+
+    p {
+        margin-bottom: 4px;
     }
 
-    .item:hover .itemInfor {
-        border-top: 1px solid #e72f8b;
+    .nameProduction {
+        line-height: 1.3;
     }
 
-    .itemInfor {
-        border-top: 1px solid #d5d5d5;
-        padding: 5px;
-
-        p {
-            margin-bottom: 4px;
-        }
-
-        .brand {
-            font-family: var(--font-SVN-Gotham-Light);
-        }
-
-        .nameProduction {
-            font-family: var(--font-SVN-Gotham-Regular);
-            line-height: 1.3;
-            font-size: 16px;
-        }
-
-        .nameProduction:hover {
-            color: $color_pink_e72f8b;
-        }
-
-        .priceOld {
-            color: #272624;
-            font-size: 14px;
-        }
-
-        .priceOld {
-            color: #615F5C;
-            font-size: 14px;
-        }
-
-        .discount {
-            color: #e72f8b;
-            font-size: 14px;
-        }
+    .nameProduction:hover {
+        color: $color_pink_e72f8b;
     }
-    /*#endregion*/
+
+    .priceOld {
+        color: #615F5C;
+    }
+
+    .discount {
+        color: #e72f8b;
+    }
+
+    a {
+        color: $color_black_000000;
+        text-decoration: none;
+    }
+}
+/*#endregion*/

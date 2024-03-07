@@ -32,56 +32,58 @@
                 </svg>
                 2312123511
             </a>
-            <div class="cart">
-                <span class="font-bold text-16 font-weight-600">
-                    @_language.Getkey("cart") / 0 <sup>VND</sup>
-                </span>
-                <img class="cartImage" src="~/assets/images/logo-cart-1.png" alt="..."/>
-            </div>
+            <a asp-action="index" asp-controller="cart" class="text-decoration-none text-color-black">
+                <div class="cart">
+                    <span class="font-bold text-16 font-weight-600">
+                        @_language.Getkey("cart") / 0 <sup>VND</sup>
+                    </span>
+                    <img class="cartImage" src="~/assets/images/logo-cart-1.png" alt="..."/>
+                </div>
+            </a>
         </div>
     </div>
     <div class="headerBottom">
         <ul class="menuGroup">
             <li>
-                <a href="#" class="text-uppercase font-weight-500 text-14">Son môi</a>
+                <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase font-weight-500 text-14">Son môi</a>
                 <ul class="menuItem">
                     <li>
-                        <a href="#" class="text-uppercase">DIOR</a>
+                        <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase">DIOR</a>
                     </li>
                     <li>
-                        <a href="#" class="text-uppercase">3CE</a>
+                        <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase">3CE</a>
                     </li>
                     <li>
-                        <a href="#" class="text-uppercase">D&V</a>
+                        <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase">D&V</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#" class="text-uppercase font-weight-500 text-14">TRANG ĐIỂM MẮT</a>
+                <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase font-weight-500 text-14">TRANG ĐIỂM MẮT</a>
 
             </li>
             <li>
-                <a href="#" class="text-uppercase font-weight-500 text-14">TRANG ĐIỂM MẶT</a>
+                <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase font-weight-500 text-14">TRANG ĐIỂM MẶT</a>
 
             </li>
             <li>
-                <a href="#" class="text-uppercase font-weight-500 text-14">CHĂM SÓC DA</a>
+                <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase font-weight-500 text-14">CHĂM SÓC DA</a>
 
             </li>
             <li>
-                <a href="#" class="text-uppercase font-weight-500 text-14">CHĂM SÓC CƠ THỂ</a>
+                <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase font-weight-500 text-14">CHĂM SÓC CƠ THỂ</a>
 
             </li>
             <li>
-                <a href="#" class="text-uppercase font-weight-500 text-14">CHĂM SÓC TÓC</a>
+                <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase font-weight-500 text-14">CHĂM SÓC TÓC</a>
 
             </li>
             <li>
-                <a href="#" class="text-uppercase font-weight-500 text-14">THƯƠNG HIỆU</a>
+                <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase font-weight-500 text-14">THƯƠNG HIỆU</a>
 
             </li>
             <li>
-                <a href="#" class="text-uppercase font-weight-500 text-14">Blog</a>
+                <a asp-action="index" asp-controller="product" asp-route-menuGroupID="abc" asp-route-menuItemID="abc1" class="text-uppercase font-weight-500 text-14">Blog</a>
 
             </li>
         </ul>         
