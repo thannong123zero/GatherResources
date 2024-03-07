@@ -123,6 +123,9 @@
   <data name="contact" xml:space="preserve">
     <value>Liên Hệ</value>
   </data>
+  <data name="discount" xml:space="preserve">
+    <value>Giảm giá</value>
+  </data>
   <data name="introduction" xml:space="preserve">
     <value>Giới Thiệu</value>
   </data>

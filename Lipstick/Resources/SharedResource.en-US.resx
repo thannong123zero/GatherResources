@@ -123,6 +123,9 @@
   <data name="contact" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="discount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
   <data name="introduction" xml:space="preserve">
     <value>Introduction</value>
   </data>

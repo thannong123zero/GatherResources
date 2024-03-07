@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="~/css/owlcarousel/owl.theme.default.min.css" />
 <script src="~/js/owlcarousel/owl.carousel.min.js" asp-append-version="true"></script>
 <style>
-    .customCarousel .owl-nav{
-        display:none;
+    .customCarousel .owl-nav {
+        display: none;
     }
 
     .customCarousel .owl-dots {
@@ -14,44 +14,18 @@
 <div class="homeContent mb-3">
     <h1 class="text-32 font-weight-600 mt-3">Mới Nhất</h1>
     <div id="newProductList" class="owl-carousel owl-theme customCarousel">
-            @for(int i =0; i < 8; i++)
-            {                
-                <div class="item">
-                    <div class="coupon text-14">
-                        Discount 10%
-                    </div>
-                <div class="addToCart">
-                    <span class="ti-shopping-cart-full"></span>
-                </div>
-                    <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-1-247x300.jpg" class="showImg w-100" alt="item" />
-                    <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-247x300.jpg" class="showImgHover w-100" alt="item" />
-                    <div class="text-center text-14 font-weight-600 text-color-white bg-dark">
-                        Mua Ngay!
-                    </div>
-                    <div class="itemInfor">
-                        <p class="font-weight-600 text-16 ">SON GUCCI</p>
-                        <a asp-action="index" asp-controller="productDetails" asp-route-ID="abc">
-                            <p class="nameProduction font-italic">Son Gucci Màu 25 Goldie Red Matte Đỏ Cổ Điển Hot Nhất</p>
-                        </a>
-                    <p><span class="priceOld text-14 font-weight-600"><s>1999.999VND</s></span> <span class="discount text-14 font-weight-600">999.999VND</span></p>
-                    </div>
-                </div>
-            }
-    </div>
-
-    <h1 class="text-32 font-weight-600 mt-3">Xu Hướng</h1>
-    <div id="trendingProductList" class="owl-carousel owl-theme customCarousel">
         @for (int i = 0; i < 8; i++)
         {
             <div class="item">
                 <div class="coupon text-14">
-                    Discount 10%
+                    @_language.Getkey("discount") 10%
                 </div>
                 <div class="addToCart">
                     <span class="ti-shopping-cart-full"></span>
                 </div>
-                <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-1-247x300.jpg" class="showImg w-100" alt="item" />
-                <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-247x300.jpg" class="showImgHover w-100" alt="item" />
+                <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-247x300.jpg" class="showImg w-100" alt="item" />
+                <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-1-247x300.jpg" class="showImgHover w-100" alt="item" />
+
                 <div class="text-center text-14 font-weight-600 text-color-white bg-dark">
                     Mua Ngay!
                 </div>
@@ -60,7 +34,34 @@
                     <a asp-action="index" asp-controller="productDetails" asp-route-ID="abc">
                         <p class="nameProduction font-italic">Son Gucci Màu 25 Goldie Red Matte Đỏ Cổ Điển Hot Nhất</p>
                     </a>
-                    <p><span class="priceOld text-14 font-weight-600"><s>1999.999VND</s></span> <span class="discount text-14 font-weight-600">999.999VND</span></p>
+                    <p><span class="priceOld text-14 font-weight-600"><s>1.999.999VND</s></span> <span class="discount text-14 font-weight-600">999.999VND</span></p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <h1 class="text-32 font-weight-600 mt-3">Xu Hướng</h1>
+    <div id="trendingProductList" class="owl-carousel owl-theme customCarousel">
+        @for (int i = 0; i < 8; i++)
+        {
+            <div class="item">
+                <div class="coupon text-14">
+                    @_language.Getkey("discount") 10%
+                </div>
+                <div class="addToCart">
+                    <span class="ti-shopping-cart-full"></span>
+                </div>
+                <img src="~/assets/images/Son-Christian-Louboutin-Diva-2-247x300.jpg" class="showImgHover w-100" alt="item" />
+                <img src="~/assets/images/Son-Christian-Louboutin-Diva-247x300.jpg" class="showImg w-100" alt="item" />
+                <div class="text-center text-14 font-weight-600 text-color-white bg-dark">
+                    Mua Ngay!
+                </div>
+                <div class="itemInfor">
+                    <p class="font-weight-600 text-16 ">SON GUCCI</p>
+                    <a asp-action="index" asp-controller="productDetails" asp-route-ID="abc">
+                        <p class="nameProduction font-italic">Son Gucci Màu 25 Goldie Red Matte Đỏ Cổ Điển Hot Nhất</p>
+                    </a>
+                    <p><span class="priceOld text-14 font-weight-600"><s>1.999.999VND</s></span> <span class="discount text-14 font-weight-600">999.999VND</span></p>
                 </div>
             </div>
         }
@@ -72,7 +73,7 @@
         {
             <div class="item">
                 <div class="coupon text-14">
-                    Discount 10%
+                    @_language.Getkey("discount") 30%
                 </div>
                 <div class="addToCart">
                     <span class="ti-shopping-cart-full"></span>
@@ -87,7 +88,7 @@
                     <a asp-action="index" asp-controller="productDetails" asp-route-ID="abc">
                         <p class="nameProduction font-italic">Son Gucci Màu 25 Goldie Red Matte Đỏ Cổ Điển Hot Nhất</p>
                     </a>
-                    <p><span class="priceOld text-14 font-weight-600"><s>1999.999VND</s></span> <span class="discount text-14 font-weight-600">999.999VND</span></p>
+                    <p><span class="priceOld text-14 font-weight-600"><s>1.999.999VND</s></span> <span class="discount text-14 font-weight-600">999.999VND</span></p>
                 </div>
             </div>
         }
