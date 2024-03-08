@@ -3,9 +3,40 @@
 .productDetailsPage {
     max-width: $maxWidthContent;
     margin: auto;
-    .summaryAboutProduct{
-        max-width: 860px;
+
+    .summaryAboutProduct {
+        max-width: 880px;
         margin: auto;
-        border: 1px  solid $color_black_000000;
+
+        .priceOld {
+            color: #615F5C;
+        }
+
+        .discount {
+            color: #e72f8b;
+        }
+
+        .avatar {
+            max-width: 100%;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 16px;
+        }
+        /*.thumbnailList {
+            display: flex;
+            flex-direction: row;
+            flex-wrap:nowrap;
+            overflow-x: scroll;
+
+            img {
+                height: 150px;
+                width: auto;
+                border: 1px solid #e5e7eb;
+            }
+        }*/
+        .thumbnail {
+            height: 150px;
+            width: auto;
+            border: 1px solid #e5e7eb;
+        }
     }
 }
