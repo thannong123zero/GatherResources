@@ -220,6 +220,7 @@
     }*/
 }
 /*#endregion*/
+
 /*#region item*/
 .item {
     border: 1px solid #d5d5d5;
@@ -342,6 +343,35 @@
     a {
         color: $color_black_000000;
         text-decoration: none;
+    }
+}
+/*#endregion*/
+
+/*#region button-quantity*/
+.quantityGroup {
+
+    .minusButton, .plusButton {
+        width: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border: 1px solid #e5e7eb;
+    }
+
+    .quantityInput {
+        width: 50px;
+        text-align: center;
+        border: 1px solid #e5e7eb;
+        border-left: none;
+        border-right: none;
+    }
+
+    .quantityInput:focus {
+        outline: none;
+    }
+
+    .quantityInput::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
     }
 }
 /*#endregion*/
