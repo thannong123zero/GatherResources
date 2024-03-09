@@ -24,6 +24,7 @@
          * 
          * Phan 3: Tim hieu ve View va Partial View, view Component
          * ref: https://learn.microsoft.com/en-us/aspnet/core/mvc/views/partial?view=aspnetcore-8.0
+         * ref: https://learn.microsoft.com/en-us/aspnet/core/mvc/views/view-components?view=aspnetcore-8.0
          * 
          * What ?
          * Why ?

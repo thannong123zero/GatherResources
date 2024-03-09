@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 <div class="homePage">
+    @await Component.InvokeAsync("Production")
     @await Html.PartialAsync("~/Views/Shared/PartialViews/_HomeBannerPartialView.cshtml")
     @await Html.PartialAsync("~/Views/Shared/PartialViews/_HomeContentPartialView.cshtml")
 </div>
