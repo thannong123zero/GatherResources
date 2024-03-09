@@ -938,3 +938,45 @@ body {
   max-width: 860px;
   margin: auto;
 }
+
+/*#region width*/
+/*#endregion*/
+/*#region color*/
+/*#endregion*/
+/*#region font-size*/
+/*#region*/
+/*#region responsive*/
+/*#endregion*/
+.aboutUsPage {
+  max-width: 1050px;
+  min-height: 300px;
+  margin: auto;
+}
+
+/*#region width*/
+/*#endregion*/
+/*#region color*/
+/*#endregion*/
+/*#region font-size*/
+/*#region*/
+/*#region responsive*/
+/*#endregion*/
+.contactPage {
+  max-width: 1050px;
+  min-height: 300px;
+  margin: auto;
+}
+
+/*#region width*/
+/*#endregion*/
+/*#region color*/
+/*#endregion*/
+/*#region font-size*/
+/*#region*/
+/*#region responsive*/
+/*#endregion*/
+.notFoundPage {
+  max-width: 1050px;
+  min-height: 300px;
+  margin: auto;
+}

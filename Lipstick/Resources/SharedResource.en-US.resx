@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aboutUs" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="buyNow" xml:space="preserve">
+    <value>Buy now</value>
+  </data>
   <data name="cart" xml:space="preserve">
     <value>Cart</value>
   </data>
@@ -126,10 +135,40 @@
   <data name="discount" xml:space="preserve">
     <value>Discount</value>
   </data>
+  <data name="discountedProducts" xml:space="preserve">
+    <value>Discounted products</value>
+  </data>
+  <data name="exchange&amp;return" xml:space="preserve">
+    <value>Exchange &amp; return of products</value>
+  </data>
+  <data name="favourite" xml:space="preserve">
+    <value>Favourite</value>
+  </data>
   <data name="introduction" xml:space="preserve">
     <value>Introduction</value>
   </data>
+  <data name="latestProducts" xml:space="preserve">
+    <value>Latest products</value>
+  </data>
+  <data name="orderTracking" xml:space="preserve">
+    <value>Order tracking</value>
+  </data>
+  <data name="paymentPolicy" xml:space="preserve">
+    <value>Payment policy</value>
+  </data>
+  <data name="popularProducts" xml:space="preserve">
+    <value>Popular products</value>
+  </data>
+  <data name="privacyPolicy" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
   <data name="search" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="shipping" xml:space="preserve">
+    <value>Shipping</value>
+  </data>
+  <data name="terms" xml:space="preserve">
+    <value>Terms</value>
   </data>
 </root>

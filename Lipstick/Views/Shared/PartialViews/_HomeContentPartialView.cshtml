@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="~/css/owlcarousel/owl.theme.default.min.css" />
 <script src="~/js/owlcarousel/owl.carousel.min.js" asp-append-version="true"></script>
 <div class="homeContent mb-3">
-    <h1 class="text-32 font-weight-600 mt-3">Mới Nhất</h1>
+    <h1 class="text-32 font-weight-600 mt-3 text-capitalize">@_language.Getkey("latestProducts")</h1>
     <div id="newProductList" class="owl-carousel owl-theme customCarousel">
         @for (int i = 0; i < 8; i++)
         {
@@ -16,8 +16,8 @@
                 <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-247x300.jpg" class="showImg w-100" alt="item" />
                 <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-1-247x300.jpg" class="showImgHover w-100" alt="item" />
 
-                <div class="text-center text-14 font-weight-600 text-color-white bg-dark">
-                    Mua Ngay!
+                <div class="text-center text-14 font-weight-600 text-color-white bg-dark text-capitalize">
+                    @_language.Getkey("buyNow")
                 </div>
                 <div class="itemInfor">
                     <p class="font-weight-600 text-16 ">SON GUCCI</p>
@@ -30,7 +30,7 @@
         }
     </div>
 
-    <h1 class="text-32 font-weight-600 mt-3">Xu Hướng</h1>
+    <h1 class="text-32 font-weight-600 mt-3 text-capitalize">@_language.Getkey("popularProducts")</h1>
     <div id="trendingProductList" class="owl-carousel owl-theme customCarousel">
         @for (int i = 0; i < 8; i++)
         {
@@ -43,8 +43,8 @@
                 </div>
                 <img src="~/assets/images/Son-Christian-Louboutin-Diva-2-247x300.jpg" class="showImgHover w-100" alt="item" />
                 <img src="~/assets/images/Son-Christian-Louboutin-Diva-247x300.jpg" class="showImg w-100" alt="item" />
-                <div class="text-center text-14 font-weight-600 text-color-white bg-dark">
-                    Mua Ngay!
+                <div class="text-center text-14 font-weight-600 text-color-white bg-dark text-capitalize">
+                    @_language.Getkey("buyNow")
                 </div>
                 <div class="itemInfor">
                     <p class="font-weight-600 text-16 ">SON GUCCI</p>
@@ -57,7 +57,7 @@
         }
     </div>
 
-    <h1 class="text-32 font-weight-600 mt-3">Khuyến Mãi</h1>
+    <h1 class="text-32 font-weight-600 mt-3 text-capitalize">@_language.Getkey("discountedProducts")</h1>
     <div id="promotionalProductList" class="owl-carousel owl-theme customCarousel">
         @for (int i = 0; i < 8; i++)
         {
@@ -70,8 +70,8 @@
                 </div>
                 <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-1-247x300.jpg" class="showImg w-100" alt="item" />
                 <img src="~/assets/images/christianlouboutin-rougelouboutin-velvet-matte-247x300.jpg" class="showImgHover w-100" alt="item" />
-                <div class="text-center text-14 font-weight-600 text-color-white bg-dark">
-                    Mua Ngay!
+                <div class="text-center text-14 font-weight-600 text-color-white bg-dark text-capitalize">
+                    @_language.Getkey("buyNow")
                 </div>
                 <div class="itemInfor">
                     <p class="font-weight-600 text-16 ">SON GUCCI</p>
