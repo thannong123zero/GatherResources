@@ -8,93 +8,119 @@
     <hr />
     <form asp-action="Create">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="row mb-2">
-            <div class="form-group col-6">
-                <label asp-for="NameEN" class="control-label"></label>
-                <input asp-for="NameEN" class="form-control" />
-                <span asp-validation-for="NameEN" class="text-danger"></span>
-            </div>
-            <div class="form-group col-6">
-                <label asp-for="NameVN" class="control-label"></label>
-                <input asp-for="NameVN" class="form-control" />
-                <span asp-validation-for="NameVN" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="row mb-2">
-            <div class="form-group col-6">
-                <label asp-for="DiscriptionEN" class="control-label"></label>
-                <textarea asp-for="DiscriptionEN" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="DiscriptionEN" class="text-danger"></span>
-            </div>
-            <div class="form-group col-6">
-                <label asp-for="DiscriptionVN" class="control-label"></label>
-                <textarea asp-for="DiscriptionVN" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="DiscriptionVN" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="row mb-2">
-            <div class="col-6">
-                <div class="row">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button" role="tab" aria-controls="summary" aria-selected="true">Summary</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contentEnglish-tab" data-bs-toggle="tab" data-bs-target="#contentEnglish" type="button" role="tab" aria-controls="contentEnglish" aria-selected="false">ContentEN</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contentVietNamese-tab" data-bs-toggle="tab" data-bs-target="#contentVietNamese" type="button" role="tab" aria-controls="contentVietNamese" aria-selected="false">ContentVN</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="image-tab" data-bs-toggle="tab" data-bs-target="#image" type="button" role="tab" aria-controls="image" aria-selected="false">Images</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active pt-2" id="summary" role="tabpanel" aria-labelledby="summary-tab">
+                <div class="form-group mb-2">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsHome" /> @Html.DisplayNameFor(model => model.IsHome)
+                    </label>
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                    </label>
+                </div>
+                <div class="row mb-2">
                     <div class="form-group col-6">
-                        <label asp-for="MenuItemID" class="control-label"></label>
-                        <input asp-for="MenuItemID" class="form-control" />
-                        <span asp-validation-for="MenuItemID" class="text-danger"></span>
+                        <label asp-for="NameEN" class="control-label"></label>
+                        <input asp-for="NameEN" class="form-control" />
+                        <span asp-validation-for="NameEN" class="text-danger"></span>
                     </div>
                     <div class="form-group col-6">
-                        <label asp-for="UnitID" class="control-label"></label>
-                        <input asp-for="UnitID" class="form-control" />
-                        <span asp-validation-for="UnitID" class="text-danger"></span>
+                        <label asp-for="NameVN" class="control-label"></label>
+                        <input asp-for="NameVN" class="form-control" />
+                        <span asp-validation-for="NameVN" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="form-group col-6">
+                        <label asp-for="DiscriptionEN" class="control-label"></label>
+                        <textarea asp-for="DiscriptionEN" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="DiscriptionEN" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="DiscriptionVN" class="control-label"></label>
+                        <textarea asp-for="DiscriptionVN" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="DiscriptionVN" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label asp-for="MenuItemID" class="control-label"></label>
+                                <input asp-for="MenuItemID" class="form-control" />
+                                <span asp-validation-for="MenuItemID" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-6">
+                                <label asp-for="UnitID" class="control-label"></label>
+                                <input asp-for="UnitID" class="form-control" />
+                                <span asp-validation-for="UnitID" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="form-group col-4">
+                                <label asp-for="Price" class="control-label"></label>
+                                <input asp-for="Price" class="form-control" />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-4">
+                                <label asp-for="Discount" class="control-label"></label>
+                                <input asp-for="Discount" class="form-control" />
+                                <span asp-validation-for="Discount" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-4">
+                                <label asp-for="Quantity" class="control-label"></label>
+                                <input asp-for="Quantity" class="form-control" />
+                                <span asp-validation-for="Quantity" class="text-danger"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="row">
-                    <div class="form-group col-4">
-                        <label asp-for="Price" class="control-label"></label>
-                        <input asp-for="Price" class="form-control" />
-                        <span asp-validation-for="Price" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-4">
-                        <label asp-for="Discount" class="control-label"></label>
-                        <input asp-for="Discount" class="form-control" />
-                        <span asp-validation-for="Discount" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-4">
-                        <label asp-for="Quantity" class="control-label"></label>
-                        <input asp-for="Quantity" class="form-control" />
-                        <span asp-validation-for="Quantity" class="text-danger"></span>
-                    </div>
+            <div class="tab-pane fade pt-2" id="contentEnglish" role="tabpanel" aria-labelledby="contentEnglish-tab">
+                <div class="form-group">
+                    <label asp-for="ContentEN" class="control-label"></label>
+                    @* <input asp-for="ContentEN" class="form-control" /> *@
+                    <span asp-validation-for="ContentEN" class="text-danger"></span>
+                    <div id="ContentEN"></div>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="ContentEN" class="control-label"></label>
-            <input asp-for="ContentEN" class="form-control" />
-            <span asp-validation-for="ContentEN" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="ContentVN" class="control-label"></label>
-            <input asp-for="ContentVN" class="form-control" />
-            <span asp-validation-for="ContentVN" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Images" class="control-label"></label>
-            <input asp-for="Images" class="form-control" />
-            <span asp-validation-for="Images" class="text-danger"></span>
-        </div>
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" asp-for="IsHome" /> @Html.DisplayNameFor(model => model.IsHome)
-            </label>
-        </div>
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
-            </label>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Create" class="btn btn-primary" />
-        </div>
+            <div class="tab-pane fade pt-2" id="contentVietNamese" role="tabpanel" aria-labelledby="contentVietNamese-tab">
+                <div class="form-group">
+                    <label asp-for="ContentVN" class="control-label"></label>
+                    @* <input asp-for="ContentVN" class="form-control" /> *@
+                    <span asp-validation-for="ContentVN" class="text-danger"></span>
+                    <div id="ContentVN"></div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade pt-2" id="image" role="tabpanel" aria-labelledby="image-tab">
+                <div class="form-group mb-2">
+                    <label asp-for="Images" class="control-label"></label>
+                    <input asp-for="Images" class="form-control" />
+                    <span asp-validation-for="Images" class="text-danger"></span>
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <input type="submit" value="Create" class="btn btn-success me-2" />
+                    <a asp-action="Index" asp-controller="Production" class="btn btn-primary">Back to List</a>
+                </div>
+            </div>
+        </div>    
     </form>
 </div>
 
@@ -103,4 +129,8 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script>
+        CreateCKEditor("ContentEN");
+        CreateCKEditor("ContentVN");
+    </script>
 }
