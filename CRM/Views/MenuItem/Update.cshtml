@@ -1,0 +1,55 @@
+﻿@model SharedLibrary.UserInterfaceDTO.MenuItemUI
+
+@{
+    ViewData["Title"] = "Update";
+}
+<div class="container pt-2">
+    <h3> Menu Item Infomation</h3>
+    <hr />
+    <form asp-action="Update">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group form-check mb-2">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+            </label>
+        </div>
+        <div class="row mb-2">
+            <div class="form-group col-6">
+                <label asp-for="NameEN" class="control-label"></label>
+                <input asp-for="NameEN" class="form-control" />
+                <span asp-validation-for="NameEN" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="NameVN" class="control-label"></label>
+                <input asp-for="NameVN" class="form-control" />
+                <span asp-validation-for="NameVN" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="form-group col-6">
+                <label asp-for="DiscriptionEN" class="control-label"></label>
+                <textarea asp-for="DiscriptionEN" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="DiscriptionEN" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="DiscriptionVN" class="control-label"></label>
+                <textarea asp-for="DiscriptionVN" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="DiscriptionVN" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+            </label>
+        </div>
+        <div class="form-group d-flex justify-content-end">
+            <input type="submit" value="Update" class="btn btn-success me-2" />
+            <a asp-action="Index" asp-controller="MenuItem" class="btn btn-primary">Back to List</a>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
