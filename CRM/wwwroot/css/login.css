@@ -32,3 +32,10 @@ body {
   position: static;
   z-index: 1;
 }
+.loginPage .customIcon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
