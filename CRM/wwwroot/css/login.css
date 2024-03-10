@@ -27,7 +27,7 @@ body {
   min-height: 65vh;
   border: 2px solid #333;
   border-image-slice: 1;
-  border-image-source: linear-gradient(136.66deg, #FFC72C -9.13%, #FF3800 92.54%);
+  border-image-source: linear-gradient(136.66deg, #6D6D6D -9.13%, #080808 92.54%);
   background: white;
   position: static;
   z-index: 1;

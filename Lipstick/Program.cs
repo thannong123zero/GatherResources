@@ -81,7 +81,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthorization();
-app.UseStatusCodePagesWithRedirects("/Home/Close");
+app.UseStatusCodePagesWithRedirects("/Home/Lost");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
