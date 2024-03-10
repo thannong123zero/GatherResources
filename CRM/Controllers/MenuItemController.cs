@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SharedLibrary.UserInterfaceDTO;
 
 namespace CRM.Controllers
 {
@@ -6,14 +7,19 @@ namespace CRM.Controllers
     {
         public async Task<IActionResult> Index()
         {
-            return View();
+            List<MenuItemUI> data = new List<MenuItemUI>()
+            {
+                new MenuItemUI()
+                {
+                    ID = Guid.NewGuid(),
+                    NameVN = "abc",
+                    NameEN = "abc",
+                }
+            };
+
+            return View(data);
         }
         public async Task<IActionResult> Create()
-        {
-            return View();
-        }
-
-        public async Task<IActionResult> GetByID()
         {
             return View();
         }

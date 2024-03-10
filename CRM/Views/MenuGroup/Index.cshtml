@@ -51,8 +51,8 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.IsActive)
                         </td>
-                        <td>
-                            <a asp-action="Update" asp-controller="MenuGroup" class="btn btn-primary">Details</a>
+                        <td class="d-flex justify-content-end">
+                            <a asp-action="Update" asp-controller="MenuGroup" class="btn btn-primary me-2">Details</a>
                             <a asp-action="Delete" asp-controller="MenuGroup" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
