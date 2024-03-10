@@ -1,22 +1,18 @@
-/*html {
-  font-size: 14px;
+/*#region ckeditor*/
+#container {
+    width: 1000px;
+    margin: 20px auto;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.ck-editor__editable[role="textbox"] {
+    /* Editing area */
+    min-height: 200px;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.ck-content .image {
+    /* Block images */
+    max-width: 80%;
+    margin: 20px auto;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}*/
+/*#endregion*/

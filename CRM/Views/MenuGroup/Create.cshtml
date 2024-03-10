@@ -3,50 +3,49 @@
 @{
     ViewData["Title"] = "Create";
 }
-<div class="container">
+<div class="container pt-2">
     <h3>Add A Menu Group</h3>
     <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="NameEN" class="control-label"></label>
-                    <input asp-for="NameEN" class="form-control" />
-                    <span asp-validation-for="NameEN" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="NameVN" class="control-label"></label>
-                    <input asp-for="NameVN" class="form-control" />
-                    <span asp-validation-for="NameVN" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="DiscriptionEN" class="control-label"></label>
-                    <input asp-for="DiscriptionEN" class="form-control" />
-                    <span asp-validation-for="DiscriptionEN" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="DiscriptionVN" class="control-label"></label>
-                    <input asp-for="DiscriptionVN" class="form-control" />
-                    <span asp-validation-for="DiscriptionVN" class="text-danger"></span>
-                </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
-                    </label>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
-            </form>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group form-check mb-2">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+            </label>
         </div>
-    </div>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+        <div class="row mb-2">
+            <div class="form-group col-6">
+                <label asp-for="NameEN" class="control-label"></label>
+                <input asp-for="NameEN" class="form-control" />
+                <span asp-validation-for="NameEN" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="NameVN" class="control-label"></label>
+                <input asp-for="NameVN" class="form-control" />
+                <span asp-validation-for="NameVN" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="form-group col-6">
+                <label asp-for="DiscriptionEN" class="control-label"></label>
+                <textarea asp-for="DiscriptionEN" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="DiscriptionEN" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="DiscriptionVN" class="control-label"></label>
+                <textarea asp-for="DiscriptionVN" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="DiscriptionVN" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group d-flex justify-content-end">
+            <input type="submit" value="Create" class="btn btn-success me-2" />
+            <a asp-action="Index" asp-controller="MenuGroup" class="btn btn-primary">Back to List</a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
