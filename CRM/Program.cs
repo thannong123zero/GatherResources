@@ -1,5 +1,8 @@
 using CRM;
 using CRM.Services;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
+using System.Globalization;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +21,28 @@ builder.Services.AddMvc()
             return factory.Create("SharedResource", assemblyName.Name);
         };
     });
+builder.Services.Configure<RequestLocalizationOptions>(
+    options =>
+    {
+        var supportedCultures = new List<CultureInfo>
+            {
+                            new CultureInfo("vi-VN"),
+                            new CultureInfo("en-US"),
+            };
+        options.DefaultRequestCulture = new RequestCulture(supportedCultures.First());
+        options.SupportedCultures = supportedCultures;
+        options.SupportedUICultures = supportedCultures;
 
+        var cookieProvider = options.RequestCultureProviders
+            .OfType<CookieRequestCultureProvider>()
+            .First();
+        cookieProvider.Options.DefaultRequestCulture = new RequestCulture("vi-VN");
+        options.RequestCultureProviders.Clear();
+        options.RequestCultureProviders.Add(cookieProvider);
+
+
+        options.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
+    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -43,7 +67,20 @@ if (!app.Environment.IsDevelopment())
 //});
 
 
-
+#region localize language
+var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(locOptions.Value);
+//app.UseRequestLocalization(new RequestLocalizationOptions
+//{
+//    ApplyCurrentCultureToResponseHeaders = true
+//});
+//app.UseRequestLocalization(options =>
+//{
+//    var questStringCultureProvider = options.RequestCultureProviders[0];
+//    options.RequestCultureProviders.RemoveAt(0);
+//    options.RequestCultureProviders.Insert(1, questStringCultureProvider);
+//});
+#endregion
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
