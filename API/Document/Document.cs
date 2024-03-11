@@ -43,14 +43,16 @@
         There are two ways to configure domain classes in EF Core
         1. By using Data Annotation Atributes
         2. By using Fluent API
-
-         
-
-
          */
 
 
         #endregion
-        public Document() { }
+        #region Repository and Unit of work pattern
+        /*
+         * https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
+         * 
+         * 
+         */
+        #endregion
     }
 }
