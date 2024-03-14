@@ -44,5 +44,6 @@
         1. By using Data Annotation Atributes
         2. By using Fluent API
          */
+        #endregion
     }
 }
