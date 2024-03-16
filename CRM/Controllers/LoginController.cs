@@ -16,7 +16,18 @@ namespace CRM.Controllers
         [HttpPost]
         public IActionResult Index(LoginViewModel model)
         {
-            return RedirectToAction("Index","Home");
+            if (model == null || string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
+            {
+                ViewBag.WrongAccount = "Enter your account, Please!";
+                return View();
+            }
+            else if(string.Equals(model.Email,"nguyenhoangtai2k@gmail.com") && string.Equals(model.Password, "123"))
+            {
+                return RedirectToAction("Index","Home");
+            }
+            ViewBag.WrongAccount = "Username or Password is wrong, Please, try again!";
+            return View();
+
         }
 
         [HttpGet]
