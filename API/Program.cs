@@ -1,4 +1,5 @@
 using API.ContextObject;
+using API.Helpers;
 using API.IRepositories;
 using API.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -15,10 +16,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<DatabaseContext>();
+//builder.Services.AddSingleton<DatabaseContext>();
+builder.Services.AddTransient<MenuGroupHelper>();
 // sign up database context
 
-builder.Services.AddScoped<IMenuGroupRepository, MenuGroupRepository>();
+//builder.Services.AddScoped<IMenuGroupRepository, MenuGroupRepository>();
 
 var app = builder.Build();
 

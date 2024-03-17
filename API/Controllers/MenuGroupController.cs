@@ -1,4 +1,5 @@
 ﻿using API.ContextObject;
+using API.Helpers;
 using API.IRepositories;
 using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -14,12 +15,10 @@ namespace API.Controllers
     [ApiController]
     public class MenuGroupController : ControllerBase
     {
-        private readonly IMenuGroupRepository _menuGroupRepository;
-        private readonly IMapper _mapper;
-        public MenuGroupController(IMenuGroupRepository menuGroupRepository,IMapper mapper)
+        private readonly MenuGroupHelper _menuGroupHelper;
+        public MenuGroupController(MenuGroupHelper menuGroupHelper)
         {
-            _menuGroupRepository = menuGroupRepository;
-            _mapper = mapper;
+            _menuGroupHelper = menuGroupHelper;
         }
 
         [HttpPost]
@@ -30,9 +29,7 @@ namespace API.Controllers
             {
                 return BadRequest();
             }
-            var menuGroup = _mapper.Map<MenuGroup>(menuGroupUI);
-            _menuGroupRepository.Add(menuGroup);
-
+            _menuGroupHelper.AddMenuGroup(menuGroupUI);
             return Ok();
         }
 
