@@ -16,7 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddSingleton<DatabaseContext>();
+builder.Services.AddScoped<DatabaseContext>();
+builder.Services.AddTransient<UnitOfWork>();
 builder.Services.AddTransient<MenuGroupHelper>();
 // sign up database context
 

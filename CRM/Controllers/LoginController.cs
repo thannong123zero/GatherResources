@@ -10,6 +10,7 @@ namespace CRM.Controllers
         public IActionResult Index()
         {
             ViewData["Title"] = "Login";
+            ViewBag.Introduction = "Vui long dang nhap he thong!";
             return View();
         }
 

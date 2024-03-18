@@ -120,4 +120,7 @@
   <data name="hi" xml:space="preserve">
     <value>Chao</value>
   </data>
+  <data name="minLenght" xml:space="preserve">
+    <value>Toi thieu la 6 ky tu</value>
+  </data>
 </root>

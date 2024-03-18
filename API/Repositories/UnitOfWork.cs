@@ -5,7 +5,7 @@ namespace API.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private DatabaseContext context = new DatabaseContext();
+        private DatabaseContext context;
         private bool disposed = false;
         private MenuGroupRepository menuGroupRepository;
         public MenuGroupRepository MenuGroupRepository
@@ -39,6 +39,10 @@ namespace API.Repositories
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+        public UnitOfWork(DatabaseContext databaseContext)
+        {
+            context = databaseContext;
         }
     }
 }

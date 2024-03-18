@@ -2,12 +2,11 @@
 {
     public class Unit_3
     {
-        /* Buoc 0: Phaidung FORMAT LAI CAC TRANG WEB
-         * Buoc 1: Minh se tao Model
-         * Buoc 2: Huong dan truyen du lieu giua Controller va Model
-         * Buoc 3: Su dung ViewBag, ViewData, Tempdata
-         * Buoc 4: Gioi thieu ve dataAnotation
-         * 
+        /*
+         * Hom nay chung ta se hoc ve Model, Model Validation, Truyen Model tu controller len view va nguoc lai
+         * ref: https://learn.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-8.0
+         * Su dung ViewBag, ViewData, Tempdata
+         * ref: https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview?view=aspnetcore-8.0
          * 
          */
     }

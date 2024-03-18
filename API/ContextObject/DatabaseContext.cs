@@ -11,9 +11,6 @@ namespace API.ContextObject
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Unit> Units { get; set; }
-        public DatabaseContext() : base()
-        {
-        }
         public DatabaseContext(IConfiguration configuration) : base()
         {
             _configuration = configuration;
@@ -24,6 +21,5 @@ namespace API.ContextObject
         {
             optionsBuilder.UseSqlServer(_connectionString);
         }
-
     }
 }

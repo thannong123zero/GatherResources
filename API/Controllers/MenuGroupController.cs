@@ -20,24 +20,41 @@ namespace API.Controllers
         {
             _menuGroupHelper = menuGroupHelper;
         }
-
-        [HttpPost]
-        [Route("addMenuGroup")]
-        public async Task<IActionResult> AddMenuGroup(MenuGroupUI menuGroupUI)
-        {
-            if(menuGroupUI == null)
-            {
-                return BadRequest();
-            }
-            _menuGroupHelper.AddMenuGroup(menuGroupUI);
-            return Ok();
-        }
-
         [HttpGet]
         [Route("getMenuGroups")]
         public async Task<IActionResult> GetMenuGroups()
-        {       
+        {
             return BadRequest();
+        }
+        [HttpGet]
+        [Route("getMenuGroupByID")]
+        public async Task<IActionResult> GetMenuGroupByID(string ID)
+        {
+            return BadRequest();
+        }
+
+        [HttpPost]
+        [Route("addMenuGroup")]
+        public async Task<IActionResult> AddMenuGroup(MenuGroupUI model)
+        {
+            if(model == null)
+            {
+                return BadRequest();
+            }
+            await _menuGroupHelper.AddMenuGroup(model);
+            return Ok();
+        }
+        [HttpPut]
+        [Route("UpdateMenuGroup")]
+        public async Task<IActionResult> UpdateMenuGroup(MenuGroupUI model)
+        {
+            return Ok();
+        }
+        [HttpDelete]
+        [Route("DeleteMenuGroup")]
+        public async Task<IActionResult> DeleteMenuGroup(string ID)
+        {
+            return Ok();
         }
     }
 }
