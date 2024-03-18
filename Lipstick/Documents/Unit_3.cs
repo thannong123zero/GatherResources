@@ -2,11 +2,10 @@
 {
     public class Unit_3
     {
-        /* 
+        /* Hello everyone
          * 
-         * Model la mot doi tuong duoc mo hinh hoa cac thuoc tinh bang loai du lieu
-         * Huong dan truyen du lieu giua Controller va Model
-         * Gioi thieu ve dataAnotation
+         * Hom nay chung ta se hoc ve Model, Model Validation, Truyen du lieu tu controller den view va nguoc lai
+         * ref: https://learn.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-8.0
          * Su dung ViewBag, ViewData, Tempdata
          * ref: https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview?view=aspnetcore-8.0
          * 
