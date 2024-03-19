@@ -64,6 +64,7 @@ namespace API.Helpers
         public async Task DeleteMenuGroup(string ID)
         {
             await _unitOfWork.MenuGroupRepository.Delete(Guid.Parse(ID));
+            _unitOfWork.Save();
         }
     }
 }
