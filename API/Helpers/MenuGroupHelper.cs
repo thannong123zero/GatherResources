@@ -19,11 +19,18 @@ namespace API.Helpers
         }
         public async Task<IEnumerable<MenuGroupUI>> GetMenuGroups()
         {
-            return null;
+            var listMenuGroup =  await _unitOfWork.MenuGroupRepository.GetAll();
+            IEnumerable<MenuGroupUI> listMenuGroupUI = new List<MenuGroupUI>();
+            listMenuGroupUI = _mapper.Map<IEnumerable<MenuGroupUI>>(listMenuGroup);
+
+            return listMenuGroupUI;
         }
         public async Task<MenuGroupUI> GetMenuGroupByID(string ID)
         {
-            return null;
+
+            var menuGroup  = await _unitOfWork.MenuGroupRepository.GetById(Guid.Parse(ID));
+            MenuGroupUI menuGroupUI = _mapper.Map<MenuGroupUI>(menuGroup);
+            return menuGroupUI;
         }
         public async Task AddMenuGroup(MenuGroupUI model)
         {
@@ -31,6 +38,8 @@ namespace API.Helpers
             {
                 MenuGroup entity = _mapper.Map<MenuGroup>(model);
                 entity.ID = Guid.NewGuid();
+                //tam thoi gan o day
+                entity.IsDeleted = false;
                 await _unitOfWork.MenuGroupRepository.Create(entity);
                 _unitOfWork.Save();
             }
@@ -44,8 +53,8 @@ namespace API.Helpers
             try
             {
                 MenuGroup entity = _mapper.Map<MenuGroup>(model);
-
-
+                await _unitOfWork.MenuGroupRepository.Update(entity);
+                _unitOfWork.Save();
             }
             catch (Exception ex)
             {
@@ -54,6 +63,7 @@ namespace API.Helpers
         }
         public async Task DeleteMenuGroup(string ID)
         {
+            await _unitOfWork.MenuGroupRepository.Delete(Guid.Parse(ID));
         }
     }
 }

@@ -19,9 +19,9 @@ namespace API.IRepositories
         Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "");
-        Task<TEntity> GetById(string ID);
+        Task<TEntity> GetById(Guid ID);
         Task Create(TEntity entity);
         Task Update(TEntity entity);
-        Task Delete(string ID);
+        Task Delete(Guid ID);
     }
 }

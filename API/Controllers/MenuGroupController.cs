@@ -24,13 +24,23 @@ namespace API.Controllers
         [Route("getMenuGroups")]
         public async Task<IActionResult> GetMenuGroups()
         {
-            return BadRequest();
+            IEnumerable<MenuGroupUI> data = await _menuGroupHelper.GetMenuGroups();
+            if(data == null)
+            {
+                return BadRequest();
+            }
+            return Ok(data);
         }
         [HttpGet]
         [Route("getMenuGroupByID")]
         public async Task<IActionResult> GetMenuGroupByID(string ID)
         {
-            return BadRequest();
+            MenuGroupUI data = await _menuGroupHelper.GetMenuGroupByID(ID);
+            if(data == null)
+            {
+                  return BadRequest();
+            }
+            return Ok(data);
         }
 
         [HttpPost]
@@ -48,12 +58,23 @@ namespace API.Controllers
         [Route("UpdateMenuGroup")]
         public async Task<IActionResult> UpdateMenuGroup(MenuGroupUI model)
         {
+            if(model == null)
+            {
+                return BadRequest();
+            }
+            await _menuGroupHelper.UpdateMenuGroup(model);
+
             return Ok();
         }
         [HttpDelete]
         [Route("DeleteMenuGroup")]
         public async Task<IActionResult> DeleteMenuGroup(string ID)
         {
+            if(ID == null)
+            {
+                return BadRequest();
+            }
+            await _menuGroupHelper.DeleteMenuGroup(ID);
             return Ok();
         }
     }

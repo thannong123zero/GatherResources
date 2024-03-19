@@ -45,7 +45,7 @@ namespace API.Repositories
             }
         }
 
-        public async Task<TEntity> GetById(string ID)
+        public async Task<TEntity> GetById(Guid ID)
         {
             var entity =  await _dbSet.FindAsync(ID);
             if(entity != null)
@@ -66,7 +66,7 @@ namespace API.Repositories
             _dbContext.Entry(entity).State = EntityState.Modified;
         }
 
-        public async Task Delete(string ID)
+        public async Task Delete(Guid ID)
         {
             var entity = await _dbSet.FindAsync(ID);
             if (entity != null)
