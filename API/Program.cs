@@ -3,11 +3,13 @@ using API.Helpers;
 using API.IRepositories;
 using API.Repositories;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
+string connection = builder.Configuration.GetConnectionString("SqlConnection");
+builder.Services.AddDbContext<DatabaseContext>(options =>
+    options.UseSqlServer(connection));
 
 // Add services to the container.
 builder.Services.AddAutoMapper(typeof(Program));
