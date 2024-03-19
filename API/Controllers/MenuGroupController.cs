@@ -42,7 +42,6 @@ namespace API.Controllers
             }
             return Ok(data);
         }
-
         [HttpPost]
         [Route("addMenuGroup")]
         public async Task<IActionResult> AddMenuGroup(MenuGroupUI model)
@@ -67,14 +66,26 @@ namespace API.Controllers
             return Ok();
         }
         [HttpDelete]
-        [Route("DeleteMenuGroup")]
-        public async Task<IActionResult> DeleteMenuGroup(string ID)
+        [Route("DeleteMenuGroupByID")]
+        public async Task<IActionResult> DeleteMenuGroupByID(string ID)
         {
             if(ID == null)
             {
                 return BadRequest();
             }
-            await _menuGroupHelper.DeleteMenuGroup(ID);
+            await _menuGroupHelper.DeleteMenuGroupByID(ID);
+            return Ok();
+        }
+        [HttpDelete]
+        [Route("SoftDelete")]
+        public async Task<IActionResult> SoftDeleteMenuGroupByID(string ID)
+        {
+            if (ID == null)
+            {
+                return BadRequest();
+            }
+            await _menuGroupHelper.SoftDeleteMenuGroupByID(ID);
+
             return Ok();
         }
     }

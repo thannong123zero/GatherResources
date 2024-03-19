@@ -61,10 +61,20 @@ namespace API.Helpers
                 throw new Exception(ex.Message);
             }
         }
-        public async Task DeleteMenuGroup(string ID)
+        public async Task DeleteMenuGroupByID(string ID)
         {
             await _unitOfWork.MenuGroupRepository.Delete(Guid.Parse(ID));
             _unitOfWork.Save();
+        }
+        public async Task SoftDeleteMenuGroupByID(string ID)
+        {
+            var menuGroup = await _unitOfWork.MenuGroupRepository.GetById(Guid.Parse(ID));
+            if(menuGroup != null)
+            {
+                menuGroup.IsDeleted = true;
+                await _unitOfWork.MenuGroupRepository.Update(menuGroup);
+                _unitOfWork.Save();
+            }
         }
     }
 }
