@@ -54,7 +54,7 @@ namespace API.Controllers
             return Ok();
         }
         [HttpPut]
-        [Route("UpdateMenuGroup")]
+        [Route("updateMenuGroup")]
         public async Task<IActionResult> UpdateMenuGroup(MenuGroupUI model)
         {
             if(model == null)
@@ -66,7 +66,7 @@ namespace API.Controllers
             return Ok();
         }
         [HttpDelete]
-        [Route("DeleteMenuGroupByID")]
+        [Route("deleteMenuGroupByID")]
         public async Task<IActionResult> DeleteMenuGroupByID(string ID)
         {
             if(ID == null)
@@ -77,7 +77,7 @@ namespace API.Controllers
             return Ok();
         }
         [HttpDelete]
-        [Route("SoftDelete")]
+        [Route("softDelete")]
         public async Task<IActionResult> SoftDeleteMenuGroupByID(string ID)
         {
             if (ID == null)
