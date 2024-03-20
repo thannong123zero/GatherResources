@@ -64,5 +64,16 @@
          * 
          */
         #endregion
+        #region Middleware
+        /*
+         * ref: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-8.0
+         * 
+         * Middleware xu ly cac requests va responses
+         * 
+         * 
+         * 
+         * 
+         */
+        #endregion
     }
 }
