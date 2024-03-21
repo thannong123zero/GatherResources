@@ -6,7 +6,6 @@
         public MenuGroupAPIService(AppConfig appConfig) 
         {
             _appConfig = appConfig;
-        }
-         
+        }   
     }
 }
