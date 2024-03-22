@@ -94,7 +94,8 @@
          */
         #endregion
         #region HTTP Clients
-        // ref https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/http/httpclient
+        // ref: https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/http/httpclient
+        // ref: https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient?view=net-8.0
         #endregion
         #region HttpResponseMessage 
         #endregion
