@@ -75,5 +75,28 @@
          * 
          */
         #endregion
+        #region HTTP Requests
+        /*
+         * Characteristics:
+         * A request method is idempotent if it can be seccessfully processed multiple times without changing the result.
+         * A request method is cacheable when it corresponding response can be stored for reuse.
+         * A request method is considered a safe method if it doesn't modify the state of a resource.
+         * 
+         * HTTP status codes:
+         * + Information status codes
+         * + Seccessful status codes
+         * + Redirection status codes
+         * + Client error status codes
+         * + Server error status codes
+         * 
+         * 
+         * 
+         */
+        #endregion
+        #region HTTP Clients
+        // ref https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/http/httpclient
+        #endregion
+        #region HttpResponseMessage 
+        #endregion
     }
 }

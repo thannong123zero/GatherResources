@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CRM.Services.APIServices;
+using Microsoft.AspNetCore.Mvc;
 using SharedLibrary.UserInterfaceDTO;
 using System.Reflection;
 
@@ -6,6 +7,7 @@ namespace CRM.Controllers
 {
     public class MenuGroupController : Controller
     {
+
         public async Task<IActionResult> Index()
         {
             TempData["Notification"] = "Them Danh Muc Thanh Cong";
@@ -20,6 +22,8 @@ namespace CRM.Controllers
                 NameVN = "Blog"
             }
             };
+            
+
             return View(data);
         }
         [HttpGet]

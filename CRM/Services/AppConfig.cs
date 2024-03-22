@@ -2,9 +2,9 @@
 {
     public class AppConfig
     {
-        private string ProductMode { get; set; }
-        private string ProdBaseAPIUrl { get; set; }
-        private string DevBaseAPIUrl { get; set; }
+        public string ProductMode { get; set; }
+        public string ProdBaseAPIUrl { get; set; }
+        public string DevBaseAPIUrl { get; set; }
         public string GetMenuGroupsUrl { get; set; }
         public string GetMenuGroupByIDUrl { get; set; }
         public string AddMenuGroupUrl { get; set; }
