@@ -1,4 +1,5 @@
-﻿using CRM.Services.APIServices;
+﻿using CRM.Helpers;
+using CRM.Services.APIServices;
 using Microsoft.AspNetCore.Mvc;
 using SharedLibrary.UserInterfaceDTO;
 using System.Reflection;
@@ -7,7 +8,11 @@ namespace CRM.Controllers
 {
     public class MenuGroupController : Controller
     {
-
+        private readonly MenuGroupHelper _menuGroupHelper;
+        public MenuGroupController(MenuGroupHelper menuGroupHelper)
+        {
+            _menuGroupHelper = menuGroupHelper;
+        }
         public async Task<IActionResult> Index()
         {
             TempData["Notification"] = "Them Danh Muc Thanh Cong";
@@ -22,8 +27,8 @@ namespace CRM.Controllers
                 NameVN = "Blog"
             }
             };
-            
 
+            await _menuGroupHelper.GetMenuGroups();
             return View(data);
         }
         [HttpGet]

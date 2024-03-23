@@ -15,10 +15,11 @@ namespace CRM.Services.APIServices
         {  
             string baseLink = _appConfig.GetBaseAPIURL();
             string getMenuGroupsUrl = _appConfig.GetMenuGroupsUrl;
-            string url = string.Concat(baseLink,getMenuGroupsUrl);
+            //string url = string.Concat(baseLink,getMenuGroupsUrl);
             using (HttpClient httpClient = new HttpClient())
             {
-                HttpResponseMessage response = await httpClient.GetAsync(url);
+                httpClient.BaseAddress = new Uri(baseLink);
+                HttpResponseMessage response = await httpClient.GetAsync(getMenuGroupsUrl   );
                 if (response.IsSuccessStatusCode)
                 {
                     // Deserialize the response content to MenuGroupUI objects

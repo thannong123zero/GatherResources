@@ -1,4 +1,5 @@
 using CRM;
+using CRM.Helpers;
 using CRM.Services;
 using CRM.Services.APIServices;
 using Microsoft.AspNetCore.Localization;
@@ -12,7 +13,7 @@ AppConfig appConfig = applicationconfig.Get<AppConfig>();
 builder.Services.AddSingleton(appConfig);
 
 builder.Services.AddScoped<MenuGroupAPIService>();
-
+builder.Services.AddScoped<MenuGroupHelper>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

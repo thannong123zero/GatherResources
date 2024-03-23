@@ -29,6 +29,7 @@ namespace API.Controllers
             {
                 return BadRequest();
             }
+            await _menuGroupHelper.GetMenuGroups();
             return Ok(data);
         }
         [HttpGet]
