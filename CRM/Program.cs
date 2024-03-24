@@ -1,11 +1,19 @@
 using CRM;
+using CRM.Helpers;
 using CRM.Services;
+using CRM.Services.APIServices;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+var applicationconfig = builder.Configuration.GetSection("AppConfig");
+AppConfig appConfig = applicationconfig.Get<AppConfig>();
+builder.Services.AddSingleton(appConfig);
+
+builder.Services.AddScoped<MenuGroupAPIService>();
+builder.Services.AddScoped<MenuGroupHelper>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -92,6 +100,6 @@ app.UseCors("AllowSpecificOrigin");
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

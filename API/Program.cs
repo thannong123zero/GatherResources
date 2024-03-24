@@ -1,12 +1,15 @@
 using API.ContextObject;
+using API.Helpers;
 using API.IRepositories;
 using API.Repositories;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
+string connection = builder.Configuration.GetConnectionString("SqlConnection");
+builder.Services.AddDbContext<DatabaseContext>(options =>
+    options.UseSqlServer(connection));
 
 // Add services to the container.
 builder.Services.AddAutoMapper(typeof(Program));
@@ -15,10 +18,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<DatabaseContext>();
+builder.Services.AddScoped<DatabaseContext>();
+builder.Services.AddTransient<UnitOfWork>();
+builder.Services.AddTransient<MenuGroupHelper>();
 // sign up database context
 
-builder.Services.AddScoped<IMenuGroupRepository, MenuGroupRepository>();
+//builder.Services.AddScoped<IMenuGroupRepository, MenuGroupRepository>();
 
 var app = builder.Build();
 

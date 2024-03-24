@@ -730,9 +730,4 @@
     <ProjectReference Include="..\ShareLibrary\SharedLibrary.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Services\APIServices\" />
-  </ItemGroup>
-
 </Project>

@@ -24,9 +24,11 @@
                      class="img-fluid" alt="Sample image">
             </div>
             <div class="col-6">
-                <form asp-action="Index" asp-controller="Login">
+                <form asp-action="Index" asp-controller="Login" method="post">
                     <h1 class="card-title text-center">Sign In</h1>
                     <div class="form-outline mt-4 position-relative">
+                        <span class="text-danger">@ViewBag.WrongAccount</span>
+                        <br/>
                         <label class="form-label">Email:</label>
                         <input type="email" asp-for="Email" class="form-control" placeholder="Enter email" />
                         <span class="ti-lock customIcon"></span>
