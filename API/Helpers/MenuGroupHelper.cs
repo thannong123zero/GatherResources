@@ -41,8 +41,6 @@ namespace API.Helpers
             {
                 MenuGroup entity = _mapper.Map<MenuGroup>(model);
                 entity.ID = Guid.NewGuid();
-                //tam thoi gan o day
-                entity.IsDeleted = false;
                 await _unitOfWork.MenuGroupRepository.Create(entity);
                 _unitOfWork.Save();
             }

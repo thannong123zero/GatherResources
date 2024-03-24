@@ -66,17 +66,17 @@ namespace API.Controllers
 
             return Ok();
         }
-        [HttpDelete]
-        [Route("deleteMenuGroupByID")]
-        public async Task<IActionResult> DeleteMenuGroupByID(string ID)
-        {
-            if(ID == null)
-            {
-                return BadRequest();
-            }
-            await _menuGroupHelper.DeleteMenuGroupByID(ID);
-            return Ok();
-        }
+        //[HttpDelete]
+        //[Route("deleteMenuGroup")]
+        //public async Task<IActionResult> DeleteMenuGroupByID(string ID)
+        //{
+        //    if(ID == null)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    await _menuGroupHelper.DeleteMenuGroupByID(ID);
+        //    return Ok();
+        //}
         [HttpDelete]
         [Route("softDelete")]
         public async Task<IActionResult> SoftDeleteMenuGroupByID(string ID)

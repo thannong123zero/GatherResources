@@ -3,6 +3,8 @@ using CRM.Services.APIServices;
 using Microsoft.AspNetCore.Mvc;
 using SharedLibrary.UserInterfaceDTO;
 using System.Reflection;
+using System.Security;
+using System.Security.Permissions;
 
 namespace CRM.Controllers
 {
@@ -38,9 +40,32 @@ namespace CRM.Controllers
             MenuGroupUI data = await _menuGroupHelper.GetMenuGroupByID(ID);
             return View(data);
         }
-        public async Task<IActionResult> Delete()
+
+        [HttpPost]
+        public async Task<DatabaseOjectResult> CheckPermissionToDelete(string ID)
         {
-            return View();
+            DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
+            databaseOjectResult.OK = true;
+            databaseOjectResult.Content = "Cai nay duoc phep xoa!"+ID;
+            return databaseOjectResult;
+        }
+
+
+        /// <summary>
+        /// Action delete The Category
+        /// Step 1: Giu yeu cau kiem tra xem co danh muc con khong ?
+        /// Step 2: Neu co thi khong cho xoa
+        /// Step 2.1: Neu khong co thi cho xoa
+        /// Step 3: Thong bao trang thai
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<DatabaseOjectResult> Delete(string ID)
+        {
+            DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
+            databaseOjectResult.OK = true;
+            return databaseOjectResult;
         }
     }
 }

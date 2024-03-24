@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="hi" xml:space="preserve">
-    <value>Hi</value>
+  <data name="close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="confirmation" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="notification" xml:space="preserve">
+    <value>Notification</value>
   </data>
 </root>

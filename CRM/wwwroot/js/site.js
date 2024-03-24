@@ -53,3 +53,15 @@ function SetLanguageByCookie() {
 
     }
 }
+// fucntion open ErrorModel
+function openErrorModal(strMessage) {
+    var myDiv = document.getElementById("MyModalErrorAlertBody");
+    myDiv.innerHTML = strMessage;
+    $('#myModalError').modal('show');
+}
+// fucntion opeN SuccessModel
+function openSuccessModal(strMessage) {
+    var myDiv = document.getElementById("MyModalSuccessAlertBody");
+    myDiv.innerHTML = strMessage;
+    $('#myModalSuccess').modal('show');
+}
