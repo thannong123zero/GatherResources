@@ -27,9 +27,9 @@ namespace CRM.Helpers
         {
             await _APIService.UpdateMenuGroup(model);
         }
-        public async Task SoftDelete(string ID)
+        public async Task<bool> SoftDelete(string ID)
         {
-
+            return await _APIService.SoftDelete(ID);
         }
 
     }

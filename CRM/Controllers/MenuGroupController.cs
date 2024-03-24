@@ -75,7 +75,7 @@ namespace CRM.Controllers
         public async Task<DatabaseOjectResult> Delete(string ID)
         {
             DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
-            databaseOjectResult.OK = true;
+            databaseOjectResult.OK = await _menuGroupHelper.SoftDelete(ID);
             return databaseOjectResult;
         }
     }

@@ -110,7 +110,7 @@ namespace CRM.Services.APIServices
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public async Task SoftDelete(string ID)
+        public async Task<bool> SoftDelete(string ID)
         {
             string baseLink = _appConfig.GetBaseAPIURL();
             string softDeleteUrl = _appConfig.SoftDeleteUrl;
@@ -123,8 +123,10 @@ namespace CRM.Services.APIServices
                 {
                     // Deserialize the response content to MenuGroupUI objects
                     string responseData = await response.Content.ReadAsStringAsync();
+                    return true;
                 }
             }
+            return false
         }
 
     }
