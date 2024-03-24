@@ -77,5 +77,19 @@ namespace API.Helpers
                 _unitOfWork.Save();
             }
         }
+        public async Task<bool> CheckPermissionToDelete(string ID)
+        {
+            if (!Guid.TryParse(ID, out var id))
+            {
+                return false;
+            }
+            MenuGroup menuGroup = await _unitOfWork.MenuGroupRepository.GetById(Guid.Parse(ID));
+
+            if(menuGroup != null && menuGroup.MenuItems.Count <= 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
