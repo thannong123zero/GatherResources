@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeAnalysis.Operations;
 using Newtonsoft.Json;
 using SharedLibrary.UserInterfaceDTO;
+using System.Text;
 
 namespace CRM.Services.APIServices
 {
@@ -38,7 +39,7 @@ namespace CRM.Services.APIServices
         {
             string baseLink = _appConfig.GetBaseAPIURL();
             string getMenuGroupByIDUrl = _appConfig.GetMenuGroupByIDUrl;
-            string url = string.Concat(baseLink, getMenuGroupByIDUrl);
+            string url = string.Concat(baseLink, getMenuGroupByIDUrl,ID);
             using (HttpClient httpClient = new HttpClient())
             {
                 HttpResponseMessage response = await httpClient.GetAsync(url);
@@ -57,9 +58,18 @@ namespace CRM.Services.APIServices
 
             return null;
         }
-        public async Task CreateMenuGroup()
+        public async Task CreateMenuGroup(MenuGroupUI model)
         {
-
+            string baseLink = _appConfig.GetBaseAPIURL();
+            string addMenuGroupUrl = _appConfig.AddMenuGroupUrl;
+            //string url = string.Concat(baseLink,getMenuGroupsUrl);
+            using (HttpClient httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(baseLink);
+                string json = JsonConvert.SerializeObject(model);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await httpClient.PostAsync(addMenuGroupUrl,content);
+            }
         }
         public async Task UpdateMenuGroup()
         {

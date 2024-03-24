@@ -5,7 +5,7 @@
 namespace API.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateDatabase : Migration
+    public partial class UpdataDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

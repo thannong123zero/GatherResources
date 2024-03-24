@@ -45,7 +45,7 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("addMenuGroup")]
-        public async Task<IActionResult> AddMenuGroup(MenuGroupUI model)
+        public async Task<IActionResult> AddMenuGroup([FromBody]MenuGroupUI model)
         {
             if(model == null)
             {

@@ -11,6 +11,8 @@ namespace API.ContextObject.EntityConfiguration
             builder.HasKey(s => s.ID);
             builder.Property(s => s.NameEN).IsRequired().HasMaxLength(225);
             builder.Property(s => s.NameVN).IsRequired().HasMaxLength(225);
+            builder.Property(s => s.DiscriptionEN).IsRequired(false);
+            builder.Property(s => s.DiscriptionVN).IsRequired(false);
             builder.Property(s => s.CreatedOn).IsRequired().HasDefaultValue(DateTime.Now);
             builder.Property(s => s.ModifiedOn).IsRequired().HasDefaultValue(DateTime.Now);
             builder.Property(s => s.IsActive).HasDefaultValue(false);

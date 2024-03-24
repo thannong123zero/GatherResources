@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace API.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDatabase : Migration
+    public partial class IntialDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,8 +18,8 @@ namespace API.Migrations
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NameEN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NameVN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscriptionEN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscriptionVN = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DiscriptionEN = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DiscriptionVN = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),

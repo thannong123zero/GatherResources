@@ -27,7 +27,10 @@ namespace API.Helpers
         }
         public async Task<MenuGroupUI> GetMenuGroupByID(string ID)
         {
-
+            if(!Guid.TryParse(ID, out var id))
+            {
+                return null;
+            }
             var menuGroup  = await _unitOfWork.MenuGroupRepository.GetById(Guid.Parse(ID));
             MenuGroupUI menuGroupUI = _mapper.Map<MenuGroupUI>(menuGroup);
             return menuGroupUI;

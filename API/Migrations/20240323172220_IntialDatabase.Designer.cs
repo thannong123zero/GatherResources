@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240303074328_UpdateDatabase")]
-    partial class UpdateDatabase
+    [Migration("20240323172220_IntialDatabase")]
+    partial class IntialDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("API.DTO.MenuGroup", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.MenuGroup", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace API.Migrations
                     b.ToTable("MenuGroups");
                 });
 
-            modelBuilder.Entity("API.DTO.MenuItem", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.MenuItem", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -108,7 +108,7 @@ namespace API.Migrations
                     b.ToTable("MenuItems");
                 });
 
-            modelBuilder.Entity("API.DTO.Product", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.Product", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -181,7 +181,7 @@ namespace API.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("API.DTO.Unit", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.Unit", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -220,9 +220,9 @@ namespace API.Migrations
                     b.ToTable("Units");
                 });
 
-            modelBuilder.Entity("API.DTO.MenuItem", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.MenuItem", b =>
                 {
-                    b.HasOne("API.DTO.MenuGroup", "MenuGroup")
+                    b.HasOne("SharedLibrary.DTO.MenuGroup", "MenuGroup")
                         .WithMany("MenuItems")
                         .HasForeignKey("MenuGroupID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -231,15 +231,15 @@ namespace API.Migrations
                     b.Navigation("MenuGroup");
                 });
 
-            modelBuilder.Entity("API.DTO.Product", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.Product", b =>
                 {
-                    b.HasOne("API.DTO.MenuItem", "MenuItem")
+                    b.HasOne("SharedLibrary.DTO.MenuItem", "MenuItem")
                         .WithMany("Products")
                         .HasForeignKey("MenuItemID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("API.DTO.Unit", "Unit")
+                    b.HasOne("SharedLibrary.DTO.Unit", "Unit")
                         .WithMany("Products")
                         .HasForeignKey("UnitID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -250,17 +250,17 @@ namespace API.Migrations
                     b.Navigation("Unit");
                 });
 
-            modelBuilder.Entity("API.DTO.MenuGroup", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.MenuGroup", b =>
                 {
                     b.Navigation("MenuItems");
                 });
 
-            modelBuilder.Entity("API.DTO.MenuItem", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.MenuItem", b =>
                 {
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("API.DTO.Unit", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.Unit", b =>
                 {
                     b.Navigation("Products");
                 });

@@ -15,20 +15,7 @@ namespace CRM.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            TempData["Notification"] = "Them Danh Muc Thanh Cong";
-            List<MenuGroupUI> data = new List<MenuGroupUI>() { new MenuGroupUI()
-            {
-                ID = Guid.NewGuid(),
-                NameEN = "LipsticK",
-                NameVN = "Son Moi"
-            }, new MenuGroupUI() {
-                ID = Guid.NewGuid(),
-                NameEN = "Blog",
-                NameVN = "Blog"
-            }
-            };
-
-            await _menuGroupHelper.GetMenuGroups();
+            IEnumerable<MenuGroupUI> data = await _menuGroupHelper.GetMenuGroups();
             return View(data);
         }
         [HttpGet]
@@ -43,16 +30,12 @@ namespace CRM.Controllers
             {
                 return View(model);
             }
-            return View("Index");
+            await _menuGroupHelper.CreateMenuGroup(model);
+            return RedirectToAction("Index");
         }
-        public async Task<IActionResult> Update()
+        public async Task<IActionResult> Update(string ID)
         {
-            var data = new MenuGroupUI()
-            {
-                ID = Guid.NewGuid(),
-                NameEN = "LipsticK",
-                NameVN = "Son Moi"
-            };
+            MenuGroupUI data = await _menuGroupHelper.GetMenuGroupByID(ID);
             return View(data);
         }
         public async Task<IActionResult> Delete()
