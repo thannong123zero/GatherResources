@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SharedLibrary.DTO;
+using System.Reflection;
 
 namespace API.ContextObject
 {
@@ -29,6 +30,11 @@ namespace API.ContextObject
         //{
         //    optionsBuilder.UseSqlServer(_connectionString);
         //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }
     

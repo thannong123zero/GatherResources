@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace API.Migrations
 {
     /// <inheritdoc />
-    public partial class IntialDatabase : Migration
+    public partial class InitialDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,14 +16,14 @@ namespace API.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NameEN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NameVN = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NameEN = table.Column<string>(type: "nvarchar(225)", maxLength: 225, nullable: false),
+                    NameVN = table.Column<string>(type: "nvarchar(225)", maxLength: 225, nullable: false),
                     DiscriptionEN = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DiscriptionVN = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 3, 24, 12, 10, 30, 356, DateTimeKind.Local).AddTicks(8035)),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 3, 24, 12, 10, 30, 356, DateTimeKind.Local).AddTicks(8360)),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -35,14 +35,14 @@ namespace API.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NameEN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NameVN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscriptionEN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscriptionVN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    NameEN = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    NameVN = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    DiscriptionEN = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DiscriptionVN = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 3, 24, 12, 10, 30, 358, DateTimeKind.Local).AddTicks(337)),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 3, 24, 12, 10, 30, 358, DateTimeKind.Local).AddTicks(627)),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -55,14 +55,14 @@ namespace API.Migrations
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MenuGroupID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NameEN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NameVN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscriptionEN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscriptionVN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    NameEN = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    NameVN = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    DiscriptionEN = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DiscriptionVN = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 3, 24, 12, 10, 30, 357, DateTimeKind.Local).AddTicks(923)),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 3, 24, 12, 10, 30, 357, DateTimeKind.Local).AddTicks(1265)),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -82,8 +82,8 @@ namespace API.Migrations
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MenuItemID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UnitID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NameEN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NameVN = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NameEN = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    NameVN = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     DiscriptionEN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DiscriptionVN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ContentEN = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -93,10 +93,10 @@ namespace API.Migrations
                     Discount = table.Column<int>(type: "int", nullable: false),
                     IsHome = table.Column<bool>(type: "bit", nullable: false),
                     Quantity = table.Column<double>(type: "float", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 3, 24, 12, 10, 30, 357, DateTimeKind.Local).AddTicks(4732)),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 3, 24, 12, 10, 30, 357, DateTimeKind.Local).AddTicks(5134)),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
