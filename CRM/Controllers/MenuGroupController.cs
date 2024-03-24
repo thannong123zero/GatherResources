@@ -15,6 +15,7 @@ namespace CRM.Controllers
         {
             _menuGroupHelper = menuGroupHelper;
         }
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             IEnumerable<MenuGroupUI> data = await _menuGroupHelper.GetMenuGroups();
@@ -35,10 +36,21 @@ namespace CRM.Controllers
             await _menuGroupHelper.CreateMenuGroup(model);
             return RedirectToAction("Index");
         }
+        [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
             MenuGroupUI data = await _menuGroupHelper.GetMenuGroupByID(ID);
             return View(data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(MenuGroupUI model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _menuGroupHelper.UpdateMenuGroup(model);
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -49,7 +61,6 @@ namespace CRM.Controllers
             databaseOjectResult.Content = "Cai nay duoc phep xoa!"+ID;
             return databaseOjectResult;
         }
-
 
         /// <summary>
         /// Action delete The Category
