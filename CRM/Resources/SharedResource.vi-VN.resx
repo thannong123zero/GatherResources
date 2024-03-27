@@ -126,6 +126,9 @@
   <data name="applicationName" xml:space="preserve">
     <value>Ứng Dụng CRM</value>
   </data>
+  <data name="areYouForgetPassword" xml:space="preserve">
+    <value>Bạn quên mật khẩu?</value>
+  </data>
   <data name="backToList" xml:space="preserve">
     <value>Trở về</value>
   </data>
@@ -178,7 +181,7 @@
     <value>Đăng xuất</value>
   </data>
   <data name="menuGroup" xml:space="preserve">
-    <value>Mục lớn</value>
+    <value>Danh mục lớn</value>
   </data>
   <data name="menuGroupInformation" xml:space="preserve">
     <value>Thông tin danh mục lớn</value>
@@ -187,7 +190,7 @@
     <value>Danh sách danh mục lớn</value>
   </data>
   <data name="menuItem" xml:space="preserve">
-    <value>Mục con</value>
+    <value>Danh mục con</value>
   </data>
   <data name="menuItemInformation" xml:space="preserve">
     <value>Thông tin danh mục con</value>
@@ -204,6 +207,9 @@
   <data name="notification" xml:space="preserve">
     <value>Thông báo</value>
   </data>
+  <data name="password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
   <data name="priority" xml:space="preserve">
     <value>Ưu tiên</value>
   </data>
@@ -219,10 +225,16 @@
   <data name="setting" xml:space="preserve">
     <value>Cài đặt</value>
   </data>
+  <data name="signIn" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
   <data name="t&amp;c" xml:space="preserve">
     <value>Điều khoản &amp; điều kiện</value>
   </data>
   <data name="update" xml:space="preserve">
     <value>Cập nhật</value>
+  </data>
+  <data name="userName" xml:space="preserve">
+    <value>Tên đăng nhập</value>
   </data>
 </root>

@@ -25,23 +25,23 @@
             </div>
             <div class="col-6">
                 <form asp-action="Index" asp-controller="Login" method="post">
-                    <h1 class="card-title text-center">Sign In</h1>
+                    <h1 class="card-title text-center text-capitalize">@_language.Getkey("signIn")</h1>
                     <div class="form-outline mt-4 position-relative">
                         <span class="text-danger">@ViewBag.WrongAccount</span>
                         <br/>
-                        <label class="form-label">Email:</label>
-                        <input type="email" asp-for="Email" class="form-control" placeholder="Enter email" />
+                        <label class="form-label text-capitalize">@_language.Getkey("userName"):</label>
+                        <input type="email" asp-for="Email" class="form-control" placeholder="Email..." />
                         <span class="ti-lock customIcon"></span>
                     </div>
                     <div class="form-outline mt-2 position-relative">
-                        <label class="form-label">Password:</label>
-                        <input type="password" asp-for="Password" class="form-control" placeholder="Enter password" />
+                        <label class="form-label text-capitalize">@_language.Getkey("password"):</label>
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Password..." />
                         <span class="ti-key customIcon"></span>
                     </div>
                     <button type="submit" class="btn btn-primary mt-4 mb-3 w-100">
-                        Login
+                        @_language.Getkey("login")
                     </button>
-                    <a asp-action="ResetPassword" asp-controller="Login">Are you forget password?</a>
+                    <a asp-action="ResetPassword" asp-controller="Login">@_language.Getkey("areYouForgetPassword")</a>
                 </form>
             </div>
         </div>

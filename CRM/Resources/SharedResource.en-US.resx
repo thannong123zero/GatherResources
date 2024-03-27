@@ -126,6 +126,9 @@
   <data name="applicationName" xml:space="preserve">
     <value>CRM Application</value>
   </data>
+  <data name="areYouForgetPassword" xml:space="preserve">
+    <value>Are you forget password?</value>
+  </data>
   <data name="backToList" xml:space="preserve">
     <value>Back to list</value>
   </data>
@@ -204,6 +207,9 @@
   <data name="notification" xml:space="preserve">
     <value>Notification</value>
   </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="priority" xml:space="preserve">
     <value>Priority</value>
   </data>
@@ -219,10 +225,16 @@
   <data name="setting" xml:space="preserve">
     <value>Setting</value>
   </data>
+  <data name="signIn" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
   <data name="t&amp;c" xml:space="preserve">
     <value>Terms &amp; conditions</value>
   </data>
   <data name="update" xml:space="preserve">
     <value>Update</value>
+  </data>
+  <data name="userName" xml:space="preserve">
+    <value>User name</value>
   </data>
 </root>
