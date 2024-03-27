@@ -4,29 +4,33 @@
     ViewData["Title"] = "Index";
 }
 <div class="container pt-2">
-    <h2>Menu Group List</h2>
+    <h2 class="text-capitalize">@_language.Getkey("menuGroupList")</h2>
     <div class="d-flex justify-content-end">
-        <a asp-action="Create" asp-controller="MenuGroup" class="btn btn-success">Create New</a>
+        <a asp-action="Create" asp-controller="MenuGroup" class="btn btn-success text-capitalize">@_language.Getkey("create")</a>
     </div>
     @if (Model != null)
     {
         <table class="table">
             <thead>
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NameEN)
+                    <th class="text-capitalize">
+                        @* @Html.DisplayNameFor(model => model.NameEN) *@
+                        @_language.Getkey("nameEN")
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NameVN)
+                    <th class="text-capitalize">
+                        @* @Html.DisplayNameFor(model => model.NameVN) *@
+                        @_language.Getkey("nameVN")
+
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.DescriptionEN)
+                    <th class="text-capitalize">
+                        @* @Html.DisplayNameFor(model => model.IsActive) *@
+                        @_language.Getkey("isActive")
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.DescriptionVN)
+                    <th class="text-capitalize">
+                        @_language.Getkey("inHomePage")
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.IsActive)
+                    <th class="text-capitalize">
+                        @_language.Getkey("priority")
                     </th>
                     <th></th>
                 </tr>
@@ -42,17 +46,17 @@
                             @Html.DisplayFor(modelItem => item.NameVN)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.DescriptionEN)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DescriptionVN)
-                        </td>
-                        <td>
                             @Html.DisplayFor(modelItem => item.IsActive)
                         </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InHomePage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Priority)
+                        </td>
                         <td class="d-flex justify-content-end">
-                            <a asp-action="Update" asp-controller="MenuGroup" asp-route-ID="@item.ID" class="btn btn-primary me-2">Details</a>
-                            <button onclick="CheckPermissionToDelete('@item.ID')" class="btn btn-danger">Delete</button>
+                            <a asp-action="Update" asp-controller="MenuGroup" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">@_language.Getkey("details")</a>
+                            <button onclick="CheckPermissionToDelete('@item.ID')" class="btn btn-danger text-capitalize">@_language.Getkey("delete")</button>
                         </td>
                     </tr>
                 }
