@@ -120,6 +120,9 @@
   <data name="addMenuGroup" xml:space="preserve">
     <value>Thêm danh mục lớn</value>
   </data>
+  <data name="addMenuItem" xml:space="preserve">
+    <value>Thêm danh mục con</value>
+  </data>
   <data name="applicationName" xml:space="preserve">
     <value>Ứng Dụng CRM</value>
   </data>
@@ -159,6 +162,9 @@
   <data name="error" xml:space="preserve">
     <value>Lỗi</value>
   </data>
+  <data name="filter" xml:space="preserve">
+    <value>Bộ lọc</value>
+  </data>
   <data name="inHomePage" xml:space="preserve">
     <value>Hiển thị ở trang chủ</value>
   </data>
@@ -183,6 +189,12 @@
   <data name="menuItem" xml:space="preserve">
     <value>Mục con</value>
   </data>
+  <data name="menuItemInformation" xml:space="preserve">
+    <value>Thông tin danh mục con</value>
+  </data>
+  <data name="menuItemList" xml:space="preserve">
+    <value>Danh sách danh mục con</value>
+  </data>
   <data name="nameEN" xml:space="preserve">
     <value>Tên tiếng anh</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="productUnit" xml:space="preserve">
     <value>Đơn vị sản phẩm</value>
+  </data>
+  <data name="selectMenuGroup" xml:space="preserve">
+    <value>Chọn danh mục</value>
   </data>
   <data name="setting" xml:space="preserve">
     <value>Cài đặt</value>

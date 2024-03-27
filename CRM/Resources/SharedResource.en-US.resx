@@ -120,6 +120,9 @@
   <data name="addMenuGroup" xml:space="preserve">
     <value>Add a menu group</value>
   </data>
+  <data name="addMenuItem" xml:space="preserve">
+    <value>Add menu item</value>
+  </data>
   <data name="applicationName" xml:space="preserve">
     <value>CRM Application</value>
   </data>
@@ -159,6 +162,9 @@
   <data name="error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
   <data name="inHomePage" xml:space="preserve">
     <value>Show homepage</value>
   </data>
@@ -183,6 +189,12 @@
   <data name="menuItem" xml:space="preserve">
     <value>Menu item</value>
   </data>
+  <data name="menuItemInformation" xml:space="preserve">
+    <value>Menu item information</value>
+  </data>
+  <data name="menuItemList" xml:space="preserve">
+    <value>Menu item list</value>
+  </data>
   <data name="nameEN" xml:space="preserve">
     <value>English name</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="productUnit" xml:space="preserve">
     <value>Product unit</value>
+  </data>
+  <data name="selectMenuGroup" xml:space="preserve">
+    <value>Select a menu group</value>
   </data>
   <data name="setting" xml:space="preserve">
     <value>Setting</value>

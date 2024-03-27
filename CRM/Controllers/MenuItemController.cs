@@ -58,6 +58,8 @@ namespace CRM.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
+            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
             if (string.IsNullOrEmpty(ID))
             {
                 return RedirectToAction("Index");
@@ -68,6 +70,8 @@ namespace CRM.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(MenuItemUI model)
         {
+            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
             if (!ModelState.IsValid)
             {
                 return View(model);
