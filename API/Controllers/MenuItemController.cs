@@ -4,6 +4,8 @@ using SharedLibrary.UserInterfaceDTO;
 
 namespace API.Controllers
 {
+    [Route("api/MenuItem")]
+    [ApiController]
     public class MenuItemController : ControllerBase
     {
         private readonly MenuItemHelper _menuItemHelper;
@@ -68,14 +70,14 @@ namespace API.Controllers
             await _menuItemHelper.DeleteMenuItemByID(ID);
             return Ok();
         }
-        //[HttpGet]
-        //[Route("checkPermissionToDelete")]
-        //public async Task<IActionResult> CheckPermissionToDelete(string ID)
-        //{
-        //    DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
-        //    databaseOjectResult.OK = await _menuItemHelper.CheckPermissionToDelete(ID);
-        //    return Ok(databaseOjectResult);
-        //}
+        [HttpGet]
+        [Route("checkPermissionToDelete")]
+        public async Task<IActionResult> CheckPermissionToDelete(string ID)
+        {
+            DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
+            databaseOjectResult.OK = await _menuItemHelper.CheckPermissionToDelete(ID);
+            return Ok(databaseOjectResult);
+        }
         [HttpDelete]
         [Route("softDeleteMenuItem")]
         public async Task<IActionResult> SoftDeleteMenuItemByID(string ID)

@@ -77,14 +77,14 @@ namespace API.Controllers
             await _menuGroupHelper.DeleteMenuGroupByID(ID);
             return Ok();
         }
-        //[HttpGet]
-        //[Route("checkPermissionToDelete")]
-        //public async Task<IActionResult> CheckPermissionToDelete(string ID)
-        //{
-        //    DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
-        //    databaseOjectResult.OK = await _menuGroupHelper.CheckPermissionToDelete(ID);
-        //    return Ok(databaseOjectResult);
-        //}
+        [HttpGet]
+        [Route("checkPermissionToDelete")]
+        public async Task<IActionResult> CheckPermissionToDelete(string ID)
+        {
+            DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
+            databaseOjectResult.OK = await _menuGroupHelper.CheckPermissionToDelete(ID);
+            return Ok(databaseOjectResult);
+        }
         [HttpDelete]
         [Route("softDeleteMenuGroup")]
         public async Task<IActionResult> SoftDeleteMenuGroupByID(string ID)

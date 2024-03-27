@@ -106,19 +106,19 @@ namespace API.Helpers
             }
             return false;
         }
-        //public async Task<bool> CheckPermissionToDelete(string ID)
-        //{
-        //    if (!Guid.TryParse(ID, out var id))
-        //    {
-        //        return false;
-        //    }
-        //    MenuItem menuItem = await _unitOfWork.MenuItemRepository.GetById(Guid.Parse(ID));
+        public async Task<bool> CheckPermissionToDelete(string ID)
+        {
+            if (!Guid.TryParse(ID, out var id))
+            {
+                return false;
+            }
+            MenuItem menuItem = await _unitOfWork.MenuItemRepository.GetById(Guid.Parse(ID));
 
-        //    if (menuItem != null && menuItem.Products.Count <= 0)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+            if (menuItem != null && menuItem.Products.Count <= 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

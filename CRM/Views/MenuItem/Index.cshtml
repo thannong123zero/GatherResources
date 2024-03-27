@@ -9,7 +9,9 @@
     <div class="d-flex justify-content-end">
         <a asp-action="Create" asp-controller="MenuItem" class="btn btn-success">Create New</a>
     </div>
-    <table class="table">
+    @if(Model != null)
+    {
+        <table class="table">
         <thead>
             <tr>
                 <th>
@@ -57,4 +59,5 @@
             }
         </tbody>
     </table>
+    }
 </div>

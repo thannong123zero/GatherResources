@@ -8,27 +8,23 @@ namespace CRM.Controllers
     public class MenuItemController : Controller
     {
         private readonly MenuGroupHelper _menuGroupHelper;
-        public MenuItemController(MenuGroupHelper menuGroupHelper)
+        private readonly MenuItemHelper _menuItemHelper;
+        public MenuItemController(MenuGroupHelper menuGroupHelper, MenuItemHelper menuItemHelper)
         {
             _menuGroupHelper = menuGroupHelper;
+            _menuItemHelper = menuItemHelper;
         }
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
 
-            List<MenuItemUI> data = new List<MenuItemUI>()
-            {
-                new MenuItemUI()
-                {
-                    ID = Guid.NewGuid(),
-                    NameVN = "abc",
-                    NameEN = "abc",
-                }
-            };
+            IEnumerable<MenuItemUI> data = await _menuItemHelper.GetMenuItems();
 
             return View(data);
         }
+        [HttpGet]
         public async Task<IActionResult> Create()
         {
             IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
@@ -36,10 +32,25 @@ namespace CRM.Controllers
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
             return View();
         }
-        public async Task<IActionResult> Update()
+        [HttpPost]
+        public async Task<IActionResult> Create(MenuItemUI model)
+        {
+            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+
+            ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> Update(string ID)
         {
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> Update(MenuItemUI model)
+        {
+            return View();
+        }
+        [HttpPost]
         public async Task<IActionResult> Delete()
         {
             return View();
