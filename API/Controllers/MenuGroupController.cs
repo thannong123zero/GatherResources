@@ -86,7 +86,7 @@ namespace API.Controllers
         //    return Ok(databaseOjectResult);
         //}
         [HttpDelete]
-        [Route("softDelete")]
+        [Route("softDeleteMenuGroup")]
         public async Task<IActionResult> SoftDeleteMenuGroupByID(string ID)
         {
             if (ID == null)
@@ -98,8 +98,8 @@ namespace API.Controllers
             return Ok();
         }
         [HttpPut]
-        [Route("restore")]
-        public async Task<IActionResult> RestoreMenuItemByID(string ID)
+        [Route("restoreMenuGroup")]
+        public async Task<IActionResult> RestoreMenuGroupByID(string ID)
         {
             if (ID == null)
             {
