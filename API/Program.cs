@@ -21,6 +21,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<DatabaseContext>();
 builder.Services.AddTransient<UnitOfWork>();
 builder.Services.AddTransient<MenuGroupHelper>();
+builder.Services.AddTransient<MenuItemHelper>();
 // sign up database context
 
 //builder.Services.AddScoped<IMenuGroupRepository, MenuGroupRepository>();

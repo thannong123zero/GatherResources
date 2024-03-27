@@ -9,6 +9,7 @@ namespace API.Services
         public AutoMapperAPI()
         {
             CreateMap<MenuGroup,MenuGroupUI>().ReverseMap();
+            CreateMap<MenuItem,MenuItemUI>().ReverseMap();
         }
     }
 }

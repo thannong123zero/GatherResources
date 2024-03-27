@@ -56,7 +56,7 @@ namespace API.Controllers
         }
         [HttpPut]
         [Route("updateMenuGroup")]
-        public async Task<IActionResult> UpdateMenuGroup(MenuGroupUI model)
+        public async Task<IActionResult> UpdateMenuGroup([FromBody] MenuGroupUI model)
         {
             if(model == null)
             {
@@ -66,25 +66,25 @@ namespace API.Controllers
 
             return Ok();
         }
-        //[HttpDelete]
-        //[Route("deleteMenuGroup")]
-        //public async Task<IActionResult> DeleteMenuGroupByID(string ID)
-        //{
-        //    if(ID == null)
-        //    {
-        //        return BadRequest();
-        //    }
-        //    await _menuGroupHelper.DeleteMenuGroupByID(ID);
-        //    return Ok();
-        //}
-        [HttpGet]
-        [Route("checkPermissionToDelete")]
-        public async Task<IActionResult> CheckPermissionToDelete(string ID)
+        [HttpDelete]
+        [Route("deleteMenuGroup")]
+        public async Task<IActionResult> DeleteMenuGroupByID(string ID)
         {
-            DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
-            databaseOjectResult.OK = await _menuGroupHelper.CheckPermissionToDelete(ID);
-            return Ok(databaseOjectResult);
+            if (ID == null)
+            {
+                return BadRequest();
+            }
+            await _menuGroupHelper.DeleteMenuGroupByID(ID);
+            return Ok();
         }
+        //[HttpGet]
+        //[Route("checkPermissionToDelete")]
+        //public async Task<IActionResult> CheckPermissionToDelete(string ID)
+        //{
+        //    DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
+        //    databaseOjectResult.OK = await _menuGroupHelper.CheckPermissionToDelete(ID);
+        //    return Ok(databaseOjectResult);
+        //}
         [HttpDelete]
         [Route("softDelete")]
         public async Task<IActionResult> SoftDeleteMenuGroupByID(string ID)
@@ -94,6 +94,18 @@ namespace API.Controllers
                 return BadRequest();
             }
             await _menuGroupHelper.SoftDeleteMenuGroupByID(ID);
+
+            return Ok();
+        }
+        [HttpPut]
+        [Route("restore")]
+        public async Task<IActionResult> RestoreMenuItemByID(string ID)
+        {
+            if (ID == null)
+            {
+                return BadRequest();
+            }
+            await _menuGroupHelper.RestoreMenuGroupByID(ID);
 
             return Ok();
         }

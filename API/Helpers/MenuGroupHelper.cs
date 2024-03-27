@@ -49,12 +49,34 @@ namespace API.Helpers
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// We have a problem
+        /// that is "We just need to update some permisstion field"
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public async Task UpdateMenuGroup(MenuGroupUI model)
         {
             try
             {
-                MenuGroup entity = _mapper.Map<MenuGroup>(model);
-                await _unitOfWork.MenuGroupRepository.Update(entity);
+                //MenuGroup newModel = _mapper.Map<MenuGroup>(model);
+
+                MenuGroup menuGroup = await _unitOfWork.MenuGroupRepository.GetById(model.ID);
+                if(menuGroup == null)
+                {
+                    return;
+                }
+                menuGroup.NameEN = model.NameEN;
+                menuGroup.NameVN = model.NameVN;
+                menuGroup.DescriptionEN = model.DescriptionEN;
+                menuGroup.DescriptionVN = model.DescriptionVN;
+                menuGroup.ModifiedOn = DateTime.Now;
+                menuGroup.IsActive = model.IsActive;
+                menuGroup.IsDeleted = model.IsDeleted;
+                menuGroup.InHomePage = model.InHomePage;
+
+                //await _unitOfWork.MenuGroupRepository.Update(newModel);
                 _unitOfWork.Save();
             }
             catch (Exception ex)
@@ -62,34 +84,55 @@ namespace API.Helpers
                 throw new Exception(ex.Message);
             }
         }
-        public async Task DeleteMenuGroupByID(string ID)
+        public async Task<bool> DeleteMenuGroupByID(string ID)
         {
-            await _unitOfWork.MenuGroupRepository.Delete(Guid.Parse(ID));
-            _unitOfWork.Save();
-        }
-        public async Task SoftDeleteMenuGroupByID(string ID)
-        {
-            var menuGroup = await _unitOfWork.MenuGroupRepository.GetById(Guid.Parse(ID));
-            if(menuGroup != null)
-            {
-                menuGroup.IsDeleted = true;
-                await _unitOfWork.MenuGroupRepository.Update(menuGroup);
-                _unitOfWork.Save();
-            }
-        }
-        public async Task<bool> CheckPermissionToDelete(string ID)
-        {
-            if (!Guid.TryParse(ID, out var id))
-            {
-                return false;
-            }
             MenuGroup menuGroup = await _unitOfWork.MenuGroupRepository.GetById(Guid.Parse(ID));
 
-            if(menuGroup != null && menuGroup.MenuItems.Count <= 0)
+            if (menuGroup != null && menuGroup.MenuItems.Count <= 0)
             {
+                await _unitOfWork.MenuGroupRepository.Delete(Guid.Parse(ID));
+                _unitOfWork.Save();
                 return true;
             }
             return false;
+        }
+        public async Task<bool> SoftDeleteMenuGroupByID(string ID)
+        {
+            var menuGroup = await _unitOfWork.MenuGroupRepository.GetById(Guid.Parse(ID));
+            if(menuGroup != null && menuGroup.MenuItems.Count <= 0)
+            {
+                menuGroup.IsDeleted = true;
+                menuGroup.ModifiedOn = DateTime.Now;
+                //await _unitOfWork.MenuGroupRepository.Update(menuGroup);
+                _unitOfWork.Save();
+                return true;
+            }
+            return false;
+        }
+        //public async Task<bool> CheckPermissionToDelete(string ID)
+        //{
+        //    if (!Guid.TryParse(ID, out var id))
+        //    {
+        //        return false;
+        //    }
+        //    MenuGroup menuGroup = await _unitOfWork.MenuGroupRepository.GetById(Guid.Parse(ID));
+
+        //    if(menuGroup != null && menuGroup.MenuItems.Count <= 0)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
+        public async Task RestoreMenuGroupByID(string ID)
+        {
+            var menuGroup = await _unitOfWork.MenuGroupRepository.GetById(Guid.Parse(ID));
+            if (menuGroup != null)
+            {
+                menuGroup.IsDeleted = false;
+                menuGroup.ModifiedOn = DateTime.Now;
+                //await _unitOfWork.MenuGroupRepository.Update(menuGroup);
+                _unitOfWork.Save();
+            }
         }
     }
 }

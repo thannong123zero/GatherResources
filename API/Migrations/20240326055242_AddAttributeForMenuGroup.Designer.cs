@@ -4,6 +4,7 @@ using API.ContextObject;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240326055242_AddAttributeForMenuGroup")]
+    partial class AddAttributeForMenuGroup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,12 +34,12 @@ namespace API.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 27, 13, 48, 25, 50, DateTimeKind.Local).AddTicks(2438));
+                        .HasDefaultValue(new DateTime(2024, 3, 26, 12, 52, 42, 746, DateTimeKind.Local).AddTicks(9504));
 
-                    b.Property<string>("DescriptionEN")
+                    b.Property<string>("DiscriptionEN")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DescriptionVN")
+                    b.Property<string>("DiscriptionVN")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("InHomePage")
@@ -57,7 +60,7 @@ namespace API.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 27, 13, 48, 25, 50, DateTimeKind.Local).AddTicks(2832));
+                        .HasDefaultValue(new DateTime(2024, 3, 26, 12, 52, 42, 746, DateTimeKind.Local).AddTicks(9868));
 
                     b.Property<string>("NameEN")
                         .IsRequired()
@@ -88,12 +91,12 @@ namespace API.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 27, 13, 48, 25, 50, DateTimeKind.Local).AddTicks(6350));
+                        .HasDefaultValue(new DateTime(2024, 3, 26, 12, 52, 42, 747, DateTimeKind.Local).AddTicks(3424));
 
-                    b.Property<string>("DescriptionEN")
+                    b.Property<string>("DiscriptionEN")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DescriptionVN")
+                    b.Property<string>("DiscriptionVN")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -112,7 +115,7 @@ namespace API.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 27, 13, 48, 25, 50, DateTimeKind.Local).AddTicks(6747));
+                        .HasDefaultValue(new DateTime(2024, 3, 26, 12, 52, 42, 747, DateTimeKind.Local).AddTicks(3806));
 
                     b.Property<string>("NameEN")
                         .IsRequired()
@@ -148,18 +151,18 @@ namespace API.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 27, 13, 48, 25, 51, DateTimeKind.Local).AddTicks(755));
-
-                    b.Property<string>("DescriptionEN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DescriptionVN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasDefaultValue(new DateTime(2024, 3, 26, 12, 52, 42, 747, DateTimeKind.Local).AddTicks(7428));
 
                     b.Property<int>("Discount")
                         .HasColumnType("int");
+
+                    b.Property<string>("DiscriptionEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiscriptionVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Images")
                         .IsRequired()
@@ -184,7 +187,7 @@ namespace API.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 27, 13, 48, 25, 51, DateTimeKind.Local).AddTicks(1239));
+                        .HasDefaultValue(new DateTime(2024, 3, 26, 12, 52, 42, 747, DateTimeKind.Local).AddTicks(7777));
 
                     b.Property<string>("NameEN")
                         .IsRequired()
@@ -223,12 +226,12 @@ namespace API.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 27, 13, 48, 25, 51, DateTimeKind.Local).AddTicks(6926));
+                        .HasDefaultValue(new DateTime(2024, 3, 26, 12, 52, 42, 748, DateTimeKind.Local).AddTicks(2627));
 
-                    b.Property<string>("DescriptionEN")
+                    b.Property<string>("DiscriptionEN")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DescriptionVN")
+                    b.Property<string>("DiscriptionVN")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -244,7 +247,7 @@ namespace API.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 27, 13, 48, 25, 51, DateTimeKind.Local).AddTicks(7339));
+                        .HasDefaultValue(new DateTime(2024, 3, 26, 12, 52, 42, 748, DateTimeKind.Local).AddTicks(2968));
 
                     b.Property<string>("NameEN")
                         .IsRequired()

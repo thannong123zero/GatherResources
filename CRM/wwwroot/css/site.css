@@ -20,3 +20,17 @@
 .changeLanguage{
     width: 25px;
 }
+
+.priorityBox {
+    width: 50px;
+    border-radius: 0.375rem;
+    border: 1px solid #ced4da;
+    text-align: center;
+}
+    .priorityBox:focus {
+        color: #212529;
+        background-color: #fff;
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }

@@ -8,10 +8,22 @@
     <hr />
     <form asp-action="Create">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group form-check mb-2">
-            <label class="form-check-label">
-                <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
-            </label>
+        <div class="d-flex flex-row mb-2">
+            <div class="form-group form-check me-3">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+            <div class="form-group form-check me-3">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="InHomePage" /> @Html.DisplayNameFor(model => model.InHomePage)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Priority" class="control-label"></label>
+                <input asp-for="Priority" class="priorityBox" value="0" min="0">
+                <span asp-validation-for="Priority" class="text-danger"></span>
+            </div>
         </div>
         <div class="row mb-2">
             <div class="form-group col-6">
@@ -27,14 +39,14 @@
         </div>
         <div class="row mb-2">
             <div class="form-group col-6">
-                <label asp-for="DiscriptionEN" class="control-label"></label>
-                <textarea asp-for="DiscriptionEN" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="DiscriptionEN" class="text-danger"></span>
+                <label asp-for="DescriptionEN" class="control-label"></label>
+                <textarea asp-for="DescriptionEN" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="DescriptionEN" class="text-danger"></span>
             </div>
             <div class="form-group col-6">
-                <label asp-for="DiscriptionVN" class="control-label"></label>
-                <textarea asp-for="DiscriptionVN" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="DiscriptionVN" class="text-danger"></span>
+                <label asp-for="DescriptionVN" class="control-label"></label>
+                <textarea asp-for="DescriptionVN" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="DescriptionVN" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group d-flex justify-content-end">
