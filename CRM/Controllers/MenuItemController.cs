@@ -15,12 +15,23 @@ namespace CRM.Controllers
             _menuItemHelper = menuItemHelper;
         }
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string menuGroupID = "")
         {
+            MenuGroupUI seletedMenuGroup = new MenuGroupUI();
             IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
-            ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
-
-            IEnumerable<MenuItemUI> data = await _menuItemHelper.GetMenuItems();
+            ViewBag.MenuGroupList = menuGroupList;
+            if (string.IsNullOrEmpty(menuGroupID))
+            {
+                seletedMenuGroup = menuGroupList.First();
+                menuGroupID = seletedMenuGroup.ID.ToString();
+            }
+            else
+            {
+                Guid ID = Guid.Parse(menuGroupID);
+                seletedMenuGroup = menuGroupList.Where(s => s.ID == ID).FirstOrDefault();
+            }
+            ViewBag.Selected = seletedMenuGroup.NameVN;
+            IEnumerable<MenuItemUI> data = await _menuItemHelper.GetMenuItems(menuGroupID);
 
             return View(data);
         }
@@ -28,30 +39,44 @@ namespace CRM.Controllers
         public async Task<IActionResult> Create()
         {
             IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
-
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
+
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Create(MenuItemUI model)
         {
             IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
-
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _menuItemHelper.CreateMenuItem(model);
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
-            return View();
+            if (string.IsNullOrEmpty(ID))
+            {
+                return RedirectToAction("Index");
+            }
+            MenuItemUI data = await _menuItemHelper.GetMenuItemByID(ID);
+            return View(data);
         }
         [HttpPost]
         public async Task<IActionResult> Update(MenuItemUI model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _menuItemHelper.UpdateMenuItem(model);
+            return RedirectToAction("Index");
         }
         [HttpPost]
-        public async Task<IActionResult> Delete()
+        public async Task<IActionResult> Delete(string ID)
         {
             return View();
         }

@@ -15,15 +15,15 @@ namespace CRM.Services.APIServices
         /// Get menugroups
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<MenuItemUI>> GetMenuItems()
+        public async Task<IEnumerable<MenuItemUI>> GetMenuItems(string menuGroupID)
         {
             string baseLink = _appConfig.GetBaseAPIURL();
             string getMenuItemsUrl = _appConfig.GetMenuItemsUrl;
-            //string url = string.Concat(baseLink,getMenuItemsUrl);
+            string url = string.Concat(getMenuItemsUrl, menuGroupID);
             using (HttpClient httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri(baseLink);
-                HttpResponseMessage response = await httpClient.GetAsync(getMenuItemsUrl);
+                HttpResponseMessage response = await httpClient.GetAsync(url);
                 if (response.IsSuccessStatusCode)
                 {
                     // Deserialize the response content to MenuItemUI objects

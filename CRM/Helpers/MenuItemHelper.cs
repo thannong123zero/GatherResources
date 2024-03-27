@@ -11,9 +11,9 @@ namespace CRM.Helpers
             _APIService = aPIService;
         }
 
-        public async Task<IEnumerable<MenuItemUI>> GetMenuItems()
+        public async Task<IEnumerable<MenuItemUI>> GetMenuItems(string menuGroupID)
         {
-            return await _APIService.GetMenuItems();
+            return await _APIService.GetMenuItems(menuGroupID);
         }
         public async Task<MenuItemUI> GetMenuItemByID(string ID)
         {

@@ -15,14 +15,17 @@ namespace API.Controllers
         }
         [HttpGet]
         [Route("getMenuItems")]
-        public async Task<IActionResult> GetMenuItems()
+        public async Task<IActionResult> GetMenuItems(string menuGroupID = "")
         {
-            IEnumerable<MenuItemUI> data = await _menuItemHelper.GetMenuItems();
+            if(!string.IsNullOrEmpty(menuGroupID) && !Guid.TryParse(menuGroupID, out Guid ID))
+            {
+                return BadRequest();
+            }
+            IEnumerable<MenuItemUI> data = await _menuItemHelper.GetMenuItems(menuGroupID);
             if (data == null)
             {
                 return BadRequest();
             }
-            await _menuItemHelper.GetMenuItems();
             return Ok(data);
         }
         [HttpGet]

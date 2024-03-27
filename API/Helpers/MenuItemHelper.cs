@@ -15,9 +15,13 @@ namespace API.Helpers
             _unitOfWork = unitOfWork;
 
         }
-        public async Task<IEnumerable<MenuItemUI>> GetMenuItems()
+        public async Task<IEnumerable<MenuItemUI>> GetMenuItems(string menuGroupID)
         {
             var listMenuItem = await _unitOfWork.MenuItemRepository.GetAll();
+            if (!string.IsNullOrEmpty(menuGroupID) && Guid.TryParse(menuGroupID,out Guid ID))
+            {
+                listMenuItem = listMenuItem.Where(s => s.MenuGroupID.ToString()==menuGroupID).ToList();
+            }
             IEnumerable<MenuItemUI> listMenuItemUI = new List<MenuItemUI>();
             listMenuItemUI = _mapper.Map<IEnumerable<MenuItemUI>>(listMenuItem);
 

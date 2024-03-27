@@ -1,12 +1,32 @@
-﻿@model IEnumerable<SharedLibrary.UserInterfaceDTO.MenuItemUI>
+﻿@using SharedLibrary.UserInterfaceDTO
+@model IEnumerable<SharedLibrary.UserInterfaceDTO.MenuItemUI>
 
 @{
     ViewData["Title"] = "Index";
+    IEnumerable<MenuGroupUI> menuGroups = (IEnumerable<MenuGroupUI>)ViewBag.MenuGroupList;
 }
 <div class="container pt-2">
     <h2>Menu Item List</h2>
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-between">
+        <!-- Example single danger button -->
+        <div>
+            <span class="me-2">Filter: </span>
+            @if(menuGroups != null)
+            {
+                <div class="btn-group">
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        @ViewBag.Selected
+                    </button>
+                    <ul class="dropdown-menu">
+                        @foreach (var item in menuGroups)
+                        {
+                            <li><a class="dropdown-item" asp-action="index" asp-route-menuGroupID="@item.ID">@item.NameVN</a></li>
+                        }
+                </ul>
+            </div>
+            }
+        </div>
         <a asp-action="Create" asp-controller="MenuItem" class="btn btn-success">Create New</a>
     </div>
     @if(Model != null)
@@ -52,8 +72,8 @@
                         @Html.DisplayFor(modelItem => item.IsActive)
                     </td>
                     <td class="d-flex justify-content-end">
-                        <a asp-action="Update" asp-controller="MenuItem" class="btn btn-primary me-2">Details</a>
-                        <a asp-action="Delete" asp-controller="MenuItem" class="btn btn-danger">Delete</a>
+                        <a asp-action="Update" asp-controller="MenuItem" asp-route-ID="@item.ID" class="btn btn-primary me-2">Details</a>
+                        <a asp-action="Delete" asp-controller="MenuItem" asp-route-ID="@item.ID" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             }
