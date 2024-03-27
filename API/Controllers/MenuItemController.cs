@@ -93,7 +93,7 @@ namespace API.Controllers
 
             return Ok();
         }
-        [HttpPut]
+        [HttpPatch]
         [Route("restoreMenuItem")]
         public async Task<IActionResult> RestoreMenuItemByID(string ID)
         {

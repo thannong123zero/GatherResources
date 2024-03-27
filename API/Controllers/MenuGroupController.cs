@@ -97,7 +97,7 @@ namespace API.Controllers
 
             return Ok();
         }
-        [HttpPut]
+        [HttpPatch]
         [Route("restoreMenuGroup")]
         public async Task<IActionResult> RestoreMenuGroupByID(string ID)
         {

@@ -10,6 +10,7 @@ namespace API.Services
         {
             CreateMap<MenuGroup,MenuGroupUI>().ReverseMap();
             CreateMap<MenuItem,MenuItemUI>().ReverseMap();
+            CreateMap<Unit,UnitUI>().ReverseMap();
         }
     }
 }

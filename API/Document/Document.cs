@@ -2,6 +2,15 @@
 {
     public class Document
     {
+        #region architecture software
+        /*
+         * Moi Mot entity se co cac api co ban sau: Getall, getbyid, create, update, checkpermissiontodelete, softdelete, delete.
+         * API se tra ve ca 2 ngon ngu: tieng anh va tieng viet. Vi he thong nay nho nen khong can thiet tra theo 1 tung ngon ngu.
+         * 
+         * 
+         * 
+         */
+        #endregion
         #region Entity Core Document
         /*
         Install Libraries:

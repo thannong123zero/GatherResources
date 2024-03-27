@@ -34,6 +34,19 @@ namespace API.Repositories
                 return menuItemRepository;
             }
         }
+        private UnitRepository unitRepository;
+        public UnitRepository UnitRepository
+        {
+            get
+            {
+
+                if (this.unitRepository == null)
+                {
+                    this.unitRepository = new UnitRepository(context);
+                }
+                return unitRepository;
+            }
+        }
         public void Save()
         {
             context.SaveChanges();
