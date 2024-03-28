@@ -4,28 +4,37 @@
     ViewData["Title"] = "Index";
 }
 <div class="container pt-2">
-    <h2>Production List</h2>
+    <h2 class="text-capitalize">@_language.Getkey("productList")</h2>
 
     <div class="d-flex justify-content-end">
-        <a asp-action="Create" asp-controller="Product" class="btn btn-success">Create New</a>
+        <a asp-action="Create" asp-controller="Product" class="btn btn-success">@_language.Getkey("create")</a>
     </div>
     <table class="table">
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.NameEN)
+                <th class="text-capitalize">
+                    @* @Html.DisplayNameFor(model => model.NameEN) *@
+                    @_language.Getkey("nameEN")
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.NameVN)
+                <th class="text-capitalize">
+                    @* @Html.DisplayNameFor(model => model.NameVN) *@
+                    @_language.Getkey("nameVN")
+
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
+                <th class="text-capitalize">
+                    @* @Html.DisplayNameFor(model => model.Price) *@
+                    @_language.Getkey("price")
+
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Discount)
+                <th class="text-capitalize">
+                    @* @Html.DisplayNameFor(model => model.Discount) *@
+                    @_language.Getkey("discount")
+
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Quantity)
+                <th class="text-capitalize">
+                    @* @Html.DisplayNameFor(model => model.Quantity) *@
+                    @_language.Getkey("quantity")
+
                 </th>
                 <th></th>
             </tr>
@@ -50,8 +59,8 @@
                         @Html.DisplayFor(modelItem => item.Quantity)
                     </td>
                     <td class="d-flex justify-content-end">
-                        <a asp-action="Update" asp-controller="Production" class="btn btn-primary me-2">Details</a>
-                        <a asp-action="Delete" asp-controller="Production" class="btn btn-danger">Delete</a>
+                        <a asp-action="Update" asp-controller="product" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">@_language.Getkey("details")</a>
+                        <button class="btn btn-danger text-capitalize">@_language.Getkey("delete")</button>
                     </td>
                 </tr>
             }

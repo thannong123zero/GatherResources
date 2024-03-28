@@ -123,6 +123,9 @@
   <data name="addMenuItem" xml:space="preserve">
     <value>Thêm danh mục con</value>
   </data>
+  <data name="addProduct" xml:space="preserve">
+    <value>Thêm sản phẩm</value>
+  </data>
   <data name="addProductUnit" xml:space="preserve">
     <value>Thêm đơn vị sản phẩm</value>
   </data>
@@ -143,6 +146,12 @@
   </data>
   <data name="confirmation" xml:space="preserve">
     <value>Xác nhận</value>
+  </data>
+  <data name="contentEN" xml:space="preserve">
+    <value>Nội dung tiếng anh</value>
+  </data>
+  <data name="contentVN" xml:space="preserve">
+    <value>Nội dung tiếng việt</value>
   </data>
   <data name="core" xml:space="preserve">
     <value>Cốt lỗi</value>
@@ -165,11 +174,17 @@
   <data name="details" xml:space="preserve">
     <value>Chi tiết</value>
   </data>
+  <data name="discount" xml:space="preserve">
+    <value>Giảm giá</value>
+  </data>
   <data name="error" xml:space="preserve">
     <value>Lỗi</value>
   </data>
   <data name="filter" xml:space="preserve">
     <value>Bộ lọc</value>
+  </data>
+  <data name="images" xml:space="preserve">
+    <value>Hình ảnh</value>
   </data>
   <data name="inHomePage" xml:space="preserve">
     <value>Hiển thị ở trang chủ</value>
@@ -213,6 +228,9 @@
   <data name="password" xml:space="preserve">
     <value>Mật khẩu</value>
   </data>
+  <data name="price" xml:space="preserve">
+    <value>Gía</value>
+  </data>
   <data name="priority" xml:space="preserve">
     <value>Ưu tiên</value>
   </data>
@@ -221,6 +239,12 @@
   </data>
   <data name="product" xml:space="preserve">
     <value>Sản phẩm</value>
+  </data>
+  <data name="productInformation" xml:space="preserve">
+    <value>Thông tin sản phẩm</value>
+  </data>
+  <data name="productList" xml:space="preserve">
+    <value>Danh sách sản phẩm</value>
   </data>
   <data name="productUnit" xml:space="preserve">
     <value>Đơn vị sản phẩm</value>
@@ -231,14 +255,26 @@
   <data name="productUnitList" xml:space="preserve">
     <value>Danh sách đơn vị sản phẩm</value>
   </data>
+  <data name="quantity" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
   <data name="selectMenuGroup" xml:space="preserve">
     <value>Chọn danh mục</value>
+  </data>
+  <data name="selectMenuItem" xml:space="preserve">
+    <value>Chọn danh mục</value>
+  </data>
+  <data name="selectUnitProduct" xml:space="preserve">
+    <value>Chọn đơn vị </value>
   </data>
   <data name="setting" xml:space="preserve">
     <value>Cài đặt</value>
   </data>
   <data name="signIn" xml:space="preserve">
     <value>Đăng nhập</value>
+  </data>
+  <data name="summary" xml:space="preserve">
+    <value>Tổng quan</value>
   </data>
   <data name="t&amp;c" xml:space="preserve">
     <value>Điều khoản &amp; điều kiện</value>

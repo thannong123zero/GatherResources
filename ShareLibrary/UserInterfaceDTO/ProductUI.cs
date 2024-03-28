@@ -14,7 +14,7 @@
         public string Images { get; set; }
         public double Price { get; set; }
         public int Discount { get; set; }
-        public bool IsHome { get; set; }
+        public bool InHomePage { get; set; }
         public double Quantity { get; set; }
     }
 }
