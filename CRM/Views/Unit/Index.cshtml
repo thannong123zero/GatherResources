@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 <div class="container pt-2">
-    <h2 class="text-capitalize">Danh sach don vi san pham</h2>
+    <h2 class="text-capitalize">@_language.Getkey("productUnitList")</h2>
     <div class="d-flex justify-content-end">
         <a asp-action="Create" class="btn btn-success text-capitalize">@_language.Getkey("create")</a>
     </div>
@@ -43,7 +43,7 @@
                             @Html.DisplayFor(modelItem => item.IsActive)
                         </td>
                         <td class="d-flex justify-content-end">
-                            <a asp-action="Update" class="btn btn-primary me-2 text-capitalize">@_language.Getkey("details")</a>
+                            <a asp-action="Update" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">@_language.Getkey("details")</a>
                             <button onclick="CheckPermissionToDelete('@item.ID')" class="btn btn-danger text-capitalize">@_language.Getkey("delete")</button>
                         </td>
                     </tr>

@@ -123,6 +123,9 @@
   <data name="addMenuItem" xml:space="preserve">
     <value>Thêm danh mục con</value>
   </data>
+  <data name="addProductUnit" xml:space="preserve">
+    <value>Thêm đơn vị sản phẩm</value>
+  </data>
   <data name="applicationName" xml:space="preserve">
     <value>Ứng Dụng CRM</value>
   </data>
@@ -221,6 +224,12 @@
   </data>
   <data name="productUnit" xml:space="preserve">
     <value>Đơn vị sản phẩm</value>
+  </data>
+  <data name="productUnitInformation" xml:space="preserve">
+    <value>Thông tin đơn vị sản phẩm</value>
+  </data>
+  <data name="productUnitList" xml:space="preserve">
+    <value>Danh sách đơn vị sản phẩm</value>
   </data>
   <data name="selectMenuGroup" xml:space="preserve">
     <value>Chọn danh mục</value>

@@ -123,6 +123,9 @@
   <data name="addMenuItem" xml:space="preserve">
     <value>Add menu item</value>
   </data>
+  <data name="addProductUnit" xml:space="preserve">
+    <value>Add a product unit</value>
+  </data>
   <data name="applicationName" xml:space="preserve">
     <value>CRM Application</value>
   </data>
@@ -221,6 +224,12 @@
   </data>
   <data name="productUnit" xml:space="preserve">
     <value>Product unit</value>
+  </data>
+  <data name="productUnitInformation" xml:space="preserve">
+    <value>Product unit information</value>
+  </data>
+  <data name="productUnitList" xml:space="preserve">
+    <value>Product unit list</value>
   </data>
   <data name="selectMenuGroup" xml:space="preserve">
     <value>Select a menu group</value>

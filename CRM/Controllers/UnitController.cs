@@ -29,17 +29,23 @@ namespace CRM.Controllers
             {
                 return View(model);
             }
+            await _unitHelper.CreateUnit(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
-            return View();
+            UnitUI data = await _unitHelper.GetUnitByID(ID);
+            return View(data);
         }
         [HttpPost]
         public async Task<IActionResult> Update(UnitUI model)
         {
-            return View();
+            if(!ModelState.IsValid) { 
+            return View(model);
+            }
+            await _unitHelper.UpdateUnit(model);
+            return RedirectToAction("Index");
         }
     }
 }
