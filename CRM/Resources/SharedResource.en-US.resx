@@ -216,6 +216,9 @@
   <data name="privacyPolicy" xml:space="preserve">
     <value>Privacy policy</value>
   </data>
+  <data name="product" xml:space="preserve">
+    <value>Product</value>
+  </data>
   <data name="productUnit" xml:space="preserve">
     <value>Product unit</value>
   </data>

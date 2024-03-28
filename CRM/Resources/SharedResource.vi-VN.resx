@@ -216,6 +216,9 @@
   <data name="privacyPolicy" xml:space="preserve">
     <value>Chính sách bảo mật</value>
   </data>
+  <data name="product" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
   <data name="productUnit" xml:space="preserve">
     <value>Đơn vị sản phẩm</value>
   </data>
