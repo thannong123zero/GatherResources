@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CRM.Helpers;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 using SharedLibrary.UserInterfaceDTO;
 
@@ -6,15 +7,13 @@ namespace CRM.Controllers
 {
     public class UnitController : Controller
     {
-        public IActionResult Index()
+        private readonly UnitHelper _unitHelper;
+        public UnitController(UnitHelper unitHelper) {
+        _unitHelper = unitHelper;
+        }
+        public async Task<IActionResult> Index()
         {
-            IEnumerable<UnitUI> data = new List<UnitUI>()
-            {
-                new UnitUI() {ID = new Guid(), NameEN = "abc",NameVN="abc"},
-                new UnitUI() {ID = new Guid(), NameEN = "abc1",NameVN="abc1"},
-                new UnitUI() {ID = new Guid(), NameEN = "abc2",NameVN="abc2"},
-            };
-
+            IEnumerable<UnitUI> data = await _unitHelper.GetUnits();
             return View(data);
         }
     }

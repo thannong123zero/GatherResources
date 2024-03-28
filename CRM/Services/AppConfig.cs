@@ -22,6 +22,13 @@
         public string SoftDeleteMenuItemUrl { get; set; }
         public string RestoreMenuItemUrl { get; set; }
 
+        public string GetUnitsUrl { get; set; }
+        public string GetUnitByIDUrl { get; set; }
+        public string AddUnitUrl { get; set; }
+        public string UpdateUnitUrl { get; set; }
+        public string DeleteUnitByIDUrl { get; set; }
+        public string SoftDeleteUnitUrl { get; set; }
+        public string RestoreUnitUrl { get; set; }
 
         public string GetBaseAPIURL()
         {

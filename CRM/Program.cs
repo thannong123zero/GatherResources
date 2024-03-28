@@ -16,6 +16,8 @@ builder.Services.AddScoped<MenuGroupAPIService>();
 builder.Services.AddScoped<MenuGroupHelper>();
 builder.Services.AddScoped<MenuItemAPIService>();
 builder.Services.AddScoped<MenuItemHelper>();
+builder.Services.AddScoped<UnitAPIService>();
+builder.Services.AddScoped<UnitHelper>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
