@@ -17,7 +17,7 @@ namespace API.ContextObject.EntityConfiguration
             builder.Property(s => s.ModifiedOn).IsRequired().HasDefaultValue(DateTime.Now);
             builder.Property(s => s.IsActive).HasDefaultValue(false);
             builder.Property(s => s.IsDeleted).HasDefaultValue(false);
-            builder.Property(s=> s.InHomePage).HasDefaultValue(false);
+            builder.Property(s=> s.InNavbar).HasDefaultValue(false);
             builder.Property(s=>s.Priority).HasDefaultValue(0);
         }
     }

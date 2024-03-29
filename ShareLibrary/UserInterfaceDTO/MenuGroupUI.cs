@@ -9,7 +9,7 @@ namespace SharedLibrary.UserInterfaceDTO
         public string NameVN { get; set; }
         public string? DescriptionEN { get; set; }
         public string? DescriptionVN { get; set; }
-        public bool InHomePage { get; set; }
+        public bool InNavbar { get; set; }
         [Range(1,9999)]
         public int Priority { get; set; }
         public MenuGroupUI()

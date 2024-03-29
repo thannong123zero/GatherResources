@@ -6,6 +6,7 @@ namespace SharedLibrary.DTO
         public Guid ID { get; set; }
         public Guid MenuItemID { get; set; }
         public Guid UnitID { get; set; }
+        public Guid BrandID { get; set; }
         public string NameEN { get; set; }
         public string NameVN { get; set; }
         public string DescriptionEN { get; set; }
@@ -19,5 +20,6 @@ namespace SharedLibrary.DTO
         public double Quantity { get; set; }
         public Unit Unit { get; set; }
         public MenuItem MenuItem { get; set; }
+        public Brand Brand { get; set; }
     }
 }

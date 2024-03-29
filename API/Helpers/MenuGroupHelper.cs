@@ -81,7 +81,7 @@ namespace API.Helpers
                 menuGroup.IsActive = model.IsActive;
                 menuGroup.Priority = model.Priority;
                 menuGroup.IsDeleted = model.IsDeleted;
-                menuGroup.InHomePage = model.InHomePage;
+                menuGroup.InNavbar = model.InNavbar;
 
                 //await _unitOfWork.MenuGroupRepository.Update(newModel);
                 _unitOfWork.Save();

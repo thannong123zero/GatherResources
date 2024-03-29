@@ -21,7 +21,7 @@ namespace API.ContextObject.EntityConfiguration
             builder.Property(s => s.Price).IsRequired();
             builder.HasOne<Unit>(s => s.Unit).WithMany(g => g.Products).HasForeignKey(s => s.UnitID).IsRequired();
             builder.HasOne<MenuItem>(s => s.MenuItem).WithMany(g => g.Products).HasForeignKey(s => s.MenuItemID).IsRequired();
-
+            builder.HasOne<Brand>(s => s.Brand).WithMany(b => b.Products).HasForeignKey(b => b.BrandID).IsRequired(false);
         }
     }
 }

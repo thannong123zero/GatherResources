@@ -39,7 +39,7 @@ namespace API.Migrations
                     b.Property<string>("DescriptionVN")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("InHomePage")
+                    b.Property<bool>("InNavbar")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
