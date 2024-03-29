@@ -7,5 +7,9 @@
         public string NameVN { get; set; }
         public string? DescriptionEN { get; set; }
         public string? DescriptionVN { get; set; }
+        public UnitUI()
+        {
+            IsActive = true;
+        }
     }
 }

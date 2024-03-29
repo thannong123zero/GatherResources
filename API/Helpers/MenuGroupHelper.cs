@@ -5,6 +5,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using SharedLibrary.DTO;
 using SharedLibrary.UserInterfaceDTO;
+using System.Collections.Generic;
 
 namespace API.Helpers
 {
@@ -20,9 +21,14 @@ namespace API.Helpers
         public async Task<IEnumerable<MenuGroupUI>> GetMenuGroups()
         {
             var listMenuGroup =  await _unitOfWork.MenuGroupRepository.GetAll();
-            IEnumerable<MenuGroupUI> listMenuGroupUI = new List<MenuGroupUI>();
+            if(listMenuGroup == null) 
+            {
+                return null;
+            }
+            listMenuGroup = listMenuGroup.OrderBy(s=> s.Priority).ThenByDescending(s=> s.ModifiedOn);
+            IEnumerable <MenuGroupUI> listMenuGroupUI = new List<MenuGroupUI>();
             listMenuGroupUI = _mapper.Map<IEnumerable<MenuGroupUI>>(listMenuGroup);
-
+         
             return listMenuGroupUI;
         }
         public async Task<MenuGroupUI> GetMenuGroupByID(string ID)
@@ -73,6 +79,7 @@ namespace API.Helpers
                 menuGroup.DescriptionVN = model.DescriptionVN;
                 menuGroup.ModifiedOn = DateTime.Now;
                 menuGroup.IsActive = model.IsActive;
+                menuGroup.Priority = model.Priority;
                 menuGroup.IsDeleted = model.IsDeleted;
                 menuGroup.InHomePage = model.InHomePage;
 

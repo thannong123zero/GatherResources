@@ -20,7 +20,8 @@ namespace CRM.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            return View();
+            UnitUI model = new UnitUI();
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> Create(UnitUI model)

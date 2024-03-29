@@ -1,6 +1,7 @@
 ﻿using CRM.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using SharedLibrary.DTO;
 using SharedLibrary.UserInterfaceDTO;
 
 namespace CRM.Controllers
@@ -36,12 +37,12 @@ namespace CRM.Controllers
             return View(data);
         }
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(string menuGroupID)
         {
             IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
-            ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
-
-            return View();
+            ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN",menuGroupID);
+            MenuItemUI model = new MenuItemUI();
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> Create(MenuItemUI model)
@@ -53,7 +54,7 @@ namespace CRM.Controllers
                 return View(model);
             }
             await _menuItemHelper.CreateMenuItem(model);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { menuGroupID = model.MenuGroupID });
         }
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
@@ -77,7 +78,7 @@ namespace CRM.Controllers
                 return View(model);
             }
             await _menuItemHelper.UpdateMenuItem(model);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { menuGroupID  = model.MenuGroupID});
         }
         [HttpPost]
         public async Task<IActionResult> Delete(string ID)

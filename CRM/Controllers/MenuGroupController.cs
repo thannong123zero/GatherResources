@@ -23,8 +23,9 @@ namespace CRM.Controllers
         }
         [HttpGet]
         public async Task<IActionResult> Create()
-        {         
-            return View();
+        {
+            MenuGroupUI model = new MenuGroupUI();
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> Create(MenuGroupUI model)

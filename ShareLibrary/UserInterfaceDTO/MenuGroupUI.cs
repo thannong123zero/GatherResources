@@ -10,13 +10,14 @@ namespace SharedLibrary.UserInterfaceDTO
         public string? DescriptionEN { get; set; }
         public string? DescriptionVN { get; set; }
         public bool InHomePage { get; set; }
-        [Range(0,9999)]
+        [Range(1,9999)]
         public int Priority { get; set; }
         public MenuGroupUI()
         {
             ID = Guid.NewGuid();
             IsDeleted = false;
-            Priority = 0;
+            IsActive = true;
+            Priority = 99;
         }
     }
 }

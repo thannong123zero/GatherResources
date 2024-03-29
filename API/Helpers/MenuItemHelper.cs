@@ -22,6 +22,11 @@ namespace API.Helpers
             {
                 listMenuItem = listMenuItem.Where(s => s.MenuGroupID.ToString()==menuGroupID).ToList();
             }
+            if(listMenuItem == null)
+            {
+                return null;
+            }
+            listMenuItem = listMenuItem.OrderBy(s => s.Priority).ThenByDescending(s=>s.ModifiedOn).ToList();
             IEnumerable<MenuItemUI> listMenuItemUI = new List<MenuItemUI>();
             listMenuItemUI = _mapper.Map<IEnumerable<MenuItemUI>>(listMenuItem);
 
@@ -60,11 +65,13 @@ namespace API.Helpers
                 {
                     return;
                 }
+                menuItem.MenuGroupID = model.MenuGroupID;
                 menuItem.NameEN = model.NameEN;
                 menuItem.NameVN = model.NameVN;
                 menuItem.DescriptionEN = model.DescriptionEN;
                 menuItem.DescriptionVN = model.DescriptionVN;
                 menuItem.ModifiedOn = DateTime.Now;
+                menuItem.Priority = model.Priority;
                 menuItem.IsActive = model.IsActive;
                 menuItem.IsDeleted = model.IsDeleted;
                 _unitOfWork.Save();
