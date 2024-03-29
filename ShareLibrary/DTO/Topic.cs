@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharedLibrary.DTO
 {
-    public class Topic
+    public class Topic:BaseDTO
     {
         public Guid ID { get; set; }
         public string NameEN { get; set; }
