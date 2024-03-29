@@ -135,6 +135,9 @@
   <data name="areYouForgetPassword" xml:space="preserve">
     <value>Bạn quên mật khẩu?</value>
   </data>
+  <data name="article" xml:space="preserve">
+    <value>Bài viết</value>
+  </data>
   <data name="backToList" xml:space="preserve">
     <value>Trở về</value>
   </data>
@@ -278,6 +281,9 @@
   </data>
   <data name="t&amp;c" xml:space="preserve">
     <value>Điều khoản &amp; điều kiện</value>
+  </data>
+  <data name="topic" xml:space="preserve">
+    <value>Chủ đề</value>
   </data>
   <data name="update" xml:space="preserve">
     <value>Cập nhật</value>

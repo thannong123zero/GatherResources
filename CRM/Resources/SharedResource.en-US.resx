@@ -135,6 +135,9 @@
   <data name="areYouForgetPassword" xml:space="preserve">
     <value>Are you forget password?</value>
   </data>
+  <data name="article" xml:space="preserve">
+    <value>Articles</value>
+  </data>
   <data name="backToList" xml:space="preserve">
     <value>Back to list</value>
   </data>
@@ -199,7 +202,7 @@
     <value>Log in</value>
   </data>
   <data name="menuGroup" xml:space="preserve">
-    <value>Menu group</value>
+    <value>Menu groups</value>
   </data>
   <data name="menuGroupInformation" xml:space="preserve">
     <value>Menu group information</value>
@@ -208,7 +211,7 @@
     <value>Menu group list</value>
   </data>
   <data name="menuItem" xml:space="preserve">
-    <value>Menu item</value>
+    <value>Menu items</value>
   </data>
   <data name="menuItemInformation" xml:space="preserve">
     <value>Menu item information</value>
@@ -238,7 +241,7 @@
     <value>Privacy policy</value>
   </data>
   <data name="product" xml:space="preserve">
-    <value>Product</value>
+    <value>Products</value>
   </data>
   <data name="productInformation" xml:space="preserve">
     <value>Product information</value>
@@ -247,7 +250,7 @@
     <value>Product list</value>
   </data>
   <data name="productUnit" xml:space="preserve">
-    <value>Product unit</value>
+    <value>Product units</value>
   </data>
   <data name="productUnitInformation" xml:space="preserve">
     <value>Product unit information</value>
@@ -278,6 +281,9 @@
   </data>
   <data name="t&amp;c" xml:space="preserve">
     <value>Terms &amp; conditions</value>
+  </data>
+  <data name="topic" xml:space="preserve">
+    <value>Topics</value>
   </data>
   <data name="update" xml:space="preserve">
     <value>Update</value>
