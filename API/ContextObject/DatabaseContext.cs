@@ -12,6 +12,9 @@ namespace API.ContextObject
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Unit> Units { get; set; }
+        public DbSet<Topic> Topics { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Article> Articles { get; set; }
         public DatabaseContext()
         {
            
