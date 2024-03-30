@@ -7,6 +7,7 @@ namespace API.Repositories
     {
         private DatabaseContext context;
         private bool disposed = false;
+        //MenuGroup
         private MenuGroupRepository menuGroupRepository;
         public MenuGroupRepository MenuGroupRepository
         {
@@ -20,7 +21,7 @@ namespace API.Repositories
                 return menuGroupRepository;
             }
         }
-        
+        //MenuItem
         private MenuItemRepository menuItemRepository;
         public MenuItemRepository MenuItemRepository
         {
@@ -34,6 +35,7 @@ namespace API.Repositories
                 return menuItemRepository;
             }
         }
+        //Unit
         private UnitRepository unitRepository;
         public UnitRepository UnitRepository
         {
@@ -45,6 +47,48 @@ namespace API.Repositories
                     this.unitRepository = new UnitRepository(context);
                 }
                 return unitRepository;
+            }
+        }
+        //Topic
+        private TopicRepository topicRepository;
+        public TopicRepository TopicRepository
+        {
+            get
+            {
+
+                if (this.topicRepository == null)
+                {
+                    this.topicRepository = new TopicRepository(context);
+                }
+                return topicRepository;
+            }
+        }
+        //Brand
+        private BrandRepository brandRepository;
+        public BrandRepository BrandRepository
+        {
+            get
+            {
+
+                if (this.brandRepository == null)
+                {
+                    this.brandRepository = new BrandRepository(context);
+                }
+                return brandRepository;
+            }
+        }
+        //Article
+        private ArticleRepository articleRepository;
+        public ArticleRepository ArticleRepository
+        {
+            get
+            {
+
+                if (this.articleRepository == null)
+                {
+                    this.articleRepository = new ArticleRepository(context);
+                }
+                return articleRepository;
             }
         }
         public void Save()

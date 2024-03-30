@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharedLibrary.UserInterfaceDTO
 {
-    public class ArticalUI : BaseUI
+    public class ArticleUI : BaseUI
     {
         public Guid ID { get; set; }
         public Guid TopicID { get; set; }

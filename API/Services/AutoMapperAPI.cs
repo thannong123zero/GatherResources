@@ -11,6 +11,9 @@ namespace API.Services
             CreateMap<MenuGroup,MenuGroupUI>().ReverseMap();
             CreateMap<MenuItem,MenuItemUI>().ReverseMap();
             CreateMap<Unit,UnitUI>().ReverseMap();
+            CreateMap<Topic,TopicUI>().ReverseMap();
+            CreateMap<Brand,BrandUI>().ReverseMap();
+            CreateMap<Article, ArticleUI>().ReverseMap();
         }
     }
 }
