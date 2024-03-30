@@ -23,6 +23,10 @@ builder.Services.AddTransient<UnitOfWork>();
 builder.Services.AddTransient<MenuGroupHelper>();
 builder.Services.AddTransient<MenuItemHelper>();
 builder.Services.AddTransient<UnitHelper>();
+builder.Services.AddTransient<TopicHelper>();
+builder.Services.AddTransient<BrandHelper>();
+builder.Services.AddTransient<ArticleHelper>();
+builder.Services.AddTransient<ProductHelper>();
 // sign up database context
 
 //builder.Services.AddScoped<IMenuGroupRepository, MenuGroupRepository>();
