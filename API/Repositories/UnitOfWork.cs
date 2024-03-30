@@ -91,6 +91,20 @@ namespace API.Repositories
                 return articleRepository;
             }
         }
+        //Product
+        private ProductRepository productRepository;
+        public ProductRepository ProductRepository
+        {
+            get
+            {
+
+                if (this.productRepository == null)
+                {
+                    this.productRepository = new ProductRepository(context);
+                }
+                return productRepository;
+            }
+        }
         public void Save()
         {
             context.SaveChanges();

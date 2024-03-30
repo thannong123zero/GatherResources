@@ -14,6 +14,7 @@ namespace API.Services
             CreateMap<Topic,TopicUI>().ReverseMap();
             CreateMap<Brand,BrandUI>().ReverseMap();
             CreateMap<Article, ArticleUI>().ReverseMap();
+            CreateMap<Product, ProductUI>().ReverseMap();
         }
     }
 }
