@@ -141,6 +141,9 @@
   <data name="backToList" xml:space="preserve">
     <value>Trở về</value>
   </data>
+  <data name="brand" xml:space="preserve">
+    <value>Thương hiệu</value>
+  </data>
   <data name="category" xml:space="preserve">
     <value>Danh mục</value>
   </data>

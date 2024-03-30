@@ -61,8 +61,8 @@ namespace API.Helpers
                 {
                     return;
                 }
-                product.SubjectEN = model.SubjectEN;
-                product.SubjectVN = model.SubjectVN;
+                product.NameEN = model.NameEN;
+                product.NameVN = model.NameVN;
                 product.DescriptionEN = model.DescriptionEN;
                 product.DescriptionVN = model.DescriptionVN;
                 product.ModifiedOn = DateTime.Now;

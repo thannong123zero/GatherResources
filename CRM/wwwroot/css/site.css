@@ -34,3 +34,15 @@
         outline: 0;
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     }
+
+.sb-sidenav-menu::-webkit-scrollbar {
+    width: 8px;
+}
+/* Track */
+.sb-sidenav-menu::-webkit-scrollbar-track {
+    background: #6d6e70;
+}
+/* Handle */
+.sb-sidenav-menu::-webkit-scrollbar-thumb {
+    background: #343A40;
+}

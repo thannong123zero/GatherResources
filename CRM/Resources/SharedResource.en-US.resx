@@ -141,6 +141,9 @@
   <data name="backToList" xml:space="preserve">
     <value>Back to list</value>
   </data>
+  <data name="brand" xml:space="preserve">
+    <value>Brands</value>
+  </data>
   <data name="category" xml:space="preserve">
     <value>Category</value>
   </data>
@@ -271,7 +274,7 @@
     <value>Select a unit</value>
   </data>
   <data name="setting" xml:space="preserve">
-    <value>Setting</value>
+    <value>Settings</value>
   </data>
   <data name="signIn" xml:space="preserve">
     <value>Sign in</value>
