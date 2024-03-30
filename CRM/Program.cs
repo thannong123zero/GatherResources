@@ -14,6 +14,10 @@ builder.Services.AddSingleton(appConfig);
 
 builder.Services.AddScoped<MenuGroupAPIService>();
 builder.Services.AddScoped<MenuGroupHelper>();
+builder.Services.AddScoped<MenuItemAPIService>();
+builder.Services.AddScoped<MenuItemHelper>();
+builder.Services.AddScoped<UnitAPIService>();
+builder.Services.AddScoped<UnitHelper>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -100,6 +104,6 @@ app.UseCors("AllowSpecificOrigin");
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

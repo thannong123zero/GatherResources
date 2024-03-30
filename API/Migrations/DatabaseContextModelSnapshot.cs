@@ -22,21 +22,79 @@ namespace API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SharedLibrary.DTO.MenuGroup", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.Article", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Avatar")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DescriptionEN")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionVN")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SubjectEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubjectVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("TopicID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("TopicID");
+
+                    b.ToTable("Articles");
+                });
+
+            modelBuilder.Entity("SharedLibrary.DTO.Brand", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Avatar")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 24, 12, 10, 30, 356, DateTimeKind.Local).AddTicks(8035));
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 496, DateTimeKind.Local).AddTicks(3154));
 
-                    b.Property<string>("DiscriptionEN")
+                    b.Property<string>("DescriptionEN")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DiscriptionVN")
+                    b.Property<string>("DescriptionVN")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -52,7 +110,7 @@ namespace API.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 24, 12, 10, 30, 356, DateTimeKind.Local).AddTicks(8360));
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 496, DateTimeKind.Local).AddTicks(3659));
 
                     b.Property<string>("NameEN")
                         .IsRequired()
@@ -63,6 +121,63 @@ namespace API.Migrations
                         .IsRequired()
                         .HasMaxLength(225)
                         .HasColumnType("nvarchar(225)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Brands");
+                });
+
+            modelBuilder.Entity("SharedLibrary.DTO.MenuGroup", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 496, DateTimeKind.Local).AddTicks(7937));
+
+                    b.Property<string>("DescriptionEN")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionVN")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("InNavbar")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 496, DateTimeKind.Local).AddTicks(8787));
+
+                    b.Property<string>("NameEN")
+                        .IsRequired()
+                        .HasMaxLength(225)
+                        .HasColumnType("nvarchar(225)");
+
+                    b.Property<string>("NameVN")
+                        .IsRequired()
+                        .HasMaxLength(225)
+                        .HasColumnType("nvarchar(225)");
+
+                    b.Property<int>("Priority")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.HasKey("ID");
 
@@ -78,12 +193,12 @@ namespace API.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 24, 12, 10, 30, 357, DateTimeKind.Local).AddTicks(923));
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 497, DateTimeKind.Local).AddTicks(3972));
 
-                    b.Property<string>("DiscriptionEN")
+                    b.Property<string>("DescriptionEN")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DiscriptionVN")
+                    b.Property<string>("DescriptionVN")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -102,7 +217,7 @@ namespace API.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 24, 12, 10, 30, 357, DateTimeKind.Local).AddTicks(1265));
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 497, DateTimeKind.Local).AddTicks(4493));
 
                     b.Property<string>("NameEN")
                         .IsRequired()
@@ -113,6 +228,9 @@ namespace API.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 
@@ -127,6 +245,9 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("BrandID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("ContentEN")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -138,22 +259,27 @@ namespace API.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 24, 12, 10, 30, 357, DateTimeKind.Local).AddTicks(4732));
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 497, DateTimeKind.Local).AddTicks(9681));
+
+                    b.Property<string>("DescriptionEN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionVN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Discount")
                         .HasColumnType("int");
 
-                    b.Property<string>("DiscriptionEN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DiscriptionVN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Images")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("InHomePage")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
@@ -165,16 +291,13 @@ namespace API.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<bool>("IsHome")
-                        .HasColumnType("bit");
-
                     b.Property<Guid>("MenuItemID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ModifiedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 24, 12, 10, 30, 357, DateTimeKind.Local).AddTicks(5134));
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 498, DateTimeKind.Local).AddTicks(128));
 
                     b.Property<string>("NameEN")
                         .IsRequired()
@@ -197,6 +320,8 @@ namespace API.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("BrandID");
+
                     b.HasIndex("MenuItemID");
 
                     b.HasIndex("UnitID");
@@ -204,7 +329,7 @@ namespace API.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("SharedLibrary.DTO.Unit", b =>
+            modelBuilder.Entity("SharedLibrary.DTO.Topic", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -213,12 +338,12 @@ namespace API.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 24, 12, 10, 30, 358, DateTimeKind.Local).AddTicks(337));
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 498, DateTimeKind.Local).AddTicks(8238));
 
-                    b.Property<string>("DiscriptionEN")
+                    b.Property<string>("DescriptionEN")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DiscriptionVN")
+                    b.Property<string>("DescriptionVN")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -234,7 +359,59 @@ namespace API.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 3, 24, 12, 10, 30, 358, DateTimeKind.Local).AddTicks(627));
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 498, DateTimeKind.Local).AddTicks(8838));
+
+                    b.Property<string>("NameEN")
+                        .IsRequired()
+                        .HasMaxLength(225)
+                        .HasColumnType("nvarchar(225)");
+
+                    b.Property<string>("NameVN")
+                        .IsRequired()
+                        .HasMaxLength(225)
+                        .HasColumnType("nvarchar(225)");
+
+                    b.Property<int>("Priority")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Topics");
+                });
+
+            modelBuilder.Entity("SharedLibrary.DTO.Unit", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 499, DateTimeKind.Local).AddTicks(2163));
+
+                    b.Property<string>("DescriptionEN")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionVN")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 3, 29, 23, 1, 23, 499, DateTimeKind.Local).AddTicks(2560));
 
                     b.Property<string>("NameEN")
                         .IsRequired()
@@ -251,6 +428,17 @@ namespace API.Migrations
                     b.ToTable("Units");
                 });
 
+            modelBuilder.Entity("SharedLibrary.DTO.Article", b =>
+                {
+                    b.HasOne("SharedLibrary.DTO.Topic", "Topic")
+                        .WithMany("Articles")
+                        .HasForeignKey("TopicID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Topic");
+                });
+
             modelBuilder.Entity("SharedLibrary.DTO.MenuItem", b =>
                 {
                     b.HasOne("SharedLibrary.DTO.MenuGroup", "MenuGroup")
@@ -264,6 +452,10 @@ namespace API.Migrations
 
             modelBuilder.Entity("SharedLibrary.DTO.Product", b =>
                 {
+                    b.HasOne("SharedLibrary.DTO.Brand", "Brand")
+                        .WithMany("Products")
+                        .HasForeignKey("BrandID");
+
                     b.HasOne("SharedLibrary.DTO.MenuItem", "MenuItem")
                         .WithMany("Products")
                         .HasForeignKey("MenuItemID")
@@ -276,9 +468,16 @@ namespace API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Brand");
+
                     b.Navigation("MenuItem");
 
                     b.Navigation("Unit");
+                });
+
+            modelBuilder.Entity("SharedLibrary.DTO.Brand", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("SharedLibrary.DTO.MenuGroup", b =>
@@ -289,6 +488,11 @@ namespace API.Migrations
             modelBuilder.Entity("SharedLibrary.DTO.MenuItem", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("SharedLibrary.DTO.Topic", b =>
+                {
+                    b.Navigation("Articles");
                 });
 
             modelBuilder.Entity("SharedLibrary.DTO.Unit", b =>

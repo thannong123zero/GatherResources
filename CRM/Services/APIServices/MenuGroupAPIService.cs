@@ -113,8 +113,8 @@ namespace CRM.Services.APIServices
         public async Task<bool> SoftDelete(string ID)
         {
             string baseLink = _appConfig.GetBaseAPIURL();
-            string softDeleteUrl = _appConfig.SoftDeleteUrl;
-            string url = string.Concat(softDeleteUrl, ID);
+            string softDeleteMenuGroupUrl = _appConfig.SoftDeleteMenuGroupUrl;
+            string url = string.Concat(softDeleteMenuGroupUrl, ID);
             using (HttpClient httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri(baseLink);

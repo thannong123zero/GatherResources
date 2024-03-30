@@ -20,6 +20,33 @@ namespace API.Repositories
                 return menuGroupRepository;
             }
         }
+        
+        private MenuItemRepository menuItemRepository;
+        public MenuItemRepository MenuItemRepository
+        {
+            get
+            {
+
+                if (this.menuItemRepository == null)
+                {
+                    this.menuItemRepository = new MenuItemRepository(context);
+                }
+                return menuItemRepository;
+            }
+        }
+        private UnitRepository unitRepository;
+        public UnitRepository UnitRepository
+        {
+            get
+            {
+
+                if (this.unitRepository == null)
+                {
+                    this.unitRepository = new UnitRepository(context);
+                }
+                return unitRepository;
+            }
+        }
         public void Save()
         {
             context.SaveChanges();

@@ -117,13 +117,178 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addMenuGroup" xml:space="preserve">
+    <value>Thêm danh mục lớn</value>
+  </data>
+  <data name="addMenuItem" xml:space="preserve">
+    <value>Thêm danh mục con</value>
+  </data>
+  <data name="addProduct" xml:space="preserve">
+    <value>Thêm sản phẩm</value>
+  </data>
+  <data name="addProductUnit" xml:space="preserve">
+    <value>Thêm đơn vị sản phẩm</value>
+  </data>
+  <data name="applicationName" xml:space="preserve">
+    <value>Ứng Dụng CRM</value>
+  </data>
+  <data name="areYouForgetPassword" xml:space="preserve">
+    <value>Bạn quên mật khẩu?</value>
+  </data>
+  <data name="article" xml:space="preserve">
+    <value>Bài viết</value>
+  </data>
+  <data name="backToList" xml:space="preserve">
+    <value>Trở về</value>
+  </data>
+  <data name="category" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
   <data name="close" xml:space="preserve">
     <value>Đóng</value>
   </data>
   <data name="confirmation" xml:space="preserve">
     <value>Xác nhận</value>
   </data>
+  <data name="contentEN" xml:space="preserve">
+    <value>Nội dung tiếng anh</value>
+  </data>
+  <data name="contentVN" xml:space="preserve">
+    <value>Nội dung tiếng việt</value>
+  </data>
+  <data name="core" xml:space="preserve">
+    <value>Cốt lỗi</value>
+  </data>
+  <data name="create" xml:space="preserve">
+    <value>Tạo</value>
+  </data>
+  <data name="dashboard" xml:space="preserve">
+    <value>Bảng điều khiển</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="descriptionEN" xml:space="preserve">
+    <value>Mô tả tiếng anh</value>
+  </data>
+  <data name="descriptionVN" xml:space="preserve">
+    <value>Mô tả tiếng việt</value>
+  </data>
+  <data name="details" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="discount" xml:space="preserve">
+    <value>Giảm giá</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="filter" xml:space="preserve">
+    <value>Bộ lọc</value>
+  </data>
+  <data name="images" xml:space="preserve">
+    <value>Hình ảnh</value>
+  </data>
+  <data name="inHomePage" xml:space="preserve">
+    <value>Hiển thị ở trang chủ</value>
+  </data>
+  <data name="isActive" xml:space="preserve">
+    <value>Hoạt động</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="menuGroup" xml:space="preserve">
+    <value>Danh mục lớn</value>
+  </data>
+  <data name="menuGroupInformation" xml:space="preserve">
+    <value>Thông tin danh mục lớn</value>
+  </data>
+  <data name="menuGroupList" xml:space="preserve">
+    <value>Danh sách danh mục lớn</value>
+  </data>
+  <data name="menuItem" xml:space="preserve">
+    <value>Danh mục con</value>
+  </data>
+  <data name="menuItemInformation" xml:space="preserve">
+    <value>Thông tin danh mục con</value>
+  </data>
+  <data name="menuItemList" xml:space="preserve">
+    <value>Danh sách danh mục con</value>
+  </data>
+  <data name="nameEN" xml:space="preserve">
+    <value>Tên tiếng anh</value>
+  </data>
+  <data name="nameVN" xml:space="preserve">
+    <value>Tên tiếng việt</value>
+  </data>
   <data name="notification" xml:space="preserve">
     <value>Thông báo</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="price" xml:space="preserve">
+    <value>Gía</value>
+  </data>
+  <data name="priority" xml:space="preserve">
+    <value>Ưu tiên</value>
+  </data>
+  <data name="privacyPolicy" xml:space="preserve">
+    <value>Chính sách bảo mật</value>
+  </data>
+  <data name="product" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+  <data name="productInformation" xml:space="preserve">
+    <value>Thông tin sản phẩm</value>
+  </data>
+  <data name="productList" xml:space="preserve">
+    <value>Danh sách sản phẩm</value>
+  </data>
+  <data name="productUnit" xml:space="preserve">
+    <value>Đơn vị sản phẩm</value>
+  </data>
+  <data name="productUnitInformation" xml:space="preserve">
+    <value>Thông tin đơn vị sản phẩm</value>
+  </data>
+  <data name="productUnitList" xml:space="preserve">
+    <value>Danh sách đơn vị sản phẩm</value>
+  </data>
+  <data name="quantity" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="selectMenuGroup" xml:space="preserve">
+    <value>Chọn danh mục</value>
+  </data>
+  <data name="selectMenuItem" xml:space="preserve">
+    <value>Chọn danh mục</value>
+  </data>
+  <data name="selectUnitProduct" xml:space="preserve">
+    <value>Chọn đơn vị </value>
+  </data>
+  <data name="setting" xml:space="preserve">
+    <value>Cài đặt</value>
+  </data>
+  <data name="signIn" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="summary" xml:space="preserve">
+    <value>Tổng quan</value>
+  </data>
+  <data name="t&amp;c" xml:space="preserve">
+    <value>Điều khoản &amp; điều kiện</value>
+  </data>
+  <data name="topic" xml:space="preserve">
+    <value>Chủ đề</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="userName" xml:space="preserve">
+    <value>Tên đăng nhập</value>
   </data>
 </root>

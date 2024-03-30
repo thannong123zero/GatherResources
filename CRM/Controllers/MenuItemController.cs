@@ -1,33 +1,87 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CRM.Helpers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using SharedLibrary.DTO;
 using SharedLibrary.UserInterfaceDTO;
 
 namespace CRM.Controllers
 {
     public class MenuItemController : Controller
     {
-        public async Task<IActionResult> Index()
+        private readonly MenuGroupHelper _menuGroupHelper;
+        private readonly MenuItemHelper _menuItemHelper;
+        public MenuItemController(MenuGroupHelper menuGroupHelper, MenuItemHelper menuItemHelper)
         {
-            List<MenuItemUI> data = new List<MenuItemUI>()
+            _menuGroupHelper = menuGroupHelper;
+            _menuItemHelper = menuItemHelper;
+        }
+        [HttpGet]
+        public async Task<IActionResult> Index(string menuGroupID = "")
+        {
+            MenuGroupUI seletedMenuGroup = new MenuGroupUI();
+            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            ViewBag.MenuGroupList = menuGroupList;
+            if (string.IsNullOrEmpty(menuGroupID))
             {
-                new MenuItemUI()
-                {
-                    ID = Guid.NewGuid(),
-                    NameVN = "abc",
-                    NameEN = "abc",
-                }
-            };
+                seletedMenuGroup = menuGroupList.First();
+                menuGroupID = seletedMenuGroup.ID.ToString();
+            }
+            else
+            {
+                Guid ID = Guid.Parse(menuGroupID);
+                seletedMenuGroup = menuGroupList.Where(s => s.ID == ID).FirstOrDefault();
+            }
+            ViewBag.Selected = seletedMenuGroup.NameVN;
+            IEnumerable<MenuItemUI> data = await _menuItemHelper.GetMenuItems(menuGroupID);
 
             return View(data);
         }
-        public async Task<IActionResult> Create()
+        [HttpGet]
+        public async Task<IActionResult> Create(string menuGroupID)
         {
-            return View();
+            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN",menuGroupID);
+            MenuItemUI model = new MenuItemUI();
+            return View(model);
         }
-        public async Task<IActionResult> Update()
+        [HttpPost]
+        public async Task<IActionResult> Create(MenuItemUI model)
         {
-            return View();
+            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _menuItemHelper.CreateMenuItem(model);
+            return RedirectToAction("Index", new { menuGroupID = model.MenuGroupID });
         }
-        public async Task<IActionResult> Delete()
+        [HttpGet]
+        public async Task<IActionResult> Update(string ID)
+        {
+            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
+            if (string.IsNullOrEmpty(ID))
+            {
+                return RedirectToAction("Index");
+            }
+            MenuItemUI data = await _menuItemHelper.GetMenuItemByID(ID);
+            return View(data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(MenuItemUI model)
+        {
+            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _menuItemHelper.UpdateMenuItem(model);
+            return RedirectToAction("Index", new { menuGroupID  = model.MenuGroupID});
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(string ID)
         {
             return View();
         }

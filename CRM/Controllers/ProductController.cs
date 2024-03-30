@@ -3,7 +3,7 @@ using SharedLibrary.UserInterfaceDTO;
 
 namespace CRM.Controllers
 {
-    public class ProductionController : Controller
+    public class ProductController : Controller
     {
         public async Task<IActionResult> Index()
         {
