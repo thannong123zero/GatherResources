@@ -4,104 +4,52 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container pt-2">
+    <h2 class="text-capitalize">@_language.Getkey("articleList")</h2>
+    <div class="d-flex justify-content-end">
+        <a asp-action="Create" class="btn btn-success text-capitalize">@_language.Getkey("create")</a>
+    </div>
+    @if (Model != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-capitalize">
+                        @* @Html.DisplayNameFor(model => model.NameEN) *@
+                        @_language.Getkey("nameEN")
+                    </th>
+                    <th class="text-capitalize">
+                        @* @Html.DisplayNameFor(model => model.NameVN) *@
+                        @_language.Getkey("nameVN")
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TopicID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubjectEN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubjectVN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescriptionEN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescriptionVN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContentEN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContentVN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Avatar)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModifiedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsDeleted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsActive)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TopicID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubjectEN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubjectVN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescriptionEN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescriptionVN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContentEN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContentVN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Avatar)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedOn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedOn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsDeleted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    </th>
+                    <th class="text-capitalize">
+                        @* @Html.DisplayNameFor(model => model.IsActive) *@
+                        @_language.Getkey("isActive")
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr id="@item.ID">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubjectEN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubjectVN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsActive)
+                        </td>
+                        <td class="d-flex justify-content-end">
+                            <a asp-action="Update" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">@_language.Getkey("details")</a>
+                            <button onclick="CheckPermissionToDelete('@item.ID')" class="btn btn-danger text-capitalize">@_language.Getkey("delete")</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

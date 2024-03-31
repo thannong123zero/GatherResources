@@ -8,7 +8,12 @@ namespace CRM.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            return View();
+            List<ArticleUI> data = new List<ArticleUI>()
+            {
+                new ArticleUI(){ID = new Guid(), SubjectEN = "ABC",SubjectVN = "ancns"},
+                new ArticleUI(){ID = new Guid(), SubjectEN = "ABC1",SubjectVN = "ancns"}
+            };
+            return View(data);
         }
         [HttpGet]
         public async Task<IActionResult> Create()
