@@ -1,10 +1,10 @@
-﻿@model IEnumerable<SharedLibrary.UserInterfaceDTO.TopicUI>
+﻿@model IEnumerable<SharedLibrary.UserInterfaceDTO.BrandUI>
 
 @{
     ViewData["Title"] = "Index";
 }
 <div class="container pt-2">
-    <h2 class="text-capitalize">@_language.Getkey("topicList")</h2>
+    <h2 class="text-capitalize">@_language.Getkey("brandList")</h2>
     <div class="d-flex justify-content-end">
         <a asp-action="Create" class="btn btn-success text-capitalize">@_language.Getkey("create")</a>
     </div>
@@ -13,6 +13,9 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th class="text-capitalize">
+                        @_language.Getkey("avatar")
+                    </th>
                     <th class="text-capitalize">
                         @* @Html.DisplayNameFor(model => model.NameEN) *@
                         @_language.Getkey("nameEN")
@@ -26,10 +29,6 @@
                         @* @Html.DisplayNameFor(model => model.IsActive) *@
                         @_language.Getkey("isActive")
                     </th>
-                    <th class="text-capitalize">
-                        @* @Html.DisplayNameFor(model => model.IsActive) *@
-                        @_language.Getkey("priority")
-                    </th>
                     <th></th>
                 </tr>
             </thead>
@@ -38,6 +37,10 @@
                 {
                     <tr id="@item.ID">
                         <td>
+                            @* @Html.DisplayFor(modelItem => item.Avatar) *@
+                            <img class="brandAvatar" src="~/assets/images/brandImageDefault.jpg" alt="avatar"/>
+                        </td>
+                        <td>
                             @Html.DisplayFor(modelItem => item.NameEN)
                         </td>
                         <td>
@@ -45,9 +48,6 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.IsActive)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Priority)
                         </td>
                         <td class="d-flex justify-content-end">
                             <a asp-action="Update" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">@_language.Getkey("details")</a>

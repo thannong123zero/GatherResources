@@ -8,7 +8,11 @@ namespace CRM.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            return View();
+            List<BrandUI> data = new List<BrandUI>() { 
+                new BrandUI() { Avatar = "Image 1", NameVN = "Gu Tri", NameEN = "Gucci" }, 
+                new BrandUI() { Avatar = "Image 2", NameVN = "Stand do", NameEN = "Stander" },
+            };
+            return View(data);
         }
         [HttpGet]
         public async Task<IActionResult> Create()

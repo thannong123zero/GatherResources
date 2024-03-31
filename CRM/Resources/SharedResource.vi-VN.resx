@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addBrand" xml:space="preserve">
+    <value>Thêm thương hiệu</value>
+  </data>
   <data name="addMenuGroup" xml:space="preserve">
     <value>Thêm danh mục lớn</value>
   </data>
@@ -129,6 +132,9 @@
   <data name="addProductUnit" xml:space="preserve">
     <value>Thêm đơn vị sản phẩm</value>
   </data>
+  <data name="addTopic" xml:space="preserve">
+    <value>Thêm chủ đề</value>
+  </data>
   <data name="applicationName" xml:space="preserve">
     <value>Ứng Dụng CRM</value>
   </data>
@@ -138,11 +144,20 @@
   <data name="article" xml:space="preserve">
     <value>Bài viết</value>
   </data>
+  <data name="avatar" xml:space="preserve">
+    <value>Ảnh đại diện</value>
+  </data>
   <data name="backToList" xml:space="preserve">
     <value>Trở về</value>
   </data>
   <data name="brand" xml:space="preserve">
     <value>Thương hiệu</value>
+  </data>
+  <data name="brandInformation" xml:space="preserve">
+    <value>Thông tin thương hiệu</value>
+  </data>
+  <data name="brandList" xml:space="preserve">
+    <value>Danh sách thương hiệu</value>
   </data>
   <data name="category" xml:space="preserve">
     <value>Danh mục</value>
@@ -287,6 +302,12 @@
   </data>
   <data name="topic" xml:space="preserve">
     <value>Chủ đề</value>
+  </data>
+  <data name="topicInformation" xml:space="preserve">
+    <value>Thông tin chủ đề</value>
+  </data>
+  <data name="topicList" xml:space="preserve">
+    <value>Danh sách chủ đề</value>
   </data>
   <data name="update" xml:space="preserve">
     <value>Cập nhật</value>

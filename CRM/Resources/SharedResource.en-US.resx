@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addBrand" xml:space="preserve">
+    <value>Add a brand</value>
+  </data>
   <data name="addMenuGroup" xml:space="preserve">
     <value>Add a menu group</value>
   </data>
@@ -129,6 +132,9 @@
   <data name="addProductUnit" xml:space="preserve">
     <value>Add a product unit</value>
   </data>
+  <data name="addTopic" xml:space="preserve">
+    <value>Add a topic</value>
+  </data>
   <data name="applicationName" xml:space="preserve">
     <value>CRM Application</value>
   </data>
@@ -138,11 +144,20 @@
   <data name="article" xml:space="preserve">
     <value>Articles</value>
   </data>
+  <data name="avatar" xml:space="preserve">
+    <value>avatar</value>
+  </data>
   <data name="backToList" xml:space="preserve">
     <value>Back to list</value>
   </data>
   <data name="brand" xml:space="preserve">
     <value>Brands</value>
+  </data>
+  <data name="brandInformation" xml:space="preserve">
+    <value>Brand information</value>
+  </data>
+  <data name="brandList" xml:space="preserve">
+    <value>Brand list</value>
   </data>
   <data name="category" xml:space="preserve">
     <value>Category</value>
@@ -287,6 +302,12 @@
   </data>
   <data name="topic" xml:space="preserve">
     <value>Topics</value>
+  </data>
+  <data name="topicInformation" xml:space="preserve">
+    <value>Topic Information</value>
+  </data>
+  <data name="topicList" xml:space="preserve">
+    <value>Topic list</value>
   </data>
   <data name="update" xml:space="preserve">
     <value>Update</value>

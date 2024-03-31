@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SharedLibrary.UserInterfaceDTO
 {
@@ -14,5 +11,7 @@ namespace SharedLibrary.UserInterfaceDTO
         public string DescriptionEN { get; set; }
         public string DescriptionVN { get; set; }
         public string Avatar { get; set; }
+        [NotMapped]
+        public IFormFile UploadImage { get; set; } 
     }
 }
