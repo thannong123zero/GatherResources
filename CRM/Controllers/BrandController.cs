@@ -1,39 +1,55 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CRM.Helpers;
+using Microsoft.AspNetCore.Mvc;
 using SharedLibrary.UserInterfaceDTO;
 
 namespace CRM.Controllers
 {
     public class BrandController : Controller
     {
+        private readonly BrandHelper _brandHelper;
+        public BrandController(BrandHelper brandHelper)
+        {
+            _brandHelper = brandHelper;
+        }
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            List<BrandUI> data = new List<BrandUI>() { 
-                new BrandUI() { Avatar = "Image 1", NameVN = "Gu Tri", NameEN = "Gucci" }, 
-                new BrandUI() { Avatar = "Image 2", NameVN = "Stand do", NameEN = "Stander" },
-            };
+            IEnumerable<BrandUI> data = await _brandHelper.GetBrands();
             return View(data);
         }
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            return View();
+            BrandUI model = new BrandUI();
+            return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(TopicUI model)
+        public async Task<IActionResult> Create(BrandUI model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _brandHelper.CreateBrand(model);
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
-            return View();
+            BrandUI data = await _brandHelper.GetBrandByID(ID);
+            return View(data);
         }
         [HttpPost]
-        public async Task<IActionResult> Update(TopicUI model)
+        public async Task<IActionResult> Update(BrandUI model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _brandHelper.UpdateBrand(model);
+            return RedirectToAction("Index");
         }
+
         [HttpPost]
         public async Task<IActionResult> Delete(string ID)
         {

@@ -1,40 +1,55 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CRM.Helpers;
+using Microsoft.AspNetCore.Mvc;
 using SharedLibrary.UserInterfaceDTO;
 
 namespace CRM.Controllers
 {
     public class ArticleController : Controller
     {
+        private readonly ArticleHelper _articleHelper;
+        public ArticleController(ArticleHelper articleHelper)
+        {
+            _articleHelper = articleHelper;
+        }
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            List<ArticleUI> data = new List<ArticleUI>()
-            {
-                new ArticleUI(){ID = new Guid(), SubjectEN = "ABC",SubjectVN = "ancns"},
-                new ArticleUI(){ID = new Guid(), SubjectEN = "ABC1",SubjectVN = "ancns"}
-            };
+            IEnumerable<ArticleUI> data = await _articleHelper.GetArticles();
             return View(data);
         }
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            return View();
+            ArticleUI model = new ArticleUI();
+            return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(TopicUI model)
+        public async Task<IActionResult> Create(ArticleUI model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _articleHelper.CreateArticle(model);
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
-            return View();
+            ArticleUI data = await _articleHelper.GetArticleByID(ID);
+            return View(data);
         }
         [HttpPost]
-        public async Task<IActionResult> Update(TopicUI model)
+        public async Task<IActionResult> Update(ArticleUI model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _articleHelper.UpdateArticle(model);
+            return RedirectToAction("Index");
         }
+
         [HttpPost]
         public async Task<IActionResult> Delete(string ID)
         {
