@@ -15,6 +15,12 @@ builder.Services.AddCors(options =>
                           policy.WithOrigins("http://127.0.0.1:5500");
                       });
 });
+
+
+var applicationconfig = builder.Configuration.GetSection("AppConfig");
+AppConfig appConfig = applicationconfig.Get<AppConfig>();
+builder.Services.AddSingleton(appConfig);
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 //add service language
