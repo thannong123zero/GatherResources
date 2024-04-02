@@ -11,13 +11,27 @@ var builder = WebApplication.CreateBuilder(args);
 var applicationconfig = builder.Configuration.GetSection("AppConfig");
 AppConfig appConfig = applicationconfig.Get<AppConfig>();
 builder.Services.AddSingleton(appConfig);
-
+//MenuGroup
 builder.Services.AddScoped<MenuGroupAPIService>();
 builder.Services.AddScoped<MenuGroupHelper>();
+//MenuItem
 builder.Services.AddScoped<MenuItemAPIService>();
 builder.Services.AddScoped<MenuItemHelper>();
+//Unit
 builder.Services.AddScoped<UnitAPIService>();
 builder.Services.AddScoped<UnitHelper>();
+//Topic
+builder.Services.AddScoped<TopicAPIService>();
+builder.Services.AddScoped<TopicHelper>();
+//Brand
+builder.Services.AddScoped<BrandAPIService>();
+builder.Services.AddScoped<BrandHelper>();
+//Article
+builder.Services.AddScoped<ArticleAPIService>();
+builder.Services.AddScoped<ArticleHelper>();
+//Product
+builder.Services.AddScoped<ProductAPIService>();
+builder.Services.AddScoped<ProductHelper>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
