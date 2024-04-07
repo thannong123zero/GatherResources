@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SharedLibrary.UserInterfaceDTO;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace CRM.Services.APIServices
@@ -31,7 +32,6 @@ namespace CRM.Services.APIServices
                     if (!string.IsNullOrEmpty(responseData))
                     {
                         IEnumerable<BrandUI> brands = JsonConvert.DeserializeObject<IEnumerable<BrandUI>>(responseData);
-                        // Return the fetched menu groups
                         return brands;
                     }
                 }
@@ -39,7 +39,7 @@ namespace CRM.Services.APIServices
             return null;
         }
         /// <summary>
-        /// Get menu group by ID
+        /// Get brand by ID
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
@@ -60,7 +60,6 @@ namespace CRM.Services.APIServices
                     if (!string.IsNullOrEmpty(responseData))
                     {
                         BrandUI brand = JsonConvert.DeserializeObject<BrandUI>(responseData);
-                        // Return the fetched menu groups
                         return brand;
                     }
                 }
@@ -77,13 +76,26 @@ namespace CRM.Services.APIServices
         {
             string baseLink = _appConfig.GetBaseAPIURL();
             string addBrandUrl = _appConfig.AddBrandUrl;
-            //string url = string.Concat(baseLink,getBrandsUrl);
             using (HttpClient httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri(baseLink);
-                string json = JsonConvert.SerializeObject(model);
-                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                //string json = JsonConvert.SerializeObject(model);
+                //StringContent data = new StringContent(json, Encoding.UTF8, "application/json");
+                MultipartFormDataContent content = new MultipartFormDataContent();
+                //.Add(data);
+                //if (model.UploadImage != null)
+                //{
+                //    using (var streamContent = new StreamContent(model.UploadImage.OpenReadStream()))
+                //    {
+                //        content.Add(streamContent, "UploadImage", model.UploadImage.FileName);
+                //        streamContent.Headers.ContentType = new MediaTypeHeaderValue(model.UploadImage.ContentType);
+                //    }
+                //}
                 HttpResponseMessage response = await httpClient.PostAsync(addBrandUrl, content);
+                if (!response.IsSuccessStatusCode)
+                {
+                    //var str = response.;
+                }
             }
         }
         /// <summary>

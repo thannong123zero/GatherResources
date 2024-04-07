@@ -24,7 +24,7 @@ namespace CRM.Services.APIServices
             using (HttpClient httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri(baseLink);
-                HttpResponseMessage response = await httpClient.GetAsync(getMenuGroupsUrl   );
+                HttpResponseMessage response = await httpClient.GetAsync(getMenuGroupsUrl);
                 if (response.IsSuccessStatusCode)
                 {
                     // Deserialize the response content to MenuGroupUI objects

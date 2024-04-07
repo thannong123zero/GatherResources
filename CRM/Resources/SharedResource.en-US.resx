@@ -210,6 +210,9 @@
   <data name="inHomePage" xml:space="preserve">
     <value>Show homepage</value>
   </data>
+  <data name="inNavbar" xml:space="preserve">
+    <value>Navigation Bar</value>
+  </data>
   <data name="isActive" xml:space="preserve">
     <value>Active</value>
   </data>

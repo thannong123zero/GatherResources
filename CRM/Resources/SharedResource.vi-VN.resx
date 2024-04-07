@@ -210,6 +210,9 @@
   <data name="inHomePage" xml:space="preserve">
     <value>Hiển thị ở trang chủ</value>
   </data>
+  <data name="inNavbar" xml:space="preserve">
+    <value>Thanh điều hướng</value>
+  </data>
   <data name="isActive" xml:space="preserve">
     <value>Hoạt động</value>
   </data>

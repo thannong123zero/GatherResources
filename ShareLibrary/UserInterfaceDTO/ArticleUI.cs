@@ -17,5 +17,9 @@ namespace SharedLibrary.UserInterfaceDTO
         public string ContentEN { get; set; }
         public string ContentVN { get; set; }
         public string Avatar { get; set; }
+        public ArticleUI()
+        {
+            IsActive = true;
+        }
     }
 }
