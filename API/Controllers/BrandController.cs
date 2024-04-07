@@ -39,7 +39,7 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("addBrand")]
-        public async Task<IActionResult> AddBrand([FromBody] BrandUI model)
+        public async Task<IActionResult> AddBrand([FromForm] BrandUI model)
         {
             if (model == null)
             {

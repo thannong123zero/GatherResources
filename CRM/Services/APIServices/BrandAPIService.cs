@@ -82,19 +82,34 @@ namespace CRM.Services.APIServices
                 //string json = JsonConvert.SerializeObject(model);
                 //StringContent data = new StringContent(json, Encoding.UTF8, "application/json");
                 MultipartFormDataContent content = new MultipartFormDataContent();
-                //.Add(data);
-                //if (model.UploadImage != null)
-                //{
-                //    using (var streamContent = new StreamContent(model.UploadImage.OpenReadStream()))
-                //    {
-                //        content.Add(streamContent, "UploadImage", model.UploadImage.FileName);
-                //        streamContent.Headers.ContentType = new MediaTypeHeaderValue(model.UploadImage.ContentType);
-                //    }
-                //}
-                HttpResponseMessage response = await httpClient.PostAsync(addBrandUrl, content);
-                if (!response.IsSuccessStatusCode)
+                // Add string properties
+                content.Add(new StringContent(model.ID.ToString()), "ID");
+                content.Add(new StringContent(model.NameEN), "NameEN");
+                content.Add(new StringContent(model.NameVN), "NameVN");
+
+                // Add optional string properties
+                if (!string.IsNullOrEmpty(model.DescriptionEN))
                 {
-                    //var str = response.;
+                    content.Add(new StringContent(model.DescriptionEN), "DescriptionEN");
+                }
+                if (!string.IsNullOrEmpty(model.DescriptionVN))
+                {
+                    content.Add(new StringContent(model.DescriptionVN), "DescriptionVN");
+                }
+                // Add file
+                // If add sucessfully then we send else also we send 
+                if (model.UploadImage != null)
+                {
+                    using (var streamContent = new StreamContent(model.UploadImage.OpenReadStream()))
+                    {
+                        streamContent.Headers.ContentType = new MediaTypeHeaderValue(model.UploadImage.ContentType);
+                        content.Add(streamContent, "UploadImage", model.UploadImage.FileName);
+                        HttpResponseMessage response = await httpClient.PostAsync(addBrandUrl, content);
+                  }
+                }
+                else
+                {
+                    HttpResponseMessage response = await httpClient.PostAsync(addBrandUrl, content);
                 }
             }
         }

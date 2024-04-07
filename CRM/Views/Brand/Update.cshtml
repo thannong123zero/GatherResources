@@ -39,6 +39,8 @@
             </div>
         </div>
         <div class="mb-2">
+            <span asp-validation-for="UploadImage" class="text-danger"></span>
+            <br />
             <label asp-for="UploadImage" class="control-label text-capitalize">@_language.Getkey("uploadImage"):</label>
             <input asp-for="UploadImage" class="form-control" />
         </div>
