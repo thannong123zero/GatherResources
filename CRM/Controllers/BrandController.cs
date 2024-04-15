@@ -30,7 +30,23 @@ namespace CRM.Controllers
             {
                 return View(model);
             }
-            await _brandHelper.CreateBrand(model);
+            //Start checking file
+            var file = model.UploadImage;
+            long length =  file.Length;
+
+            if(length >= 35000)
+            {
+                // Lenght of file is overflow
+            }
+            string contentType = file.ContentType;
+            string typeOfFile = System.IO.Path.GetExtension(file.FileName);
+
+
+            //End checking file
+
+
+
+            //await _brandHelper.CreateBrand(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
