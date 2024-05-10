@@ -6,7 +6,15 @@ using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+                      policy =>
+                      {
+                          policy.WithOrigins("http://127.0.0.1:5500/",
+                                              "http://www.contoso.com");
+                      });
+});
 string connection = builder.Configuration.GetConnectionString("SqlConnection");
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(connection));
@@ -41,7 +49,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -87,6 +87,5 @@ namespace EmailKitService.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occured. The Mail could not be sent.");
             }
         }
-
     }
 }

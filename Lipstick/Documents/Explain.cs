@@ -72,11 +72,9 @@
          */
         #endregion
         #region Summary ASP.NET CORE MVC
-        /*
-        
+        /*      
             ASP.NET CORE MVC là web ui được render ở phía server và được phát triển dựa trên design pattern MVC.                  
-            Ref: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-7.0&tabs=visual-studio
-         
+            Ref: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-7.0&tabs=visual-studio     
          */
 
         #endregion

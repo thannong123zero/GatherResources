@@ -2,6 +2,7 @@
 using API.Helpers;
 using API.IRepositories;
 using AutoMapper;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using SharedLibrary.DTO;
