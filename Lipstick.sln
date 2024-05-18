@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactJSNNetCore", "ReactJSN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jwtWebAPI", "jwtWebAPI\jwtWebAPI.csproj", "{944193A6-EEFA-431B-AAA7-08EC9AB7656F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestDemo", "UnitTestDemo\UnitTestDemo.csproj", "{BF9330BE-2AFD-40C2-8A86-BE744146686E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestDemo", "UnitTestDemo\UnitTestDemo.csproj", "{BF9330BE-2AFD-40C2-8A86-BE744146686E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRNotificationDemo", "SignalRNotificationDemo\SignalRNotificationDemo.csproj", "{916818CB-C4ED-41F3-A82C-C53282E74402}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{BF9330BE-2AFD-40C2-8A86-BE744146686E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF9330BE-2AFD-40C2-8A86-BE744146686E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF9330BE-2AFD-40C2-8A86-BE744146686E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{916818CB-C4ED-41F3-A82C-C53282E74402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{916818CB-C4ED-41F3-A82C-C53282E74402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{916818CB-C4ED-41F3-A82C-C53282E74402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{916818CB-C4ED-41F3-A82C-C53282E74402}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
