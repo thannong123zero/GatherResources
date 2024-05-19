@@ -1,8 +1,70 @@
-﻿@{
+﻿@model StockAnalysisViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <h1>History of VHM </h1>
+    <input type="date" asp-for="Filter.FromDate" />
+    <input type="date" asp-for="Filter.ToDate" />
+    @if (Model.History != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-capitalize">
+                        Ngay
+                    </th>
+                    <th class="text-capitalize">
+                        Mua
+                    </th>
+                    <th class="text-capitalize">
+                        Ban
+                    </th>
+                    <th class="text-capitalize">
+                       Mua - Ban
+                    </th>
+                    <th>
+                        Gia Tri Mua
+                    </th>
+                    <th>
+                        Gia Tri Ban
+                    </th>
+                    <th>
+                        Gia Tri Mua - Ban
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.History)
+                {
+                    <tr>
+                        <td>
+                            @item.Date.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.BuyForeignQuantity.ToString("N0")
+                        </td>
+                        <td>
+                            @item.SellForeignQuantity.ToString("N0")
+                        </td>
+                        <td>
+                            @((item.BuyForeignQuantity - item.SellForeignQuantity).ToString("N0"))
+                        </td>
+                        <td>
+                            @item.BuyForeignValue.ToString("N0")
+                        </td>
+                         <td>
+                            @item.SellForeignValue.ToString("N0")
+                        </td>
+                        <td>
+                            @((item.BuyForeignValue - item.SellForeignValue).ToString("N0"))
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+
 </div>
