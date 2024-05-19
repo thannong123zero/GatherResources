@@ -7,5 +7,16 @@ namespace AuthenticationNAuthorizationDemo.APIControllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        public IActionResult Login(string username, string password)
+        {
+            if (username == "admin" && password == "admin")
+            {
+                return Ok("Login Successful");
+            }
+            else
+            {
+                return Unauthorized("Invalid Credentials");
+            }
+        }
     }
 }
