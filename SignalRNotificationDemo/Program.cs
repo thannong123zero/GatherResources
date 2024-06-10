@@ -33,6 +33,7 @@ namespace SignalRNotificationDemo
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapHub<ChatHub>("/chatHub");
+            app.MapHub<NotificationHub>("/notificationHub");
             app.Run();
         }
     }
