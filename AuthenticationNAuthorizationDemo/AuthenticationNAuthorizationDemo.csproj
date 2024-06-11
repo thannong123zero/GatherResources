@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\_documents\" />
+    <Folder Include="_Convergence\BussinessLogic\" />
+    <Folder Include="_Convergence\Common\" />
+    <Folder Include="_Convergence\DataAccess\DTOs\" />
   </ItemGroup>
 
   <ItemGroup>
