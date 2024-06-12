@@ -41,9 +41,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRNotificationDemo", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationNAuthorizationDemo", "AuthenticationNAuthorizationDemo\AuthenticationNAuthorizationDemo.csproj", "{E77B7292-D5E0-40CA-AFF4-4DD18673E518}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarketAnalysis", "StockMarketAnalysis\StockMarketAnalysis.csproj", "{90617A7D-86CF-4FC3-BABD-D6BC2FA2FF35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarketAnalysis", "StockMarketAnalysis\StockMarketAnalysis.csproj", "{90617A7D-86CF-4FC3-BABD-D6BC2FA2FF35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynchronousDemo", "AsynchronousDemo\AsynchronousDemo.csproj", "{6F0C525F-EA90-4F05-B26C-7137EC7661B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsynchronousDemo", "AsynchronousDemo\AsynchronousDemo.csproj", "{6F0C525F-EA90-4F05-B26C-7137EC7661B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIService", "WebAPIService\WebAPIService.csproj", "{CAEAC881-3E25-4B62-96E6-C580DBEA27C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{6F0C525F-EA90-4F05-B26C-7137EC7661B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F0C525F-EA90-4F05-B26C-7137EC7661B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F0C525F-EA90-4F05-B26C-7137EC7661B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAEAC881-3E25-4B62-96E6-C580DBEA27C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAEAC881-3E25-4B62-96E6-C580DBEA27C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAEAC881-3E25-4B62-96E6-C580DBEA27C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAEAC881-3E25-4B62-96E6-C580DBEA27C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
