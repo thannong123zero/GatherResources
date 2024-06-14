@@ -4,14 +4,24 @@
 }
 
 <div class="container">
-    <h1>History of VHM </h1>
-    <input type="date" asp-for="Filter.FromDate" />
-    <input type="date" asp-for="Filter.ToDate" />
+    <h1>History of Stock </h1>
+    <div class="d-flex flex-row">
+        <span class="me-2">Fillter: </span>
+        <input class="me-2" type="text" id="StockName" value="@ViewBag.StockName" />
+        <input class="me-2" type="date" id="FromDate" value="@ViewBag.FromDate" max="@DateTime.Now.ToString("yyyy-MM-dd")" />
+        <input class="me-2" type="date" id="ToDate" value="@ViewBag.ToDate" />
+        <button onclick="Filter()">Execute</button>
+    </div>
+    <div class="my-2">
+        <span>Data: @ViewBag.Count || Net sale: @ViewBag.NetSale || Net buy: @ViewBag.NetBuy</span>
+    </div>
     @if (Model.History != null)
     {
+        int index = 1;
         <table class="table">
             <thead>
                 <tr>
+                    <th>STT</th>
                     <th class="text-capitalize">
                         Ngay
                     </th>
@@ -40,6 +50,8 @@
                 {
                     <tr>
                         <td>
+                            @(index.ToString())
+                        <td>
                             @item.Date.ToString("dd/MM/yyyy")
                         </td>
                         <td>
@@ -61,10 +73,17 @@
                             @((item.BuyForeignValue - item.SellForeignValue).ToString("N0"))
                         </td>
                     </tr>
+                    index++;
                 }
             </tbody>
         </table>
     }
-
-
 </div>
+<script>
+    function Filter(){
+        let stockName = document.getElementById("StockName").value;
+        let fromDate = document.getElementById("FromDate").value;
+        let toDate = document.getElementById("ToDate").value;
+        window.location.href = "/Home/Index?stockName=" + stockName + "&fromDate=" + fromDate + "&toDate=" + toDate;
+    }
+</script>
