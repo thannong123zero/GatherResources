@@ -7,5 +7,6 @@ namespace AuthenticationNAuthorizationDemo._Convergence.DataAccess.DatabaseConte
     public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
     }
 }
