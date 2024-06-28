@@ -20,15 +20,27 @@ namespace AuthenticationNAuthorizationDemo.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl = null)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
-            return View();
+            ViewBag.ReturnUrl = returnUrl;
+            returnUrl = returnUrl ?? Url.Content("~/");
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                if (result.Succeeded)
+                {
+                    return LocalRedirect(returnUrl);
+                }
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+            }
+            return View(model);
         }
         [HttpGet]
         public IActionResult Register()
@@ -64,6 +76,10 @@ namespace AuthenticationNAuthorizationDemo.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index","Home");
         }
-
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }
