@@ -116,7 +116,32 @@ namespace AuthenticationNAuthorizationDemo.Controllers
         [HttpGet]
         public IActionResult ResetPassword(string userId, string token)
         {
-            return View();
+            ResetPasswordViewModel model = new ResetPasswordViewModel() { UserId = userId, Token = token};
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByIdAsync(model.UserId);
+                if (user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "User not found!");
+                    return View(model);
+                }
+                var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Login");
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+            return View(model);
         }
         [HttpGet]
         public IActionResult ForgotPasswordConfirmation()
