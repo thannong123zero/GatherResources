@@ -45,7 +45,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarketAnalysis", "Stoc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsynchronousDemo", "AsynchronousDemo\AsynchronousDemo.csproj", "{6F0C525F-EA90-4F05-B26C-7137EC7661B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIService", "WebAPIService\WebAPIService.csproj", "{CAEAC881-3E25-4B62-96E6-C580DBEA27C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIService", "WebAPIService\WebAPIService.csproj", "{CAEAC881-3E25-4B62-96E6-C580DBEA27C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseFirstDemo", "DataBaseFirstDemo\DataBaseFirstDemo.csproj", "{DD96BE23-C4A9-4F62-8655-93837C4E3D00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,10 @@ Global
 		{CAEAC881-3E25-4B62-96E6-C580DBEA27C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAEAC881-3E25-4B62-96E6-C580DBEA27C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAEAC881-3E25-4B62-96E6-C580DBEA27C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD96BE23-C4A9-4F62-8655-93837C4E3D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD96BE23-C4A9-4F62-8655-93837C4E3D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD96BE23-C4A9-4F62-8655-93837C4E3D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD96BE23-C4A9-4F62-8655-93837C4E3D00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
