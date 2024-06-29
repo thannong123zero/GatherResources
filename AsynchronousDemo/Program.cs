@@ -6,12 +6,11 @@ namespace AsynchronousDemo
     {
         static void Main(string[] args)
         {
-            CustomCollection collection = new CustomCollection();
-            foreach (int item in collection)
-            {
-                Console.WriteLine(item);
-            }
-
+            string text = "Hello, World!";
+            string text1 = text;
+            text1 = "Hello, C#!";
+            Console.WriteLine(text1);
+            Console.WriteLine(text);
             //ThreadDemo();
             Console.WriteLine("Main thread exits.");
         }
