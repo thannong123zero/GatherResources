@@ -1,0 +1,38 @@
+﻿@model IEnumerable<RoleViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container pt-2">
+    <h2 class="text-capitalize">_language.Getkey("brandList")</h2>
+    <div class="d-flex justify-content-end">
+        <a asp-action="Create" class="btn btn-success text-capitalize">_language.Getkey("create")</a>
+    </div>
+    @if (Model != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-capitalize">
+                        RoleName
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RoleName)
+                        </td>
+                        <td class="d-flex justify-content-end">
+                            <a asp-action="Update" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">_language.Getkey("details")</a>
+                            <button onclick="CheckPermissionToDelete('@item.ID')" class="btn btn-danger text-capitalize">_language.Getkey("delete")</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
