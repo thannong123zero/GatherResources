@@ -243,6 +243,11 @@ body {
   width: 100%;
   background-color: #1e1e1e;
 }
+@media only screen and (width < 1200px) {
+  .headerContainer .topHeader {
+    padding: 0 1rem;
+  }
+}
 .headerContainer .topHeader .nav {
   height: 30px;
   width: 100%;
@@ -269,6 +274,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media only screen and (width < 1200px) {
+  .headerContainer .headerMain {
+    padding: 0 1rem;
+  }
 }
 .headerContainer .headerMain .boxSearch {
   width: 258px;
@@ -336,27 +346,36 @@ body {
 .headerContainer .headerBottom {
   max-width: 1050px;
   margin: auto;
-  height: 46px;
-  display: flex;
-  align-items: center;
+  padding: 0.25rem 0;
+}
+@media only screen and (width < 1200px) {
+  .headerContainer .headerBottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+  }
 }
 .headerContainer .headerBottom .menuGroup {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.25rem 0;
+  flex-wrap: wrap;
 }
 .headerContainer .headerBottom .menuGroup > li {
   display: inline;
   position: relative;
+  /*a:first-child {
+      border-left: unset;
+  }*/
 }
 .headerContainer .headerBottom .menuGroup > li a {
   padding: 0 14px;
   color: #000000;
   text-decoration: unset;
-  border-left: 1px solid #ccc;
-}
-.headerContainer .headerBottom .menuGroup > li a:first-child {
-  border-left: unset;
+  border-right: 1px solid #ccc;
 }
 .headerContainer .headerBottom .menuGroup > li a:hover {
   color: #e72f8b;
@@ -400,6 +419,11 @@ body {
       width: 100%;
       max-width: 30px;
   }*/
+}
+@media only screen and (width < 1200px) {
+  .footerContainer {
+    padding: 0 1rem;
+  }
 }
 .footerContainer .topFooter {
   width: 100%;
@@ -573,6 +597,16 @@ body {
   max-width: 1050px;
   margin: auto;
 }
+@media only screen and (width < 1200px) {
+  .homePage {
+    max-width: 95%;
+  }
+}
+@media only screen and (width < 1200px) {
+  .homePage {
+    max-width: 100%;
+  }
+}
 .homePage .homeBanner {
   width: 100%;
 }
@@ -635,6 +669,13 @@ body {
 .homePage .homeBanner .categorySuggestion .suggestionThree div {
   background-color: #1e1e1e;
 }
+@media only screen and (width < 1200px) {
+  .homePage .homeContent {
+    max-width: 95%;
+    margin: auto;
+  }
+}
+
 .effect-snow {
   height: 100%;
   width: 100%;
