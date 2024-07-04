@@ -5,6 +5,14 @@
     max-width: $maxWidthContent;
     margin: auto;
 
+    @include respond(map-get($breakPoint,"lg")) {
+        max-width: $maxWidthContent_LG;
+    }
+
+    @include respond(map-get($breakPoint,"lg")) {
+        max-width: 100%;
+    }
+
     .homeBanner {
         width: 100%;
 
@@ -71,17 +79,22 @@
 
             .suggestionThree {
                 background-image: url('/assets/images/Son-NARS-Semi-Matte.png');
-                display:flex;
+                display: flex;
                 justify-content: center;
                 align-items: center;
-                div{
-                    background-color:$color_black_1e1e1e;
+
+                div {
+                    background-color: $color_black_1e1e1e;
                 }
             }
         }
     }
 
     .homeContent {
+        @include respond(map-get($breakPoint,"lg")) {
+            max-width: 95%;
+            margin:auto;
+        }
     }
 }
 
