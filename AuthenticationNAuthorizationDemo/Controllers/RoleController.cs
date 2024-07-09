@@ -1,11 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AuthenticationNAuthorizationDemo.Controllers
 {
     public class RoleController : Controller
     {
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public RoleController(RoleManager<IdentityRole> roleManager)
+        {
+            _roleManager = roleManager;
+        }
         public IActionResult Index()
         {
+            
             return View();
         }
         [HttpGet]
@@ -14,9 +21,10 @@ namespace AuthenticationNAuthorizationDemo.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(string roleName)
+        public async Task<IActionResult> Create(string roleName)
         {
-            return View();
+           var result =  await _roleManager.CreateAsync(new IdentityRole(roleName));
+            return View("Index");
         }
         [HttpGet]
         public IActionResult Update()
