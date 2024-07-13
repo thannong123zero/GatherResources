@@ -6,13 +6,20 @@ namespace AsynchronousDemo
     {
         static void Main(string[] args)
         {
-            string text = "Hello, World!";
-            string text1 = text;
-            text1 = "Hello, C#!";
-            Console.WriteLine(text1);
-            Console.WriteLine(text);
-            //ThreadDemo();
-            Console.WriteLine("Main thread exits.");
+            // Example list of integers
+            List<int> numbers = Enumerable.Range(1, 100).ToList(); // A list of numbers from 1 to 100
+
+            int pageSize = 10; // Number of items per page
+            int pageNumber = 1; // For example, we want to get the third page
+
+            // Using Skip and Take for pagination
+            var pagedNumbers = numbers.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+            // Displaying the items on the third page
+            foreach (var number in pagedNumbers)
+            {
+                Console.WriteLine(number);
+            }
         }
 
         private static void ThreadDemo()
