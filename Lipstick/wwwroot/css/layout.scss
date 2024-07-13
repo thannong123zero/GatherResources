@@ -49,6 +49,8 @@
             padding: 0 1rem;
         }
 
+       
+
         .boxSearch {
             width: 258px;
             height: 35px;
@@ -74,6 +76,11 @@
                 align-content: center;
                 flex-wrap: wrap;
             }
+        }
+
+        .boxCard {
+            display: flex;
+            flex-direction: row;
         }
 
         .logo {
@@ -132,6 +139,10 @@
             border-top: 1px solid rgba(0, 0, 0, 0.125);
         }
 
+        @include respond(map-get($breakPoint,"md")) {
+            display: none;
+        }
+
         .menuGroup {
             list-style-type: none;
             padding: 0;
@@ -141,7 +152,7 @@
             flex-direction: row;
             justify-content: center;
             padding: 0.25rem 0;
-            flex-wrap:wrap;
+            flex-wrap: wrap;
 
             & > li {
                 display: inline;

@@ -304,6 +304,10 @@ body {
   align-content: center;
   flex-wrap: wrap;
 }
+.headerContainer .headerMain .boxCard {
+  display: flex;
+  flex-direction: row;
+}
 .headerContainer .headerMain .logo {
   max-width: 210px;
   height: auto;
@@ -351,6 +355,11 @@ body {
 @media only screen and (width < 1200px) {
   .headerContainer .headerBottom {
     border-top: 1px solid rgba(0, 0, 0, 0.125);
+  }
+}
+@media only screen and (width < 992px) {
+  .headerContainer .headerBottom {
+    display: none;
   }
 }
 .headerContainer .headerBottom .menuGroup {
@@ -613,13 +622,16 @@ body {
 .homePage .homeBanner .banner {
   width: 1050px;
   height: 400px;
+  max-width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 .homePage .homeBanner .banner .bannerIntro {
   height: 100%;
   width: 100%;
+  position: absolute;
   top: 0;
   left: 0;
   display: flex;
@@ -629,9 +641,15 @@ body {
 }
 .homePage .homeBanner .bannerOne {
   background-image: url("/assets/images/lipstickvn-001-1024x658.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .homePage .homeBanner .bannerTwo {
   background-image: url("/assets/images/LipColl2015_MU_LP_hero-1024x420.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .homePage .homeBanner .categorySuggestion .suggestion {
   width: 100%;

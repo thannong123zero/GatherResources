@@ -19,13 +19,16 @@
         .banner {
             width: $maxWidthHomeBanner;
             height: $maxHieghtBanner;
+            max-width: 100%;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            position: relative;
 
             .bannerIntro {
                 height: 100%;
                 width: 100%;
+                position:absolute;
                 top: 0;
                 left: 0;
                 display: flex;
@@ -37,10 +40,16 @@
 
         .bannerOne {
             background-image: url('/assets/images/lipstickvn-001-1024x658.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .bannerTwo {
             background-image: url('/assets/images/LipColl2015_MU_LP_hero-1024x420.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .categorySuggestion {
@@ -93,7 +102,7 @@
     .homeContent {
         @include respond(map-get($breakPoint,"lg")) {
             max-width: 95%;
-            margin:auto;
+            margin: auto;
         }
     }
 }
