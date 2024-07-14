@@ -38,7 +38,7 @@
                     <tr id="@item.ID">
                         <td>
                             @* @Html.DisplayFor(modelItem => item.Avatar) *@
-                            <img class="brandAvatar" src="~/assets/images/brandImageDefault.jpg" alt="avatar"/>
+                            <img class="brandAvatar" src="~/BrandImages/@(item.Avatar)" alt="avatar"/>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.NameEN)
@@ -49,9 +49,11 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.IsActive)
                         </td>
-                        <td class="d-flex justify-content-end">
-                            <a asp-action="Update" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">@_language.Getkey("details")</a>
-                            <button onclick="CheckPermissionToDelete('@item.ID')" class="btn btn-danger text-capitalize">@_language.Getkey("delete")</button>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <a asp-action="Update" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">@_language.Getkey("details")</a>
+                                <button onclick="CheckPermissionToDelete('@item.ID')" class="btn btn-danger text-capitalize">@_language.Getkey("delete")</button>
+                            </div>
                         </td>
                     </tr>
                 }

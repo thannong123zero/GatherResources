@@ -18,7 +18,7 @@ namespace CRM.Controllers
             return View(data);
         }
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             BrandUI model = new BrandUI();
             return View(model);
@@ -37,16 +37,19 @@ namespace CRM.Controllers
             if(length >= 35000)
             {
                 // Lenght of file is overflow
+                ModelState.AddModelError("UploadImage", "File is too large");
+                return View(model);
             }
             string contentType = file.ContentType;
             string typeOfFile = System.IO.Path.GetExtension(file.FileName);
-
-
+            if(typeOfFile != ".jpg" && typeOfFile != ".jpeg" && typeOfFile != ".png")
+            {
+                ModelState.AddModelError("UploadImage", "File is not image");
+                return View(model);
+            }
             //End checking file
 
-
-
-            //await _brandHelper.CreateBrand(model);
+            await _brandHelper.CreateBrand(model);
             return RedirectToAction("Index");
         }
         [HttpGet]

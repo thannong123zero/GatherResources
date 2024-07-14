@@ -738,6 +738,11 @@ body {
   max-width: 1050px;
   margin: auto;
 }
+@media only screen and (width < 1200px) {
+  .productPage {
+    padding: 0 1rem;
+  }
+}
 
 /*#region width*/
 /*#endregion*/
@@ -750,6 +755,11 @@ body {
 .productDetailsPage {
   max-width: 1050px;
   margin: auto;
+}
+@media only screen and (width < 1200px) {
+  .productDetailsPage {
+    padding: 0 1rem;
+  }
 }
 .productDetailsPage .summaryAboutProduct {
   max-width: 880px;
@@ -796,6 +806,11 @@ body {
   max-width: 1050px;
   min-height: 300px;
   margin: auto;
+}
+@media only screen and (width < 1200px) {
+  .cartPage {
+    padding: 0 1rem;
+  }
 }
 .cartPage .tableHeader {
   background: #1e1e1e;

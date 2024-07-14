@@ -46,3 +46,9 @@
 .sb-sidenav-menu::-webkit-scrollbar-thumb {
     background: #343A40;
 }
+
+.brandAvatar{
+    max-height: 110px;
+    max-width: 110px;
+    border: 1px solid #ccc;
+}

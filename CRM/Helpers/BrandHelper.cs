@@ -6,9 +6,11 @@ namespace CRM.Helpers
     public class BrandHelper
     {
         private readonly BrandAPIService _APIService;
-        public BrandHelper(BrandAPIService aPIService)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public BrandHelper(BrandAPIService aPIService, IWebHostEnvironment webHostEnvironment)
         {
             _APIService = aPIService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<IEnumerable<BrandUI>> GetBrands()
@@ -21,6 +23,21 @@ namespace CRM.Helpers
         }
         public async Task CreateBrand(BrandUI model)
         {
+            if (model.UploadImage != null)
+            {
+                string path = Path.Combine(_webHostEnvironment.WebRootPath, "BrandImages");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                model.Avatar = string.Concat(Guid.NewGuid(), ".png");
+                string filePath = Path.Combine(path, model.Avatar);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await model.UploadImage.CopyToAsync(fileStream);
+                }
+            }
+
             await _APIService.CreateBrand(model);
         }
         public async Task UpdateBrand(BrandUI model)

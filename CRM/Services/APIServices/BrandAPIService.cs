@@ -86,6 +86,7 @@ namespace CRM.Services.APIServices
                 content.Add(new StringContent(model.ID.ToString()), "ID");
                 content.Add(new StringContent(model.NameEN), "NameEN");
                 content.Add(new StringContent(model.NameVN), "NameVN");
+                content.Add(new StringContent(model.Avatar), "Avatar");
 
                 // Add optional string properties
                 if (!string.IsNullOrEmpty(model.DescriptionEN))

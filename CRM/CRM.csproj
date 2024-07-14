@@ -731,4 +731,8 @@
     <ProjectReference Include="..\ShareLibrary\SharedLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\BrandImages\" />
+  </ItemGroup>
+
 </Project>

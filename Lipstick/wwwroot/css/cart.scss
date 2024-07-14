@@ -5,6 +5,10 @@
     min-height: 300px;
     margin: auto;
 
+    @include respond(map-get($breakPoint,"lg")) {
+        padding: 0 1rem;
+    }
+
     .tableHeader {
         background: $color_black_1e1e1e;
         color: $color_white_fff;

@@ -4,6 +4,10 @@
     max-width: $maxWidthContent;
     margin: auto;
 
+    @include respond(map-get($breakPoint,"lg")) {
+        padding: 0 1rem;
+    }
+
     .summaryAboutProduct {
         max-width: 880px;
         margin: auto;

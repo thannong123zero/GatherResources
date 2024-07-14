@@ -20,7 +20,7 @@ namespace API.Helpers
         }
         public async Task<IEnumerable<MenuGroupUI>> GetMenuGroups()
         {
-            var listMenuGroup =  await _unitOfWork.MenuGroupRepository.GetAll();
+            var listMenuGroup =  await _unitOfWork.MenuGroupRepository.GetAll(s => !s.IsDeleted);
             if(listMenuGroup == null) 
             {
                 return null;
