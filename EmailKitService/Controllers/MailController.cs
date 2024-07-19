@@ -1,10 +1,7 @@
-﻿using EmailKitService.Models;
+﻿using EmailKitService.CustomFilterActions;
+using EmailKitService.Models;
 using EmailKitService.Services;
-using MailKit.Security;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Runtime;
 
 namespace EmailKitService.Controllers
 {
@@ -22,7 +19,8 @@ namespace EmailKitService.Controllers
         }
 
         [HttpPost("sendsingleemail")]
-        public async Task<IActionResult> SendSingleEmail(SingleMailData mailData)
+        //[ApiKey]
+        public async Task<IActionResult> SendSingleEmail([FromBody] SingleMailData mailData)
         {
             bool result = await _mail.SendSingleEmailAsync(mailData, new CancellationToken());
 
@@ -37,6 +35,7 @@ namespace EmailKitService.Controllers
         }
 
         [HttpPost("sendmail")]
+        //[ApiKey]
         public async Task<IActionResult> SendMailAsync(MailData mailData)
         {
             bool result = await _mail.SendAsync(mailData, new CancellationToken());
@@ -52,6 +51,7 @@ namespace EmailKitService.Controllers
         }
 
         [HttpPost("sendemailwithattachment")]
+        //[ApiKey]
         public async Task<IActionResult> SendMailWithAttachmentAsync([FromForm] MailDataWithAttachments mailData)
         {
             bool result = await _mail.SendWithAttachmentsAsync(mailData, new CancellationToken());
@@ -67,6 +67,7 @@ namespace EmailKitService.Controllers
         }
 
         [HttpPost("sendemailusingtemplate")]
+        //[ApiKey]
         public async Task<IActionResult> SendEmailUsingTemplate(WelcomeMail welcomeMail)
         {
             // Create MailData object

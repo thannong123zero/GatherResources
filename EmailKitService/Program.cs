@@ -1,3 +1,5 @@
+using EmailKitService.CustomFilterActions;
+using EmailKitService.Midleware;
 using EmailKitService.Models;
 using EmailKitService.Services;
 
@@ -17,6 +19,7 @@ namespace EmailKitService
             builder.Services.AddSwaggerGen();
             builder.Services.Configure<MailSettings>(builder.Configuration.GetSection(nameof(MailSettings)));
             builder.Services.AddTransient<IMailService, MailService>();
+            builder.Services.AddTransient<IApiKeyValidation, ApiKeyValidation>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -27,9 +30,9 @@ namespace EmailKitService
             }
 
             app.UseHttpsRedirection();
+            app.UseMiddleware<ApiKeyMiddleware>();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
