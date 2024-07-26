@@ -10,9 +10,9 @@ namespace API.Helpers
         {
               _unitOfWork = unitOfWork;
         }
-        public async Task<LayoutUI> GetLayout(string language)
-        {
+        //public async Task<LayoutUI> GetLayout(string language)
+        //{
 
-        }
+        //}
     }
 }

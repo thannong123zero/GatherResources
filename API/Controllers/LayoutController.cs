@@ -7,15 +7,15 @@ namespace API.Controllers
     [ApiController]
     public class LayoutController : ControllerBase
     {
-        private readonly Layou
+        //private readonly Layou
 
-        [HttpGet]
-        public async Task<IActionResult> GetLayout()
-        {
-            LayoutUI layoutUI = new LayoutUI();
+        //[HttpGet]
+        //public async Task<IActionResult> GetLayout()
+        //{
+        //    LayoutUI layoutUI = new LayoutUI();
 
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
     }
 }

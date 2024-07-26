@@ -49,7 +49,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIService", "WebAPIServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseFirstDemo", "DataBaseFirstDemo\DataBaseFirstDemo.csproj", "{DD96BE23-C4A9-4F62-8655-93837C4E3D00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingProjectDemo", "LoggingProjectDemo\LoggingProjectDemo.csproj", "{87C04765-34F3-4759-A813-2E1E941AE5EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingProjectDemo", "LoggingProjectDemo\LoggingProjectDemo.csproj", "{87C04765-34F3-4759-A813-2E1E941AE5EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleDatabase", "MultipleDatabase\MultipleDatabase.csproj", "{88EDEAE8-0ECF-49C2-9D7A-CD1E0648D78F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{87C04765-34F3-4759-A813-2E1E941AE5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87C04765-34F3-4759-A813-2E1E941AE5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87C04765-34F3-4759-A813-2E1E941AE5EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88EDEAE8-0ECF-49C2-9D7A-CD1E0648D78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88EDEAE8-0ECF-49C2-9D7A-CD1E0648D78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88EDEAE8-0ECF-49C2-9D7A-CD1E0648D78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88EDEAE8-0ECF-49C2-9D7A-CD1E0648D78F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,6 @@
+@MultipleDatabase_HostAddress = http://localhost:5052
+
+GET {{MultipleDatabase_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
