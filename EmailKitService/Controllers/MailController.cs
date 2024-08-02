@@ -19,7 +19,6 @@ namespace EmailKitService.Controllers
         }
 
         [HttpPost("sendsingleemail")]
-        //[ApiKey]
         public async Task<IActionResult> SendSingleEmail([FromBody] SingleMailData mailData)
         {
             bool result = await _mail.SendSingleEmailAsync(mailData, new CancellationToken());
@@ -35,7 +34,6 @@ namespace EmailKitService.Controllers
         }
 
         [HttpPost("sendmail")]
-        //[ApiKey]
         public async Task<IActionResult> SendMailAsync(MailData mailData)
         {
             bool result = await _mail.SendAsync(mailData, new CancellationToken());
@@ -51,7 +49,6 @@ namespace EmailKitService.Controllers
         }
 
         [HttpPost("sendemailwithattachment")]
-        //[ApiKey]
         public async Task<IActionResult> SendMailWithAttachmentAsync([FromForm] MailDataWithAttachments mailData)
         {
             bool result = await _mail.SendWithAttachmentsAsync(mailData, new CancellationToken());
@@ -67,7 +64,6 @@ namespace EmailKitService.Controllers
         }
 
         [HttpPost("sendemailusingtemplate")]
-        //[ApiKey]
         public async Task<IActionResult> SendEmailUsingTemplate(WelcomeMail welcomeMail)
         {
             // Create MailData object
