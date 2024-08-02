@@ -1,6 +1,7 @@
-﻿// Create root element
+﻿"Use strict"
+// Create root element
 // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-var root = am5.Root.new("chartdiv");
+var root = am5.Root.new("coloumChart");
 
 
 // Set themes
@@ -84,9 +85,9 @@ var series = chart.series.push(am5xy.ColumnSeries.new(root, {
 
 // Add scrollbar
 // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-chart.set("scrollbarX", am5.Scrollbar.new(root, {
-    orientation: "horizontal"
-}));
+//chart.set("scrollbarX", am5.Scrollbar.new(root, {
+//    orientation: "horizontal"
+//}));
 
 var data = generateDatas(50);
 series.data.setAll(data);

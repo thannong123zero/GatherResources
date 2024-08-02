@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 <style>
-    #chartdiv {
+    .chart {
         width: 100%;
         height: 80vh;
     }
@@ -10,9 +10,34 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <div id="chartdiv"></div>
+    <div id="coloumChart" class="chart"></div>
+    <div id="clusteredColoumChart" class="chart"></div>
+    <div id="stackedColoumChart" class="chart"></div>
+    <div id="pieChart" class="chart"></div>
+    <div id="lineChart" class="chart"></div>
+    <div id="pieDonutChart" class="chart"></div>
+    <div id="hierarchyTreemapChart" class="chart"></div>
+    <div id="horizontalColoumChart" class="chart"></div>
+    <div id="horizontalClusteredColoumChart" class="chart"></div>
+
 </div>
+<!--summary-->
 <script src="~/lib/chartJS/index.js"></script>
-<script src="~/lib/chartJS/xy.js"></script>
 <script src="~/lib/chartJS/themes/Animated.js"></script>
-<script src="~/js/chartColoumn.js"></script>
+<!--coloumn-->
+<script src="~/lib/chartJS/xy.js"></script>
+<script src="~/js/coloumnChart.js"></script>
+<!--chartLine-->
+<script src="~/js/lineChart.js"></script>
+<!--clusteredColoumn-->
+<script src="~/js/clusteredColoumChart.js"></script>
+<!--stackedColoumChart-->
+<script src="~/js/stackedColoumChart.js"></script>
+<!--pie-->
+<script src="~/lib/chartJS/percent.js"></script>
+<script src="~/js/pieChart.js"></script>
+<!--pie donut-->
+<script src="~/js/pieDonutChart.js"></script>
+<!--hierarchyTreemapChart-->
+<script src="~/lib/chartJS/hierarchy.js"></script>
+<script src="~/js/hierarchyTreemapChart.js"></script>
