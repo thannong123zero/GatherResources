@@ -89,7 +89,8 @@ var series = chart.series.push(am5xy.ColumnSeries.new(root, {
 //    orientation: "horizontal"
 //}));
 
-var data = generateDatas(50);
+var data = generateDatas(12);
+console.log(data);
 series.data.setAll(data);
 
 

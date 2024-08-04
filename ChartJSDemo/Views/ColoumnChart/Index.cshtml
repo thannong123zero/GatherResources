@@ -1,0 +1,100 @@
+﻿@{
+      ViewData["Title"] = "Column Chart";
+}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<style>
+    .chart {
+        width: 100%;
+        height: 80vh;
+    }
+</style>
+<div class="container">
+    <div id="coloumChart" class="chart"></div>
+</div>
+<!--summary-->
+<script src="~/lib/chartJS/index.js"></script>
+<script src="~/lib/chartJS/themes/Animated.js"></script>
+<!--coloumn-->
+<script src="~/lib/chartJS/xy.js"></script>
+<script>
+    $.ajax({
+        url: '@Url.Action("GetColoumChart","ColoumnChart")',
+        type: 'GET',
+        success: function (dataObjectResult) {
+            if (dataObjectResult.success) {
+                let chart = JSON.parse(dataObjectResult.object);
+                CreateColoumnChart(chart, "coloumChart");
+            }
+        }
+    });
+
+    function CreateColoumnChart(coloumChart,id) {
+        //create root element
+        var root = am5.Root.new(id);
+
+        // Set themes
+        // https://www.amcharts.com/docs/v5/concepts/themes/
+        root.setThemes([
+            am5themes_Animated.new(root)
+        ]);
+
+        // Create chart
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/
+        var chart = root.container.children.push(am5xy.XYChart.new(root, {
+            panX: false,
+            panY: false,
+            wheelX: "panX",
+            wheelY: "zoomX"
+        }));
+
+
+        // Add cursor
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+        var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+            behavior: "zoomX"
+        }));
+        cursor.lineY.set("visible", false);
+
+
+        // Create axes
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+        var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
+            // maxDeviation: 0,
+            // baseInterval: {
+            //     timeUnit: "day",
+            //     count: 1
+            // },
+            categoryField: coloumChart.ValueXField,
+            // renderer: am5xy.AxisRendererX.new(root, {
+            //     minorGridEnabled: false
+            // }),
+            tooltip: am5.Tooltip.new(root, {})
+        }));
+
+        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+            renderer: am5xy.AxisRendererY.new(root, {})
+        }));
+
+        // Add series
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+        var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+            name: "Series",
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: coloumChart.ValueYField,
+            valueXField: coloumChart.ValueXField,
+            tooltip: am5.Tooltip.new(root, {
+                labelText: "{valueY}"
+            })
+        }));
+        console.log(coloumChart.Coloumns);
+
+        series.data.setAll(coloumChart.Coloumns);
+
+
+        // Make stuff animate on load
+        // https://www.amcharts.com/docs/v5/concepts/animations/#Forcing_appearance_animation
+        series.appear(1000);
+        chart.appear(1000, 100);
+    }
+</script>
