@@ -1,5 +1,5 @@
 ﻿@{
-      ViewData["Title"] = "Column Chart";
+    ViewData["Title"] = "Column Chart";
 }
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <style>
@@ -18,17 +18,17 @@
 <script src="~/lib/chartJS/xy.js"></script>
 <script>
     $.ajax({
-        url: '@Url.Action("GetColoumChart","ColoumnChart")',
+        url: '@Url.Action("GetPieChart", "PieChart")',
         type: 'GET',
         success: function (dataObjectResult) {
             if (dataObjectResult.success) {
                 let chart = JSON.parse(dataObjectResult.object);
-                CreateColoumnChart(chart, "coloumChart");
+                //CreateColoumnChart(chart, "pieChart");
             }
         }
     });
 
-    function CreateColoumnChart(coloumChart,id) {
+    function CreatePieChart(pieChart, id) {
         // Create root element
         // https://www.amcharts.com/docs/v5/getting-started/#Root_element
         var root = am5.Root.new(id);
@@ -49,7 +49,7 @@
             wheelX: "panX",
             wheelY: "zoomX"
         }));
-    
+
 
 
         // Create axes
