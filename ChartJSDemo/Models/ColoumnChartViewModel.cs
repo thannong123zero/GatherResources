@@ -20,11 +20,11 @@
     }
     public class ColoumnViewModel
     {
-        public string Label { get; set; }
+        public string Lable { get; set; }
         public int Value { get; set; }
         public ColoumnViewModel()
         {
-            Label = string.Empty;
+            Lable = string.Empty;
         }
     }   
 }

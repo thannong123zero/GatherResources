@@ -9,13 +9,12 @@
     }
 </style>
 <div class="container">
-    <div id="coloumChart" class="chart"></div>
+    <div id="pieChart" class="chart"></div>
 </div>
 <!--summary-->
 <script src="~/lib/chartJS/index.js"></script>
 <script src="~/lib/chartJS/themes/Animated.js"></script>
-<!--coloumn-->
-<script src="~/lib/chartJS/xy.js"></script>
+<script src="~/lib/chartJS/percent.js"></script>
 <script>
     $.ajax({
         url: '@Url.Action("GetPieChart", "PieChart")',
@@ -23,7 +22,8 @@
         success: function (dataObjectResult) {
             if (dataObjectResult.success) {
                 let chart = JSON.parse(dataObjectResult.object);
-                //CreateColoumnChart(chart, "pieChart");
+                console.log(chart);
+                CreatePieChart(chart, "pieChart");
             }
         }
     });
@@ -42,43 +42,40 @@
 
 
         // Create chart
-        // https://www.amcharts.com/docs/v5/charts/xy-chart/
-        var chart = root.container.children.push(am5xy.XYChart.new(root, {
-            panX: false,
-            panY: false,
-            wheelX: "panX",
-            wheelY: "zoomX"
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+        var chart = root.container.children.push(am5percent.PieChart.new(root, {
+            layout: root.verticalLayout
         }));
 
 
-
-        // Create axes
-        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-            renderer: am5xy.AxisRendererY.new(root, {})
+        // Create series
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+        var series = chart.series.push(am5percent.PieSeries.new(root, {
+            valueField: pieChart.ValueField,
+            categoryField: pieChart.LableField
         }));
 
-        var xAxis = chart.xAxes.push(
-            am5xy.CategoryAxis.new(root, {
-                categoryField: coloumChart.ValueXField,
-                renderer: am5xy.AxisRendererX.new(root, {})
-            })
-        );
 
-        var series = chart.series.push(
-            am5xy.ColumnSeries.new(root, {
-                name: "Series",
-                xAxis: xAxis,
-                yAxis: yAxis,
-                valueYField: coloumChart.ValueYField,
-                categoryXField: coloumChart.ValueXField
-            })
-        );
-        xAxis.data.setAll(coloumChart.Coloumns);
-        series.data.setAll(coloumChart.Coloumns);
+        // Set data
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+        console.log(pieChart.Pieces);
+        series.data.setAll(pieChart.Pieces);
 
-        // Make stuff animate on load
-        // https://www.amcharts.com/docs/v5/concepts/animations/#Forcing_appearance_animation
-        series.appear(1000);
-        chart.appear(1000, 100);
+
+        // Create legend
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/legend-percent-series/
+        var legend = chart.children.push(am5.Legend.new(root, {
+            centerX: am5.percent(50),
+            x: am5.percent(50),
+            marginTop: 15,
+            marginBottom: 15,
+        }));
+
+        legend.data.setAll(series.dataItems);
+
+
+        // Play initial series animation
+        // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
+        series.appear(1000, 100);
     }
 </script>
