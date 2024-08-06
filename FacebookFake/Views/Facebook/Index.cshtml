@@ -1,0 +1,29 @@
+﻿<div>
+    <input id="userName" />
+    <input id="password" />
+    <button id="login">Login</button>
+</div>
+
+<script>
+    document.getElementById('login').addEventListener('click', function () {
+
+        var userName = document.getElementById('userName').value;
+        var password = document.getElementById('password').value;
+        if (userName || password) {
+            let url = '@Url.Action("Login","Facebook")'+`?userName=${userName}&&password=${password}`;
+            fetch(url, {
+                method: 'Get'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Login successful');
+                    } else {
+                        alert('Login failed');
+                    }
+                });
+        }
+    
+    
+    });
+</script>
