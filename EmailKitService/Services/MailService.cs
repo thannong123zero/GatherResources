@@ -92,7 +92,7 @@ namespace EmailKitService.Services
 
                 #region Sender / Receiver
                 // Sender
-                mail.From.Add(new MailboxAddress(_settings.DisplayName, mailData.From ?? _settings.From));
+                mail.From.Add(new MailboxAddress(_settings.DisplayName,  mailData.From ?? _settings.From));
                 mail.Sender = new MailboxAddress(mailData.DisplayName ?? _settings.DisplayName, mailData.From ?? _settings.From);
 
                 // Receiver
