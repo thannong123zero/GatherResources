@@ -6,4 +6,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\js\renderChart.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\renderChart.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\renderChart.js" />
+  </ItemGroup>
+
 </Project>

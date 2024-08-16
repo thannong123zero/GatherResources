@@ -4,21 +4,21 @@
     {
         public string Title { get; set; }
         public string ValueField { get; private set; }
-        public string LableField { get; private set; }
-        public List<PieceViewModel> Pieces { get; set; }
+        public string CategoryField { get; private set; }
+        public List<SliceViewModel> Slices { get; set; }
         public PieChartViewModel()
         {
             Title = string.Empty;
             ValueField = "Value";
-            LableField = "Lable";
-            Pieces = new List<PieceViewModel>();
+            CategoryField = "Lable";
+            Slices = new List<SliceViewModel>();
         }
     }
-    public class PieceViewModel
+    public class SliceViewModel
     {
         public string Lable { get; set; }
         public int Value { get; set; }
-        public PieceViewModel()
+        public SliceViewModel()
         {
             Lable = string.Empty;
         }

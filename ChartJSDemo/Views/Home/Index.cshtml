@@ -1,43 +1,166 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "VOC Report";
 }
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <style>
     .chart {
         width: 100%;
-        height: 80vh;
+        height: 50vh;
     }
 </style>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <div id="coloumChart" class="chart"></div>
-    <div id="clusteredColoumChart" class="chart"></div>
-    <div id="stackedColoumChart" class="chart"></div>
-    <div id="pieChart" class="chart"></div>
-    <div id="lineChart" class="chart"></div>
-    <div id="pieDonutChart" class="chart"></div>
-    <div id="hierarchyTreemapChart" class="chart"></div>
-    <div id="horizontalColoumChart" class="chart"></div>
-    <div id="horizontalClusteredColoumChart" class="chart"></div>
+<div class="px-4">
+    <h1 class="mt-4 text-capitalize">_language.Getkey("dashboard")</h1>
+    @*<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Dashboard</li>
+    </ol> *@
+    <div class="row mb-2">
+        <div class="col-2">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body text-center color-black text-capitalize"><b>_language.Getkey("total")</b></div>
+                <div class="card-footer">
+                    <h1 class="text-center color-black">@(21315.ToString("N0"))</h1>
+                </div>
+            </div>
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body text-center color-black text-capitalize"><b>_language.Getkey("completed")</b></div>
+                <div class="card-footer">
+                    <h1 class="text-center color-black">@(31254.ToString("N0"))</h1>
+                </div>
+            </div>
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body text-center text-capitalize color-black"><b>_language.Getkey("processing")</b></div>
+                <div class="card-footer">
+                    <h1 class="text-center color-black">@(5542.ToString("N0"))</h1>
+                </div>
+            </div>
+            <div class="card bg-info text-white mb-4">
+                <div class="card-body text-center text-capitalize color-black"><b>_language.Getkey("new")</b></div>
+                <div class="card-footer">
+                    <h1 class="text-center color-black">@(5010.ToString("N0"))</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="card">
+                <div class="card-body text-capitalize d-flex flex-row justify-content-between">
+                    <div>
+                        <i class="fas fa-chart-bar me-1"></i>
+                        <b></b>_language.Getkey("columnChart")</b>
+                    </div>
+                    <input id="getAccessmentTimesChartByMonth" type="month" onchange="GetColumnChatByMonth(this.value,'@Url.Action("GetAccessmentTimesChartByMonth","Home")')" value="@(DateTime.Now.ToString("yyyy-MM"))" />
+                </div>
+                <div class="card-footer">
+                    <div id="barChart" class="chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body text-capitalize d-flex flex-row justify-content-between">
+                    <div>
+                        <i class="fas fa-chart-bar me-1"></i>
+                        <b>_language.Getkey("columnChart")</b>
+                    </div>
+                    <input id="getAccessmentTimesChartByMonth" type="month" onchange="GetColumnChatByMonth(this.value,'@Url.Action("GetAccessmentTimesChartByMonth","Home")')" value="@(DateTime.Now.ToString("yyyy-MM"))" />
+                </div>
+                <div class="card-footer">
+                    <div id="stackHorizontalBarChart" class="chart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body text-capitalize d-flex flex-row justify-content-between">
+                    <div>
+                        <i class="fas fa-chart-bar me-1"></i>
+                        <b>_language.Getkey("columnChart")</b>
+                    </div>
+                    <input id="getAccessmentTimesChartByMonth" type="month" onchange="GetColumnChatByMonth(this.value,'@Url.Action("GetAccessmentTimesChartByMonth","Home")')" value="@(DateTime.Now.ToString("yyyy-MM"))" />
+                </div>
+                <div class="card-footer">
+                    <div id="pieChart" class="chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body text-capitalize d-flex flex-row justify-content-between">
+                    <div>
+                        <i class="fas fa-chart-bar me-1"></i>
+                        <b>_language.Getkey("columnChart")</b>
+                    </div>
+                    <input id="getAccessmentTimesChartByMonth" type="month" onchange="GetColumnChatByMonth(this.value,'@Url.Action("GetAccessmentTimesChartByMonth","Home")')" value="@(DateTime.Now.ToString("yyyy-MM"))" />
+                </div>
+                <div class="card-footer">
+                    <div id="stackVerticalBarChart" class="chart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body text-capitalize d-flex flex-row justify-content-between">
+                    <div>
+                        <i class="fas fa-chart-bar me-1"></i>
+                        <b>_language.Getkey("columnChart")</b>
+                    </div>
+                    <input id="getAccessmentTimesChartByMonth" type="month" onchange="GetColumnChatByMonth(this.value,'@Url.Action("GetAccessmentTimesChartByMonth","Home")')" value="@(DateTime.Now.ToString("yyyy-MM"))" />
+                </div>
+                <div class="card-footer">
+                    <div id="treeMap" class="chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="mb-4">
+        <div class="card">
+            <div class="card-body text-capitalize d-flex flex-row justify-content-between">
+                <div>
+                    <i class="fas fa-chart-bar me-1"></i>
+                    <b>_language.Getkey("columnChart")</b>
+                </div>
+                <input id="getAccessmentTimesChartByMonth" type="month" onchange="GetColumnChatByMonth(this.value,'@Url.Action("GetAccessmentTimesChartByMonth","Home")')" value="@(DateTime.Now.ToString("yyyy-MM"))" />
+            </div>
+            <div class="card-footer">
+                <div id="lineChart" class="chart"></div>
+            </div>
+        </div>
+    </div>
+    <div class="mb-4">
+        <div class="card">
+            <div class="card-body text-capitalize d-flex flex-row justify-content-between">
+                <div>
+                    <i class="fas fa-chart-bar me-1"></i>
+                    <b>_language.Getkey("columnChart")</b>
+                </div>
+                <input id="getAccessmentTimesChartByMonth" type="month" onchange="GetColumnChatByMonth(this.value,'@Url.Action("GetAccessmentTimesChartByMonth","Home")')" value="@(DateTime.Now.ToString("yyyy-MM"))" />
+            </div>
+            <div class="card-footer">
+                <div id="clusteredBarChart" class="chart"></div>
+            </div>
+        </div>
+    </div>
 </div>
+
 <!--summary-->
 <script src="~/lib/chartJS/index.js"></script>
 <script src="~/lib/chartJS/themes/Animated.js"></script>
 <!--coloumn-->
 <script src="~/lib/chartJS/xy.js"></script>
-<script src="~/js/coloumnChart.js"></script>
-<!--chartLine-->
-<script src="~/js/lineChart.js"></script>
-<!--clusteredColoumn-->
-<script src="~/js/clusteredColoumChart.js"></script>
-<!--stackedColoumChart-->
-<script src="~/js/stackedColoumChart.js"></script>
-<!--pie-->
 <script src="~/lib/chartJS/percent.js"></script>
-<script src="~/js/pieChart.js"></script>
-<!--pie donut-->
-<script src="~/js/pieDonutChart.js"></script>
-<!--hierarchyTreemapChart-->
 <script src="~/lib/chartJS/hierarchy.js"></script>
-<script src="~/js/hierarchyTreemapChart.js"></script>
+<script src="~/js/renderChart.js"></script>
+
+<script>
+    RenderBarChart('@Url.Action("GetBarChart", "Home")', 'barChart');
+    RenderLineChart('@Url.Action("GetLineChart", "Home")', 'lineChart');
+    RenderPieChart('@Url.Action("GetPieChart", "Home")', 'pieChart');
+    RenderStackHorizontalBarChart('@Url.Action("GetStackHorizontalBarChart", "Home")', 'stackHorizontalBarChart');
+    RenderStackVerticalBarChart('@Url.Action("GetStackVerticalBarChart", "Home")', 'stackVerticalBarChart');
+    RenderTreeMap('@Url.Action("GetTreeMap", "Home")', 'treeMap');
+    RenderClusteredBarChart('@Url.Action("GetClusteredBarChart", "Home")', 'clusteredBarChart');
+</script>

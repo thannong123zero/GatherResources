@@ -1,30 +1,28 @@
 ﻿namespace ChartJSDemo.Models
 {
-    public class ColoumnChartViewModel
+    public class BarChartViewModel
     {
         public string Title { get; set; }
-        public string Type { get; set; } 
         public string ValueYField { get; private set; }
         public string ValueXField { get; private set; }
         public string Unit { get; set; }
         public List<ColoumnViewModel> Coloumns { get; set; }
-        public ColoumnChartViewModel()
+        public BarChartViewModel()
         {
             Title = string.Empty;
-            Type = "horizontal";
             ValueYField = "Value";
-            ValueXField = "Lable";
+            ValueXField = "Label";
             Unit = "Unit";
             Coloumns = new List<ColoumnViewModel>();
         }
     }
     public class ColoumnViewModel
     {
-        public string Lable { get; set; }
+        public string Label { get; set; }
         public int Value { get; set; }
         public ColoumnViewModel()
         {
-            Lable = string.Empty;
+            Label = string.Empty;
         }
-    }   
+    }
 }
