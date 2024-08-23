@@ -1,6 +1,7 @@
 using ChartJSDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Net.Http.Headers;
 using System.Text.Json;
 
 namespace ChartJSDemo.Controllers
@@ -14,8 +15,23 @@ namespace ChartJSDemo.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            string getArticlesUrl = "https://api-crownx.winmart.vn/lyt-transactions/api/v1/barcode";
+            using (HttpClient httpClient = new HttpClient())
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI4NjFkMGI0Mi1lOTgxLTQyZDctOTdjYi1kZWE2OTM2ZTQzOTUiLCJQZXJtaXNzaW9ucyI6IiIsIklzQWRtaW4iOiJGYWxzZSIsIlN0b3JlIjoiIiwiQ2hhbm5lbCI6IiIsIkN1c3RvbWVyU291cmNlIjoiIiwiQ3VzdG9tZXJUaWVyIjoiIiwiQXBwbGljYXRpb25UeXBlIjoiIiwiUGhvbmVOdW1iZXIiOiI4NDcwNDQ2OTIzNyIsIlBob25lTnVtYmVyQ29uZmlybWVkIjoiIiwiRW1haWwiOiIiLCJVc2VyTmFtZSI6Ijg0NzA0NDY5MjM3IiwiRnVsbE5hbWUiOiJUw4BJIiwiQ3VzdG9tZXJJZCI6ImY5OWVhYTdiLTNiYWYtNGFhOC05ODUyLTYwM2U5NTA1ZmI0ZiIsIlRva2VuRm9yIjoiUGh1Y0xvbmciLCJNZXJjaGFudElkIjoiIiwiQ3NuIjoiNzg3MjE5NSIsIlNoaXBUbyI6IiIsImV4cCI6MTcyNDAzODcyNywiaXNzIjoiaHR0cHM6Ly9hcGktY3Jvd254Lndpbm1hcnQudm4iLCJhdWQiOiJjcm93bngifQ.1wN7ZVMuaQI_maZLtoRAsUqAvGoruJ_1zOCI1rHJZQo");
+                HttpResponseMessage response = await httpClient.PostAsync(getArticlesUrl, null);
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseData = await response.Content.ReadAsStringAsync();
+                    if (!string.IsNullOrEmpty(responseData))
+                    {
+                        Console.WriteLine(responseData);
+                    }
+                }
+            }
+
             return View();
         }
 

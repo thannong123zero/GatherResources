@@ -15,6 +15,10 @@ namespace CRM.Controllers
         public async Task<IActionResult> Index()
         {
             IEnumerable<ProductUI> data = await _productHelper.GetProducts();
+            ViewData["Title"] = "Product List";
+            ViewBag.Introduction = "This is the list of products!";
+            TempData["Message"] = "This is a message from TempData!";
+
             return View(data);
         }
         [HttpGet]

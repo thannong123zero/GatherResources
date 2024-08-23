@@ -16,6 +16,10 @@
 
   <ItemGroup>
     <None Include="wwwroot\js\renderChart.js" />
+    <None Include="wwwroot\lib\chartJS\data\MSFT_day.js" />
+    <None Include="wwwroot\lib\chartJS\data\MSFT_minute.js" />
+    <None Include="wwwroot\lib\chartJS\data\MSFT_month.js" />
+    <None Include="wwwroot\lib\chartJS\data\MSFT_week.js" />
   </ItemGroup>
 
 </Project>
