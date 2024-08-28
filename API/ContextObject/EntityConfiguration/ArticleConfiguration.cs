@@ -8,6 +8,7 @@ namespace API.ContextObject.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<Article> builder)
         {
+            //builder.ToTable("Articles");
             builder.HasKey(s => s.ID);
             builder.Property(s => s.SubjectEN).IsRequired();
             builder.Property(s => s.SubjectVN).IsRequired();
