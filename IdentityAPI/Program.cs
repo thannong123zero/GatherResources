@@ -1,4 +1,5 @@
 using IdentityAPI.Database;
+using IdentityAPI.Database.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,16 +7,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 #region Database Configuration
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
 
-//builder.Services.AddIdentityCore<IdentityUser>()
-//    .AddEntityFrameworkStores<ApplicationDbContext>().AddApiEndpoints();
+builder.Services.AddIdentityCore<MyUser>()
+    .AddEntityFrameworkStores<ApplicationDbContext>().AddApiEndpoints();
 
 
-//builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
-//    .AddIdentityCookies();
-//builder.Services.AddAuthorizationBuilder();
+builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
+    .AddIdentityCookies();
+builder.Services.AddAuthorizationBuilder();
 #endregion
 
 
@@ -33,7 +34,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-//app.MapIdentityApi<IdentityUser>();
+app.MapIdentityApi<MyUser>();
 
 app.UseHttpsRedirection();
 
