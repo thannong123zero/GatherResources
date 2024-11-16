@@ -1,5 +1,5 @@
 using Lipstick;
-using Lipstick.Services;
+using Lipstick._Convergence.Services;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using System.Globalization;
@@ -88,6 +88,12 @@ app.UseRouting();
 app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthorization();
 app.UseStatusCodePagesWithRedirects("/Home/Lost");
+
+
+app.MapControllerRoute(
+                name: "Admin",
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
