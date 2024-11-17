@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -388,10 +388,6 @@
     <None Include="wwwroot\assets\icons\themify-icons\SVG\zoom-in.svg" />
     <None Include="wwwroot\assets\icons\themify-icons\SVG\zoom-out.svg" />
     <None Include="wwwroot\css\root.scss" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="_Convergence\BusinessLogic\IHelpers\" />
   </ItemGroup>
 
 </Project>

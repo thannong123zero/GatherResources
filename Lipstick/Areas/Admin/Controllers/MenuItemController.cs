@@ -2,7 +2,6 @@
 using Lipstick.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using SharedLibrary.DTO;
 
 namespace Lipstick.Areas.Admin.Controllers
 {
@@ -32,7 +31,7 @@ namespace Lipstick.Areas.Admin.Controllers
                 seletedMenuGroup = menuGroupList.Where(s => s.ID == ID).FirstOrDefault();
             }
             ViewBag.Selected = seletedMenuGroup.NameVN;
-            IEnumerable<MenuItemUI> data = await _menuItemHelper.GetMenuItems(menuGroupID);
+            IEnumerable<MenuItemViewModel> data = await _menuItemHelper.GetMenuItems(menuGroupID);
 
             return View(data);
         }
@@ -41,11 +40,11 @@ namespace Lipstick.Areas.Admin.Controllers
         {
             IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetMenuGroups();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN", menuGroupID);
-            MenuItemUI model = new MenuItemUI();
+            MenuItemViewModel model = new MenuItemViewModel();
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(MenuItemUI model)
+        public async Task<IActionResult> Create(MenuItemViewModel model)
         {
             IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetMenuGroups();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
@@ -65,11 +64,11 @@ namespace Lipstick.Areas.Admin.Controllers
             {
                 return RedirectToAction("Index");
             }
-            MenuItemUI data = await _menuItemHelper.GetMenuItemByID(ID);
+            MenuItemViewModel data = await _menuItemHelper.GetMenuItemByID(ID);
             return View(data);
         }
         [HttpPost]
-        public async Task<IActionResult> Update(MenuItemUI model)
+        public async Task<IActionResult> Update(MenuItemViewModel model)
         {
             IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetMenuGroups();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");

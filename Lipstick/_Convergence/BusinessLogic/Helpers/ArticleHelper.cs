@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
+using Lipstick._Convergence.BusinessLogic.IHelpers;
 using Lipstick._Convergence.DataAccess;
-using Lipstick._Convergence.DataAccess.DTOs;
 using Lipstick.Areas.Admin.Models;
 
 namespace Lipstick._Convergence.BusinessLogic.Helpers
 {
-    public class ArticleHelper
+    public class ArticleHelper: IArticleHelper 
     {
         private IUnitOfWork _unitOfWork;
         private IMapper _mapper;
@@ -15,109 +15,40 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
             _unitOfWork = unitOfWork;
 
         }
-        public async Task<IEnumerable<ArticleViewModel>> GetArticles()
-        {
-            var listArticle = await _unitOfWork.ArticleRepository.GetAllAsync();
-            if (listArticle == null)
-            {
-                return null;
-            }
-            listArticle = listArticle.OrderBy(s => s.ModifiedOn);
-            IEnumerable<ArticleViewModel> listArticleUI = new List<ArticleViewModel>();
-            listArticleUI = _mapper.Map<IEnumerable<ArticleViewModel>>(listArticle);
 
-            return listArticleUI;
-        }
-        public async Task<ArticleViewModel> GetArticleByID(int ID)
+        public Task CreateAsync(ArticleViewModel model)
         {
-            var article = await _unitOfWork.ArticleRepository.GetByIdAsync(id);
-            ArticleViewModel articleUI = _mapper.Map<ArticleViewModel>(article);
-            return articleUI;
+            throw new NotImplementedException();
         }
-        public async Task AddArticle(ArticleViewModel model)
-        {
-            try
-            {
-                ArticleDTO entity = _mapper.Map<ArticleDTO>(model);
-                await _unitOfWork.ArticleRepository.CreateAsync(entity);
-                _unitOfWork.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        public async Task UpdateArticle(ArticleViewModel model)
-        {
-            try
-            {
-                ArticleDTO article = await _unitOfWork.ArticleRepository.GetByIdAsync(model.ID);
-                if (article == null)
-                {
-                    return;
-                }
-                article.SubjectEN = model.SubjectEN;
-                article.SubjectVN = model.SubjectVN;
-                article.DescriptionEN = model.DescriptionEN;
-                article.DescriptionVN = model.DescriptionVN;
-                article.ModifiedOn = DateTime.Now;
-                article.IsActive = model.IsActive;
-                article.IsDeleted = model.IsDeleted;
-                _unitOfWork.Save();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        public async Task<bool> DeleteArticleByID(string ID)
-        {
-            ArticleDTO article = await _unitOfWork.ArticleRepository.GetById(Guid.Parse(ID));
 
-            if (article == null)
-            {
-                return false;
-            }
-            await _unitOfWork.ArticleRepository.Delete(Guid.Parse(ID));
-            _unitOfWork.Save();
-            return true;
-        }
-        public async Task<bool> SoftDeleteArticleByID(string ID)
+        public Task DeleteAsync(int id)
         {
-            var article = await _unitOfWork.ArticleRepository.GetById(Guid.Parse(ID));
-            if (article == null)
-            {
-                return false;
-            }
-            article.IsDeleted = true;
-            article.ModifiedOn = DateTime.Now;
-            _unitOfWork.Save();
-            return true;
-
+            throw new NotImplementedException();
         }
-        //public async Task<bool> CheckPermissionToDelete(string ID)
-        //{
-        //    if (!Guid.TryParse(ID, out var id))
-        //    {
-        //        return false;
-        //    }
-        //    Article article = await _unitOfWork.ArticleRepository.GetById(Guid.Parse(ID));
 
-        //    if (article != null && article.Products.Count <= 0)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
-        public async Task RestoreArticleByID(string ID)
+        public Task<IEnumerable<ArticleViewModel>> GetAllAsync()
         {
-            var article = await _unitOfWork.ArticleRepository.GetById(Guid.Parse(ID));
-            if (article != null)
-            {
-                article.IsDeleted = false;
-                article.ModifiedOn = DateTime.Now;
-                _unitOfWork.Save();
-            }
+            throw new NotImplementedException();
+        }
+
+        public Task<ArticleViewModel> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RestoreAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SoftDeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateAsync(ArticleViewModel model)
+        {
+            throw new NotImplementedException();
         }
     }
 }
