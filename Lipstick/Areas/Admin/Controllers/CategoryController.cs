@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lipstick.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly ICategoryHelper _menuGroupHelper;

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Lipstick.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class SubCategoryController : Controller
     {
         private readonly ICategoryHelper _menuGroupHelper;

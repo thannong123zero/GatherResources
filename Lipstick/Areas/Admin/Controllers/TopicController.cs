@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lipstick.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class TopicController : Controller
     {
         private readonly ITopicHelper _topicHelper;

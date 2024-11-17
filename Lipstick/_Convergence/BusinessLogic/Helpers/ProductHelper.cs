@@ -26,9 +26,10 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<ProductViewModel>> GetAllAsync()
+        public async Task<IEnumerable<ProductViewModel>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var data = await _unitOfWork.ProductRepository.GetAllAsync();
+            return _mapper.Map<IEnumerable<ProductViewModel>>(data);
         }
 
         public Task<ProductViewModel> GetByIdAsync(int id)

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lipstick.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ProductController : Controller
     {
         private readonly IProductHelper _productHelper;
