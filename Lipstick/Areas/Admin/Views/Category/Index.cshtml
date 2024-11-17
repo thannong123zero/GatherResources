@@ -6,7 +6,7 @@
 <div class="container pt-2">
     <h2 class="text-capitalize">_language.Getkey("menuGroupList")</h2>
     <div class="d-flex justify-content-end">
-        <a asp-action="Create" asp-controller="MenuGroup" class="btn btn-success text-capitalize">_language.Getkey("create")</a>
+        <a asp-action="Create" asp-controller="Category" class="btn btn-success text-capitalize">_language.Getkey("create")</a>
     </div>
     @if (Model != null)
     {
@@ -55,7 +55,7 @@
                             @Html.DisplayFor(modelItem => item.Priority)
                         </td>
                         <td class="d-flex justify-content-end">
-                            <a asp-action="Update" asp-controller="MenuGroup" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">_language.Getkey("details")</a>
+                            <a asp-action="Update" asp-controller="Category" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">_language.Getkey("details")</a>
                             <button onclick="CheckPermissionToDelete('@item.ID')" class="btn btn-danger text-capitalize">_language.Getkey("delete")</button>
                         </td>
                     </tr>
