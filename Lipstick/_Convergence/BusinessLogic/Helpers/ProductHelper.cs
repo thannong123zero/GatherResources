@@ -14,7 +14,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
             _unitOfWork = unitOfWork;
 
         }
-        public async Task<IEnumerable<ProductUI>> GetProducts()
+        public async Task<IEnumerable<ProductViewModel>> GetProducts()
         {
             var listProduct = await _unitOfWork.ProductRepository.GetAll();
             if (listProduct == null)
@@ -22,22 +22,22 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
                 return null;
             }
             listProduct = listProduct.OrderBy(s => s.ModifiedOn);
-            IEnumerable<ProductUI> listProductUI = new List<ProductUI>();
-            listProductUI = _mapper.Map<IEnumerable<ProductUI>>(listProduct);
+            IEnumerable<ProductViewModel> listProductUI = new List<ProductViewModel>();
+            listProductUI = _mapper.Map<IEnumerable<ProductViewModel>>(listProduct);
 
             return listProductUI;
         }
-        public async Task<ProductUI> GetProductByID(string ID)
+        public async Task<ProductViewModel> GetProductByID(string ID)
         {
             if (!Guid.TryParse(ID, out var id))
             {
                 return null;
             }
             var product = await _unitOfWork.ProductRepository.GetById(Guid.Parse(ID));
-            ProductUI productUI = _mapper.Map<ProductUI>(product);
+            ProductViewModel productUI = _mapper.Map<ProductViewModel>(product);
             return productUI;
         }
-        public async Task AddProduct(ProductUI model)
+        public async Task AddProduct(ProductViewModel model)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
                 throw new Exception(ex.Message);
             }
         }
-        public async Task UpdateProduct(ProductUI model)
+        public async Task UpdateProduct(ProductViewModel model)
         {
             try
             {

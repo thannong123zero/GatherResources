@@ -14,7 +14,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
             _unitOfWork = unitOfWork;
 
         }
-        public async Task<IEnumerable<MenuGroupUI>> GetMenuGroups()
+        public async Task<IEnumerable<MenuGroupViewModel>> GetMenuGroups()
         {
             var listMenuGroup = await _unitOfWork.MenuGroupRepository.GetAll(s => !s.IsDeleted);
             if (listMenuGroup == null)
@@ -22,22 +22,22 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
                 return null;
             }
             listMenuGroup = listMenuGroup.OrderBy(s => s.Priority).ThenByDescending(s => s.ModifiedOn);
-            IEnumerable<MenuGroupUI> listMenuGroupUI = new List<MenuGroupUI>();
-            listMenuGroupUI = _mapper.Map<IEnumerable<MenuGroupUI>>(listMenuGroup);
+            IEnumerable<MenuGroupViewModel> listMenuGroupUI = new List<MenuGroupViewModel>();
+            listMenuGroupUI = _mapper.Map<IEnumerable<MenuGroupViewModel>>(listMenuGroup);
 
             return listMenuGroupUI;
         }
-        public async Task<MenuGroupUI> GetMenuGroupByID(string ID)
+        public async Task<MenuGroupViewModel> GetMenuGroupByID(string ID)
         {
             if (!Guid.TryParse(ID, out var id))
             {
                 return null;
             }
             var menuGroup = await _unitOfWork.MenuGroupRepository.GetById(Guid.Parse(ID));
-            MenuGroupUI menuGroupUI = _mapper.Map<MenuGroupUI>(menuGroup);
+            MenuGroupViewModel menuGroupUI = _mapper.Map<MenuGroupViewModel>(menuGroup);
             return menuGroupUI;
         }
-        public async Task AddMenuGroup(MenuGroupUI model)
+        public async Task AddMenuGroup(MenuGroupViewModel model)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
         /// <param name="model"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public async Task UpdateMenuGroup(MenuGroupUI model)
+        public async Task UpdateMenuGroup(MenuGroupViewModel model)
         {
             try
             {

@@ -18,17 +18,17 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<MenuGroupUI> data = await _menuGroupHelper.GetMenuGroups();
+            IEnumerable<MenuGroupViewModel> data = await _menuGroupHelper.GetMenuGroups();
             return View(data);
         }
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            MenuGroupUI model = new MenuGroupUI();
+            MenuGroupViewModel model = new MenuGroupViewModel();
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(MenuGroupUI model)
+        public async Task<IActionResult> Create(MenuGroupViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -40,11 +40,11 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
-            MenuGroupUI data = await _menuGroupHelper.GetMenuGroupByID(ID);
+            MenuGroupViewModel data = await _menuGroupHelper.GetMenuGroupByID(ID);
             return View(data);
         }
         [HttpPost]
-        public async Task<IActionResult> Update(MenuGroupUI model)
+        public async Task<IActionResult> Update(MenuGroupViewModel model)
         {
             if (!ModelState.IsValid)
             {

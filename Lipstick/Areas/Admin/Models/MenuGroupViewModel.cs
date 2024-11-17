@@ -2,20 +2,22 @@
 
 namespace Lipstick.Areas.Admin.Models
 {
-    public class MenuItemUI : BaseUI
+    public class MenuGroupViewModel : BaseViewModel
     {
         public Guid ID { get; set; }
-        public Guid MenuGroupID { get; set; }
         public string NameEN { get; set; }
         public string NameVN { get; set; }
         public string? DescriptionEN { get; set; }
         public string? DescriptionVN { get; set; }
+        public bool InNavbar { get; set; }
         [Range(1, 9999)]
         public int Priority { get; set; }
-        public MenuItemUI()
+        public MenuGroupViewModel()
         {
-            Priority = 1;
+            ID = Guid.NewGuid();
+            IsDeleted = false;
             IsActive = true;
+            Priority = 99;
         }
     }
 }

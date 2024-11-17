@@ -15,7 +15,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
             _unitOfWork = unitOfWork;
 
         }
-        public async Task<IEnumerable<TopicUI>> GetTopics()
+        public async Task<IEnumerable<TopicViewModel>> GetTopics()
         {
             var listTopic = await _unitOfWork.TopicRepository.GetAll();
             if (listTopic == null)
@@ -23,22 +23,22 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
                 return null;
             }
             listTopic = listTopic.OrderBy(s => s.Priority).ThenByDescending(s => s.ModifiedOn);
-            IEnumerable<TopicUI> listTopicUI = new List<TopicUI>();
-            listTopicUI = _mapper.Map<IEnumerable<TopicUI>>(listTopic);
+            IEnumerable<TopicViewModel> listTopicUI = new List<TopicViewModel>();
+            listTopicUI = _mapper.Map<IEnumerable<TopicViewModel>>(listTopic);
 
             return listTopicUI;
         }
-        public async Task<TopicUI> GetTopicByID(string ID)
+        public async Task<TopicViewModel> GetTopicByID(string ID)
         {
             if (!Guid.TryParse(ID, out var id))
             {
                 return null;
             }
             var topic = await _unitOfWork.TopicRepository.GetById(Guid.Parse(ID));
-            TopicUI topicUI = _mapper.Map<TopicUI>(topic);
+            TopicViewModel topicUI = _mapper.Map<TopicViewModel>(topic);
             return topicUI;
         }
-        public async Task AddTopic(TopicUI model)
+        public async Task AddTopic(TopicViewModel model)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
                 throw new Exception(ex.Message);
             }
         }
-        public async Task UpdateTopic(TopicUI model)
+        public async Task UpdateTopic(TopicViewModel model)
         {
             try
             {

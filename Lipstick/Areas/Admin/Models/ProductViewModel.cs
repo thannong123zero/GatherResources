@@ -1,6 +1,6 @@
 ﻿namespace Lipstick.Areas.Admin.Models
 {
-    public class ProductUI : BaseUI
+    public class ProductViewModel : BaseViewModel
     {
         public Guid ID { get; set; }
         public Guid MenuItemID { get; set; }
@@ -16,7 +16,7 @@
         public int Discount { get; set; }
         public bool InHomePage { get; set; }
         public double Quantity { get; set; }
-        public ProductUI()
+        public ProductViewModel()
         {
             IsActive = true;
         }

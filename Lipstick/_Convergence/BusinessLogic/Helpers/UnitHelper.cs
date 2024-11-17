@@ -16,25 +16,25 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
             _unitOfWork = unitOfWork;
 
         }
-        public async Task<IEnumerable<UnitUI>> GetUnits()
+        public async Task<IEnumerable<UnitViewModel>> GetUnits()
         {
             var listUnit = await _unitOfWork.UnitRepository.GetAll();
-            IEnumerable<UnitUI> listUnitUI = new List<UnitUI>();
-            listUnitUI = _mapper.Map<IEnumerable<UnitUI>>(listUnit);
+            IEnumerable<UnitViewModel> listUnitUI = new List<UnitViewModel>();
+            listUnitUI = _mapper.Map<IEnumerable<UnitViewModel>>(listUnit);
 
             return listUnitUI;
         }
-        public async Task<UnitUI> GetUnitByID(string ID)
+        public async Task<UnitViewModel> GetUnitByID(string ID)
         {
             if (!Guid.TryParse(ID, out var id))
             {
                 return null;
             }
             var unit = await _unitOfWork.UnitRepository.GetById(Guid.Parse(ID));
-            UnitUI unitUI = _mapper.Map<UnitUI>(unit);
+            UnitViewModel unitUI = _mapper.Map<UnitViewModel>(unit);
             return unitUI;
         }
-        public async Task AddUnit(UnitUI model)
+        public async Task AddUnit(UnitViewModel model)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
                 throw new Exception(ex.Message);
             }
         }
-        public async Task UpdateUnit(UnitUI model)
+        public async Task UpdateUnit(UnitViewModel model)
         {
             try
             {

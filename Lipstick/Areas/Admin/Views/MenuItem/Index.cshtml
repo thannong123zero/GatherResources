@@ -1,19 +1,18 @@
-﻿@    using SharedLibrary.UserInterfaceDTO
-@model IEnumerable<MenuItemUI>
+﻿@model IEnumerable<MenuItemUI>
 
 @{
     ViewData["Title"] = "Index";
-    IEnumerable<MenuGroupUI> menuGroups = (IEnumerable<MenuGroupUI>)ViewBag.MenuGroupList;
+    IEnumerable<MenuGroupViewModel> menuGroups = (IEnumerable<MenuGroupViewModel>)ViewBag.MenuGroupList;
 }
 <div class="container pt-2">
-    <h2 class="text-capitalize">@_language.Getkey("menuItemList")</h2>
+    <h2 class="text-capitalize">_language.Getkey("menuItemList")</h2>
 
     <div class="d-flex justify-content-between">
         <!-- Example single danger button -->
         @if (menuGroups != null)
         {
             <div class="mx-2">
-                <b class="me-2">@_language.Getkey("filter"):</b>
+                <b class="me-2">_language.Getkey("filter"):</b>
                 <div class="btn-group">
                     <button type="button" class="btn border dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         @ViewBag.Selected
@@ -27,7 +26,7 @@
                 </div>
             </div>
             var menuGroup = menuGroups.Where(s => s.NameVN == ViewBag.Selected).First();
-            <a asp-action="Create" asp-controller="MenuItem" asp-route-menuGroupID="@menuGroup.ID" class="btn btn-success">@_language.Getkey("create")</a>
+            <a asp-action="Create" asp-controller="MenuItem" asp-route-menuGroupID="@menuGroup.ID" class="btn btn-success">_language.Getkey("create")</a>
 
         }
     </div>
@@ -38,18 +37,18 @@
                 <tr>
                     <th class="text-capitalize">
                         @* @Html.DisplayNameFor(model => model.NameEN) *@
-                        @_language.Getkey("nameEN")
+                        _language.Getkey("nameEN")
                     </th>
                     <th class="text-capitalize">
                         @* @Html.DisplayNameFor(model => model.NameVN) *@
-                        @_language.Getkey("nameVN")
+                        _language.Getkey("nameVN")
                     </th>
                     <th class="text-capitalize">
                         @* @Html.DisplayNameFor(model => model.IsActive) *@
-                        @_language.Getkey("isActive")
+                        _language.Getkey("isActive")
                     </th>
                     <th class="text-capitalize">
-                        @_language.Getkey("priority")
+                        _language.Getkey("priority")
                     </th>
                     <th></th>
                 </tr>
@@ -71,8 +70,8 @@
                             @Html.DisplayFor(modelItem => item.Priority)
                         </td>
                         <td class="d-flex justify-content-end">
-                            <a asp-action="Update" asp-controller="MenuItem" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">@_language.Getkey("details")</a>
-                            <a asp-action="Delete" asp-controller="MenuItem" asp-route-ID="@item.ID" class="btn btn-danger text-capitalize">@_language.Getkey("delete")</a>
+                            <a asp-action="Update" asp-controller="MenuItem" asp-route-ID="@item.ID" class="btn btn-primary me-2 text-capitalize">_language.Getkey("details")</a>
+                            <a asp-action="Delete" asp-controller="MenuItem" asp-route-ID="@item.ID" class="btn btn-danger text-capitalize">_language.Getkey("delete")</a>
                         </td>
                     </tr>
                 }

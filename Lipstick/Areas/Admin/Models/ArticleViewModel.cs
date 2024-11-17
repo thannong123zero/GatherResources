@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lipstick.Areas.Admin.Models
 {
-    public class ArticleUI : BaseUI
+    public class ArticleViewModel : BaseViewModel
     {
         public int ID { get; set; }
         public int TopicID { get; set; }
@@ -17,7 +17,7 @@ namespace Lipstick.Areas.Admin.Models
         public string ContentEN { get; set; }
         public string ContentVN { get; set; }
         public string Avatar { get; set; }
-        public ArticleUI()
+        public ArticleViewModel()
         {
             IsActive = true;
         }

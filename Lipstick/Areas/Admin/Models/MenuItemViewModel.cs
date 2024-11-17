@@ -1,20 +1,20 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Lipstick.Areas.Admin.Models
 {
-    public class BrandUI : BaseUI
+    public class MenuItemUI : BaseViewModel
     {
         public Guid ID { get; set; }
+        public Guid MenuGroupID { get; set; }
         public string NameEN { get; set; }
         public string NameVN { get; set; }
         public string? DescriptionEN { get; set; }
         public string? DescriptionVN { get; set; }
-        public string? Avatar { get; set; }
-        [NotMapped]
-        public IFormFile UploadImage { get; set; }
-        public BrandUI()
+        [Range(1, 9999)]
+        public int Priority { get; set; }
+        public MenuItemUI()
         {
+            Priority = 1;
             IsActive = true;
         }
     }

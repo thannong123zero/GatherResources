@@ -1,23 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Lipstick.Areas.Admin.Models
 {
-    public class MenuGroupUI : BaseUI
+    public class TopicViewModel : BaseViewModel
     {
         public Guid ID { get; set; }
         public string NameEN { get; set; }
         public string NameVN { get; set; }
         public string? DescriptionEN { get; set; }
         public string? DescriptionVN { get; set; }
-        public bool InNavbar { get; set; }
-        [Range(1, 9999)]
         public int Priority { get; set; }
-        public MenuGroupUI()
+        public TopicViewModel()
         {
-            ID = Guid.NewGuid();
-            IsDeleted = false;
             IsActive = true;
-            Priority = 99;
+            Priority = 1;
         }
     }
 }

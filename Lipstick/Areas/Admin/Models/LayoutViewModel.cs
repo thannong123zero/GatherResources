@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lipstick.Areas.Admin.Models
 {
-    public class LayoutUI
+    public class LayoutViewModel
     {
         public NavigationUI Navigation;
-        public LayoutUI()
+        public LayoutViewModel()
         {
             Navigation = new NavigationUI();
         }

@@ -15,7 +15,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
             _unitOfWork = unitOfWork;
 
         }
-        public async Task<IEnumerable<ArticleUI>> GetArticles()
+        public async Task<IEnumerable<ArticleViewModel>> GetArticles()
         {
             var listArticle = await _unitOfWork.ArticleRepository.GetAllAsync();
             if (listArticle == null)
@@ -23,18 +23,18 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
                 return null;
             }
             listArticle = listArticle.OrderBy(s => s.ModifiedOn);
-            IEnumerable<ArticleUI> listArticleUI = new List<ArticleUI>();
-            listArticleUI = _mapper.Map<IEnumerable<ArticleUI>>(listArticle);
+            IEnumerable<ArticleViewModel> listArticleUI = new List<ArticleViewModel>();
+            listArticleUI = _mapper.Map<IEnumerable<ArticleViewModel>>(listArticle);
 
             return listArticleUI;
         }
-        public async Task<ArticleUI> GetArticleByID(int ID)
+        public async Task<ArticleViewModel> GetArticleByID(int ID)
         {
             var article = await _unitOfWork.ArticleRepository.GetByIdAsync(id);
-            ArticleUI articleUI = _mapper.Map<ArticleUI>(article);
+            ArticleViewModel articleUI = _mapper.Map<ArticleViewModel>(article);
             return articleUI;
         }
-        public async Task AddArticle(ArticleUI model)
+        public async Task AddArticle(ArticleViewModel model)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
                 throw new Exception(ex.Message);
             }
         }
-        public async Task UpdateArticle(ArticleUI model)
+        public async Task UpdateArticle(ArticleViewModel model)
         {
             try
             {

@@ -13,7 +13,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
             _unitOfWork = unitOfWork;
 
         }
-        public async Task<IEnumerable<BrandUI>> GetBrands()
+        public async Task<IEnumerable<BrandViewModel>> GetBrands()
         {
             var listBrand = await _unitOfWork.BrandRepository.GetAll();
             if (listBrand == null)
@@ -21,22 +21,22 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
                 return null;
             }
             listBrand = listBrand.OrderBy(s => s.ModifiedOn);
-            IEnumerable<BrandUI> listBrandUI = new List<BrandUI>();
-            listBrandUI = _mapper.Map<IEnumerable<BrandUI>>(listBrand);
+            IEnumerable<BrandViewModel> listBrandUI = new List<BrandViewModel>();
+            listBrandUI = _mapper.Map<IEnumerable<BrandViewModel>>(listBrand);
 
             return listBrandUI;
         }
-        public async Task<BrandUI> GetBrandByID(string ID)
+        public async Task<BrandViewModel> GetBrandByID(string ID)
         {
             if (!Guid.TryParse(ID, out var id))
             {
                 return null;
             }
             var brand = await _unitOfWork.BrandRepository.GetById(Guid.Parse(ID));
-            BrandUI brandUI = _mapper.Map<BrandUI>(brand);
+            BrandViewModel brandUI = _mapper.Map<BrandViewModel>(brand);
             return brandUI;
         }
-        public async Task AddBrand(BrandUI model)
+        public async Task AddBrand(BrandViewModel model)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
                 throw new Exception(ex.Message);
             }
         }
-        public async Task UpdateBrand(BrandUI model)
+        public async Task UpdateBrand(BrandViewModel model)
         {
             try
             {

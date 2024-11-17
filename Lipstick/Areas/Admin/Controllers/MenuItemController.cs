@@ -18,8 +18,8 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string menuGroupID = "")
         {
-            MenuGroupUI seletedMenuGroup = new MenuGroupUI();
-            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            MenuGroupViewModel seletedMenuGroup = new MenuGroupViewModel();
+            IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetMenuGroups();
             ViewBag.MenuGroupList = menuGroupList;
             if (string.IsNullOrEmpty(menuGroupID))
             {
@@ -39,7 +39,7 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Create(string menuGroupID)
         {
-            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetMenuGroups();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN", menuGroupID);
             MenuItemUI model = new MenuItemUI();
             return View(model);
@@ -47,7 +47,7 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(MenuItemUI model)
         {
-            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetMenuGroups();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
             if (!ModelState.IsValid)
             {
@@ -59,7 +59,7 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
-            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetMenuGroups();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
             if (string.IsNullOrEmpty(ID))
             {
@@ -71,7 +71,7 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(MenuItemUI model)
         {
-            IEnumerable<MenuGroupUI> menuGroupList = await _menuGroupHelper.GetMenuGroups();
+            IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetMenuGroups();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
             if (!ModelState.IsValid)
             {

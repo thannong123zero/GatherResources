@@ -14,7 +14,7 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<ProductUI> data = await _productHelper.GetProducts();
+            IEnumerable<ProductViewModel> data = await _productHelper.GetProducts();
             ViewData["Title"] = "Product List";
             ViewBag.Introduction = "This is the list of products!";
             TempData["Message"] = "This is a message from TempData!";
@@ -24,11 +24,11 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            ProductUI model = new ProductUI();
+            ProductViewModel model = new ProductViewModel();
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(ProductUI model)
+        public async Task<IActionResult> Create(ProductViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -40,11 +40,11 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
-            ProductUI data = await _productHelper.GetProductByID(ID);
+            ProductViewModel data = await _productHelper.GetProductByID(ID);
             return View(data);
         }
         [HttpPost]
-        public async Task<IActionResult> Update(ProductUI model)
+        public async Task<IActionResult> Update(ProductViewModel model)
         {
             if (!ModelState.IsValid)
             {

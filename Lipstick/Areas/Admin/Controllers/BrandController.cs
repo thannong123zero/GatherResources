@@ -14,17 +14,17 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<BrandUI> data = await _brandHelper.GetBrands();
+            IEnumerable<BrandViewModel> data = await _brandHelper.GetBrands();
             return View(data);
         }
         [HttpGet]
         public IActionResult Create()
         {
-            BrandUI model = new BrandUI();
+            BrandViewModel model = new BrandViewModel();
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(BrandUI model)
+        public async Task<IActionResult> Create(BrandViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -55,11 +55,11 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
-            BrandUI data = await _brandHelper.GetBrandByID(ID);
+            BrandViewModel data = await _brandHelper.GetBrandByID(ID);
             return View(data);
         }
         [HttpPost]
-        public async Task<IActionResult> Update(BrandUI model)
+        public async Task<IActionResult> Update(BrandViewModel model)
         {
             if (!ModelState.IsValid)
             {

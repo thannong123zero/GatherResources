@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lipstick.Areas.Admin.Models
 {
-    public class BaseUI
+    public class BaseViewModel
     {
         public DateTime CreatedOn { get; set; }
         public DateTime ModifiedOn { get; set; }

@@ -15,17 +15,17 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<ArticleUI> data = await _articleHelper.GetArticles();
+            IEnumerable<ArticleViewModel> data = await _articleHelper.GetArticles();
             return View(data);
         }
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            ArticleUI model = new ArticleUI();
+            ArticleViewModel model = new ArticleViewModel();
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(ArticleUI model)
+        public async Task<IActionResult> Create(ArticleViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -37,11 +37,11 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(string ID)
         {
-            ArticleUI data = await _articleHelper.GetArticleByID(ID);
+            ArticleViewModel data = await _articleHelper.GetArticleByID(ID);
             return View(data);
         }
         [HttpPost]
-        public async Task<IActionResult> Update(ArticleUI model)
+        public async Task<IActionResult> Update(ArticleViewModel model)
         {
             if (!ModelState.IsValid)
             {
