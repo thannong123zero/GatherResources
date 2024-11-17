@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Lipstick.Areas.Admin.Controllers
 {
-    public class MenuItemController : Controller
+    public class SubCategoryController : Controller
     {
-        private readonly IMenuGroupHelper _menuGroupHelper;
-        private readonly IMenuItemHelper _menuItemHelper;
-        public MenuItemController(IMenuGroupHelper menuGroupHelper, IMenuItemHelper menuItemHelper)
+        private readonly ICategoryHelper _menuGroupHelper;
+        private readonly ISubCategoryHelper _menuItemHelper;
+        public SubCategoryController(ICategoryHelper menuGroupHelper, ISubCategoryHelper menuItemHelper)
         {
             _menuGroupHelper = menuGroupHelper;
             _menuItemHelper = menuItemHelper;
@@ -17,27 +17,27 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(int menuGroupID )
         {
-            MenuGroupViewModel seletedMenuGroup = new MenuGroupViewModel();
-            IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetAllAsync();
+            CategoryViewModel seletedMenuGroup = new CategoryViewModel();
+            IEnumerable<CategoryViewModel> menuGroupList = await _menuGroupHelper.GetAllAsync();
             ViewBag.MenuGroupList = menuGroupList;
 
             ViewBag.Selected = seletedMenuGroup.NameVN;
-            IEnumerable<MenuItemViewModel> data = await _menuItemHelper.GetAllAsync();
+            IEnumerable<SubCategoryViewModel> data = await _menuItemHelper.GetAllAsync();
 
             return View(data);
         }
         [HttpGet]
         public async Task<IActionResult> Create(string menuGroupID)
         {
-            IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetAllAsync();
+            IEnumerable<CategoryViewModel> menuGroupList = await _menuGroupHelper.GetAllAsync();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN", menuGroupID);
-            MenuItemViewModel model = new MenuItemViewModel();
+            SubCategoryViewModel model = new SubCategoryViewModel();
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(MenuItemViewModel model)
+        public async Task<IActionResult> Create(SubCategoryViewModel model)
         {
-            IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetAllAsync();
+            IEnumerable<CategoryViewModel> menuGroupList = await _menuGroupHelper.GetAllAsync();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
             if (!ModelState.IsValid)
             {
@@ -49,15 +49,15 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(int ID)
         {
-            IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetAllAsync();
+            IEnumerable<CategoryViewModel> menuGroupList = await _menuGroupHelper.GetAllAsync();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
-            MenuItemViewModel data = await _menuItemHelper.GetByIdAsync(ID);
+            SubCategoryViewModel data = await _menuItemHelper.GetByIdAsync(ID);
             return View(data);
         }
         [HttpPost]
-        public async Task<IActionResult> Update(MenuItemViewModel model)
+        public async Task<IActionResult> Update(SubCategoryViewModel model)
         {
-            IEnumerable<MenuGroupViewModel> menuGroupList = await _menuGroupHelper.GetAllAsync();
+            IEnumerable<CategoryViewModel> menuGroupList = await _menuGroupHelper.GetAllAsync();
             ViewBag.MenuGroupList = new SelectList(menuGroupList, "ID", "NameVN");
             if (!ModelState.IsValid)
             {

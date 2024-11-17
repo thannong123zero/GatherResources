@@ -5,9 +5,9 @@ using System.Linq.Expressions;
 
 namespace Lipstick._Convergence.DataAccess.Repositories
 {
-    public class MenuItemRepository : GenericRepository<MenuItemDTO>, IMenuItemRepository
+    public class SubCategoryRepository : GenericRepository<SubCategoryDTO>, ISubCategoryRepository
     {
-        public MenuItemRepository(DatabaseContext dbContext) : base(dbContext)
+        public SubCategoryRepository(DatabaseContext dbContext) : base(dbContext)
         {
         }
     }

@@ -5,18 +5,18 @@ using Lipstick.Areas.Admin.Models;
 
 namespace Lipstick._Convergence.BusinessLogic.Helpers
 {
-    public class MenuGroupHelper : IMenuGroupHelper
+    public class CategoryHelper : ICategoryHelper
     {
         private IUnitOfWork _unitOfWork;
         private IMapper _mapper;
-        public MenuGroupHelper(IMapper mapper, IUnitOfWork unitOfWork)
+        public CategoryHelper(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
 
         }
 
-        public Task CreateAsync(MenuGroupViewModel model)
+        public Task CreateAsync(CategoryViewModel model)
         {
             throw new NotImplementedException();
         }
@@ -26,12 +26,12 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<MenuGroupViewModel>> GetAllAsync()
+        public Task<IEnumerable<CategoryViewModel>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<MenuGroupViewModel> GetByIdAsync(int id)
+        public Task<CategoryViewModel> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(MenuGroupViewModel model)
+        public Task UpdateAsync(CategoryViewModel model)
         {
             throw new NotImplementedException();
         }

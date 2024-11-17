@@ -13,8 +13,8 @@ namespace Lipstick._Convergence.Services
             services.AddScoped<IArticleHelper,ArticleHelper>();
             services.AddScoped<IBrandHelper,BrandHelper>();
             //services.AddScoped<ILayoutHelper,LayoutHelper>();
-            services.AddScoped<IMenuGroupHelper,MenuGroupHelper>();
-            services.AddScoped<IMenuItemHelper, MenuItemHelper>();
+            services.AddScoped<ICategoryHelper,CategoryHelper>();
+            services.AddScoped<ISubCategoryHelper, SubCategoryHelper>();
             services.AddScoped<IProductHelper, ProductHelper>();
             services.AddScoped<ITopicHelper, TopicHelper>();
             services.AddScoped<IUnitHelper, UnitHelper>();

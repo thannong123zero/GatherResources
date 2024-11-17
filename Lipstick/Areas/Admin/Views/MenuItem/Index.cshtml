@@ -1,8 +1,8 @@
-﻿@model IEnumerable<MenuItemViewModel>
+﻿@model IEnumerable<SubCategoryViewModel>
 
 @{
     ViewData["Title"] = "Index";
-    IEnumerable<MenuGroupViewModel> menuGroups = (IEnumerable<MenuGroupViewModel>)ViewBag.MenuGroupList;
+    IEnumerable<CategoryViewModel> menuGroups = (IEnumerable<CategoryViewModel>)ViewBag.MenuGroupList;
 }
 <div class="container pt-2">
     <h2 class="text-capitalize">_language.Getkey("menuItemList")</h2>

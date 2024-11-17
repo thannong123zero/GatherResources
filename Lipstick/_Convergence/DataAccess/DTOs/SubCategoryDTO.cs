@@ -1,9 +1,9 @@
 ﻿namespace Lipstick._Convergence.DataAccess.DTOs
 {
-    public class MenuItemDTO : BaseDTO
+    public class SubCategoryDTO : BaseDTO
     {
         public int Id { get; set; }
-        public int MenuGroupId { get; set; }
+        public int CategoryId { get; set; }
         public string NameEN { get; set; }
         public string NameVN { get; set; }
         public string DescriptionEN { get; set; }

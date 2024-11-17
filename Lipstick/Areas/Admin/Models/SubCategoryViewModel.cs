@@ -2,7 +2,7 @@
 
 namespace Lipstick.Areas.Admin.Models
 {
-    public class MenuItemViewModel : BaseViewModel
+    public class SubCategoryViewModel : BaseViewModel
     {
         public Guid ID { get; set; }
         public Guid MenuGroupID { get; set; }
@@ -12,7 +12,7 @@ namespace Lipstick.Areas.Admin.Models
         public string? DescriptionVN { get; set; }
         [Range(1, 9999)]
         public int Priority { get; set; }
-        public MenuItemViewModel()
+        public SubCategoryViewModel()
         {
             Priority = 1;
             IsActive = true;

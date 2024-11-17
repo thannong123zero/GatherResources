@@ -5,27 +5,27 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lipstick.Areas.Admin.Controllers
 {
-    public class MenuGroupController : Controller
+    public class CategoryController : Controller
     {
-        private readonly IMenuGroupHelper _menuGroupHelper;
-        public MenuGroupController(IMenuGroupHelper menuGroupHelper)
+        private readonly ICategoryHelper _menuGroupHelper;
+        public CategoryController(ICategoryHelper menuGroupHelper)
         {
             _menuGroupHelper = menuGroupHelper;
         }
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<MenuGroupViewModel> data = await _menuGroupHelper.GetAllAsync();
+            IEnumerable<CategoryViewModel> data = await _menuGroupHelper.GetAllAsync();
             return View(data);
         }
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            MenuGroupViewModel model = new MenuGroupViewModel();
+            CategoryViewModel model = new CategoryViewModel();
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(MenuGroupViewModel model)
+        public async Task<IActionResult> Create(CategoryViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -37,11 +37,11 @@ namespace Lipstick.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(int ID)
         {
-            MenuGroupViewModel data = await _menuGroupHelper.GetByIdAsync(ID);
+            CategoryViewModel data = await _menuGroupHelper.GetByIdAsync(ID);
             return View(data);
         }
         [HttpPost]
-        public async Task<IActionResult> Update(MenuGroupViewModel model)
+        public async Task<IActionResult> Update(CategoryViewModel model)
         {
             if (!ModelState.IsValid)
             {

@@ -2,7 +2,7 @@
 
 namespace Lipstick._Convergence.BusinessLogic.IHelpers
 {
-    public interface IMenuGroupHelper : IBaseHelper<MenuGroupViewModel>
+    public interface ICategoryHelper : IBaseHelper<CategoryViewModel>
     {
     }
 }

@@ -6,8 +6,8 @@ namespace Lipstick._Convergence.DataAccess
     {
         IArticleRepository ArticleRepository { get; }
         IBrandRepository BrandRepository { get; }
-        IMenuGroupRepository MenuGroupRepository { get; }
-        IMenuItemRepository MenuItemRepository { get; }
+        ICategoryRepository CategoryRepository { get; }
+        ISubCategoryRepository SubCategoryRepository { get; }
         IProductRepository ProductRepository { get; }
         ITopicRepository TopicRepository { get; }
         IUnitRepository UnitRepository { get; }
