@@ -1,24 +1,21 @@
-﻿using CRM.Services.APIServices;
-using Lipstick._Convergence.BusinessLogic.Helpers;
+﻿using Lipstick._Convergence.BusinessLogic.IHelpers;
 using Lipstick.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
-using System.Security;
-using System.Security.Permissions;
+
 
 namespace Lipstick.Areas.Admin.Controllers
 {
     public class MenuGroupController : Controller
     {
-        private readonly MenuGroupHelper _menuGroupHelper;
-        public MenuGroupController(MenuGroupHelper menuGroupHelper)
+        private readonly IMenuGroupHelper _menuGroupHelper;
+        public MenuGroupController(IMenuGroupHelper menuGroupHelper)
         {
             _menuGroupHelper = menuGroupHelper;
         }
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<MenuGroupViewModel> data = await _menuGroupHelper.GetMenuGroups();
+            IEnumerable<MenuGroupViewModel> data = await _menuGroupHelper.GetAllAsync();
             return View(data);
         }
         [HttpGet]
@@ -34,13 +31,13 @@ namespace Lipstick.Areas.Admin.Controllers
             {
                 return View(model);
             }
-            await _menuGroupHelper.CreateMenuGroup(model);
+            await _menuGroupHelper.CreateAsync(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public async Task<IActionResult> Update(string ID)
+        public async Task<IActionResult> Update(int ID)
         {
-            MenuGroupViewModel data = await _menuGroupHelper.GetMenuGroupByID(ID);
+            MenuGroupViewModel data = await _menuGroupHelper.GetByIdAsync(ID);
             return View(data);
         }
         [HttpPost]
@@ -50,7 +47,7 @@ namespace Lipstick.Areas.Admin.Controllers
             {
                 return View(model);
             }
-            await _menuGroupHelper.UpdateMenuGroup(model);
+            await _menuGroupHelper.UpdateAsync(model);
             return RedirectToAction("Index");
         }
 
@@ -72,12 +69,12 @@ namespace Lipstick.Areas.Admin.Controllers
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        [HttpPost]
-        public async Task<DatabaseOjectResult> Delete(string ID)
-        {
-            DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
-            databaseOjectResult.OK = await _menuGroupHelper.SoftDelete(ID);
-            return databaseOjectResult;
-        }
+        //[HttpPost]
+        //public async Task<DatabaseOjectResult> Delete(int ID)
+        //{
+        //    DatabaseOjectResult databaseOjectResult = new DatabaseOjectResult();
+        //    databaseOjectResult.OK = await _menuGroupHelper.DeleteAsync(ID);
+        //    return databaseOjectResult;
+        //}
     }
 }

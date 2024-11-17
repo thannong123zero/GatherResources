@@ -1,4 +1,4 @@
-﻿using Lipstick._Convergence.BusinessLogic.Helpers;
+﻿using Lipstick._Convergence.BusinessLogic.IHelpers;
 using Lipstick.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,15 +6,15 @@ namespace Lipstick.Areas.Admin.Controllers
 {
     public class BrandController : Controller
     {
-        private readonly BrandHelper _brandHelper;
-        public BrandController(BrandHelper brandHelper)
+        private readonly IBrandHelper _brandHelper;
+        public BrandController(IBrandHelper brandHelper)
         {
             _brandHelper = brandHelper;
         }
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<BrandViewModel> data = await _brandHelper.GetBrands();
+            IEnumerable<BrandViewModel> data = await _brandHelper.GetAllAsync();
             return View(data);
         }
         [HttpGet]
@@ -49,13 +49,13 @@ namespace Lipstick.Areas.Admin.Controllers
             }
             //End checking file
 
-            await _brandHelper.CreateBrand(model);
+            await _brandHelper.CreateAsync(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public async Task<IActionResult> Update(string ID)
+        public async Task<IActionResult> Update(int ID)
         {
-            BrandViewModel data = await _brandHelper.GetBrandByID(ID);
+            BrandViewModel data = await _brandHelper.GetByIdAsync(ID);
             return View(data);
         }
         [HttpPost]
@@ -65,7 +65,7 @@ namespace Lipstick.Areas.Admin.Controllers
             {
                 return View(model);
             }
-            await _brandHelper.UpdateBrand(model);
+            await _brandHelper.UpdateAsync(model);
             return RedirectToAction("Index");
         }
 

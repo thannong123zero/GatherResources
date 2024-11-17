@@ -1,6 +1,5 @@
-﻿using CRM.Models;
+﻿using Lipstick.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata.Ecma335;
 
 namespace Lipstick.Areas.Admin.Controllers
 {

@@ -1,4 +1,6 @@
-﻿namespace Lipstick.Models
+﻿using Lipstick.Areas.Admin.Models;
+
+namespace Lipstick.Models
 {
     public class HeaderViewModel
     {

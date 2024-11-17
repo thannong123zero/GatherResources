@@ -55,6 +55,7 @@ builder.Services.Configure<RequestLocalizationOptions>(
         options.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
     });
 #endregion
+builder.Services.SignUp();
 var app = builder.Build();
 #region localize language
 var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();

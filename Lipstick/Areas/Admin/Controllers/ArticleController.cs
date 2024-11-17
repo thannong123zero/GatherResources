@@ -1,4 +1,4 @@
-﻿using Lipstick._Convergence.BusinessLogic.Helpers;
+﻿using Lipstick._Convergence.BusinessLogic.IHelpers;
 using Lipstick.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,15 +7,15 @@ namespace Lipstick.Areas.Admin.Controllers
     [Area("Admin")]
     public class ArticleController : Controller
     {
-        private readonly ArticleHelper _articleHelper;
-        public ArticleController(ArticleHelper articleHelper)
+        private readonly IArticleHelper _articleHelper;
+        public ArticleController(IArticleHelper articleHelper)
         {
             _articleHelper = articleHelper;
         }
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<ArticleViewModel> data = await _articleHelper.GetArticles();
+            IEnumerable<ArticleViewModel> data = await _articleHelper.GetAllAsync();
             return View(data);
         }
         [HttpGet]
@@ -31,13 +31,13 @@ namespace Lipstick.Areas.Admin.Controllers
             {
                 return View(model);
             }
-            await _articleHelper.CreateArticle(model);
+            await _articleHelper.CreateAsync(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public async Task<IActionResult> Update(string ID)
+        public async Task<IActionResult> Update(int ID)
         {
-            ArticleViewModel data = await _articleHelper.GetArticleByID(ID);
+            ArticleViewModel data = await _articleHelper.GetByIdAsync(ID);
             return View(data);
         }
         [HttpPost]
@@ -47,7 +47,7 @@ namespace Lipstick.Areas.Admin.Controllers
             {
                 return View(model);
             }
-            await _articleHelper.UpdateArticle(model);
+            await _articleHelper.UpdateAsync(model);
             return RedirectToAction("Index");
         }
 

@@ -1,21 +1,20 @@
-﻿using Lipstick._Convergence.BusinessLogic.Helpers;
+﻿using Lipstick._Convergence.BusinessLogic.IHelpers;
 using Lipstick.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 
 namespace Lipstick.Areas.Admin.Controllers
 {
     public class UnitController : Controller
     {
-        private readonly UnitHelper _unitHelper;
-        public UnitController(UnitHelper unitHelper)
+        private readonly IUnitHelper _unitHelper;
+        public UnitController(IUnitHelper unitHelper)
         {
             _unitHelper = unitHelper;
         }
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<UnitViewModel> data = await _unitHelper.GetUnits();
+            IEnumerable<UnitViewModel> data = await _unitHelper.GetAllAsync();
             return View(data);
         }
         [HttpGet]
@@ -31,13 +30,13 @@ namespace Lipstick.Areas.Admin.Controllers
             {
                 return View(model);
             }
-            await _unitHelper.CreateUnit(model);
+            await _unitHelper.CreateAsync(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public async Task<IActionResult> Update(string ID)
+        public async Task<IActionResult> Update(int ID)
         {
-            UnitViewModel data = await _unitHelper.GetUnitByID(ID);
+            UnitViewModel data = await _unitHelper.GetByIdAsync(ID);
             return View(data);
         }
         [HttpPost]
@@ -47,7 +46,7 @@ namespace Lipstick.Areas.Admin.Controllers
             {
                 return View(model);
             }
-            await _unitHelper.UpdateUnit(model);
+            await _unitHelper.UpdateAsync(model);
             return RedirectToAction("Index");
         }
     }

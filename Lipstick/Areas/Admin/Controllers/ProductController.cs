@@ -1,4 +1,4 @@
-﻿using Lipstick._Convergence.BusinessLogic.Helpers;
+﻿using Lipstick._Convergence.BusinessLogic.IHelpers;
 using Lipstick.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,15 +6,15 @@ namespace Lipstick.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductHelper _productHelper;
-        public ProductController(ProductHelper productHelper)
+        private readonly IProductHelper _productHelper;
+        public ProductController(IProductHelper productHelper)
         {
             _productHelper = productHelper;
         }
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<ProductViewModel> data = await _productHelper.GetProducts();
+            IEnumerable<ProductViewModel> data = await _productHelper.GetAllAsync();
             ViewData["Title"] = "Product List";
             ViewBag.Introduction = "This is the list of products!";
             TempData["Message"] = "This is a message from TempData!";
@@ -34,13 +34,13 @@ namespace Lipstick.Areas.Admin.Controllers
             {
                 return View(model);
             }
-            await _productHelper.CreateProduct(model);
+            await _productHelper.CreateAsync(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public async Task<IActionResult> Update(string ID)
+        public async Task<IActionResult> Update(int ID)
         {
-            ProductViewModel data = await _productHelper.GetProductByID(ID);
+            ProductViewModel data = await _productHelper.GetByIdAsync(ID);
             return View(data);
         }
         [HttpPost]
@@ -50,7 +50,7 @@ namespace Lipstick.Areas.Admin.Controllers
             {
                 return View(model);
             }
-            await _productHelper.UpdateProduct(model);
+            await _productHelper.UpdateAsync(model);
             return RedirectToAction("Index");
         }
 
