@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Lipstick._Convergence.DataAccess.Repositories
 {
-    public class MenuGroupRepository : GenericRepository<MenuGroup>, IMenuGroupRepository
+    public class MenuGroupRepository : GenericRepository<MenuGroupDTO>, IMenuGroupRepository
     {
         public MenuGroupRepository(DatabaseContext dbContext) : base(dbContext) { }
     }

@@ -113,7 +113,7 @@ namespace Lipstick._Convergence.DataAccess.Repositories
             }
         }
 
-        public async Task<TEntity> GetByIdAsync(Guid ID)
+        public async Task<TEntity> GetByIdAsync(int ID)
         {
             var entity = await _dbSet.FindAsync(ID);
             if (entity != null)
@@ -139,7 +139,7 @@ namespace Lipstick._Convergence.DataAccess.Repositories
             }
         }
 
-        public async Task DeleteAsync(Guid ID)
+        public async Task DeleteAsync(int ID)
         {
             var entity = await _dbSet.FindAsync(ID);
             if (entity != null)

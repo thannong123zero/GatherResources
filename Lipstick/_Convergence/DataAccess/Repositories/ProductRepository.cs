@@ -4,7 +4,7 @@ using Lipstick._Convergence.DataAccess.IRepositories;
 
 namespace Lipstick._Convergence.DataAccess.Repositories
 {
-    public class ProductRepository : GenericRepository<Product>, IProductRepository
+    public class ProductRepository : GenericRepository<ProductDTO>, IProductRepository
     {
         public ProductRepository(DatabaseContext dbContext) : base(dbContext)
         {

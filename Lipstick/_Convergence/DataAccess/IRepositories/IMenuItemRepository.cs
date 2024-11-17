@@ -2,7 +2,7 @@
 
 namespace Lipstick._Convergence.DataAccess.IRepositories
 {
-    public interface IMenuItemRepository : IGenericRepository<MenuItem>
+    public interface IMenuItemRepository : IGenericRepository<MenuItemDTO>
     {
     }
 }

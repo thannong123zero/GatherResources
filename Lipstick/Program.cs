@@ -1,25 +1,20 @@
 using Lipstick;
+using Lipstick._Convergence.DataAccess;
 using Lipstick._Convergence.Services;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Reflection;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy =>
-                      {
-                          policy.WithOrigins("http://127.0.0.1:5500");
-                      });
-});
 
-
-var applicationconfig = builder.Configuration.GetSection("AppConfig");
-AppConfig appConfig = applicationconfig.Get<AppConfig>();
-builder.Services.AddSingleton(appConfig);
+// #region Database
+string connection = builder.Configuration.GetConnectionString("SqlConnection");
+builder.Services.AddDbContext<DatabaseContext>(options =>
+    options.UseSqlServer(connection));
+//#endregion
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

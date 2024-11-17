@@ -27,9 +27,9 @@ namespace Lipstick._Convergence.DataAccess.IRepositories
         Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "");
-        Task<TEntity> GetByIdAsync(Guid ID);
+        Task<TEntity> GetByIdAsync(int ID);
         Task CreateAsync(TEntity entity);
         Task UpdateAsync(TEntity entity);
-        Task DeleteAsync(Guid ID);
+        Task DeleteAsync(int ID);
     }
 }

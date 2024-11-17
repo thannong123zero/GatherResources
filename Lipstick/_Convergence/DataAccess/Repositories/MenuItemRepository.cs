@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Lipstick._Convergence.DataAccess.Repositories
 {
-    public class MenuItemRepository : GenericRepository<MenuItem>, IMenuItemRepository
+    public class MenuItemRepository : GenericRepository<MenuItemDTO>, IMenuItemRepository
     {
         public MenuItemRepository(DatabaseContext dbContext) : base(dbContext)
         {

@@ -8,13 +8,13 @@ namespace Lipstick._Convergence.DataAccess
     {
         //private readonly IConfiguration _configuration;
         //private readonly string _connectionString;
-        public DbSet<MenuGroup> MenuGroups { get; set; }
-        public DbSet<MenuItem> MenuItems { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Unit> Units { get; set; }
-        public DbSet<Topic> Topics { get; set; }
-        public DbSet<Brand> Brands { get; set; }
-        public DbSet<Article> Articles { get; set; }
+        public DbSet<MenuGroupDTO> MenuGroups { get; set; }
+        public DbSet<MenuItemDTO> MenuItems { get; set; }
+        public DbSet<ProductDTO> Products { get; set; }
+        public DbSet<UnitDTO> Units { get; set; }
+        public DbSet<TopicDTO> Topics { get; set; }
+        public DbSet<BrandDTO> Brands { get; set; }
+        public DbSet<ArticleDTO> Articles { get; set; }
         public DatabaseContext()
         {
 

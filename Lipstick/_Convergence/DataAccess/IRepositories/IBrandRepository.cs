@@ -2,7 +2,7 @@
 
 namespace Lipstick._Convergence.DataAccess.IRepositories
 {
-    public interface IBrandRepository : IGenericRepository<Brand>
+    public interface IBrandRepository : IGenericRepository<BrandDTO>
     {
     }
 }
