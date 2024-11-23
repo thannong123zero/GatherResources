@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lipstick._Convergence.DataAccess.DTOs
 {
-    public class ArticleDTO : BaseDTO
+    public class BlogDTO : BaseDTO
     {
         public int Id { get; set; }
         public int TopicId { get; set; }

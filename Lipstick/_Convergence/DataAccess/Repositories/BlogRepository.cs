@@ -4,9 +4,9 @@ using Lipstick._Convergence.DataAccess.IRepositories;
 
 namespace Lipstick._Convergence.DataAccess.Repositories
 {
-    public class ArticleRepository : GenericRepository<ArticleDTO>, IArticleRepository
+    public class BlogRepository : GenericRepository<BlogDTO>, IBlogRepository
     {
-        public ArticleRepository(DatabaseContext dbContext) : base(dbContext)
+        public BlogRepository(DatabaseContext dbContext) : base(dbContext)
         {
         }
     }

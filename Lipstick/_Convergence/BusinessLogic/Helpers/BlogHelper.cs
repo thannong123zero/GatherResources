@@ -5,11 +5,11 @@ using Lipstick.Areas.Admin.Models;
 
 namespace Lipstick._Convergence.BusinessLogic.Helpers
 {
-    public class ArticleHelper: IArticleHelper 
+    public class BlogHelper: IBlogHelper 
     {
         private IUnitOfWork _unitOfWork;
         private IMapper _mapper;
-        public ArticleHelper(IMapper mapper, IUnitOfWork unitOfWork)
+        public BlogHelper(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -28,7 +28,7 @@ namespace Lipstick._Convergence.BusinessLogic.Helpers
 
         public async Task<IEnumerable<ArticleViewModel>> GetAllAsync()
         {
-            var data = await _unitOfWork.ArticleRepository.GetAllAsync();
+            var data = await _unitOfWork.BlogRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<ArticleViewModel>>(data);
         }
 

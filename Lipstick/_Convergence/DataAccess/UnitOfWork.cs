@@ -7,7 +7,7 @@ namespace Lipstick._Convergence.DataAccess
     {
         private DatabaseContext context;
         private bool disposed = false;
-        public IArticleRepository ArticleRepository { get; private set; }
+        public IBlogRepository BlogRepository { get; private set; }
         public IBrandRepository BrandRepository { get; private set; }
         public ICategoryRepository CategoryRepository { get; private set; }
         public ISubCategoryRepository SubCategoryRepository { get; private set; }
@@ -17,7 +17,7 @@ namespace Lipstick._Convergence.DataAccess
         public UnitOfWork(DatabaseContext context)
         {
             this.context = context;
-            ArticleRepository = new ArticleRepository(context);
+            BlogRepository = new BlogRepository(context);
             BrandRepository = new BrandRepository(context);
             CategoryRepository = new MenuGroupRepository(context);
             SubCategoryRepository = new SubCategoryRepository(context);

@@ -10,7 +10,7 @@ namespace Lipstick._Convergence.Services
         {
             services.AddScoped<DatabaseContext>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
-            services.AddScoped<IArticleHelper,ArticleHelper>();
+            services.AddScoped<IBlogHelper,BlogHelper>();
             services.AddScoped<IBrandHelper,BrandHelper>();
             //services.AddScoped<ILayoutHelper,LayoutHelper>();
             services.AddScoped<ICategoryHelper,CategoryHelper>();

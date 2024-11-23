@@ -14,7 +14,7 @@ namespace Lipstick._Convergence.DataAccess
         public DbSet<UnitDTO> Units { get; set; }
         public DbSet<TopicDTO> Topics { get; set; }
         public DbSet<BrandDTO> Brands { get; set; }
-        public DbSet<ArticleDTO> Articles { get; set; }
+        public DbSet<BlogDTO> Articles { get; set; }
         public DatabaseContext()
         {
 

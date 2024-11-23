@@ -4,7 +4,7 @@ namespace Lipstick._Convergence.DataAccess
 {
     public interface IUnitOfWork : IDisposable
     {
-        IArticleRepository ArticleRepository { get; }
+        IBlogRepository BlogRepository { get; }
         IBrandRepository BrandRepository { get; }
         ICategoryRepository CategoryRepository { get; }
         ISubCategoryRepository SubCategoryRepository { get; }

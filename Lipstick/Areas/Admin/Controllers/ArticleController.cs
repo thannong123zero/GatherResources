@@ -7,8 +7,8 @@ namespace Lipstick.Areas.Admin.Controllers
     [Area("Admin")]
     public class ArticleController : Controller
     {
-        private readonly IArticleHelper _articleHelper;
-        public ArticleController(IArticleHelper articleHelper)
+        private readonly IBlogHelper _articleHelper;
+        public ArticleController(IBlogHelper articleHelper)
         {
             _articleHelper = articleHelper;
         }

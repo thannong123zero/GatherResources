@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Lipstick._Convergence.DataAccess.EntityConfiguration
 {
-    public class ArticleConfiguration : IEntityTypeConfiguration<ArticleDTO>
+    public class ArticleConfiguration : IEntityTypeConfiguration<BlogDTO>
     {
-        public void Configure(EntityTypeBuilder<ArticleDTO> builder)
+        public void Configure(EntityTypeBuilder<BlogDTO> builder)
         {
             builder.ToTable("Table_Articles");
             builder.HasKey(s => s.Id);

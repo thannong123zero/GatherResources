@@ -2,7 +2,7 @@
 
 namespace Lipstick._Convergence.BusinessLogic.IHelpers
 {
-    public interface IArticleHelper : IBaseHelper<ArticleViewModel>
+    public interface IBlogHelper : IBaseHelper<ArticleViewModel>
     {
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Lipstick._Convergence.DataAccess.IRepositories
 {
-    public interface IArticleRepository : IGenericRepository<ArticleDTO>
+    public interface IBlogRepository : IGenericRepository<BlogDTO>
     {
     }
 }

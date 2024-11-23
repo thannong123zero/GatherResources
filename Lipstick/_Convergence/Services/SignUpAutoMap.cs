@@ -8,7 +8,7 @@ namespace Lipstick._Convergence.Services
     {
         public SignUpAutoMap()
         {
-            CreateMap<ArticleDTO, ArticleViewModel>().ReverseMap();
+            CreateMap<BlogDTO, ArticleViewModel>().ReverseMap();
             CreateMap<CategoryDTO, CategoryViewModel>().ReverseMap();
             CreateMap<SubCategoryDTO, SubCategoryViewModel>().ReverseMap();
             CreateMap<ProductDTO, ProductViewModel>().ReverseMap();
