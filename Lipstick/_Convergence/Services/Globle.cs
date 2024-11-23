@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿
+
+using Newtonsoft.Json;
 
 namespace Lipstick._Convergence.Services
 {    // language code
