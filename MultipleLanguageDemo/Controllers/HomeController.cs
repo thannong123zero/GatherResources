@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using MultipleLanguageDemo.Models;
 using System.Diagnostics;
 
@@ -8,7 +9,8 @@ namespace MultipleLanguageDemo.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+            IStringLocalizer<HomeController> localizer)
         {
             _logger = logger;
         }
