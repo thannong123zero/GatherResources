@@ -9,8 +9,7 @@ namespace MultipleLanguageDemo.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger,
-            IStringLocalizer<HomeController> localizer)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
