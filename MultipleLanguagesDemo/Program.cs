@@ -8,30 +8,39 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+#region AddLocalization
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddMvc()
-    .AddViewLocalization();
-    //.AddDataAnnotationsLocalization(options =>
-    //{
-    //    options.DataAnnotationLocalizerProvider = (type, factory) =>
-    //    {
-    //        var assemblyName = new AssemblyName(typeof(SharedResource).GetTypeInfo().Assembly.FullName);
-    //        return factory.Create("SharedResource", assemblyName.Name);
-    //    };
-    //});
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization(options =>
+    {
+        options.DataAnnotationLocalizerProvider = (type, factory) =>
+        {
+            var assemblyName = new AssemblyName(typeof(SharedResource).GetTypeInfo().Assembly.FullName);
+            return factory.Create("ErrorMessage", assemblyName.Name);
+        };
+    });
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     var supportedCultures = new[]
     {
             new CultureInfo("en-US"),
-            new CultureInfo("es-ES")
+            new CultureInfo("vi-VN")
         };
 
-    options.DefaultRequestCulture = new RequestCulture("en-US");
+    options.DefaultRequestCulture = new RequestCulture("vi-VN");
     options.SupportedCultures = supportedCultures;
     options.SupportedUICultures = supportedCultures;
+    var cookieProvider = options.RequestCultureProviders
+            .OfType<CookieRequestCultureProvider>()
+            .First();
+    //cookieProvider.Options.DefaultRequestCulture = new RequestCulture("vi-VN");
+    options.RequestCultureProviders.Clear();
+    options.RequestCultureProviders.Add(cookieProvider);
+    //options.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
 });
+builder.Services.AddSingleton<WebAppLanguageService>();
+#endregion
 
 var app = builder.Build();
 
@@ -42,9 +51,9 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+#region Add Localization
 app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
-
+#endregion
 app.UseHttpsRedirection();
 app.UseRouting();
 

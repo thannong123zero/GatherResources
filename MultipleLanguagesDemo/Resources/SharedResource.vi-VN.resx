@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="event" xml:space="preserve">
+    <value>Sự Kiện</value>
+  </data>
   <data name="hi" xml:space="preserve">
     <value>Xin Chào Thế Giới!</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Trang Chủ</value>
+  </data>
+  <data name="promotion" xml:space="preserve">
+    <value>Khuyến Mãi</value>
+  </data>
+  <data name="store" xml:space="preserve">
+    <value>Cử Hàng</value>
   </data>
 </root>

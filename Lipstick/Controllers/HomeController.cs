@@ -26,6 +26,7 @@ namespace Lipstick.Controllers
             string vn = ELanguage.VN.ToString();
             if (string.Equals(languageCode, vn))
             {
+                ViewData["SetLanguage"] = "English";
                 Response.Cookies.Append(
                     CookieRequestCultureProvider.DefaultCookieName,
                     CookieRequestCultureProvider.MakeCookieValue(new RequestCulture("en-US")),
@@ -34,6 +35,7 @@ namespace Lipstick.Controllers
             }
             else
             {
+                ViewData["SetLanguage"] = "VietNamese";
                 Response.Cookies.Append(
                    CookieRequestCultureProvider.DefaultCookieName,
                    CookieRequestCultureProvider.MakeCookieValue(new RequestCulture("vi-VN")),

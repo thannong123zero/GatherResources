@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using MultipleLanguagesDemo.Models;
@@ -34,6 +35,32 @@ namespace MultipleLanguagesDemo.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        [HttpGet]
+        public IActionResult SetLanguage()
+        {
+            string languageCode = Globle.GetLanguageCode(Request);
+            string vn = ELanguage.VN.ToString();
+            if (string.Equals(languageCode, vn))
+            {
+                ViewData["SetLanguage"] = "English";
+                Response.Cookies.Append(
+                    CookieRequestCultureProvider.DefaultCookieName,
+                    CookieRequestCultureProvider.MakeCookieValue(new RequestCulture("en-US")),
+                    new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+                );
+            }
+            else
+            {
+                ViewData["SetLanguage"] = "VietNamese";
+                Response.Cookies.Append(
+                   CookieRequestCultureProvider.DefaultCookieName,
+                   CookieRequestCultureProvider.MakeCookieValue(new RequestCulture("vi-VN")),
+                   new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+               );
+
+            }
+            return Redirect(Request.Headers["Referer"].ToString());
         }
     }
 }
