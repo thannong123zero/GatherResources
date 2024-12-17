@@ -1,11 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Promotion Page";
 }
-
 <div class="text-center">
-    <h1 class="text-black fw-bold text-bg-primary">@ViewData["hi"]</h1>
     <h1 class="display-4">@ViewData["Message"]</h1>
-    <h3>@Localizer["homeIndex"]</h3>
+    <h3>@Localizer["promotionIndex"]</h3>
 </div>
