@@ -1,5 +1,6 @@
 
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 namespace SerilogDemo
 {
@@ -8,6 +9,13 @@ namespace SerilogDemo
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            //add logging
+            var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+            builder.Logging.ClearProviders();
+            builder.Logging.AddSerilog(logger);
 
             // Add services to the container.
 

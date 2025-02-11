@@ -16,6 +16,11 @@ namespace LoggingProjectDemo.Controllers
         public IActionResult Index()
         {
             _logger.LogInformation("Home page visited");
+            _logger.LogWarning("This is a warning message");
+            _logger.LogError("This is an error message");
+            _logger.LogCritical("This is a critical message");
+            _logger.LogDebug("This is a debug message");
+            _logger.LogTrace("This is a trace message");
             return View();
         }
 
