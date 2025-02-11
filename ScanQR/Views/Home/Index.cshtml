@@ -32,53 +32,50 @@
     </div>
 </div>
 <script>
-        function onScanSuccess(decodedText, decodedResult) {
-      // handle the scanned code as you like, for example:
-      console.log(`Code matched = ${decodedText}`, decodedResult);
-    }
+    //     function onScanSuccess(decodedText, decodedResult) {
+    //   // handle the scanned code as you like, for example:
+    //   console.log(`Code matched = ${decodedText}`, decodedResult);
+    // }
 
-    function onScanFailure(error) {
-      // handle scan failure, usually better to ignore and keep scanning.
-      // for example:
-      console.warn(`Code scan error = ${error}`);
-    }
+    // function onScanFailure(error) {
+    //   // handle scan failure, usually better to ignore and keep scanning.
+    //   // for example:
+    //   console.warn(`Code scan error = ${error}`);
+    // }
 
-    let html5QrcodeScanner = new Html5QrcodeScanner(
-      "reader",
-      { fps: 10, qrbox: {width: 250, height: 250} },
-      /* verbose= */ false);
-    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+    // let html5QrcodeScanner = new Html5QrcodeScanner(
+    //   "reader",
+    //   { fps: 10, qrbox: {width: 250, height: 250} },
+    //   /* verbose= */ false);
+    // html5QrcodeScanner.render(onScanSuccess, onScanFailure);
     // Khi click vào icon QR, mở modal quét mã QR
-    let html5QrCode = new Html5Qrcode("qr-reader");
+    const html5QrCode = new Html5Qrcode("qr-reader");
+        // This method will trigger user permissions
+    const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+    const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+        console.log(`Code matched = ${decodedText}`, decodedResult);
+         html5QrCode.stop().then((ignore) => {
+              // QR Code scanning is stopped.
+            }).catch((err) => {
+              // Stop failed, handle it.
+            });
+        /* handle success */
+    };
+
+
     document.getElementById("openQrScanner").addEventListener("click", function () {
                     const modal = new bootstrap.Modal(document.getElementById('qrScannerModal'));
                     modal.show();
-
-                    const screenWidth = window.innerWidth;
-                    const qrBoxSize = screenWidth < 600 ? screenWidth * 0.8 : 250;
-                          const qrConfig = { fps: 10, qrbox: qrBoxSize, rememberLastUsedCamera: false, };
-
-                    html5QrCode.start({ facingMode: "environment" },
-                        qrConfig,
-                        function (decodedText) { // Khi quét thành công
-                            // phoneNumberError = "";
-                            // let parts = decodedText.split("|");
-                            // if (parts.length > 0) {
-                            //     let phoneNumber = parts[0];
-                            //     document.getElementById("phoneNumber").value = phoneNumber;
-                            // }
-                            console.log(decodedText);
-                            modal.hide(); // Đóng modal
-                        },
-                        function (errorMessage) {
-                            qrResult.textContent = "Đang chờ quét...";
-                        })
-                    .catch(err => {
-                        console.error(`Không thể khởi động camera: ${err}`);
-                    });
+                        // If you want to prefer back camera
+                    html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+                   
                 });
     // Khi đóng modal, dừng camera
     document.getElementById("qrScannerModal").addEventListener("hidden.bs.modal",  function () {
-        html5QrCode.stop().catch(err => console.error("Lỗi dừng camera:", err));
+            html5QrCode.stop().then((ignore) => {
+              // QR Code scanning is stopped.
+            }).catch((err) => {
+              // Stop failed, handle it.
+            });
     });
 </script>
