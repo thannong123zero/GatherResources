@@ -43,7 +43,7 @@ namespace MultipleLanguagesDemo.Controllers
             string vn = ELanguage.VN.ToString();
             if (string.Equals(languageCode, vn))
             {
-                ViewData["SetLanguage"] = "English";
+                TempData["SetLanguage"] = "English";
                 Response.Cookies.Append(
                     CookieRequestCultureProvider.DefaultCookieName,
                     CookieRequestCultureProvider.MakeCookieValue(new RequestCulture("en-US")),
@@ -52,7 +52,7 @@ namespace MultipleLanguagesDemo.Controllers
             }
             else
             {
-                ViewData["SetLanguage"] = "VietNamese";
+                TempData["SetLanguage"] = "VietNamese";
                 Response.Cookies.Append(
                    CookieRequestCultureProvider.DefaultCookieName,
                    CookieRequestCultureProvider.MakeCookieValue(new RequestCulture("vi-VN")),

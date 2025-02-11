@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Resources\ViewModels\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

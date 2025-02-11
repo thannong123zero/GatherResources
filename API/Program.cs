@@ -26,7 +26,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<DatabaseContext>();
+//builder.Services.AddScoped<DatabaseContext>();
 builder.Services.AddTransient<UnitOfWork>();
 builder.Services.AddTransient<MenuGroupHelper>();
 builder.Services.AddTransient<MenuItemHelper>();

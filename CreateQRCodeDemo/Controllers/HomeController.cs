@@ -24,16 +24,17 @@ namespace CreateQRCodeDemo.Controllers
         [HttpPost]
         public IActionResult Index(QRViewModel model)
         {
-            string url = model.Url;
+            //string url = model.Url;
+            string url = "https://docs.google.com/forms/d/e/1FAIpQLSeuU_7ehjUxeQ-lhQefTvbzxahBG5mcdmUS3UlSSoG1EslenA/viewform";
             string path = Path.Combine(_webHostEnvironment.WebRootPath, "QRCodeStore");
             string fileName = string.Concat(Guid.NewGuid(), ".png");
 
-            //AnyBitmap qrlogo = AnyBitmap.FromFile("./wwwroot/assets/thisofic.png");
-            //QRCodeLogo logo = new QRCodeLogo(qrlogo, 0, 0, 20f);
-            //GeneratedBarcode barcode = QRCodeWriter.CreateQrCodeWithLogo(url, logo, 250);
-            GeneratedBarcode barcode = QRCodeWriter.CreateQrCode(url, 250);
+            AnyBitmap qrlogo = AnyBitmap.FromFile("./wwwroot/assets/Card.png");
+            QRCodeLogo logo = new QRCodeLogo(qrlogo, 0, 0, 20f);
+            GeneratedBarcode barcode = QRCodeWriter.CreateQrCodeWithLogo(url, logo, 300);
+            //GeneratedBarcode barcode = QRCodeWriter.CreateQrCode(url, 250);
 
-            //barcode.AddAnnotationTextBelowBarcode("My Channel");
+            barcode.AddAnnotationTextBelowBarcode("BESOVERSE COSMIC CAFE");
             //barcode.ChangeBackgroundColor(System.Drawing.ColorTranslator.FromHtml("#2A0066"));
             //barcode.ChangeBarCodeColor(System.Drawing.Color.Red,true);
 
