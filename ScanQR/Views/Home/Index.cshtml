@@ -4,23 +4,64 @@
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <div id="reader" width="600px"></div>
+    <button type="button" id="openQrScanner">
+        Quét Mã QR
+    </button>
+</div>
+<!-- Modal Quét Mã QR -->
+<div class="modal fade" id="qrScannerModal" tabindex="-1" aria-labelledby="qrScannerLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="qrScannerLabel">Quét Mã QR</h5>
+                <button type="button" id="qrScannerClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div id="qr-reader" style="margin: auto;" class="qr-reader"></div>
+                <input type="text" name="name" id="stateId" readOnly class="d-none" />
+                <div id="qr-reader-results" style="margin-top: 20px; text-align: center;">
+                    <h4>Kết quả:</h4>
+                    <p id="qr-result">Đang chờ quét...</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
-        function onScanSuccess(decodedText, decodedResult) {
-      // handle the scanned code as you like, for example:
-      console.log(`Code matched = ${decodedText}`, decodedResult);
-    }
+    // Khi click vào icon QR, mở modal quét mã QR
+    let html5QrCode = new Html5Qrcode("qr-reader");
+    document.getElementById("openQrScanner").addEventListener("click", function () {
+                    const modal = new bootstrap.Modal(document.getElementById('qrScannerModal'));
+                    modal.show();
 
-    function onScanFailure(error) {
-      // handle scan failure, usually better to ignore and keep scanning.
-      // for example:
-      console.warn(`Code scan error = ${error}`);
-    }
+                    const screenWidth = window.innerWidth;
+                    const qrBoxSize = screenWidth < 600 ? screenWidth * 0.8 : 250;
+                          const qrConfig = { fps: 10, qrbox: qrBoxSize, rememberLastUsedCamera: false, };
 
-    let html5QrcodeScanner = new Html5QrcodeScanner(
-      "reader",
-      { fps: 10, qrbox: {width: 250, height: 250} },
-      /* verbose= */ false);
-    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+                    html5QrCode.start({ facingMode: "environment" },
+                        qrConfig,
+                        function (decodedText) { // Khi quét thành công
+                            // phoneNumberError = "";
+                            // let parts = decodedText.split("|");
+                            // if (parts.length > 0) {
+                            //     let phoneNumber = parts[0];
+                            //     document.getElementById("phoneNumber").value = phoneNumber;
+                            // }
+                            console.log(decodedText);
+                            modal.hide(); // Đóng modal
+                        },
+                        function (errorMessage) {
+                            qrResult.textContent = "Đang chờ quét...";
+                        })
+                    .catch(err => {
+                        console.error(`Không thể khởi động camera: ${err}`);
+                    });
+                });
+    // Khi đóng modal, dừng camera
+    document.getElementById("qrScannerModal").addEventListener("hidden.bs.modal",  function () {
+        html5QrCode.stop().catch(err => console.error("Lỗi dừng camera:", err));
+    });
 </script>
